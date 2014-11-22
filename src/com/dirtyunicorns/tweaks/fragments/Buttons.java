@@ -23,6 +23,8 @@ import android.content.res.Resources;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.SearchIndexableResource;
+import android.os.Handler;
+import android.os.UserHandle;
 import android.provider.Settings;
 import androidx.preference.*;
 
@@ -45,6 +47,7 @@ import java.util.List;
 import java.util.Locale;
 import android.text.TextUtils;
 import android.view.View;
+import com.dirtyunicorns.support.preferences.CustomSeekBarPreference;
 
 public class Buttons extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, Indexable {
@@ -52,10 +55,12 @@ public class Buttons extends SettingsPreferenceFragment
     private static final String VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
     private static final String DOUBLE_TAP_POWER_FLASHLIGHT = "double_tap_power_flashlight";
     private static final String KILL_APP_LONGPRESS_BACK = "kill_app_longpress_back";
+    private static final String LONG_PRESS_KILL_DELAY = "long_press_kill_delay";
 
     private SwitchPreference mKillAppLongPressBack;
     private ListPreference mVolumeKeyCursorControl;
     private ListPreference mDoubleTapPowerFlashlight;
+    private CustomSeekBarPreference mLongpressKillDelay;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -91,6 +96,13 @@ public class Buttons extends SettingsPreferenceFragment
         int killAppLongPressBack = Settings.Secure.getInt(getContentResolver(),
                 KILL_APP_LONGPRESS_BACK, 0);
         mKillAppLongPressBack.setChecked(killAppLongPressBack != 0);
+
+        // kill-app long press back delay
+        mLongpressKillDelay = (CustomSeekBarPreference) findPreference(LONG_PRESS_KILL_DELAY);
+        int killconf = Settings.System.getInt(getContentResolver(),
+                Settings.System.LONG_PRESS_KILL_DELAY, 1000);
+        mLongpressKillDelay.setValue(killconf);
+        mLongpressKillDelay.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -124,6 +136,11 @@ public class Buttons extends SettingsPreferenceFragment
             boolean value = (Boolean) newValue;
             Settings.Secure.putInt(getContentResolver(),
 		KILL_APP_LONGPRESS_BACK, value ? 1 : 0);
+            return true;
+        } else if (preference == mLongpressKillDelay) {
+            int killconf = (Integer) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.LONG_PRESS_KILL_DELAY, killconf);
             return true;
         }
         return false;
