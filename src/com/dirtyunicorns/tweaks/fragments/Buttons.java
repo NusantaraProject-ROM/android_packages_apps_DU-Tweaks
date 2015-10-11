@@ -50,9 +50,10 @@ public class Buttons extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, Indexable {
 
     private static final String VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
-
     private static final String DOUBLE_TAP_POWER_FLASHLIGHT = "double_tap_power_flashlight";
+    private static final String KILL_APP_LONGPRESS_BACK = "kill_app_longpress_back";
 
+    private SwitchPreference mKillAppLongPressBack;
     private ListPreference mVolumeKeyCursorControl;
     private ListPreference mDoubleTapPowerFlashlight;
 
@@ -83,6 +84,13 @@ public class Buttons extends SettingsPreferenceFragment
         } else {
             prefScreen.removePreference(mDoubleTapPowerFlashlight);
         }
+
+        // kill-app long press back
+        mKillAppLongPressBack = (SwitchPreference) findPreference(KILL_APP_LONGPRESS_BACK);
+        mKillAppLongPressBack.setOnPreferenceChangeListener(this);
+        int killAppLongPressBack = Settings.Secure.getInt(getContentResolver(),
+                KILL_APP_LONGPRESS_BACK, 0);
+        mKillAppLongPressBack.setChecked(killAppLongPressBack != 0);
     }
 
     @Override
@@ -111,6 +119,11 @@ public class Buttons extends SettingsPreferenceFragment
                         Settings.Secure.CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED,
                         1/*camera gesture is disabled when 1*/);
             }
+            return true;
+        } else if (preference == mKillAppLongPressBack) {
+            boolean value = (Boolean) newValue;
+            Settings.Secure.putInt(getContentResolver(),
+		KILL_APP_LONGPRESS_BACK, value ? 1 : 0);
             return true;
         }
         return false;
