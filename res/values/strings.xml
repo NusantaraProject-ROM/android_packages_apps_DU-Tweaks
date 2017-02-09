@@ -170,4 +170,7 @@
     <!-- AOSP Gestures -->
     <string name="aosp_gesture_preference">AOSP Gestures</string>
     <string name="aosp_gesture_summary">Gestures Settings of AOSP</string>
+
+    <string name="qs_running_services_title">Running Services Icon</string>
+    <string name="qs_running_services_summary">Enable the running services icon in the footer</string>
 </resources>
