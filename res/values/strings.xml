@@ -1097,4 +1097,8 @@
     <!-- QS data usage -->
     <string name="qs_datausage_title">Show data usage in qs header</string>
     <string name="qs_datausage_subtitle">Shows data usage in quick settings header of sim used for data</string>
+
+    <!-- Launch music player when headset is connected -->
+    <string name="headset_connect_player_title">Launch music app on headset connection</string>
+    <string name="headset_connect_player_summary">Launch the default music app when headset is connected</string>
 </resources>
