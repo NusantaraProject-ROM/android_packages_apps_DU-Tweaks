@@ -113,6 +113,19 @@
             android:defaultValue="false" />
     </PreferenceCategory>
 
+    <!-- Wakelock blocker -->
+    <PreferenceCategory
+        android:key="wakelock_blocker_category"
+        android:title="@string/wakelock_blocker_title" >
+
+    <Preference
+        android:key="wakelock_blocker"
+        android:title="@string/wakelock_blocker_title"
+        android:summary="@string/wakelock_blocker_summary"
+        android:fragment="com.dirtyunicorns.tweaks.fragments.WakeLockBlocker"/>
+
+    </PreferenceCategory>
+
     <PreferenceCategory
         android:title="@string/dashboard_stuff" >
 
