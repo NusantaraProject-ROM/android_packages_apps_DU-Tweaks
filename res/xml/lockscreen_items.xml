@@ -42,10 +42,10 @@
         android:title="@string/switch_settings_title" >
 
         <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
-            android:key="hide_lockscreen_status_bar"
-            android:title="@string/hide_lockscreen_status_bar_title"
-            android:summary="@string/hide_lockscreen_status_bar_summary"
-            android:defaultValue="false" />
+            android:key="lockscreen_show_status_bar"
+            android:title="@string/lockscreen_show_status_bar_title"
+            android:summary="@string/lockscreen_show_status_bar_summary"
+            android:defaultValue="true" />
 
         <com.dirtyunicorns.support.preferences.SecureSettingSwitchPreference
             android:key="hide_lockicon"
