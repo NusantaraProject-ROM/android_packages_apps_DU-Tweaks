@@ -462,8 +462,11 @@
     <string name="battery_percentage_charging">Enabled (While charging)</string>
 
     <!-- Lock screen visualizer -->
-    <string name="lockscreen_visualizer_enable">Music Visualizer</string>
+    <string name="lockscreen_visualizer_enable">Visualizer</string>
     <string name="lockscreen_visualizer_enable_summary">Show visualizer bars while playing music</string>
+    <string name="lockscreen_visualizer_enable_custom">Use custom color</string>
+    <string name="lockscreen_visualizer_enable_custom_summary">Use a preset color instead of the generated color</string>
+    <string name="lockscreen_visualizer_custom_color">Visualizer Color</string>
     <string name="lockscreen_autocolor_title">Automatic color</string>
     <string name="lockscreen_autocolor_summary">Sync color with lockscreen background</string>
     <string name="lockscreen_autocolor_lavalamp">Requires lava lamp disabled</string>
@@ -832,7 +835,7 @@
     <string name="pulse_ambient_light_duration_title">Duration</string>
 
     <!-- Ambient visualizer -->
-    <string name="ambient_visualizer_title">Show LS Visualizer on Ambient Display</string>
+    <string name="ambient_visualizer_title">Ambient Music visualizer</string>
     <string name="ambient_visualizer_summary">Shows the visualization bars also on ambient display (but less opaque)</string>
 
     <!-- Lockscreen cover art filter -->

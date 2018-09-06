@@ -18,6 +18,7 @@ package com.dirtyunicorns.tweaks.fragments;
 
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.provider.Settings;
@@ -31,14 +32,18 @@ import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
+import com.dirtyunicorns.support.colorpicker.ColorPickerPreference;
+
 public class Visualizer extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
     private static final String KEY_AUTOCOLOR = "lockscreen_visualizer_autocolor";
     private static final String KEY_LAVALAMP = "lockscreen_lavalamp_enabled";
+    private static final String LOCK_SCREEN_VISUALIZER_CUSTOM_COLOR = "lock_screen_visualizer_custom_color";
 
     private SwitchPreference mAutoColor;
     private SwitchPreference mLavaLamp;
+    private ColorPickerPreference mVisualizerColor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -65,6 +70,16 @@ public class Visualizer extends SettingsPreferenceFragment implements
 
         mLavaLamp = (SwitchPreference) findPreference(KEY_LAVALAMP);
         mLavaLamp.setOnPreferenceChangeListener(this);
+
+        // Visualizer custom color
+        mVisualizerColor = (ColorPickerPreference) findPreference(LOCK_SCREEN_VISUALIZER_CUSTOM_COLOR);
+        int visColor = Settings.System.getInt(resolver,
+                Settings.System.LOCK_SCREEN_VISUALIZER_CUSTOM_COLOR, 0xff1976D2);
+        String visColorHex = String.format("#%08x", (0xff1976D2 & visColor));
+        mVisualizerColor.setSummary(visColorHex);
+        mVisualizerColor.setNewPreviewColor(visColor);
+        mVisualizerColor.setAlphaSliderEnabled(true);
+        mVisualizerColor.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -79,6 +94,14 @@ public class Visualizer extends SettingsPreferenceFragment implements
                 mAutoColor.setSummary(getActivity().getString(
                         R.string.lockscreen_autocolor_summary));
             }
+            return true;
+        } else if (preference == mVisualizerColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+	   Integer.valueOf(String.valueOf(newValue)));
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+	   Settings.System.putInt(resolver,
+		    Settings.System.LOCK_SCREEN_VISUALIZER_CUSTOM_COLOR, intHex);
+	   preference.setSummary(hex);
             return true;
         }
         return false;
