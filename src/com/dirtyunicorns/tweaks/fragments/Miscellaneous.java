@@ -30,7 +30,8 @@ import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
+//import com.android.settings.Utils;
+import com.dirtyunicorns.tweaks.preferences.TelephonyUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,10 +39,17 @@ import java.util.List;
 public class Miscellaneous extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, Indexable {
 
+    private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.miscellaneous);
+        PreferenceScreen prefScreen = getPreferenceScreen();
+        PreferenceCategory incallVibCategory = (PreferenceCategory) findPreference(INCALL_VIB_OPTIONS);
+        if (!TelephonyUtils.isVoiceCapable(getActivity())) {
+            prefScreen.removePreference(incallVibCategory);
+        }
     }
 
     @Override
