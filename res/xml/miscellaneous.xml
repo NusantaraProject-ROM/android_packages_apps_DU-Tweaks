@@ -83,6 +83,12 @@
             android:entries="@array/entries_scrollingcache"
             android:entryValues="@array/values_scrollingcache" />
 
+        <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
+           android:key="sensor_block"
+           android:title="@string/sensor_block_title"
+           android:summary="@string/sensor_block_summary"
+           android:defaultValue="false" />
+
     <PreferenceCategory
         android:title="@string/gestures_stuff" >
 
