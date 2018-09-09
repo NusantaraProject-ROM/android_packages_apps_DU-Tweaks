@@ -18,6 +18,13 @@
             xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
             android:title="@string/navigation_options_title" >
 
+    <Preference
+        android:key="gesture_settings"
+        android:title="@string/aosp_gesture_preference"
+        android:summary="@string/aosp_gesture_summary"
+        android:fragment="com.android.settings.gestures.GestureSettings"
+        settings:controller="com.android.settings.gestures.GesturesSettingPreferenceController"/>
+
         <com.dirtyunicorns.support.preferences.SecureSettingSwitchPreference
             android:key="sysui_nav_bar_inverse"
             android:title="@string/navbar_invert_layout_title"

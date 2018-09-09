@@ -166,4 +166,8 @@
 
     <!-- Navbar Invert -->
     <string name="navbar_invert_layout_title">Invert layout</string>
+
+    <!-- AOSP Gestures -->
+    <string name="aosp_gesture_preference">AOSP Gestures</string>
+    <string name="aosp_gesture_summary">Gestures Settings of AOSP</string>
 </resources>
