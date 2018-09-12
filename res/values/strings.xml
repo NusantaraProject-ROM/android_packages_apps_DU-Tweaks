@@ -455,4 +455,26 @@
     <string name="hardware_keys_category">Hardware keys</string>
     <string name="hardware_keys_disable_title">Disable HW Keys</string>
     <string name="hardware_keys_disable_summary">Toggle to enable disable hw keys</string>
+
+    <!-- Buttons backlight timeout -->
+    <string name="backlight_timeout_title">Buttons backlight timeout</string>
+    <string name="backlight_timeout_on">Enabled always</string>
+    <string name="backlight_timeout_default">1 sec (default)</string>
+    <string name="backlight_timeout_3s">3 sec</string>
+    <string name="backlight_timeout_5s">5 sec</string>
+    <string name="backlight_timeout_10s">10 sec</string>
+    <string name="backlight_timeout_15s">15 sec</string>
+    <string name="backlight_timeout_20s">20 sec</string>
+    <string name="backlight_timeout_30s">30 sec</string>
+
+    <!-- Enable keys backlight-->
+    <string name="button_brightness_title">Backlight</string>
+    <string name="backlight_cat_title">Button Brightness</string>
+
+    <!-- Backlight on Touch -->
+    <string name="button_backlight_on_touch_only_title">Button touch</string>
+    <string name="button_backlight_on_touch_only_summary">Enable backlight with timeout only on button touch</string>
+
+    <!-- Enable keys backlight-->
+    <string name="button_brightness_sw_title">Enable backlight</string>
 </resources>
