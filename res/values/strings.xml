@@ -99,4 +99,8 @@
     <!-- Network Traffic Location -->
     <string name="network_traffic_location_title">Traffic indicator placement</string>
     <string name="network_traffic_location_summary">Place indicator in either status bar or expanded header (recommended for displays with notch cutouts)</string>
+
+    <!-- Volume Button Music Control -->
+    <string name="volume_rocker_music_controls_title">Music control</string>
+    <string name="volume_rocker_music_controls_summary">Long press volume buttons to switch tracks while screen off</string>
 </resources>
