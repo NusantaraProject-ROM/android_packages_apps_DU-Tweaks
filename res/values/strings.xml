@@ -111,6 +111,10 @@
     <string name="volume_rocker_music_controls_title">Music control</string>
     <string name="volume_rocker_music_controls_summary">Long press volume buttons to switch tracks while screen off</string>
 
+    <!-- Volume swap buttons -->	
+    <string name="swap_volume_buttons_title">Reorient</string>
+    <string name="swap_volume_buttons_summary">Swap volume buttons when the screen is rotated</string>
+
     <!-- Volume Wake -->
     <string name="volume_stuff_title">Volume Button</string>
     <string name="volume_rocker_wake_title">Volume rocker wake</string>
