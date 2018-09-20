@@ -100,6 +100,13 @@
     <string name="network_traffic_location_title">Traffic indicator placement</string>
     <string name="network_traffic_location_summary">Place indicator in either status bar or expanded header (recommended for displays with notch cutouts)</string>
 
+    <!-- Language options - Volume rocker cursor control -->
+    <string name="cursor_section_header">Cursor</string>
+    <string name="volume_key_cursor_control_title">Volume key cursor control</string>
+    <string name="volume_key_cursor_control_off">Disabled</string>
+    <string name="volume_key_cursor_control_on">Volume up/down moves cursor left/right</string>
+    <string name="volume_key_cursor_control_on_reverse">Volume up/down moves cursor right/left</string>
+
     <!-- Volume Button Music Control -->
     <string name="volume_rocker_music_controls_title">Music control</string>
     <string name="volume_rocker_music_controls_summary">Long press volume buttons to switch tracks while screen off</string>
