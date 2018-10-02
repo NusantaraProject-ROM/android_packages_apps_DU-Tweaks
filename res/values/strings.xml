@@ -126,4 +126,8 @@
     <string name="screenshot_type_partial">Drag selection on the area you want to take as a screenshot</string>
     <string name="screenshot_options_category">Screenshot options</string>
     <string name="screenshot_options_summary">Customize screenshot attributes like time, delay,type etc</string>
+
+    <!-- Charging options -->
+    <string name="vibration_on_charge_state_changed_title">Vibrate on plug/unplug</string>
+    <string name="vibration_on_charge_state_changed_summary">Enable/disable vibration on plug/unplug</string>
 </resources>
