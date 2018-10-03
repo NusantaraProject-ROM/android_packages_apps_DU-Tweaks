@@ -130,4 +130,8 @@
     <!-- Charging options -->
     <string name="vibration_on_charge_state_changed_title">Vibrate on plug/unplug</string>
     <string name="vibration_on_charge_state_changed_summary">Enable/disable vibration on plug/unplug</string>
+
+    <!-- Three-fingers-swipe to screenshot -->
+    <string name="three_finger_gesture">Swipe to screenshot</string>
+    <string name="three_finger_gesture_summary">Swipe three fingers to take screenshot</string>
 </resources>
