@@ -382,4 +382,8 @@
     <!-- Hide On Lockscreen -->
     <string name="hide_lockscreen_status_bar_title">Hide status bar</string>
     <string name="hide_lockscreen_status_bar_summary">Touch status bar to toggle visibility</string>
+
+    <!-- Quick Settings -->
+    <string name="lockscreen_qs_disabled_title">Disable quick settings when locked</string>
+    <string name="lockscreen_qs_disabled_summary">Disable expanding quick settings on secure lock screens</string>
 </resources>
