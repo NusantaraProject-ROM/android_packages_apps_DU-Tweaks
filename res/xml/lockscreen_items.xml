@@ -48,6 +48,12 @@
             android:defaultValue="true" />
 
         <com.dirtyunicorns.support.preferences.SecureSettingSwitchPreference
+            android:key="status_bar_locked_on_secure_keyguard"
+            android:title="@string/lockscreen_qs_disabled_title"
+            android:summary="@string/lockscreen_qs_disabled_summary"
+            android:defaultValue="false" />
+
+        <com.dirtyunicorns.support.preferences.SecureSettingSwitchPreference
             android:key="hide_lockicon"
             android:title="@string/hide_lockicon_title"
             android:summary="@string/hide_lockicon_summary"
