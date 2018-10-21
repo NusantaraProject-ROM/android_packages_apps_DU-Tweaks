@@ -300,6 +300,10 @@
     <string name="lock_date_font_summary">Change the default font of the lockscreen date widget</string>
     <string name="lock_date_font_dialog_title">Select lock date font</string>
 
+    <!-- Lock Clock & Date Size -->
+    <string name="lockdate_font_size_title">Date font size</string>
+    <string name="lockclock_font_size_title">Clock font size</string>
+
     <!-- Custom carrier label and position -->
     <string name="custom_carrier_label_title">Custom carrier label</string>
     <string name="custom_carrier_label_explain">Please enter a new label. Leave blank to revert to stock label.</string>
@@ -978,9 +982,4 @@
     <!-- Hide Lockscreen shortcuts on secure Lockscreen --> 
     <string name="lockscreen_hide_shortcuts_title">Hide Bottom Shortcuts</string> 
     <string name="lockscreen_hide_shortcuts_summary">Hide Left-Right Shortcuts on secure lock screens</string> 
-
-    <!-- Lock Date Fonts -->
-    <string name="lock_date_font_title">Date font options</string>
-    <string name="lock_date_font_summary">Change the default font of the lockscreen date widget</string>
-    <string name="lock_date_font_dialog_title">Select lock date font</string>
 </resources>
