@@ -24,6 +24,12 @@
         android:summary="@string/notification_guts_kill_app_button_summary"
         android:defaultValue="false" />
 
+    <ListPreference
+        android:key="double_tap_power_flashlight"
+        android:title="@string/double_tap_power_flashlight_title"
+        android:entries="@array/double_tap_power_flashlight_entries"
+        android:entryValues="@array/double_tap_power_flashlight_values" />
+
     <PreferenceCategory
 	android:title="@string/volume_stuff_title">
 
@@ -73,4 +79,5 @@
         android:key="volume_key_cursor_control"
         android:title="@string/volume_key_cursor_control_title" />
     </PreferenceCategory>
+
 </PreferenceScreen>

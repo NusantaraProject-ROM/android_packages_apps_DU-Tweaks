@@ -38,7 +38,7 @@ import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
+import com.android.internal.util.du.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +51,10 @@ public class Buttons extends SettingsPreferenceFragment
 
     private static final String VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
 
+    private static final String DOUBLE_TAP_POWER_FLASHLIGHT = "double_tap_power_flashlight";
+
     private ListPreference mVolumeKeyCursorControl;
+    private ListPreference mDoubleTapPowerFlashlight;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -69,6 +72,17 @@ public class Buttons extends SettingsPreferenceFragment
            mVolumeKeyCursorControl.setValue(Integer.toString(volumeRockerCursorControl));
            mVolumeKeyCursorControl.setSummary(mVolumeKeyCursorControl.getEntry());
 	}
+
+        mDoubleTapPowerFlashlight =
+                (ListPreference) prefScreen.findPreference(DOUBLE_TAP_POWER_FLASHLIGHT);
+        if (deviceHasFlashlight()) {
+            mDoubleTapPowerFlashlight.setOnPreferenceChangeListener(this);
+            mDoubleTapPowerFlashlight.setValue(Integer.toString(Settings.Secure.getInt(getContext()
+                    .getContentResolver(), Settings.Secure.TORCH_POWER_BUTTON_GESTURE, 0)));
+            mDoubleTapPowerFlashlight.setSummary(mDoubleTapPowerFlashlight.getEntry());
+        } else {
+            prefScreen.removePreference(mDoubleTapPowerFlashlight);
+        }
     }
 
     @Override
@@ -84,8 +98,26 @@ public class Buttons extends SettingsPreferenceFragment
             mVolumeKeyCursorControl
                     .setSummary(mVolumeKeyCursorControl.getEntries()[volumeKeyCursorControlIndex]);
             return true;
+        } else if (preference == mDoubleTapPowerFlashlight) {
+            int torchPowerButtonValue = Integer.parseInt((String) newValue);
+            Settings.Secure.putInt(getContext().getContentResolver(),
+                    Settings.Secure.TORCH_POWER_BUTTON_GESTURE, torchPowerButtonValue);
+            int index = mDoubleTapPowerFlashlight.findIndexOfValue((String) newValue);
+            mDoubleTapPowerFlashlight.setSummary(
+                    mDoubleTapPowerFlashlight.getEntries()[index]);
+            if (torchPowerButtonValue == 1) {
+                // if doubletap for torch is enabled, switch off double tap for camera
+                Settings.Secure.putInt(getContext().getContentResolver(),
+                        Settings.Secure.CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED,
+                        1/*camera gesture is disabled when 1*/);
+            }
+            return true;
         }
         return false;
+    }
+
+    private boolean deviceHasFlashlight() {
+        return Utils.deviceHasFlashlight(getContext());
     }
 
     @Override

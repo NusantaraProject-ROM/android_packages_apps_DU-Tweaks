@@ -934,4 +934,10 @@
     <string name="mt_reset">Reset</string>
     <string name="time_in_state_title">Time in state</string>
     <string name="time_in_state_summary">Show CPU frequency statistics</string>
+
+    <!-- Flashlight gestures -->
+    <string name="double_tap_power_flashlight_title">Screen off power button torch</string>
+    <string name="torch_power_button_gesture_none">Disabled</string>
+    <string name="torch_power_button_gesture_dt">Double tap power to toggle torch</string>
+    <string name="torch_power_button_gesture_lp">Long press power to toggle torch</string>
 </resources>
