@@ -963,4 +963,8 @@
     <string name="listview_overshoot_interpolator">Overshoot</string>
     <string name="listview_anticipate_overshoot_interpolator">Anticipate and overshoot</string>
     <string name="listview_bounce_interpolator">Bounce</string>
+
+    <!-- Force disable transition animation -->
+    <string name="disable_transition_animations_title">Disable transition animations</string>
+    <string name="disable_transition_animations_summary">Force disable all transition animations</string>
 </resources>
