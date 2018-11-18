@@ -18,10 +18,19 @@
             xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
             android:title="@string/buttons_title" >
 
+    <PreferenceCategory
+	android:title="@string/volume_stuff_title">
+
     <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
         android:key="volume_button_music_control"
         android:summary="@string/volume_rocker_music_controls_summary"
         android:title="@string/volume_rocker_music_controls_title"
+        android:defaultValue="false" />
+
+    <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
+        android:key="volume_rocker_wake"
+        android:summary="@string/volume_rocker_wake_summary"
+        android:title="@string/volume_rocker_wake_title"
         android:defaultValue="false" />
 
     <ListPreference
@@ -30,5 +39,5 @@
         android:entryValues="@array/volume_key_cursor_control_values"
         android:key="volume_key_cursor_control"
         android:title="@string/volume_key_cursor_control_title" />
-
+    </PreferenceCategory>
 </PreferenceScreen>
