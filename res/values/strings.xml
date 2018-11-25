@@ -550,4 +550,8 @@
     <!-- Heads up options -->
     <string name="less_boring_heads_up_title">Dialer HeadsUp</string>
     <string name="less_boring_heads_up_summary">Show heads up only for dialer app and disable all others</string>
+
+    <!-- Notification guts kill app button -->
+    <string name="notification_guts_kill_app_button_title">Kill app button</string>
+    <string name="notification_guts_kill_app_button_summary">Show a kill app button in the notification\'s longpress menu</string>
 </resources>
