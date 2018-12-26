@@ -19,20 +19,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
-        android:key="network_traffic_state"
-        android:title="@string/network_traffic_state_title"
-        android:summary="@string/network_traffic_state_summary"
-        android:defaultValue="true" />
-
-    <com.dirtyunicorns.support.preferences.SystemSettingListPreference
-        android:key="network_traffic_view_location"
-        android:title="@string/network_traffic_location_title"
+    <ListPreference
+        android:key="network_traffic_location"
+        android:title="@string/network_traffic_location"
+        android:summary="%s"
         android:entries="@array/network_traffic_location_entries"
         android:entryValues="@array/network_traffic_location_values"
-        android:dependency="network_traffic_state"
-        android:summary="%s"
-        android:defaultValue="0" />
+        android:persistent="false" />
 
     <ListPreference
         android:key="network_traffic_type"
@@ -54,11 +47,10 @@
         android:dependency="network_traffic_state" />
 
     <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
-        android:key="network_traffic_hidearrow"
-        android:title="@string/network_traffic_hidearrow"
-        android:summary="@string/network_traffic_hidearrow_summary"
-        android:dependency="network_traffic_state"
-        android:defaultValue="false" />
+        android:key="network_traffic_arrow"
+        android:title="@string/network_traffic_arrow"
+        android:summary="@string/network_traffic_arrow_summary"
+        android:defaultValue="true" />
 
     <com.dirtyunicorns.support.preferences.CustomSeekBarPreference
         android:key="network_traffic_autohide_threshold"
