@@ -49,6 +49,7 @@ public class Miscellaneous extends SettingsPreferenceFragment
     private static final String SCROLLINGCACHE_PREF = "pref_scrollingcache";
     private static final String SCROLLINGCACHE_PERSIST_PROP = "persist.sys.scrollingcache";
     private static final String SCROLLINGCACHE_DEFAULT = "2";
+    private static final String PREF_KEY_CUTOUT = "cutout_settings";
 
     private SystemSettingMasterSwitchPreference mGamingMode;
     private ListPreference mScrollingCachePref;
@@ -77,6 +78,10 @@ public class Miscellaneous extends SettingsPreferenceFragment
         mScrollingCachePref.setValue(SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP,
                 SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP, SCROLLINGCACHE_DEFAULT)));
         mScrollingCachePref.setOnPreferenceChangeListener(this);
+
+        Preference mCutoutPref = (Preference) findPreference(PREF_KEY_CUTOUT);
+        if (!hasPhysicalDisplayCutout(getContext()))
+            getPreferenceScreen().removePreference(mCutoutPref);
     }
 
     @Override
@@ -100,6 +105,11 @@ public class Miscellaneous extends SettingsPreferenceFragment
             return true;
         }
         return false;
+    }
+
+    private static boolean hasPhysicalDisplayCutout(Context context) {
+        return context.getResources().getBoolean(
+                com.android.internal.R.bool.config_physicalDisplayCutout);
     }
 
     @Override

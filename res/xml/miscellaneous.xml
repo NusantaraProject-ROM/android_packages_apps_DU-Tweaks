@@ -25,6 +25,12 @@
         android:fragment="com.dirtyunicorns.tweaks.fragments.RoundedCornersSettings" />
 
     <Preference
+        android:key="cutout_settings"
+        android:title="@string/cutout_main"
+        android:summary="@string/cutout_main_summary"
+        android:fragment="com.dirtyunicorns.tweaks.fragments.CutoutFragment"/>
+
+    <Preference
         android:key="animations_category"
         android:title="@string/animation_settings_title"
         android:summary="@string/animation_settings_summary"
