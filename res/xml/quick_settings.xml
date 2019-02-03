@@ -41,6 +41,13 @@
         android:key="qs_theme_category"
         android:title="@string/qs_theme_category">
 
+        <com.dirtyunicorns.support.preferences.SystemSettingMasterSwitchPreference
+            android:key="status_bar_custom_header"
+            android:fragment="com.dirtyunicorns.tweaks.fragments.QsHeader"
+            android:title="@string/status_bar_custom_header_title"
+            android:summary="@string/status_bar_custom_header_summary"
+            android:defaultValue="false" />
+
         <com.dirtyunicorns.support.preferences.SystemSettingSeekBarPreference
             android:key="qs_panel_bg_alpha"
             android:title="@string/qs_panel_alpha_title"
