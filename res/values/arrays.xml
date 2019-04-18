@@ -873,6 +873,7 @@
         <item>@string/lockscreen_clock_default_bold</item>
         <item>@string/lockscreen_clock_sammy</item>
         <item>@string/lockscreen_clock_sammy_bold</item>
+        <item>@string/lockscreen_clock_text</item>
     </string-array>
 
     <string-array name="lockscreen_clock_values">
@@ -881,6 +882,7 @@
         <item>3</item>
         <item>4</item>
         <item>5</item>
+        <item>6</item>
     </string-array>
 
     <!-- Notification ticker -->

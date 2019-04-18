@@ -946,6 +946,7 @@
     <string name="lockscreen_clock_default_bold">Default (bold)</string>
     <string name="lockscreen_clock_sammy">Sammy</string>
     <string name="lockscreen_clock_sammy_bold">Sammy (bold)</string>
+    <string name="lockscreen_clock_text">Typeface</string>
 
     <!-- Statusbar ticker -->
     <string name="status_bar_ticker_title">Notifications Ticker</string>
