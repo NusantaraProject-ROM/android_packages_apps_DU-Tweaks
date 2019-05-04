@@ -966,4 +966,8 @@
     <!-- Force disable transition animation -->
     <string name="disable_transition_animations_title">Disable transition animations</string>
     <string name="disable_transition_animations_summary">Force disable all transition animations</string>
+
+    <!-- Q To X Clock -->
+    <string name="center_text_clock_title">Center Text Clock</string>
+    <string name="center_text_clock_summary">Tranform Q-Clock to X-Clock</string>
 </resources>

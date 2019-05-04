@@ -102,6 +102,12 @@
     <PreferenceCategory
         android:title="@string/lock_typeface_style_title" >
 
+        <com.dirtyunicorns.support.preferences.SecureSettingSwitchPreference
+            android:key="center_text_clock"
+            android:title="@string/center_text_clock_title"
+            android:summary="@string/center_text_clock_summary"
+            android:defaultValue="false" />
+
         <ListPreference
             android:key="custom_text_clock_fonts"
             android:title="@string/custom_text_clock_font_title"
