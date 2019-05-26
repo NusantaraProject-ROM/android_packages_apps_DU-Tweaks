@@ -42,6 +42,7 @@ public class CutoutFragment extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, Indexable {
 
     private static final String KEY_DISPLAY_CUTOUT_STYLE = "display_cutout_style";
+    private static final String KEY_FORCE_FULLSCREEN = "display_cutout_force_fullscreen_settings";
     private ListPreference mCutoutStyle;
 
     @Override
@@ -67,6 +68,11 @@ public class CutoutFragment extends SettingsPreferenceFragment
         mCutoutStyle.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
         mCutoutStyle.setSummary(mCutoutStyle.getEntry());
         mCutoutStyle.setOnPreferenceChangeListener(this);
+
+        final Preference forceFullscreen = (Preference) getPreferenceScreen().findPreference(KEY_FORCE_FULLSCREEN);
+        if (!hasPhysicalDisplayCutout(getContext())) {
+            getPreferenceScreen().removePreference(forceFullscreen);
+        }
     }
 
     @Override

@@ -80,8 +80,9 @@ public class Miscellaneous extends SettingsPreferenceFragment
         mScrollingCachePref.setOnPreferenceChangeListener(this);
 
         Preference mCutoutPref = (Preference) findPreference(PREF_KEY_CUTOUT);
-        if (!hasPhysicalDisplayCutout(getContext()))
+        if (!hasPhysicalDisplayCutout(getContext())) {
             getPreferenceScreen().removePreference(mCutoutPref);
+        }
     }
 
     @Override
