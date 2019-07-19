@@ -27,6 +27,12 @@
     <PreferenceCategory
 	android:title="@string/volume_stuff_title">
 
+    <PreferenceScreen
+	android:key="volume_panel"
+	android:title="@string/audio_panel_view_title"
+	android:summary="@string/audio_panel_view_summary"
+	android:fragment="com.dirtyunicorns.tweaks.fragments.VolumePanel" />
+
     <com.dirtyunicorns.support.preferences.SystemSettingSeekBarPreference
         android:key="volume_dialog_timeout"
         android:title="@string/volume_dialog_timeout_title"
