@@ -951,6 +951,13 @@
     <string name="lockscreen_clock_sammy_bold">Sammy (bold)</string>
     <string name="lockscreen_clock_text">Typeface</string>
 
+    <!-- Lockscreen Date styles -->
+    <string name="lockscreen_date_selection_title">Date style</string>
+    <string name="lockscreen_date_dialog_title">Select date style</string>
+    <string name="lockscreen_date_selection_default">Default</string>
+    <string name="lockscreen_date_selection_str_box">Semi-transparent box</string>
+    <string name="lockscreen_date_selection_str_round">Semi-transparent box (round)</string>
+
     <!-- Statusbar ticker -->
     <string name="status_bar_ticker_title">Notifications Ticker</string>
     <string name="status_bar_show_ticker_title">Ticker</string>
