@@ -41,6 +41,7 @@ import java.util.List;
 
 import com.dirtyunicorns.support.preferences.CustomSeekBarPreference;
 import com.dirtyunicorns.support.preferences.SystemSettingMasterSwitchPreference;
+import com.dirtyunicorns.support.colorpicker.ColorPickerPreference;
 
 public class QuickSettings extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, Indexable {
@@ -48,6 +49,8 @@ public class QuickSettings extends SettingsPreferenceFragment
 
     private static final String QUICK_PULLDOWN = "quick_pulldown";
     private static final String STATUS_BAR_CUSTOM_HEADER = "status_bar_custom_header";
+    private static final String QS_PANEL_COLOR = "qs_panel_color";
+    static final int DEFAULT_QS_PANEL_COLOR = 0xffffffff;
 
     private ListPreference mQuickPulldown;
     private CustomSeekBarPreference mQsRowsPort;
@@ -55,6 +58,7 @@ public class QuickSettings extends SettingsPreferenceFragment
     private CustomSeekBarPreference mQsColumnsPort;
     private CustomSeekBarPreference mQsColumnsLand;
     private SystemSettingMasterSwitchPreference mCustomHeader;
+    private ColorPickerPreference mQsPanelColor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -99,6 +103,14 @@ public class QuickSettings extends SettingsPreferenceFragment
                 Settings.System.STATUS_BAR_CUSTOM_HEADER, 0);
         mCustomHeader.setChecked(qsHeader != 0);
         mCustomHeader.setOnPreferenceChangeListener(this);
+
+        mQsPanelColor = (ColorPickerPreference) findPreference(QS_PANEL_COLOR);
+        mQsPanelColor.setOnPreferenceChangeListener(this);
+        int intColor = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.QS_PANEL_BG_COLOR, DEFAULT_QS_PANEL_COLOR, UserHandle.USER_CURRENT);
+        String hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mQsPanelColor.setSummary(hexColor);
+        mQsPanelColor.setNewPreviewColor(intColor);
     }
 
     @Override
@@ -134,6 +146,14 @@ public class QuickSettings extends SettingsPreferenceFragment
             boolean header = (Boolean) newValue;
             Settings.System.putInt(resolver,
                     Settings.System.STATUS_BAR_CUSTOM_HEADER, header ? 1 : 0);
+            return true;
+        } else if (preference == mQsPanelColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.QS_PANEL_BG_COLOR, intHex, UserHandle.USER_CURRENT);
             return true;
         }
         return false;
