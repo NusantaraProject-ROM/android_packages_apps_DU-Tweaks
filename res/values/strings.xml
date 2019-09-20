@@ -163,4 +163,7 @@
     <string name="qs_show_brightness_summary">Show a brightness slider in the quick settings panel</string>
     <string name="qs_brightness_position_bottom_title">Brightness slider on bottom</string>
     <string name="qs_brightness_position_bottom_summary">Show a brightness slider on bottom quick settings</string>
+
+    <!-- Navbar Invert -->
+    <string name="navbar_invert_layout_title">Invert layout</string>
 </resources>
