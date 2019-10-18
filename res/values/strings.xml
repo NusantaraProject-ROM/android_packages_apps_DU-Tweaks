@@ -182,8 +182,8 @@
     <string name="double_tap_to_sleep_lockscreen_summary">Double tap on the top third or bottom shortcut area of the lock screen to put the device to sleep</string>
 
     <!-- Double tap-to-sleep -->
-    <string name="double_tap_to_sleep_title">Status bar</string>
-    <string name="double_tap_to_sleep_summary">Double-tap status bar to put the device to sleep</string>
+    <string name="double_tap_sleep_gesture_title">Double tap to sleep</string>
+    <string name="double_tap_sleep_gesture_summary">Double tap on the status bar to put the device to sleep</string>
 
     <!-- Quick settings brightness slider -->
     <string name="qs_brightness_slider_title">Brightness slider position</string>
