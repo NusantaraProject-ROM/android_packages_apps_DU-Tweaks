@@ -37,6 +37,12 @@
             android:summary="@string/notification_sound_vib_screen_on_summary"
             android:defaultValue="true" />
 
+        <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
+            android:key="enable_fc_notifications" 
+            android:title="@string/enable_fc_notifications_title" 
+            android:summary="@string/enable_fc_notifications_summary" 
+            android:defaultValue="true" /> 
+
     <PreferenceCategory
         android:key="notification_screen"
         android:title="@string/notification_screen_title" >
