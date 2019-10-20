@@ -26,29 +26,40 @@
                 android:targetClass="com.android.systemui.tuner.StatusbarItemsActivity" />
         </Preference>
 
-   <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
-         android:key="show_fourg_icon"
-         android:title="@string/show_fourg_icon_title"
-         android:summary="@string/show_fourg_icon_summary"
-         android:defaultValue="false"/>
+    <PreferenceCategory
+        android:title="@string/signal_icon_title">
 
-   <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
-         android:key="show_volte_icon"
-         android:title="@string/volte_icon_title"
-         android:summary="@string/volte_icon_summary"
-         android:defaultValue="true"/>
+        <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
+            android:key="show_fourg_icon"
+            android:title="@string/show_fourg_icon_title"
+            android:summary="@string/show_fourg_icon_summary"
+            android:defaultValue="false"/>
+
+        <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
+            android:key="show_volte_icon"
+            android:title="@string/volte_icon_title"
+            android:summary="@string/volte_icon_summary"
+            android:defaultValue="true"/>
+
+        <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
+            android:key="roaming_indicator_icon"
+            android:title="@string/roaming_indicator_icon_title"
+            android:summary="@string/roaming_indicator_icon_summary"
+            android:defaultValue="true"/>
+
+        <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
+            android:key="data_disabled_icon"
+            android:title="@string/data_disabled_icon_title"
+            android:summary="@string/data_disabled_icon_summary"
+            android:defaultValue="true"/> 
+
+    </PreferenceCategory>
 
     <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
         android:key="toast_icon"
         android:title="@string/toast_icon_title"
         android:summary="@string/toast_icon_summary"
         android:defaultValue="false" />
-
-    <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
-        android:key="data_disabled_icon"
-        android:title="@string/data_disabled_icon_title"
-        android:summary="@string/data_disabled_icon_summary"
-        android:defaultValue="true"/> 
 
     <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
          android:key="bluetooth_show_battery"

@@ -75,6 +75,7 @@
     <string name="sub_cat_advanced">Advanced</string>
     <string name="animation_settings_title">Animations</string>
     <string name="animation_settings_summary">System Wide Animation Options</string>
+    <string name="signal_icon_title">Signal Icon</string>
 
     <!-- Power Menu -->
     <string name="powermenu_reboot_title">Restart</string>
@@ -577,4 +578,8 @@
     <string name="dashboard_suggestions_title">Dashboard suggestions</string>
     <string name="summary_dashboard_suggestions_enabled">Dashboard suggestions are enabled</string>
     <string name="summary_dashboard_suggestions_disabled">Dashboard suggestions are disabled</string>
+
+    <!-- Roaming indicator icon -->
+    <string name="roaming_indicator_icon_title">Roaming indicator</string>
+    <string name="roaming_indicator_icon_summary">Display the roaming indicator in signal icon when in roaming mode</string>
 </resources>
