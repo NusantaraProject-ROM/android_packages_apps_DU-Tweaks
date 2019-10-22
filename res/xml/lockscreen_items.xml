@@ -35,6 +35,12 @@
                 android:targetClass="com.android.systemui.tuner.LockscreenActivity" />
     </Preference>
 
+    <Preference
+        android:key="lockscreen_style"
+        android:title="@string/lockscreen_style_title"
+        android:summary="@string/lockscreen_style_summary"
+        android:fragment="com.dirtyunicorns.tweaks.fragments.LockscreenStyle" />
+
     <PreferenceCategory
         android:title="@string/switch_settings_title" >
 
