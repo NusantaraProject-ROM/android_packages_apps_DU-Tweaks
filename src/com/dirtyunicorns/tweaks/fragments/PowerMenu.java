@@ -41,12 +41,14 @@ public class PowerMenu extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, Indexable {
 
     private static final String KEY_LOCKDOWN_IN_POWER_MENU = "lockdown_in_power_menu";
+    private static final String POWER_MENU_ANIMATIONS = "power_menu_animations";
 
     private static final int MY_USER_ID = UserHandle.myUserId();
 
     private SwitchPreference mPowermenuTorch;
     private SwitchPreference mPowerMenuLockDown;
     private PreferenceCategory mAdvancedCategory;
+    private ListPreference mPowerMenuAnimations;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -67,6 +69,12 @@ public class PowerMenu extends SettingsPreferenceFragment
             prefSet.removePreference(mPowerMenuLockDown);
             prefSet.removePreference(mAdvancedCategory);
         }
+
+        mPowerMenuAnimations = (ListPreference) findPreference(POWER_MENU_ANIMATIONS);
+        mPowerMenuAnimations.setValue(String.valueOf(Settings.System.getInt(
+                getContentResolver(), Settings.System.POWER_MENU_ANIMATIONS, 0)));
+        mPowerMenuAnimations.setSummary(mPowerMenuAnimations.getEntry());
+        mPowerMenuAnimations.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -75,6 +83,12 @@ public class PowerMenu extends SettingsPreferenceFragment
             boolean value = (Boolean) objValue;
             Settings.Secure.putInt(getActivity().getContentResolver(),
                     Settings.Secure.LOCKDOWN_IN_POWER_MENU, value ? 1 : 0);
+            return true;
+        } else if (preference == mPowerMenuAnimations) {
+            Settings.System.putInt(getContentResolver(), Settings.System.POWER_MENU_ANIMATIONS,
+                    Integer.valueOf((String) objValue));
+            mPowerMenuAnimations.setValue(String.valueOf(objValue));
+            mPowerMenuAnimations.setSummary(mPowerMenuAnimations.getEntry());
             return true;
         }
         return false;
