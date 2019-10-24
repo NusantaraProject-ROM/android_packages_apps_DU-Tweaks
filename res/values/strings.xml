@@ -271,4 +271,12 @@
     <string name="status_bar_carrier_color">Carrier label color</string>
     <string name="status_bar_carrier_size">Carrier label size</string>
     <string name="status_bar_carrier_font_style_title">Carrier Label Font</string>
+
+    <!-- Power menu Animations  -->
+    <string name="power_menu_animation_title">Power menu animation</string>
+    <string name="power_menu_animation_summary">Change the enter/exit animation of the power menu</string>
+    <string name="power_menu_animation_dialog_title">Select power menu animation</string>
+    <string name="power_menu_animation_aosp">AOSP (default)</string>
+    <string name="power_menu_animation_bottom">Bottom</string>
+    <string name="power_menu_animation_top">Top</string>
 </resources>
