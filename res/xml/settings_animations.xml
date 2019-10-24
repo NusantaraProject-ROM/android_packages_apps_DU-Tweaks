@@ -38,6 +38,15 @@
     <PreferenceCategory
         android:title="@string/system_animation_title">
 
+         <com.dirtyunicorns.support.preferences.CustomSeekBarPreference
+             android:key="animation_duration"
+             android:max="1500"
+             android:persistent="false"
+             android:title="@string/animation_duration_title"
+             settings:min="0"
+             settings:units="ms"
+             settings:interval="50"/>
+
         <ListPreference
             android:key="activity_open"
             android:title="@string/activity_open_title" />
