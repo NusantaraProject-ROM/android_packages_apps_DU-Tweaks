@@ -1028,4 +1028,8 @@
     <!-- QS themes -->
     <string name="qs_bg_use_new_tint">QS Tint</string>
     <string name="qs_bg_use_new_tint_summary">Enable QS tiles tint style</string>
+
+    <!-- Pocket judge -->
+    <string name="pocket_judge_title">Pocket detection</string>
+    <string name="pocket_judge_summary">Block screen and button inputs when device is in pocket</string>
 </resources>

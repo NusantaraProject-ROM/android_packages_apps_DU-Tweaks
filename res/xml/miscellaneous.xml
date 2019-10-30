@@ -81,6 +81,12 @@
            android:summary="@string/device_identifier_access_restrictions_summary"
            android:defaultValue="false" />
 
+        <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
+            android:key="pocket_judge"
+            android:title="@string/pocket_judge_title"
+            android:summary="@string/pocket_judge_summary"
+            android:defaultValue="false" />
+
         <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference 
             android:key="three_finger_gesture" 
             android:title="@string/three_finger_gesture" 
