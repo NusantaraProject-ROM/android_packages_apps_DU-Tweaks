@@ -48,6 +48,11 @@
         android:title="@string/powermenu_screenshot_title"
         android:defaultValue="true" />
 
+    <SwitchPreference
+        android:key="powermenu_torch"
+        android:title="@string/powermenu_torch"
+        android:persistent="false" />
+
     <PreferenceCategory
         android:key="powermenu_advanced_category"
         android:title="@string/sub_cat_advanced">
