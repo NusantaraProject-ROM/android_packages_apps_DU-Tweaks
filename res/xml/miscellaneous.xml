@@ -51,6 +51,13 @@
             android:summary="@string/gaming_mode_summary"
             android:fragment="com.dirtyunicorns.tweaks.fragments.GamingMode"/>
 
+        <com.dirtyunicorns.support.preferences.SystemSettingMasterSwitchPreference
+           android:key="screen_state_toggles_enable_key"
+           android:fragment="com.dirtyunicorns.tweaks.fragments.ScreenStateToggles"
+           android:title="@string/screen_state_toggles_title"
+           android:summary="@string/screen_state_toggles_summary"
+           android:defaultValue="false" />
+
     <PreferenceCategory
         android:title="@string/gestures_stuff" >
 

@@ -16,6 +16,7 @@
 
 package com.dirtyunicorns.tweaks.fragments;
 
+import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.os.Bundle;
@@ -34,6 +35,7 @@ import com.android.settings.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
 //import com.android.settings.Utils;
 import com.dirtyunicorns.tweaks.preferences.TelephonyUtils;
+import com.dirtyunicorns.support.preferences.SystemSettingMasterSwitchPreference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,15 +47,19 @@ public class Miscellaneous extends SettingsPreferenceFragment
     private static final String SCROLLINGCACHE_PREF = "pref_scrollingcache";
     private static final String SCROLLINGCACHE_PERSIST_PROP = "persist.sys.scrollingcache";
     private static final String SCROLLINGCACHE_DEFAULT = "2";
+    private static final String SCREEN_STATE_TOGGLES_ENABLE = "screen_state_toggles_enable_key";
 
     private ListPreference mScrollingCachePref;
+    private SystemSettingMasterSwitchPreference mEnableScreenStateToggles;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.miscellaneous);
+
         PreferenceScreen prefScreen = getPreferenceScreen();
         PreferenceCategory incallVibCategory = (PreferenceCategory) findPreference(INCALL_VIB_OPTIONS);
+
         if (!TelephonyUtils.isVoiceCapable(getActivity())) {
             prefScreen.removePreference(incallVibCategory);
         }
@@ -62,6 +68,12 @@ public class Miscellaneous extends SettingsPreferenceFragment
         mScrollingCachePref.setValue(SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP,
                 SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP, SCROLLINGCACHE_DEFAULT)));
         mScrollingCachePref.setOnPreferenceChangeListener(this);
+
+        mEnableScreenStateToggles = (SystemSettingMasterSwitchPreference) findPreference(SCREEN_STATE_TOGGLES_ENABLE);
+        int enabled = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.START_SCREEN_STATE_SERVICE, 0, UserHandle.USER_CURRENT);
+        mEnableScreenStateToggles.setChecked(enabled != 0);
+        mEnableScreenStateToggles.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -69,6 +81,19 @@ public class Miscellaneous extends SettingsPreferenceFragment
 	if (preference == mScrollingCachePref) {
             if (newValue != null) {
                 SystemProperties.set(SCROLLINGCACHE_PERSIST_PROP, (String) newValue);
+            }
+            return true;
+        } else if (preference == mEnableScreenStateToggles) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.START_SCREEN_STATE_SERVICE, value ? 1 : 0, UserHandle.USER_CURRENT);
+            Intent service = (new Intent())
+                .setClassName("com.android.systemui", "com.android.systemui.du.screenstate.ScreenStateService");
+            if (value) {
+                getActivity().stopService(service);
+                getActivity().startService(service);
+            } else {
+                getActivity().stopService(service);
             }
             return true;
         }
