@@ -582,4 +582,17 @@
     <!-- Roaming indicator icon -->
     <string name="roaming_indicator_icon_title">Roaming indicator</string>
     <string name="roaming_indicator_icon_summary">Display the roaming indicator in signal icon when in roaming mode</string>
+
+    <!-- Tiles animation style  -->
+    <string name="qs_tile_animation_category">QS tile</string>
+    <string name="qs_tile_animation_style_title">QS tile animation</string>
+    <string name="qs_tile_animation_duration_title">QS tile animation duration</string>
+    <string name="qs_tile_animation_style_off">Disabled</string>
+    <string name="qs_tile_animation_style_flip">Flip</string>
+    <string name="qs_tile_animation_style_rotate">Rotate</string>
+    <string name="qs_tile_animation_duration_low">Low</string>
+    <string name="qs_tile_animation_duration_default">Default</string>
+    <string name="qs_tile_animation_duration_fast">Fast</string>
+    <string name="qs_set_animation_style">%1$s</string>
+    <string name="qs_set_animation_duration">%1$s</string>
 </resources>
