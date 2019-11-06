@@ -35,18 +35,35 @@ import com.android.settings.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.dirtyunicorns.support.preferences.SystemSettingMasterSwitchPreference;
+
 public class BatteryOptions extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, Indexable {
+
+    private static final String BATTERY_LIGHT_ENABLED = "battery_light_enabled";
+
+    private SystemSettingMasterSwitchPreference mBatteryLightEnabled;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.battery_options);
 
+        mBatteryLightEnabled = (SystemSettingMasterSwitchPreference) findPreference(BATTERY_LIGHT_ENABLED);
+        mBatteryLightEnabled.setOnPreferenceChangeListener(this);
+        int batteryLightEnabled = Settings.System.getInt(getContentResolver(),
+                BATTERY_LIGHT_ENABLED, 1);
+        mBatteryLightEnabled.setChecked(batteryLightEnabled != 0);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mBatteryLightEnabled) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getContentResolver(),
+		            BATTERY_LIGHT_ENABLED, value ? 1 : 0);
+            return true;
+        }
         return false;
     }
 
