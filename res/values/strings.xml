@@ -479,6 +479,14 @@
     <!-- Enable keys backlight-->
     <string name="button_brightness_sw_title">Enable backlight</string>
 
+    <!-- Statusbar Tuner -->
+    <string name="statusbar_items_title">Statusbar icons</string>
+    <string name="statusbar_items_summary">Toggle the visibility of icons in statusbar</string>
+
+    <!-- Custom Ambient Display Config -->
+    <string name="ambient_display_screen_title">Ambient Display</string>
+    <string name="ambient_display_screen_summary">Custom Ambient Display Configuration</string>
+
     <!-- ANBI -->
     <string name="anbi_title">Accidental touch</string>
     <string name="anbi_summary">Prevent interaction with navigation buttons while the screen is being touched</string>
