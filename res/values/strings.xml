@@ -513,4 +513,9 @@
     <!-- Brightness control -->
     <string name="status_bar_toggle_brightness">Brightness control</string>
     <string name="status_bar_toggle_brightness_summary">Adjust brightness by sliding across the status bar</string>
+
+    <!-- Power menu and dialogs opacity -->
+    <string name="panel_porn_title">Power Menu Transparency</string>
+    <string name="power_menu_transparency">Power/Reboot menu opacity</string>
+    <string name="power_menu_dialog_dim">Power/Reboot dialog dim background amount</string>
 </resources>
