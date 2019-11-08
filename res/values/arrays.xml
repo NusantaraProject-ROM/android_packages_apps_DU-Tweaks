@@ -179,11 +179,25 @@
         <item>@string/lock_clock_font_medium_normal</item>
         <item>@string/lock_clock_font_medium_italic</item>
         <item>@string/lock_clock_font_black</item>
+        <item>@string/lock_clock_font_black_italic</item>
+        <item>@string/lock_clock_font_dancingscript</item>
+        <item>@string/lock_clock_font_dancingscript_bold</item>
+        <item>@string/lock_clock_font_comingsoon</item>
         <item>@string/lock_clock_font_notoserif</item>
         <item>@string/lock_clock_font_notoserif_italic</item>
         <item>@string/lock_clock_font_notoserif_bold</item>
-	<item>@string/lock_clock_font_notoserif_bold_italic</item>
-	<item>@string/lock_clock_font_googlesans</item>
+        <item>@string/lock_clock_font_notoserif_bold_italic</item>
+        <item>@string/lock_clock_font_gobold</item>
+        <item>@string/lock_clock_font_roadrage</item>
+        <item>@string/lock_clock_font_snowstorm</item>
+        <item>@string/lock_clock_font_googlesans</item>
+        <item>@string/lock_clock_font_neoneon</item>
+        <item>@string/lock_clock_font_themeable</item>
+        <item>@string/lock_clock_font_samsung</item>
+        <item>@string/lock_clock_font_mexcellent</item>
+        <item>@string/lock_clock_font_burnstown</item>
+        <item>@string/lock_clock_font_dumbledor</item>
+        <item>@string/lock_clock_font_phantombold</item>
     </string-array>
 
     <string-array name="lock_clock_fonts_values" translatable="false">
@@ -209,6 +223,20 @@
         <item>19</item>
         <item>20</item>
         <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+        <item>32</item>
+        <item>33</item>
+        <item>34</item>
+        <item>35</item>
     </string-array>
 
     <!-- Carrier Label -->

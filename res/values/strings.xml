@@ -257,11 +257,24 @@
     <string name="lock_clock_font_medium_italic">Medium Italic</string>
     <string name="lock_clock_font_black">Black</string>
     <string name="lock_clock_font_black_italic">Black Italic</string> 
+    <string name="lock_clock_font_dancingscript">DancingScript</string>
+    <string name="lock_clock_font_dancingscript_bold">DancingScript Bold</string>
+    <string name="lock_clock_font_comingsoon">ComingSoon</string>
     <string name="lock_clock_font_notoserif">NotoSerif Normal</string>
     <string name="lock_clock_font_notoserif_italic">NotoSerif Italic</string>
     <string name="lock_clock_font_notoserif_bold">NotoSerif Bold</string>
     <string name="lock_clock_font_notoserif_bold_italic">NotoSerif Bold Italic</string>
+    <string name="lock_clock_font_gobold">GoBold Light</string>
+    <string name="lock_clock_font_roadrage">Road Rage</string>
+    <string name="lock_clock_font_snowstorm">Snowstorm</string>
     <string name="lock_clock_font_googlesans">Google Sans</string>
+    <string name="lock_clock_font_neoneon">Neoneon</string>
+    <string name="lock_clock_font_themeable">Themeable (or VCR OSD Mono)</string>
+    <string name="lock_clock_font_samsung">Shamshung</string>
+    <string name="lock_clock_font_mexcellent">Mexcellent</string>
+    <string name="lock_clock_font_burnstown">Burnstown</string>
+    <string name="lock_clock_font_dumbledor">Dumbledor</string>
+    <string name="lock_clock_font_phantombold">PhantomBold</string>
 
     <!-- Custom carrier label and position -->
     <string name="custom_carrier_label_title">Custom carrier label</string>
