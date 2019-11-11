@@ -30,6 +30,15 @@
             android:title="@string/navbar_invert_layout_title"
             android:defaultValue="false" />
 
+    <ListPreference
+        android:key="nav_bar_layout"
+        android:title="@string/nav_bar_layout"
+        android:summary="%s"
+        android:defaultValue="default"
+        android:persistent="false"
+        android:entries="@array/nav_bar_layouts"
+        android:entryValues="@array/nav_bar_layouts_values" />
+
     <PreferenceCategory
         android:key="hardware_keys"
         android:title="@string/hardware_keys_category" >
