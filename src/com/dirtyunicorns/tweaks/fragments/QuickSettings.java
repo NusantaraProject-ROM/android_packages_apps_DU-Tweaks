@@ -44,15 +44,14 @@ import com.dirtyunicorns.support.preferences.CustomSeekBarPreference;
 public class QuickSettings extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, Indexable {
 
-    private static final String PREF_COLUMNS_PORTRAIT = "qs_columns_portrait";
-    private static final String PREF_COLUMNS_LANDSCAPE = "qs_columns_landscape";
-    private static final String PREF_COLUMNS_QUICKBAR = "qs_columns_quickbar";
+
     private static final String QUICK_PULLDOWN = "quick_pulldown";
 
     private ListPreference mQuickPulldown;
-    private CustomSeekBarPreference mQsColumnsPortrait;
-    private CustomSeekBarPreference mQsColumnsLandscape;
-    private CustomSeekBarPreference mQsColumnsQuickbar;
+    private CustomSeekBarPreference mQsRowsPort;
+    private CustomSeekBarPreference mQsRowsLand;
+    private CustomSeekBarPreference mQsColumnsPort;
+    private CustomSeekBarPreference mQsColumnsLand;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,23 +60,29 @@ public class QuickSettings extends SettingsPreferenceFragment
 
         ContentResolver resolver = getActivity().getContentResolver();
 
-        mQsColumnsPortrait = (CustomSeekBarPreference) findPreference(PREF_COLUMNS_PORTRAIT);
-        int columnsPortrait = Settings.System.getIntForUser(resolver,
-                Settings.System.QS_LAYOUT_COLUMNS, 4, UserHandle.USER_CURRENT);
-        mQsColumnsPortrait.setValue(columnsPortrait);
-        mQsColumnsPortrait.setOnPreferenceChangeListener(this);
+        int value = Settings.System.getIntForUser(resolver,
+                Settings.System.QS_ROWS_PORTRAIT, 3, UserHandle.USER_CURRENT);
+        mQsRowsPort = (CustomSeekBarPreference) findPreference("qs_rows_portrait");
+        mQsRowsPort.setValue(value);
+        mQsRowsPort.setOnPreferenceChangeListener(this);
 
-        mQsColumnsLandscape = (CustomSeekBarPreference) findPreference(PREF_COLUMNS_LANDSCAPE);
-        int columnsLandscape = Settings.System.getIntForUser(resolver,
-                Settings.System.QS_LAYOUT_COLUMNS_LANDSCAPE, 4, UserHandle.USER_CURRENT);
-        mQsColumnsLandscape.setValue(columnsLandscape);
-        mQsColumnsLandscape.setOnPreferenceChangeListener(this);
+        value = Settings.System.getIntForUser(resolver,
+                Settings.System.QS_ROWS_LANDSCAPE, 2, UserHandle.USER_CURRENT);
+        mQsRowsLand = (CustomSeekBarPreference) findPreference("qs_rows_landscape");
+        mQsRowsLand.setValue(value);
+        mQsRowsLand.setOnPreferenceChangeListener(this);
 
-        mQsColumnsQuickbar = (CustomSeekBarPreference) findPreference(PREF_COLUMNS_QUICKBAR);
-        int columnsQuickbar = Settings.System.getInt(resolver,
-                Settings.System.QS_QUICKBAR_COLUMNS, 6);
-        mQsColumnsQuickbar.setValue(columnsQuickbar);
-        mQsColumnsQuickbar.setOnPreferenceChangeListener(this);
+        value = Settings.System.getIntForUser(resolver,
+                Settings.System.QS_COLUMNS_PORTRAIT, 3, UserHandle.USER_CURRENT);
+        mQsColumnsPort = (CustomSeekBarPreference) findPreference("qs_columns_portrait");
+        mQsColumnsPort.setValue(value);
+        mQsColumnsPort.setOnPreferenceChangeListener(this);
+
+        value = Settings.System.getIntForUser(resolver,
+                Settings.System.QS_COLUMNS_LANDSCAPE, 4, UserHandle.USER_CURRENT);
+        mQsColumnsLand = (CustomSeekBarPreference) findPreference("qs_columns_landscape");
+        mQsColumnsLand.setValue(value);
+        mQsColumnsLand.setOnPreferenceChangeListener(this);
 
         mQuickPulldown = (ListPreference) findPreference(QUICK_PULLDOWN);
         mQuickPulldown.setOnPreferenceChangeListener(this);
@@ -90,20 +95,25 @@ public class QuickSettings extends SettingsPreferenceFragment
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
-        if (preference == mQsColumnsQuickbar) {
-            int value = (Integer) newValue;
+	if (preference == mQsRowsPort) {
+            int val = (Integer) newValue;
             Settings.System.putIntForUser(getContentResolver(),
-                    Settings.System.QS_QUICKBAR_COLUMNS, value, UserHandle.USER_CURRENT);
+                    Settings.System.QS_ROWS_PORTRAIT, val, UserHandle.USER_CURRENT);
             return true;
-        } else if (preference == mQsColumnsPortrait) {
-            int value = (Integer) newValue;
-            Settings.System.putIntForUser(resolver,
-                    Settings.System.QS_LAYOUT_COLUMNS, value, UserHandle.USER_CURRENT);
+        } else if (preference == mQsRowsLand) {
+            int val = (Integer) newValue;
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.QS_ROWS_LANDSCAPE, val, UserHandle.USER_CURRENT);
             return true;
-        } else if (preference == mQsColumnsLandscape) {
-            int value = (Integer) newValue;
-            Settings.System.putIntForUser(resolver,
-                    Settings.System.QS_LAYOUT_COLUMNS_LANDSCAPE, value, UserHandle.USER_CURRENT);
+        } else if (preference == mQsColumnsPort) {
+            int val = (Integer) newValue;
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.QS_COLUMNS_PORTRAIT, val, UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference == mQsColumnsLand) {
+            int val = (Integer) newValue;
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.QS_COLUMNS_LANDSCAPE, val, UserHandle.USER_CURRENT);
             return true;
         } else if (preference == mQuickPulldown) {
             int quickPulldownValue = Integer.valueOf((String) newValue);

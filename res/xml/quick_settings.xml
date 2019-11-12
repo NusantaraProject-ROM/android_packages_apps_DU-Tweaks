@@ -25,12 +25,6 @@
             android:entryValues="@array/quick_pulldown_values"
             android:persistent="false" />
 
-        <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
-            android:key="qs_tile_title_visibility" 
-            android:title="@string/qs_tile_title_visibility_title" 
-            android:summary="@string/qs_tile_title_visibility_summary" 
-            android:defaultValue="true" /> 
-
         <com.dirtyunicorns.support.preferences.SecureSettingSwitchPreference
             android:key="quick_settings_vibrate"
             android:title="@string/quick_settings_vibrate_title"
@@ -47,31 +41,42 @@
         android:key="qs_layout_category" 
         android:title="@string/qs_layout_category"> 
 
+        <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_tile_title_visibility" 
+            android:title="@string/qs_tile_title_visibility_title" 
+            android:defaultValue="true" /> 
+
+        <com.dirtyunicorns.support.preferences.CustomSeekBarPreference
+            android:key="qs_rows_portrait"
+            android:title="@string/qs_rows_portrait_title"
+            android:max="5"
+            settings:min="1"
+            android:defaultValue="3"
+            settings:units="" />
+
+        <com.dirtyunicorns.support.preferences.CustomSeekBarPreference
+            android:key="qs_rows_landscape"
+            android:title="@string/qs_rows_landscape_title"
+            android:max="3"
+            settings:min="1"
+            android:defaultValue="1"
+            settings:units="" />
+
         <com.dirtyunicorns.support.preferences.CustomSeekBarPreference
             android:key="qs_columns_portrait"
             android:title="@string/qs_columns_portrait_title"
-            android:max="8"
-            settings:min="3"
-            settings:units=""
+            android:max="7"
+            settings:min="1"
             android:defaultValue="4"
-            android:persistent="false" />
+            settings:units="" />
 
         <com.dirtyunicorns.support.preferences.CustomSeekBarPreference
             android:key="qs_columns_landscape"
             android:title="@string/qs_columns_landscape_title"
-            android:max="8"
-            settings:min="3"
-            settings:units=""
+            android:max="9"
+            settings:min="1"
             android:defaultValue="4"
-            android:persistent="false" />
-
-        <com.dirtyunicorns.support.preferences.CustomSeekBarPreference
-            android:key="qs_columns_quickbar"
-            android:title="@string/sysui_qqs_count_title"
-            android:max="8"
-            settings:min="6"
-            android:defaultValue="6"
-            android:persistent="false" />
+            settings:units="" />
 
     </PreferenceCategory>
 
