@@ -40,9 +40,9 @@
     <com.dirtyunicorns.support.preferences.CustomSeekBarPreference
         android:key="network_traffic_font_size"
         android:title="@string/nettraf_font_size"
-        android:max="30"
-        settings:min="18"
-        settings:defaultValue="21"
+        android:max="60"
+        settings:min="21"
+        settings:defaultValue="42"
         settings:units="dp" />
 
     <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
