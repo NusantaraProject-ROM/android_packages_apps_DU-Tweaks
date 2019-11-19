@@ -45,6 +45,12 @@
             android:entries="@array/entries_scrollingcache"
             android:entryValues="@array/values_scrollingcache" />
 
+        <Preference
+            android:key="gaming_mode"
+            android:title="@string/gaming_mode_title"
+            android:summary="@string/gaming_mode_summary"
+            android:fragment="com.dirtyunicorns.tweaks.fragments.GamingMode"/>
+
     <PreferenceCategory
         android:title="@string/gestures_stuff" >
 
