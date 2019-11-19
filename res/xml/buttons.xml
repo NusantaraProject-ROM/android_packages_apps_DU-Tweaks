@@ -33,6 +33,12 @@
 	android:summary="@string/audio_panel_view_summary"
 	android:fragment="com.dirtyunicorns.tweaks.fragments.VolumePanel" />
 
+    <Preference
+        android:key="vol_steps"
+        android:title="@string/volume_steps_title"
+        android:summary="@string/volume_steps_summary"
+        android:fragment="com.dirtyunicorns.tweaks.fragments.VolumeSteps" />
+
     <com.dirtyunicorns.support.preferences.SystemSettingSeekBarPreference
         android:key="volume_dialog_timeout"
         android:title="@string/volume_dialog_timeout_title"
