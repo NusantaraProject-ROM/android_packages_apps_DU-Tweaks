@@ -751,4 +751,9 @@
     <string name="status_bar_logo_style_xbox">XBOX</string>
     <string name="status_bar_logo_style_xbox_controller">XBOX Controller</string>
     <string name="status_bar_logo_style_yin_yang">Yin-Yang</string>
+
+    <!-- Signal Icon Fragment -->
+    <string name="signal_icon_switch_title">Signal Icon Switch</string>
+    <string name="signal_icon_switch_summary">Toggle for Signal icon</string>
+
 </resources>
