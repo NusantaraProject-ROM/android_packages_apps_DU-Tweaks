@@ -38,6 +38,26 @@
             android:defaultValue="true" />
 
     <PreferenceCategory
+        android:key="incall_vib_options"
+        android:title="@string/incall_vibration_category" >
+
+        <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference 
+            android:key="vibrate_on_connect"
+            android:title="@string/incall_vibrate_connect_title"
+            android:defaultValue="true" />
+
+        <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference 
+            android:key="vibrate_on_callwaiting"
+            android:title="@string/incall_vibrate_call_wait_title"
+            android:defaultValue="true" />
+
+        <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference 
+            android:key="vibrate_on_disconnect"
+            android:title="@string/incall_vibrate_disconnect_title"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="notification_lights"
         android:title="@string/notification_lights">
 
