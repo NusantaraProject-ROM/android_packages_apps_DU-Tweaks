@@ -26,6 +26,13 @@
                 android:targetClass="com.android.systemui.tuner.StatusbarItemsActivity" />
         </Preference>
 
+    <com.dirtyunicorns.support.preferences.SystemSettingMasterSwitchPreference
+        android:key="status_bar_logo"
+        android:fragment="com.dirtyunicorns.tweaks.fragments.StatusbarLogo"
+        android:title="@string/status_bar_logo_title"
+        android:summary="@string/status_bar_logo_summary"
+        android:defaultValue="false" />
+
     <PreferenceCategory
         android:title="@string/signal_icon_title">
 
