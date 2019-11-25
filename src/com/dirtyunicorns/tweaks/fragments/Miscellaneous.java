@@ -47,9 +47,11 @@ public class Miscellaneous extends SettingsPreferenceFragment
     private static final String SCROLLINGCACHE_PERSIST_PROP = "persist.sys.scrollingcache";
     private static final String SCROLLINGCACHE_DEFAULT = "2";
     private static final String SCREEN_STATE_TOGGLES_ENABLE = "screen_state_toggles_enable_key";
+    private static final String GAMING_MODE_ENABLED = "gaming_mode_enabled";
 
     private ListPreference mScrollingCachePref;
     private SystemSettingMasterSwitchPreference mEnableScreenStateToggles;
+    private SystemSettingMasterSwitchPreference mGamingMode;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -62,6 +64,11 @@ public class Miscellaneous extends SettingsPreferenceFragment
         mScrollingCachePref.setValue(SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP,
                 SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP, SCROLLINGCACHE_DEFAULT)));
         mScrollingCachePref.setOnPreferenceChangeListener(this);
+
+        mGamingMode = (SystemSettingMasterSwitchPreference) findPreference(GAMING_MODE_ENABLED);
+        mGamingMode.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.GAMING_MODE_ENABLED, 0) == 1));
+        mGamingMode.setOnPreferenceChangeListener(this);
 
         mEnableScreenStateToggles = (SystemSettingMasterSwitchPreference) findPreference(SCREEN_STATE_TOGGLES_ENABLE);
         int enabled = Settings.System.getIntForUser(getContentResolver(),
@@ -89,6 +96,11 @@ public class Miscellaneous extends SettingsPreferenceFragment
             } else {
                 getActivity().stopService(service);
             }
+            return true;
+        } else if (preference == mGamingMode) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.GAMING_MODE_ENABLED, value ? 1 : 0);
             return true;
         }
         return false;

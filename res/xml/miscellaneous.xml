@@ -24,11 +24,12 @@
             android:summary="@string/corners_summary"
             android:fragment="com.dirtyunicorns.tweaks.fragments.RoundedCornersSettings" />
 
-        <Preference
-            android:key="gaming_mode"
+        <com.dirtyunicorns.support.preferences.SystemSettingMasterSwitchPreference
+            android:key="gaming_mode_enabled"
+            android:fragment="com.dirtyunicorns.tweaks.fragments.GamingMode"
             android:title="@string/gaming_mode_title"
             android:summary="@string/gaming_mode_summary"
-            android:fragment="com.dirtyunicorns.tweaks.fragments.GamingMode"/>
+            android:defaultValue="false" />
 
         <com.dirtyunicorns.support.preferences.SystemSettingMasterSwitchPreference
            android:key="screen_state_toggles_enable_key"
