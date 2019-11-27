@@ -118,4 +118,11 @@
             android:defaultValue="true" />
 
     </PreferenceCategory>
+
+    <!-- Rounded Corners -->
+    <PreferenceScreen
+         android:key="rounded_corners"
+         android:title="@string/corners_title"
+         android:summary="@string/corners_summary"
+         android:fragment="com.dirtyunicorns.tweaks.fragments.RoundedCornersSettings" />
 </PreferenceScreen>

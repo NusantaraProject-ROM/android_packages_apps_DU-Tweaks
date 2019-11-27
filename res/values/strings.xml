@@ -678,4 +678,13 @@
     <!-- Charging animation -->
     <string name="charging_animation_title">Charging animation</string>
     <string name="charging_animation_summary">Display an animation when the device is plugged in</string>
+
+    <!-- Rounded corners -->
+    <string name="corners_title">Rounded corners</string>
+    <string name="corners_summary">Allow customized rounded corners</string>
+    <string name="corner_radius">Rounded corner radius</string>
+    <string name="status_bar_padding">Statusbar extra padding</string>
+    <string name="content_padding">Corner content padding</string>
+    <string name="corner_fwvals">Use framework values</string>
+    <string name="corner_fwvals_summary">Useful if the device actually has rounded corners</string>
 </resources>
