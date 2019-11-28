@@ -213,7 +213,6 @@ public class AnimationSettings extends SettingsPreferenceFragment
                 Settings.System.ANIM_TILE_STYLE, 0, UserHandle.USER_CURRENT);
         mTileAnimationStyle.setValue(String.valueOf(tileAnimationStyle));
         updateTileAnimationStyleSummary(tileAnimationStyle);
-        updateAnimTileStyle(tileAnimationStyle);
 
         mTileAnimationStyle.setOnPreferenceChangeListener(this);
         mTileAnimationDuration = (ListPreference) findPreference(PREF_TILE_ANIM_DURATION);
@@ -229,6 +228,7 @@ public class AnimationSettings extends SettingsPreferenceFragment
         mTileAnimationInterpolator.setValue(String.valueOf(tileAnimationInterpolator));
         updateTileAnimationInterpolatorSummary(tileAnimationInterpolator);
         mTileAnimationInterpolator.setOnPreferenceChangeListener(this);
+        updateAnimTileStyle(tileAnimationStyle);
     }
 
     @Override
