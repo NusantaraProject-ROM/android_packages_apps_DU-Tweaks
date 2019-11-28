@@ -944,4 +944,8 @@
     <!-- Brightness buttons -->
     <string name="qs_show_brightness_buttons_title">Brightness control buttons</string>
     <string name="qs_show_brightness_buttons_summary">Show buttons beside the brightness slider to adjust brightness</string>
+
+    <!-- QS Footer Text -->
+    <string name="qs_footer_text_title">QS footer text</string>
+    <string name="qs_footer_text_summary">Display text at bottom of QS panel</string>
 </resources>
