@@ -43,8 +43,7 @@
         android:max="30"
         settings:min="18"
         settings:defaultValue="21"
-        settings:units="dp" 
-        android:dependency="network_traffic_state" />
+        settings:units="dp" />
 
     <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
         android:key="network_traffic_arrow"
@@ -56,6 +55,6 @@
         android:key="network_traffic_autohide_threshold"
         android:title="@string/network_traffic_autohide_threshold_title"
         android:max="10"
-        settings:units=""
-        android:dependency="network_traffic_state" />
+        settings:min="0"
+        settings:units="" />
 </PreferenceScreen>
