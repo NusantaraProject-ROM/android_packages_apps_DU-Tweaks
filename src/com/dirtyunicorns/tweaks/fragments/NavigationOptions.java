@@ -56,6 +56,9 @@ public class NavigationOptions extends ActionFragment
     private static final String KEY_BUTTON_BRIGHTNESS_SW = "button_brightness_sw";
     private static final String KEY_BACKLIGHT_TIMEOUT = "backlight_timeout";
 
+    private static final String NAV_BAR_LAYOUT = "nav_bar_layout";
+    private static final String SYSUI_NAV_BAR = "sysui_nav_bar";
+
     // category keys
     private static final String CATEGORY_HWKEY = "hardware_keys";
     private static final String CATEGORY_HOME = "home_key";
@@ -77,9 +80,11 @@ public class NavigationOptions extends ActionFragment
     public static final int KEY_MASK_VOLUME = 0x40;
 
     private SwitchPreference mHwKeyDisable;
-    private ListPreference mBacklightTimeout;
-    private CustomSeekBarPreference mButtonBrightness;
     private SwitchPreference mButtonBrightness_sw;
+    private ListPreference mBacklightTimeout;
+    private ListPreference mNavBarLayout;
+    private ContentResolver mResolver;
+    private CustomSeekBarPreference mButtonBrightness;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -89,6 +94,7 @@ public class NavigationOptions extends ActionFragment
         final Resources res = getResources();
         final ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
+        mResolver = getActivity().getContentResolver();
 
         final boolean needsNavbar = ActionUtils.hasNavbarByDefault(getActivity());
         final PreferenceCategory hwkeyCat = (PreferenceCategory) prefScreen
@@ -186,6 +192,15 @@ public class NavigationOptions extends ActionFragment
         onPreferenceScreenLoaded(ActionConstants.getDefaults(ActionConstants.HWKEYS));
         // load preferences first
         setActionPreferencesEnabled(keysDisabled == 0);
+
+        mNavBarLayout = (ListPreference) findPreference(NAV_BAR_LAYOUT);
+        mNavBarLayout.setOnPreferenceChangeListener(this);
+        String navBarLayoutValue = Settings.Secure.getString(mResolver, SYSUI_NAV_BAR);
+        if (navBarLayoutValue != null) {
+            mNavBarLayout.setValue(navBarLayoutValue);
+        } else {
+            mNavBarLayout.setValueIndex(0);
+        }
     }
 
     @Override
@@ -215,6 +230,9 @@ public class NavigationOptions extends ActionFragment
             Settings.Secure.putInt(getContentResolver(), Settings.Secure.HARDWARE_KEYS_DISABLE,
                     value ? 1 : 0);
             setActionPreferencesEnabled(!value);
+            return true;
+        } else if (preference == mNavBarLayout) {
+            Settings.Secure.putString(mResolver, SYSUI_NAV_BAR, (String) newValue);
             return true;
         }
         return false;
