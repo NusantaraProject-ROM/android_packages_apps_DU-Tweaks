@@ -18,11 +18,11 @@ package com.dirtyunicorns.tweaks.fragments;
 
 import android.content.Context;
 import android.content.ContentResolver;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.provider.Settings;
-import androidx.preference.ListPreference;
-import androidx.preference.Preference;
-import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.*;
 
 import com.android.internal.logging.nano.MetricsProto;
 
@@ -30,12 +30,25 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
 public class SignalIconSwitch extends SettingsPreferenceFragment implements
-        OnPreferenceChangeListener {
+        Preference.OnPreferenceChangeListener {
+
+    private static final String KEY_USE_OLD_MOBILETYPE = "use_old_mobiletype";
+
+    private SwitchPreference mUseOldMobileType;
+    private boolean mConfigUseOldMobileType;
 
     @Override
     public void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
         addPreferencesFromResource(R.xml.signal_icon_switch);
+        ContentResolver resolver = getActivity().getContentResolver();
+
+        mConfigUseOldMobileType = getResources().getBoolean(com.android.internal.R.bool.config_useOldMobileIcons);
+        int useOldMobileIcons = (!mConfigUseOldMobileType ? 1 : 0);
+        mUseOldMobileType = (SwitchPreference) findPreference(KEY_USE_OLD_MOBILETYPE);
+        mUseOldMobileType.setChecked((Settings.System.getInt(resolver,
+                Settings.System.USE_OLD_MOBILETYPE, useOldMobileIcons) == 1));
+        mUseOldMobileType.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -45,6 +58,12 @@ public class SignalIconSwitch extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mUseOldMobileType) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.USE_OLD_MOBILETYPE, value ? 1 : 0);
+            return true;
+        }
         return false;
     }
 
