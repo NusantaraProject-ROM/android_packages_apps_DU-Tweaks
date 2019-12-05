@@ -31,11 +31,35 @@
             android:summary="@string/quick_settings_vibrate_summary"
             android:defaultValue="false"/>
 
+
+    <PreferenceCategory
+        android:key="qs_footer"
+        android:title="@string/qs_footer_title" >
+
+        <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_footer_show_settings"
+            android:title="@string/qs_footer_settings_title"
+            android:summary="@string/qs_footer_settings_summary"
+            android:defaultValue="true" />
+
         <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
             android:key="qs_running_services_toggle"
             android:title="@string/qs_running_services_title"
             android:summary="@string/qs_running_services_summary"
             android:defaultValue="false" />
+
+        <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_footer_show_user"
+            android:title="@string/qs_footer_user_title"
+            android:summary="@string/qs_footer_user_summary"
+            android:defaultValue="true" />
+
+        <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_footer_show_edit"
+            android:title="@string/qs_footer_edit_title"
+            android:summary="@string/qs_footer_edit_summary"
+            android:defaultValue="true" />
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="qs_theme_category"

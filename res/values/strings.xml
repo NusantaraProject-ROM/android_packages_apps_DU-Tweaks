@@ -1028,4 +1028,13 @@
     <string name="kill_app_longpress_back">Kill app back button</string>
     <string name="kill_app_longpress_back_summary">Kill the foreground app by long-pressing the back key</string>
     <string name="long_press_kill_delay">App kill delay</string>
+
+    <!-- QS footer icons -->
+    <string name="qs_footer_title">QS Footer</string>
+    <string name="qs_footer_settings_title">Settings icon</string>
+    <string name="qs_footer_settings_summary">Display Settings icon in quick settings footer</string>
+    <string name="qs_footer_user_title">User switcher icon</string>
+    <string name="qs_footer_user_summary">Display Multi-user switcher icon in quick settings footer</string>
+    <string name="qs_footer_edit_title">Edit icon</string>
+    <string name="qs_footer_edit_summary">Display the tile edit icon in quick settings footer</string>
 </resources>
