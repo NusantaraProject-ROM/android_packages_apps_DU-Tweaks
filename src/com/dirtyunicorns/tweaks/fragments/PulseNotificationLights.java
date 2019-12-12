@@ -35,6 +35,7 @@ import com.android.settings.Utils;
 import com.dirtyunicorns.support.colorpicker.ColorPickerPreference;
 import com.dirtyunicorns.support.preferences.CustomSeekBarPreference;
 import com.dirtyunicorns.support.preferences.SystemSettingSeekBarPreference;
+import com.dirtyunicorns.tweaks.preferences.AmbientLightSettingsPreview;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,6 +60,8 @@ public class PulseNotificationLights extends SettingsPreferenceFragment
         int edgeLightColor = Settings.System.getInt(getContentResolver(),
                 Settings.System.PULSE_AMBIENT_LIGHT_COLOR, 0xFF3980FF);
         mEdgeLightColorPreference.setNewPreviewColor(edgeLightColor);
+
+        AmbientLightSettingsPreview.setAmbientLightPreviewColor(edgeLightColor);
         String edgeLightColorHex = String.format("#%08x", (0xFF3980FF & edgeLightColor));
         if (edgeLightColorHex.equals("#ff3980ff")) {
             mEdgeLightColorPreference.setSummary(R.string.default_string);
@@ -91,6 +94,7 @@ public class PulseNotificationLights extends SettingsPreferenceFragment
             } else {
                 preference.setSummary(hex);
             }
+            AmbientLightSettingsPreview.setAmbientLightPreviewColor(Integer.valueOf(String.valueOf(newValue)));
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getContentResolver(),
                     Settings.System.PULSE_AMBIENT_LIGHT_COLOR, intHex);

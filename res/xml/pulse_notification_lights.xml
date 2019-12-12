@@ -18,6 +18,12 @@
             xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
             android:title="@string/pulse_ambient_light_title" >
 
+        <!-- Preview -->
+        <com.dirtyunicorns.tweaks.preferences.AmbientLightSettingsPreview
+            android:key="ambientlight_preview"
+            android:layout="@layout/ambient_light"
+            android:selectable="false"/>
+
         <com.dirtyunicorns.support.preferences.CustomSeekBarPreference
             android:key="pulse_ambient_light_duration"
             android:title="@string/pulse_ambient_light_duration_title"
