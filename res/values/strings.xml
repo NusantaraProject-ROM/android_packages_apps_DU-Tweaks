@@ -1088,4 +1088,8 @@
     <!-- Media Heads up -->
     <string name="show_media_heads_up_title">Show media heads up</string>
     <string name="show_media_heads_up_summary">Show media heads up when a new track is played, if the player is not already in foreground</string>
+
+    <!-- Smart replies -->
+    <string name="hide_smart_replies_title">Hide smart replies</string>
+    <string name="hide_smart_replies_summary">Hide smart replies to save screen space with peeking notifications</string>
 </resources>
