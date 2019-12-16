@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2017-2019 The Dirty Unicorns Project
+<!-- Copyright (C) 2007 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,17 +14,6 @@
      limitations under the License.
 -->
 
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-
-    <!-- Bottom navigation bar -->
-    <dimen name="design_bottom_navigation_text_size">10dp</dimen>
-    <dimen name="design_bottom_navigation_active_text_size">11dp</dimen>
-
-    <!-- Shortcut picker -->
-    <dimen name="shortcut_picker_left_padding">70dip</dimen>
-
-    <!-- FOD icon picker -->
-    <dimen name="fod_picker_item_margin">20dp</dimen>
-    <dimen name="fod_picker_item_size">100dp</dimen>
-    <dimen name="fod_picker_item_padding">20dp</dimen>
+<resources>
+    <color name="fod_item_background_stroke_color">#555555</color>
 </resources>
