@@ -23,6 +23,7 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.res.Resources;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.os.Bundle;
 import android.os.UserHandle;
@@ -43,6 +44,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import com.android.internal.logging.nano.MetricsProto;
+import com.android.internal.util.du.Utils;
 
 import com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference;
 import com.dirtyunicorns.support.preferences.CustomSeekBarPreference;
@@ -56,6 +58,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.dirtyunicorns.support.preferences.SystemSettingListPreference;
+
 public class CarrierLabel extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, Indexable {
 
@@ -63,6 +67,7 @@ public class CarrierLabel extends SettingsPreferenceFragment
     private static final String STATUS_BAR_CARRIER_COLOR = "status_bar_carrier_color";
     private static final String STATUS_BAR_CARRIER_FONT_SIZE  = "status_bar_carrier_font_size";
     private static final String CARRIER_FONT_STYLE  = "status_bar_carrier_font_style";
+    private static final String KEY_CARRIER_LABEL = "status_bar_show_carrier";
 
     static final int DEFAULT_STATUS_CARRIER_COLOR = 0xffffffff;
 
@@ -71,6 +76,7 @@ public class CarrierLabel extends SettingsPreferenceFragment
     private ColorPickerPreference mCarrierColorPicker;
     private CustomSeekBarPreference mStatusBarCarrierSize;
     private ListPreference mCarrierFontStyle;
+    private SystemSettingListPreference mShowCarrierLabel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -85,6 +91,23 @@ public class CarrierLabel extends SettingsPreferenceFragment
         // custom carrier label
         mCustomCarrierLabel = (PreferenceScreen) findPreference(CUSTOM_CARRIER_LABEL);
         updateCustomLabelTextSummary();
+
+        mShowCarrierLabel = (SystemSettingListPreference) findPreference(KEY_CARRIER_LABEL);
+        int showCarrierLabel = Settings.System.getInt(resolver,
+        Settings.System.STATUS_BAR_SHOW_CARRIER, 1);
+        CharSequence[] NonNotchEntries = { getResources().getString(R.string.show_carrier_disabled),
+                getResources().getString(R.string.show_carrier_keyguard),
+                getResources().getString(R.string.show_carrier_statusbar), getResources().getString(
+                        R.string.show_carrier_enabled) };
+        CharSequence[] NotchEntries = { getResources().getString(R.string.show_carrier_disabled),
+                getResources().getString(R.string.show_carrier_keyguard) };
+        CharSequence[] NonNotchValues = {"0", "1" , "2", "3"};
+        CharSequence[] NotchValues = {"0", "1"};
+        mShowCarrierLabel.setEntries(Utils.hasNotch(getActivity()) ? NotchEntries : NonNotchEntries);
+        mShowCarrierLabel.setEntryValues(Utils.hasNotch(getActivity()) ? NotchValues : NonNotchValues);
+        mShowCarrierLabel.setValue(String.valueOf(showCarrierLabel));
+        mShowCarrierLabel.setSummary(mShowCarrierLabel.getEntry());
+        mShowCarrierLabel.setOnPreferenceChangeListener(this);
 
         mCarrierColorPicker = (ColorPickerPreference) findPreference(STATUS_BAR_CARRIER_COLOR);
 	mCarrierColorPicker.setOnPreferenceChangeListener(this);
@@ -140,8 +163,27 @@ public class CarrierLabel extends SettingsPreferenceFragment
                 STATUS_BAR_CARRIER_FONT_STYLE, showCarrierFont);
             mCarrierFontStyle.setSummary(mCarrierFontStyle.getEntries()[index]);
             return true;
+        }  else if (preference == mShowCarrierLabel) {
+            int value = Integer.parseInt((String) newValue);
+            updateCarrierLabelSummary(value);
+            return true;
         }
         return false;
+    }
+
+    private void updateCarrierLabelSummary(int value) {
+        Resources res = getResources();
+
+        if (value == 0) {
+            // Carrier Label disabled
+            mShowCarrierLabel.setSummary(res.getString(R.string.show_carrier_disabled));
+        } else if (value == 1) {
+            mShowCarrierLabel.setSummary(res.getString(R.string.show_carrier_keyguard));
+        } else if (value == 2) {
+            mShowCarrierLabel.setSummary(res.getString(R.string.show_carrier_statusbar));
+        } else if (value == 3) {
+            mShowCarrierLabel.setSummary(res.getString(R.string.show_carrier_enabled));
+        }
     }
 
     public boolean onPreferenceTreeClick(Preference preference) {
