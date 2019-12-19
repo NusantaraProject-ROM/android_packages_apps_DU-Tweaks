@@ -394,7 +394,7 @@
     <string name="fprint_error_vib_summary">Vibrate when fingerprint authentication fails</string>
 
     <!-- Lock screen cover art -->
-    <string name="lockscreen_media_category">Music</string>
+    <string name="lockscreen_media_category">Music/Media</string>
     <string name="media_art_title">Media artwork</string>
     <string name="media_art_summary">Show media cover art as the lockscreen background</string>
 

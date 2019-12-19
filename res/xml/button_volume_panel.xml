@@ -19,6 +19,15 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/audio_panel_view_title">
 
+    <com.dirtyunicorns.support.preferences.SystemSettingSeekBarPreference
+        android:key="volume_dialog_timeout"
+        android:title="@string/volume_dialog_timeout_title"
+        android:max="10000"
+        settings:min="500"
+        android:defaultValue="3000"
+        settings:interval="100"
+        settings:units="ms" />
+
     <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
         android:key="audio_panel_view_media"
         android:title="@string/audio_panel_view_media_title"

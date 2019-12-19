@@ -18,8 +18,14 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
 	android:title="@string/lockscreen_visualizer_enable">
 
+    <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
+        android:key="ambient_visualizer_enabled"
+        android:title="@string/ambient_visualizer_title"
+        android:summary="@string/ambient_visualizer_summary"
+        android:defaultValue="false"/>
+
     <com.dirtyunicorns.support.preferences.SecureSettingSwitchPreference
-       android:key="lockscreen_visualizer_autocolor"
+        android:key="lockscreen_visualizer_autocolor"
         android:title="@string/lockscreen_autocolor_title"
         android:summary="@string/lockscreen_autocolor_summary"
         android:defaultValue="true" />

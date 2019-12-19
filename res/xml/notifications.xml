@@ -44,8 +44,8 @@
             android:defaultValue="true" /> 
 
     <PreferenceCategory
-        android:key="notification_screen"
-        android:title="@string/notification_screen_title" >
+        android:key="notification_lights"
+        android:title="@string/notification_lights">
 
         <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
             android:key="pulse_ambient_light"
@@ -59,6 +59,16 @@
             android:persistent="false"
             android:dependency="pulse_ambient_light"
             settings:defaultColorValue="0xFF3980FF" />
+
+        <Preference
+            android:key="notification_light"
+            android:fragment="com.android.settings.applications.manageapplications.ManageApplications"
+            android:title="@string/notification_light_settings"
+            android:summary="@string/notification_light_settings_summary" >
+            <extra
+                android:name="classname"
+                android:value="com.android.settings.Settings$NotificationAppListActivity" />
+        </Preference>
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -79,21 +89,5 @@
             android:key="vibrate_on_disconnect"
             android:title="@string/incall_vibrate_disconnect_title"
             android:defaultValue="true" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="notification_lights"
-        android:title="@string/notification_lights">
-
-        <Preference
-            android:key="notification_light"
-            android:fragment="com.android.settings.applications.manageapplications.ManageApplications"
-            android:title="@string/notification_light_settings"
-            android:summary="@string/notification_light_settings_summary" >
-            <extra
-                android:name="classname"
-                android:value="com.android.settings.Settings$NotificationAppListActivity" />
-        </Preference>
-
     </PreferenceCategory>
 </PreferenceScreen>
