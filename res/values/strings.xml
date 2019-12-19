@@ -809,6 +809,7 @@
     <string name="pulse_ambient_light_color_title">Edge light color</string>
     <string name="pulse_ambient_auto_color_title">Auto color</string>
     <string name="pulse_ambient_auto_color_summary">Sets edge light color to the primary color of wallpaper</string>
+    <string name="pulse_ambient_light_duration_title">Duration</string>
 
     <!-- Ambient visualizer -->
     <string name="ambient_visualizer_title">Show LS Visualizer on Ambient Display</string>
