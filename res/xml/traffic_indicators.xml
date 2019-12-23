@@ -50,7 +50,8 @@
         android:max="30"
         settings:min="18"
         settings:defaultValue="21"
-        settings:units="dp" />
+        settings:units="dp" 
+        android:dependency="network_traffic_state" />
 
     <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
         android:key="network_traffic_hidearrow"
