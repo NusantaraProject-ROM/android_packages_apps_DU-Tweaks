@@ -46,6 +46,7 @@
     <string name="fingerprint_prefs_summary">Tweaks specific to the fingerprint scanner</string>
     <string name="lockscreen_items_title">Lockscreen items</string>
     <string name="lockscreen_items_summary">Customize the lockscreen</string>
+    <string name="switch_settings_title">Element</string>
 
     <!-- Statusbar -->
     <string name="battery_options_title">Battery options</string>
