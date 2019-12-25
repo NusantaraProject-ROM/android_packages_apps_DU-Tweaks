@@ -25,6 +25,12 @@
         android:summary="%s"
         android:defaultValue="1" />
 
+    <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
+        android:key="gaming_mode_notifications_feedback"
+        android:title="@string/gaming_mode_notifications_feedback_title"
+        android:summary="@string/gaming_mode_notifications_feedback_summary"
+        android:defaultValue="true" />
+
     <!-- Manual brightness -->
     <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
         android:key="gaming_mode_manual_brightness_toggle"
