@@ -86,6 +86,7 @@
     <string name="powermenu_advanced_restart_summary">Enables the advanced restart menu for other restarting options</string>
     <string name="powermenu_lockdown_title">Lockdown</string>
     <string name="powermenu_screenshot_title">Screenshot</string>
+    <string name="powermenu_screenrecord_title">Screen record</string>
     <string name="powermenu_torch">Flashlight</string>
     <string name="powermenu_disabled_title">Power menu when locked</string>
     <string name="powermenu_disabled_summary">Disable power menu on secure lockscreen</string>
