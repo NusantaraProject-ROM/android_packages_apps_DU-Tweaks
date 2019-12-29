@@ -1037,4 +1037,8 @@
     <!-- Pocket judge -->
     <string name="pocket_judge_title">Pocket detection</string>
     <string name="pocket_judge_summary">Block screen and button inputs when device is in pocket</string>
+
+    <!-- OOS clear all button -->
+    <string name="enable_clear_all_button">Replace clear all text with nice button</string>
+    <string name="enable_clear_all_button_summary">Show clear all notifications button in quick settings instead of default text one</string>
 </resources>
