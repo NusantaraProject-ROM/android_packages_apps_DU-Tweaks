@@ -950,5 +950,14 @@
     <string name="qs_footer_text_title">QS footer text</string>
     <string name="qs_footer_text_summary">Display text at bottom of QS panel</string>
     <string name="qs_footer_text_string_title">Customize footer text</string>
-    <string name="qs_footer_text_string_summary">Set to empty for default</string> 
+    <string name="qs_footer_text_string_summary">Set to empty for default</string>
+
+    <!-- Lockscreen clock style -->
+    <string name="lockscreen_clock_title">Clock style</string>
+    <string name="lockscreen_clock_dialog_title">Select clock style</string>
+    <string name="lockscreen_clock_hide">Hide</string>
+    <string name="lockscreen_clock_default">Default</string>
+    <string name="lockscreen_clock_default_bold">Default (bold)</string>
+    <string name="lockscreen_clock_sammy">Sammy</string>
+    <string name="lockscreen_clock_sammy_bold">Sammy (bold)</string>
 </resources>
