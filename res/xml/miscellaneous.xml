@@ -44,18 +44,6 @@
             android:summary="@string/animation_settings_summary"
             android:fragment="com.dirtyunicorns.tweaks.fragments.AnimationSettings" />
 
-    	<Preference
-            android:key="time_in_state"
-            android:title="@string/time_in_state_title"
-            android:summary="@string/time_in_state_summary"
-            android:fragment="com.dirtyunicorns.tweaks.fragments.TimeInState" />
-
-    	<Preference
-            android:key="doze_settings"
-            android:title="@string/doze_settings_title"
-            android:summary="@string/doze_settings_summary"
-            android:fragment="com.dirtyunicorns.tweaks.fragments.DozeSettings" />
-
         <com.dirtyunicorns.support.preferences.SecureSettingSwitchPreference
             android:key="charging_vibration_enabled"
             android:title="@string/vibration_on_charge_state_changed_title"
@@ -153,5 +141,4 @@
             android:selectable="false" />
 
     </PreferenceCategory>
-
 </PreferenceScreen>
