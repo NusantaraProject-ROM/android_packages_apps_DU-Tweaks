@@ -16,61 +16,46 @@
 
 <resources>
 
-    <!-- Whether to display active edge category -->
-    <bool name="has_active_edge">false</bool>
-
-    <!-- Whether to display heads up category -->
-    <bool name="has_heads_up">false</bool>
-
-    <!-- Whether to display recents category -->
-    <bool name="has_recents">false</bool>
-
-    <!-- Whether to display ticker category -->
-    <bool name="has_ticker">false</bool>
-
     <!-- Whether to display lockscreen items category -->
-    <bool name="has_lockscreen_items">false</bool>
+    <bool name="has_lockscreen_items">true</bool>
 
     <!-- Whether to display fingerprint category -->
-    <bool name="has_fingerprint_prefs">false</bool>
+    <bool name="has_fingerprint_prefs">true</bool>
 
     <!-- Whether to display buttons category -->
-    <bool name="has_buttons">false</bool>
+    <bool name="has_buttons">true</bool>
 
     <!-- Whether to display navigation category -->
-    <bool name="has_navigation">false</bool>
+    <bool name="has_navigation">true</bool>
 
     <!-- Whether to display battery category -->
-    <bool name="has_battery_options">false</bool>
+    <bool name="has_battery_options">true</bool>
 
     <!-- Whether to display carrier label category -->
-    <bool name="has_carrier_label">false</bool>
+    <bool name="has_carrier_label">true</bool>
 
     <!-- Whether to display clock category -->
-    <bool name="has_clock_options">false</bool>
+    <bool name="has_clock_options">true</bool>
 
     <!-- Whether to display icon manager category -->
-    <bool name="has_icon_manager">false</bool>
+    <bool name="has_icon_manager">true</bool>
 
     <!-- Whether to display notifications category -->
-    <bool name="has_notifications">false</bool>
+    <bool name="has_notifications">true</bool>
 
     <!-- Whether to display QS category -->
-    <bool name="has_quick_settings">false</bool>
+    <bool name="has_quick_settings">true</bool>
 
     <!-- Whether to display traffic indicators category -->
-    <bool name="has_traffic">false</bool>
-
-    <!-- Whether to display device extras -->
-    <bool name="has_device_extras">false</bool>
+    <bool name="has_traffic">true</bool>
 
     <!-- Whether to display expanded desktop category -->
     <bool name="has_expanded_desktop">false</bool>
 
     <!-- Whether to display misc category -->
-    <bool name="has_misc_options">false</bool>
+    <bool name="has_misc_options">true</bool>
 
     <!-- Whether to display power menu category -->
-    <bool name="has_powermenu">false</bool>
+    <bool name="has_powermenu">true</bool>
 
 </resources>

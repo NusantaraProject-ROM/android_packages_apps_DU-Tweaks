@@ -27,42 +27,31 @@ import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class Multitasking extends SettingsPreferenceFragment
+public class Hardware extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
-    private static final String ACTIVE_EDGE_CATEGORY = "active_edge_category";
-    private static final String HEADS_UP_CATEGORY = "heads_up_category";
-    private static final String RECENTS_CATEGORY = "recents_category";
-    private static final String TICKER_CATEGORY = "ticker_category";
+    private static final String BUTTONS_CATEGORY = "buttons_category";
+    private static final String NAVIGATION_CATEGORY = "navigation_category";
+    private static final String POWERMENU_CATEGORY = "powermenu_category";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.multitasking);
+        addPreferencesFromResource(R.xml.hardware);
 
-        Preference ActiveEdge = findPreference(ACTIVE_EDGE_CATEGORY);
-        if (!getResources().getBoolean(R.bool.has_active_edge)) {
-            getPreferenceScreen().removePreference(ActiveEdge);
-        } else {
-            if (!getContext().getPackageManager().hasSystemFeature(
-                    "android.hardware.sensor.assist")) {
-                getPreferenceScreen().removePreference(ActiveEdge);
-            }
+        Preference Buttons = findPreference(BUTTONS_CATEGORY);
+        if (!getResources().getBoolean(R.bool.has_buttons)) {
+            getPreferenceScreen().removePreference(Buttons);
         }
 
-        Preference HeadsUp = findPreference(HEADS_UP_CATEGORY);
-        if (!getResources().getBoolean(R.bool.has_heads_up)) {
-            getPreferenceScreen().removePreference(HeadsUp);
+        Preference Navigation = findPreference(NAVIGATION_CATEGORY);
+        if (!getResources().getBoolean(R.bool.has_navigation)) {
+            getPreferenceScreen().removePreference(Navigation);
         }
 
-        Preference Recents = findPreference(RECENTS_CATEGORY);
-        if (!getResources().getBoolean(R.bool.has_recents)) {
-            getPreferenceScreen().removePreference(Recents);
-        }
-
-        Preference Ticker = findPreference(TICKER_CATEGORY);
-        if (!getResources().getBoolean(R.bool.has_ticker)) {
-            getPreferenceScreen().removePreference(Ticker);
+        Preference PowerMenu = findPreference(POWERMENU_CATEGORY);
+        if (!getResources().getBoolean(R.bool.has_powermenu)) {
+            getPreferenceScreen().removePreference(PowerMenu);
         }
     }
 
@@ -76,10 +65,12 @@ public class Multitasking extends SettingsPreferenceFragment
         super.onPause();
     }
 
+
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         final String key = preference.getKey();
         return false;
     }
+
 
     @Override
     public int getMetricsCategory() {

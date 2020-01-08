@@ -30,40 +30,28 @@ import com.android.settings.SettingsPreferenceFragment;
 public class System extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
-    private static final String DEVICE_CATEGORY = "device_extras_category";
     private static final String EXPANDED_DESKTOP_CATEGORY = "expanded_desktop_category";
-    private static final String LOCKSCREEN_ITEMS_CATEGORY = "lockscreen_items_category";
+    private static final String NOTIFICATIONS_CATEGORY = "notifications_category";
     private static final String MISC_CATEGORY = "miscellaneous_category";
-    private static final String POWERMENU_CATEGORY = "powermenu_category";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.system);
 
-        Preference DeviceExtras = findPreference(DEVICE_CATEGORY);
-        if (!getResources().getBoolean(R.bool.has_device_extras)) {
-            getPreferenceScreen().removePreference(DeviceExtras);
-        }
-
         Preference ExpandedDesktop = findPreference(EXPANDED_DESKTOP_CATEGORY);
         if (!getResources().getBoolean(R.bool.has_expanded_desktop)) {
             getPreferenceScreen().removePreference(ExpandedDesktop);
         }
 
-        Preference LockscreenItems = findPreference(LOCKSCREEN_ITEMS_CATEGORY);
-        if (!getResources().getBoolean(R.bool.has_lockscreen_items)) {
-            getPreferenceScreen().removePreference(LockscreenItems);
+        Preference Notifications = findPreference(NOTIFICATIONS_CATEGORY);
+        if (!getResources().getBoolean(R.bool.has_notifications)) {
+            getPreferenceScreen().removePreference(Notifications);
         }
 
         Preference MiscOptions = findPreference("miscellaneous_category");
         if (!getResources().getBoolean(R.bool.has_misc_options)) {
             getPreferenceScreen().removePreference(MiscOptions);
-        }
-
-        Preference PowerMenu = findPreference(POWERMENU_CATEGORY);
-        if (!getResources().getBoolean(R.bool.has_powermenu)) {
-            getPreferenceScreen().removePreference(PowerMenu);
         }
     }
 

@@ -27,19 +27,19 @@
     <string name="bottom_nav_system_title">System</string>
     <string name="bottom_nav_lockscreen_title">Lockscreen</string>
     <string name="bottom_nav_statusbar_title">Statusbar</string>
-    <string name="bottom_nav_navigation_title">Navigation</string>
+    <string name="bottom_nav_hardware_title">Hardware</string>
     <string name="bottom_nav_multitasking_title">Multitasking</string>
 
     <!-- Categories -->
     <!-- System -->
-    <string name="device_extras_title">Device extras</string>
-    <string name="device_extras_summary">Device specific tweaks</string>
     <string name="expanded_desktop_title">Expanded desktop</string>
     <string name="expanded_desktop_summary">Per-app configuration of the status bar and navigation key view</string>
     <string name="miscellaneous_title">Miscellaneous</string>
     <string name="miscellaneous_summary">Miscellaneous tweaks</string>
     <string name="powermenu_title">Power menu</string>
     <string name="powermenu_summary">Configure the power menu</string>
+    <string name="notifications_title">Notifications</string>
+    <string name="notifications_summary">Tweaks specific to system notifications</string>
 
     <!-- Lockscreen -->
     <string name="fingerprint_prefs_title">Fingerprint prefs</string>
@@ -56,12 +56,8 @@
     <string name="clock_options_summary">Customize your statusbar clock</string>
     <string name="icon_manager_title">Icon manager</string>
     <string name="icon_manager_summary">Configure the visibility of statusbar items</string>
-    <string name="notifications_title">Notifications</string>
-    <string name="notifications_summary">Tweaks specific to system notifications</string>
     <string name="quicksettings_title">Quick settings</string>
     <string name="quicksettings_summary">Configure the layout of the quick settings area</string>
-    <string name="ticker_title">Ticker</string>
-    <string name="ticker_summary">Enable the statusbar ticker and configure ticker related tweaks</string>
     <string name="traffic_title">Traffic indicators</string>
     <string name="traffic_summary">Enable and configure the traffic indicators</string>
 
@@ -70,22 +66,4 @@
     <string name="buttons_summary">Configure volume rocker options</string>
     <string name="navigation_options_title">Navigation</string>
     <string name="navigation_options_summary">Configure navigation options</string>
-
-    <!-- Multitasking -->
-    <string name="active_edge_title">Active Edge</string>
-    <string name="active_edge_summary">Configure Active Edge options</string>
-    <string name="headsup_title">Heads up</string>
-    <string name="headsup_summary">Configure heads up options</string>
-    <string name="recents_title">Recents</string>
-    <string name="recents_summary">Configure recents options</string>
-
-    <!-- Themes -->
-    <string name="theme_category_title">Theme options</string>
-    <string name="accent_picker_dialog_title">Select an accent color</string>
-    <string name="theme_accent_picker_title">Accent color</string>
-    <string name="theme_accent_picker_summary">Select system theme accent color</string>
-    <string name="theme_accent_picker_default">Default</string>
-    <string name="accent_picker_material_colors">Material palette</string>
-    <string name="accent_picker_custom_colors">User requested</string>
-
 </resources>

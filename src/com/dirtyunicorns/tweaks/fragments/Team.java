@@ -61,53 +61,8 @@ public class Team extends DialogFragment {
         dialog.show();
 
         if (view != null) {
-            FrameLayout alex = view.findViewById(R.id.alex);
-            setTeamMember("Mazda--", alex);
-
-            FrameLayout bret = view.findViewById(R.id.bret);
-            setTeamMember("MazWoz", bret);
-
-            FrameLayout edwin = view.findViewById(R.id.edwin);
-            setTeamMember("spaceman860", edwin);
-
-            FrameLayout giuseppe = view.findViewById(R.id.giuseppe);
-            setTeamMember("Jertlok", giuseppe);
-
-            FrameLayout james = view.findViewById(R.id.james);
-            setTeamMember("JmzTaylor", james);
-
-            FrameLayout joshchasky = view.findViewById(R.id.joshchasky);
-            setTeamMember("nychitman1", joshchasky);
-
-            FrameLayout joshcorrell = view.findViewById(R.id.joshcorrell);
-            setTeamMember("jbats", joshcorrell);
-
-            FrameLayout josip = view.findViewById(R.id.josip);
-            setTeamMember("nasty007", josip);
-
-            FrameLayout littlealex = view.findViewById(R.id.littlealex);
-            setTeamMember("zvnexus", littlealex);
-
-            FrameLayout mark = view.findViewById(R.id.mark);
-            setTeamMember("moepda", mark);
-
-            FrameLayout nathan = view.findViewById(R.id.nathan);
-            setTeamMember("nathanchance", nathan);
-
-            FrameLayout nick = view.findViewById(R.id.nick);
-            setTeamMember("nickdoherty81", nick);
-
-            FrameLayout nicolas = view.findViewById(R.id.nicolas);
-            setTeamMember("Nico60", nicolas);
-
-            FrameLayout surge = view.findViewById(R.id.surge);
-            setTeamMember("Surge1223", surge);
-
-            FrameLayout tushar = view.findViewById(R.id.tushar);
-            setTeamMember("DeviousFusion", tushar);
-
-            FrameLayout will = view.findViewById(R.id.will);
-            setTeamMember("flintman", will);
+            FrameLayout genkzsz11 = view.findViewById(R.id.genkzsz11);
+            setTeamMember("Genkzsz11", genkzsz11);
         }
 
         dialog.show();
