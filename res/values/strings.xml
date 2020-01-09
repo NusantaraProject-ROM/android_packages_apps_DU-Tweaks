@@ -80,6 +80,7 @@
     <string name="animation_settings_title">Animations</string>
     <string name="animation_settings_summary">System Wide Animation Options</string>
     <string name="signal_icon_title">Signal Icon</string>
+    <string name="switch_category">Advanced Switch</string>
 
     <!-- Power Menu -->
     <string name="powermenu_reboot_title">Restart</string>
@@ -407,7 +408,7 @@
     <string name="quick_settings_vibrate_summary">Vibrate when QS tiles are pressed</string>
 
     <!-- Quick settings tiles columns and rows config --> 
-    <string name="qs_layout_category">Layout</string>
+    <string name="qs_layout_category">QS Layout</string>
     <string name="qs_rows_columns_title">QS rows and columns</string>
     <string name="qs_rows_portrait_title">Rows (portrait)</string>
     <string name="qs_rows_landscape_title">Rows (landscape)</string>

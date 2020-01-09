@@ -32,7 +32,6 @@
         android:title="@string/network_traffic_type"
         android:entries="@array/show_network_traffic_type_entries"
         android:entryValues="@array/show_network_traffic_type_values"
-        android:dependency="network_traffic_state"
         android:summary="%s"
         android:defaultValue="0"
         android:persistent="false" />
