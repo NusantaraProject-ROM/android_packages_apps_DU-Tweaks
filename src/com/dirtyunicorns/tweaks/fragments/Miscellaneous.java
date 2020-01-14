@@ -35,17 +35,9 @@ import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
-
 import com.dirtyunicorns.support.preferences.SystemSettingMasterSwitchPreference;
-import com.dirtyunicorns.tweaks.preferences.AppMultiSelectListPreference;
-import com.dirtyunicorns.tweaks.preferences.ScrollAppsViewPreference;
 
-import android.text.TextUtils;
-
-import java.util.Arrays;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
 
 public class Miscellaneous extends SettingsPreferenceFragment
@@ -56,16 +48,10 @@ public class Miscellaneous extends SettingsPreferenceFragment
     private static final String SCROLLINGCACHE_DEFAULT = "2";
     private static final String SCREEN_STATE_TOGGLES_ENABLE = "screen_state_toggles_enable_key";
     private static final String GAMING_MODE_ENABLED = "gaming_mode_enabled";
-    private static final String KEY_ASPECT_RATIO_APPS_ENABLED = "aspect_ratio_apps_enabled";
-    private static final String KEY_ASPECT_RATIO_APPS_LIST = "aspect_ratio_apps_list";
-    private static final String KEY_ASPECT_RATIO_CATEGORY = "aspect_ratio_category";
-    private static final String KEY_ASPECT_RATIO_APPS_LIST_SCROLLER = "aspect_ratio_apps_list_scroller";
 
     private ListPreference mScrollingCachePref;
     private SystemSettingMasterSwitchPreference mEnableScreenStateToggles;
     private SystemSettingMasterSwitchPreference mGamingMode;
-    private AppMultiSelectListPreference mAspectRatioAppsSelect;
-    private ScrollAppsViewPreference mAspectRatioApps;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -73,7 +59,6 @@ public class Miscellaneous extends SettingsPreferenceFragment
         addPreferencesFromResource(R.xml.miscellaneous);
 
         PreferenceScreen prefScreen = getPreferenceScreen();
-        ContentResolver resolver = getActivity().getContentResolver();
 
         mScrollingCachePref = (ListPreference) findPreference(SCROLLINGCACHE_PREF);
         mScrollingCachePref.setValue(SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP,
@@ -90,31 +75,6 @@ public class Miscellaneous extends SettingsPreferenceFragment
                 Settings.System.START_SCREEN_STATE_SERVICE, 0, UserHandle.USER_CURRENT);
         mEnableScreenStateToggles.setChecked(enabled != 0);
         mEnableScreenStateToggles.setOnPreferenceChangeListener(this);
-
-        final PreferenceCategory aspectRatioCategory =
-            (PreferenceCategory) getPreferenceScreen().findPreference(KEY_ASPECT_RATIO_CATEGORY);
-        final boolean supportMaxAspectRatio =
-            getResources().getBoolean(com.android.internal.R.bool.config_haveHigherAspectRatioScreen);
-        if (!supportMaxAspectRatio) {
-            getPreferenceScreen().removePreference(aspectRatioCategory);
-        } else {
-            mAspectRatioAppsSelect =
-                (AppMultiSelectListPreference) findPreference(KEY_ASPECT_RATIO_APPS_LIST);
-            mAspectRatioApps =
-                (ScrollAppsViewPreference) findPreference(KEY_ASPECT_RATIO_APPS_LIST_SCROLLER);
-            final String valuesString = Settings.System.getString(getContentResolver(),
-                Settings.System.ASPECT_RATIO_APPS_LIST);
-            List<String> valuesList = new ArrayList<String>();
-            if (!TextUtils.isEmpty(valuesString)) {
-                valuesList.addAll(Arrays.asList(valuesString.split(":")));
-                mAspectRatioApps.setVisible(true);
-                mAspectRatioApps.setValues(valuesList);
-            } else {
-                mAspectRatioApps.setVisible(false);
-            }
-            mAspectRatioAppsSelect.setValues(valuesList);
-            mAspectRatioAppsSelect.setOnPreferenceChangeListener(this);
-        }
     }
 
     @Override
@@ -142,19 +102,6 @@ public class Miscellaneous extends SettingsPreferenceFragment
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.GAMING_MODE_ENABLED, value ? 1 : 0);
-            return true;
-        } else if (preference == mAspectRatioAppsSelect) {
-            Collection<String> valueList = (Collection<String>) newValue;
-            mAspectRatioApps.setVisible(false);
-            if (valueList != null) {
-                Settings.System.putString(getContentResolver(),
-                    Settings.System.ASPECT_RATIO_APPS_LIST, TextUtils.join(":", valueList));
-                mAspectRatioApps.setVisible(true);
-                mAspectRatioApps.setValues(valueList);
-            } else {
-                Settings.System.putString(getContentResolver(),
-                    Settings.System.ASPECT_RATIO_APPS_LIST, "");
-            }
             return true;
         }
         return false;
