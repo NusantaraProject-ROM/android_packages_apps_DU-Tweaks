@@ -44,10 +44,10 @@ public class LockscreenItems extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, Indexable {
 
     private static final String LOCKSCREEN_VISUALIZER_ENABLED = "lockscreen_visualizer_enabled";
-    private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker_category";
+    private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker";
 
     private SecureSettingMasterSwitchPreference mVisualizerEnabled;
-    private Preference mFODIconPicker;
+    private PreferenceCategory mFODIconPickerCategory;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -62,10 +62,10 @@ public class LockscreenItems extends SettingsPreferenceFragment
                 LOCKSCREEN_VISUALIZER_ENABLED, 0);
         mVisualizerEnabled.setChecked(visualizerEnabled != 0);
 
-        mFODIconPicker = (Preference) findPreference(FOD_ICON_PICKER_CATEGORY);
-        if (mFODIconPicker != null
+        mFODIconPickerCategory = (PreferenceCategory) findPreference(FOD_ICON_PICKER_CATEGORY);
+        if (mFODIconPickerCategory != null
                 && !getResources().getBoolean(com.android.internal.R.bool.config_needCustomFODView)) {
-            prefScreen.removePreference(mFODIconPicker);
+            prefScreen.removePreference(mFODIconPickerCategory);
         }
     }
 
