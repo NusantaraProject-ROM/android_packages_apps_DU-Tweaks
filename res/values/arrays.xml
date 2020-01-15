@@ -828,6 +828,8 @@
         <item>@string/lockscreen_clock_default_bold</item>
         <item>@string/lockscreen_clock_sammy</item>
         <item>@string/lockscreen_clock_sammy_bold</item>
+        <item>@string/lockscreen_clock_sammy_accent_hour</item>
+        <item>@string/lockscreen_clock_sammy_accent_mins</item>
         <item>@string/lockscreen_clock_text</item>
     </string-array>
 
@@ -838,6 +840,8 @@
         <item>4</item>
         <item>5</item>
         <item>6</item>
+        <item>7</item>
+        <item>8</item>
     </string-array>
 
      <!-- Lockscreen date styles -->
