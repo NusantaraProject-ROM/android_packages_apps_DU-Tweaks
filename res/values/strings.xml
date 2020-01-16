@@ -869,7 +869,8 @@
     <string name="lockscreen_clock_sammy_bold">Sammy (bold)</string>
     <string name="lockscreen_clock_sammy_accent_hour">Sammy Accent(hours)</string>
     <string name="lockscreen_clock_sammy_accent_mins">Sammy Accent(minutes)</string>
-    <string name="lockscreen_clock_text">Typography</string>
+    <string name="lockscreen_clock_text">Text clock</string>
+    <string name="lockscreen_clock_analog_style">Analog Q Style</string>
 
     <!-- Lockscreen Date styles -->
     <string name="lockscreen_date_selection_title">Date style</string>
