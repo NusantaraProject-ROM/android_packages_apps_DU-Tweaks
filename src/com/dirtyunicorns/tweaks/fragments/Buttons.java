@@ -41,6 +41,7 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.util.du.Utils;
+import com.android.settingslib.search.SearchIndexable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +50,7 @@ import android.text.TextUtils;
 import android.view.View;
 import com.dirtyunicorns.support.preferences.CustomSeekBarPreference;
 
+@SearchIndexable
 public class Buttons extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, Indexable {
 
@@ -136,8 +138,10 @@ public class Buttons extends SettingsPreferenceFragment
                 @Override
                 public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
                         boolean enabled) {
-                    final ArrayList<SearchIndexableResource> result = new ArrayList<>();
-                    final SearchIndexableResource sir = new SearchIndexableResource(context);
+                    ArrayList<SearchIndexableResource> result =
+                            new ArrayList<SearchIndexableResource>();
+
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
                     sir.xmlResId = R.xml.buttons;
                     result.add(sir);
                     return result;
@@ -145,7 +149,7 @@ public class Buttons extends SettingsPreferenceFragment
 
                 @Override
                 public List<String> getNonIndexableKeys(Context context) {
-                    final List<String> keys = super.getNonIndexableKeys(context);
+                    List<String> keys = super.getNonIndexableKeys(context);
                     return keys;
         }
     };
