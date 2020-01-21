@@ -44,6 +44,12 @@
             android:summary="@string/enable_clear_all_button_summary"
             android:defaultValue="true" />
 
+        <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_datausage"
+            android:title="@string/qs_datausage_title"
+            android:summary="@string/qs_datausage_subtitle"
+            android:defaultValue="false" />
+
     <PreferenceCategory
         android:key="qs_footer"
         android:title="@string/qs_footer_title" >
