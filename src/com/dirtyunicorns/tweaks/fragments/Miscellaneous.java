@@ -16,8 +16,6 @@
 
 package com.dirtyunicorns.tweaks.fragments;
 
-import android.app.Activity;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -43,15 +41,11 @@ import java.util.List;
 public class Miscellaneous extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, Indexable {
 
-    private static final String SCROLLINGCACHE_PREF = "pref_scrollingcache";
-    private static final String SCROLLINGCACHE_PERSIST_PROP = "persist.sys.scrollingcache";
-    private static final String SCROLLINGCACHE_DEFAULT = "2";
-    private static final String SCREEN_STATE_TOGGLES_ENABLE = "screen_state_toggles_enable_key";
     private static final String GAMING_MODE_ENABLED = "gaming_mode_enabled";
+    private static final String KEY_SCREEN_OFF_ANIMATION = "screen_off_animation";
 
-    private ListPreference mScrollingCachePref;
-    private SystemSettingMasterSwitchPreference mEnableScreenStateToggles;
     private SystemSettingMasterSwitchPreference mGamingMode;
+    private ListPreference mScreenOffAnimation;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,48 +54,32 @@ public class Miscellaneous extends SettingsPreferenceFragment
 
         PreferenceScreen prefScreen = getPreferenceScreen();
 
-        mScrollingCachePref = (ListPreference) findPreference(SCROLLINGCACHE_PREF);
-        mScrollingCachePref.setValue(SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP,
-                SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP, SCROLLINGCACHE_DEFAULT)));
-        mScrollingCachePref.setOnPreferenceChangeListener(this);
-
         mGamingMode = (SystemSettingMasterSwitchPreference) findPreference(GAMING_MODE_ENABLED);
         mGamingMode.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.GAMING_MODE_ENABLED, 0) == 1));
         mGamingMode.setOnPreferenceChangeListener(this);
 
-        mEnableScreenStateToggles = (SystemSettingMasterSwitchPreference) findPreference(SCREEN_STATE_TOGGLES_ENABLE);
-        int enabled = Settings.System.getIntForUser(getContentResolver(),
-                Settings.System.START_SCREEN_STATE_SERVICE, 0, UserHandle.USER_CURRENT);
-        mEnableScreenStateToggles.setChecked(enabled != 0);
-        mEnableScreenStateToggles.setOnPreferenceChangeListener(this);
+        mScreenOffAnimation = (ListPreference) findPreference(KEY_SCREEN_OFF_ANIMATION);
+        int screenOffAnimation = Settings.System.getInt(getContentResolver(),
+                Settings.System.SCREEN_OFF_ANIMATION, 0);
+        mScreenOffAnimation.setValue(Integer.toString(screenOffAnimation));
+        mScreenOffAnimation.setSummary(mScreenOffAnimation.getEntry());
+        mScreenOffAnimation.setOnPreferenceChangeListener(this);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
-	if (preference == mScrollingCachePref) {
-            if (newValue != null) {
-                SystemProperties.set(SCROLLINGCACHE_PERSIST_PROP, (String) newValue);
-            }
-            return true;
-        } else if (preference == mEnableScreenStateToggles) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putIntForUser(getContentResolver(),
-                    Settings.System.START_SCREEN_STATE_SERVICE, value ? 1 : 0, UserHandle.USER_CURRENT);
-            Intent service = (new Intent())
-                .setClassName("com.android.systemui", "com.android.systemui.du.screenstate.ScreenStateService");
-            if (value) {
-                getActivity().stopService(service);
-                getActivity().startService(service);
-            } else {
-                getActivity().stopService(service);
-            }
-            return true;
-        } else if (preference == mGamingMode) {
+	if (preference == mGamingMode) {
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.GAMING_MODE_ENABLED, value ? 1 : 0);
+            return true;
+        } else if (preference == mScreenOffAnimation) {
+            int value = Integer.valueOf((String) newValue);
+            int index = mScreenOffAnimation.findIndexOfValue((String) newValue);
+            mScreenOffAnimation.setSummary(mScreenOffAnimation.getEntries()[index]);
+            Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_OFF_ANIMATION, value);
             return true;
         }
         return false;

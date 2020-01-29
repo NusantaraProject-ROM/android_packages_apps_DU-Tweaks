@@ -50,26 +50,6 @@
         android:persistent="false" />
 
     <PreferenceCategory
-        android:title="@string/panel_porn_title">
-
-	<com.dirtyunicorns.support.preferences.SystemSettingSeekBarPreference
-            android:key="transparent_power_menu"
-            android:title="@string/power_menu_transparency"
-            android:max="100"
-            settings:min="0"
-            settings:units="%"
-            android:defaultValue="100" />
-
-	<com.dirtyunicorns.support.preferences.SystemSettingSeekBarPreference
-            android:key="transparent_power_dialog_dim"
-            android:title="@string/power_menu_dialog_dim"
-            android:max="100"
-            settings:min="0"
-            settings:units="%"
-            android:defaultValue="50" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
         android:key="powermenu_advanced_category"
         android:title="@string/sub_cat_advanced">
 

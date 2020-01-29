@@ -89,20 +89,6 @@ public class Buttons extends SettingsPreferenceFragment
         } else {
             prefScreen.removePreference(mDoubleTapPowerFlashlight);
         }
-
-        // kill-app long press back
-        mKillAppLongPressBack = (SwitchPreference) findPreference(KILL_APP_LONGPRESS_BACK);
-        mKillAppLongPressBack.setOnPreferenceChangeListener(this);
-        int killAppLongPressBack = Settings.Secure.getInt(getContentResolver(),
-                KILL_APP_LONGPRESS_BACK, 0);
-        mKillAppLongPressBack.setChecked(killAppLongPressBack != 0);
-
-        // kill-app long press back delay
-        mLongpressKillDelay = (CustomSeekBarPreference) findPreference(LONG_PRESS_KILL_DELAY);
-        int killconf = Settings.System.getInt(getContentResolver(),
-                Settings.System.LONG_PRESS_KILL_DELAY, 1000);
-        mLongpressKillDelay.setValue(killconf);
-        mLongpressKillDelay.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -131,16 +117,6 @@ public class Buttons extends SettingsPreferenceFragment
                         Settings.Secure.CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED,
                         1/*camera gesture is disabled when 1*/);
             }
-            return true;
-        } else if (preference == mKillAppLongPressBack) {
-            boolean value = (Boolean) newValue;
-            Settings.Secure.putInt(getContentResolver(),
-		KILL_APP_LONGPRESS_BACK, value ? 1 : 0);
-            return true;
-        } else if (preference == mLongpressKillDelay) {
-            int killconf = (Integer) newValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.LONG_PRESS_KILL_DELAY, killconf);
             return true;
         }
         return false;

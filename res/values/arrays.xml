@@ -269,87 +269,6 @@
         <item>47</item>
     </string-array>
 
-    <!-- Power menu Animations  -->
-    <string-array name="power_menu_animations_entries">
-        <item>@string/power_menu_animation_aosp</item>
-        <item>@string/power_menu_animation_bottom</item>
-        <item>@string/power_menu_animation_top</item>
-        <item>@string/power_menu_animation_fly</item>
-        <item>@string/power_menu_animation_turn</item>
-        <item>@string/power_menu_animation_slide</item>
-        <item>@string/power_menu_animation_xylon</item>
-        <item>@string/power_menu_animation_card</item>
-        <item>@string/power_menu_animation_translucent_top</item>
-        <item>@string/power_menu_animation_translucent_bottom</item>
-        <item>@string/power_menu_animation_rotate</item>
-    </string-array>
-
-    <string-array name="power_menu_animations_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
-    </string-array>
-
-    <!-- Listview animation -->
-    <string-array name="listview_animation_entries">
-        <item>@string/listview_off</item>
-        <item>@string/listview_wave_left</item>
-        <item>@string/listview_wave_right</item>
-        <item>@string/listview_scale</item>
-        <item>@string/listview_alpha</item>
-        <item>@string/listview_stack_top</item>
-        <item>@string/listview_stack_bottom</item>
-        <item>@string/listview_unfold</item>
-        <item>@string/listview_fold</item>
-        <item>@string/listview_translate_left</item>
-        <item>@string/listview_translate_right</item>
-    </string-array>
-
-    <string-array name="listview_animation_values">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
-    </string-array>
-
-    <!-- Listview Interpolator -->
-    <string-array name="listview_interpolator_entries">
-        <item>@string/listview_off</item>
-        <item>@string/listview_accelerate_interpolator</item>
-        <item>@string/listview_decelerate_interpolator</item>
-        <item>@string/listview_accelerate_decelerate_interpolator</item>
-        <item>@string/listview_anticipate_interpolator</item>
-        <item>@string/listview_overshoot_interpolator</item>
-        <item>@string/listview_anticipate_overshoot_interpolator</item>
-        <item>@string/listview_bounce_interpolator</item>
-    </string-array>
-
-    <string-array name="listview_interpolator_values">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-    </string-array>
-
     <!-- Screen off animation -->
     <string-array name="screen_off_animation_entries">
         <item>@string/screen_off_animation_fade</item>
@@ -363,19 +282,17 @@
         <item>2</item>
     </string-array>
 
-    <!-- Quick Pulldown -->
-    <string-array name="quick_pulldown_entries" translatable="false">
-        <item>@string/quick_pulldown_off</item>
-        <item>@string/quick_pulldown_right</item>
-        <item>@string/quick_pulldown_left</item>
-        <item>@string/quick_pulldown_always</item>
+    <!-- Quick QS pulldown -->
+    <string-array name="quick_pulldown_entries">
+       <item>@string/quick_pulldown_none</item>
+       <item>@string/quick_pulldown_right</item>
+       <item>@string/quick_pulldown_left</item>
     </string-array>
 
     <string-array name="quick_pulldown_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
+       <item>0</item>
+       <item>1</item>
+       <item>2</item>
     </string-array>
 
     <!-- Battery -->

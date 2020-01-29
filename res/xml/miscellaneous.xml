@@ -18,32 +18,26 @@
             xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
             android:title="@string/miscellaneous_title" >
 
-    	<PreferenceScreen
-            android:key="rounded_corners"
-            android:title="@string/corners_title"
-            android:summary="@string/corners_summary"
-            android:fragment="com.dirtyunicorns.tweaks.fragments.RoundedCornersSettings" />
+    <PreferenceScreen
+        android:key="rounded_corners"
+        android:title="@string/corners_title"
+        android:summary="@string/corners_summary"
+        android:fragment="com.dirtyunicorns.tweaks.fragments.RoundedCornersSettings" />
 
-    	<Preference
-            android:key="animations_category"
-            android:title="@string/animation_settings_title"
-            android:summary="@string/animation_settings_summary"
-            android:fragment="com.dirtyunicorns.tweaks.fragments.AnimationSettings" />
+    <com.dirtyunicorns.support.preferences.SystemSettingListPreference
+        android:key="screenshot_type"
+        android:entries="@array/screenshot_type_entries"
+        android:entryValues="@array/screenshot_type_values"
+        android:title="@string/screenshot_type_title"
+        android:defaultValue="0" />
 
-        <com.dirtyunicorns.support.preferences.SystemSettingListPreference
-            android:key="screenshot_type"
-            android:entries="@array/screenshot_type_entries"
-            android:entryValues="@array/screenshot_type_values"
-            android:title="@string/screenshot_type_title"
-            android:defaultValue="0" />
-
-        <ListPreference
-            android:key="pref_scrollingcache"
-            android:dialogTitle="@string/pref_scrollingcache_title"
-            android:title="@string/pref_scrollingcache_title"
-            android:summary="@string/pref_scrollingcache_summary"
-            android:entries="@array/entries_scrollingcache"
-            android:entryValues="@array/values_scrollingcache" />
+    <ListPreference
+        android:key="screen_off_animation"
+        android:title="@string/screen_off_animation_title"
+        android:entries="@array/screen_off_animation_entries"
+        android:entryValues="@array/screen_off_animation_values"
+        android:persistent="false"
+        android:defaultValue="0" />
 
     <PreferenceCategory
         android:title="@string/switch_category">
@@ -54,13 +48,6 @@
             android:title="@string/gaming_mode_title"
             android:summary="@string/gaming_mode_summary"
             android:defaultValue="false" />
-
-        <com.dirtyunicorns.support.preferences.SystemSettingMasterSwitchPreference
-           android:key="screen_state_toggles_enable_key"
-           android:fragment="com.dirtyunicorns.tweaks.fragments.ScreenStateToggles"
-           android:title="@string/screen_state_toggles_title"
-           android:summary="@string/screen_state_toggles_summary"
-           android:defaultValue="false" />
 
         <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
            android:key="sensor_block"
@@ -73,16 +60,6 @@
            android:title="@string/allow_signature_fake"
            android:summary="@string/allow_signature_fake_summary"
            android:defaultValue="false" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:title="@string/gestures_stuff" >
-
-        <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference 
-            android:key="double_tap_sleep_gesture"
-            android:title="@string/double_tap_to_sleep_title"
-            android:summary="@string/double_tap_to_sleep_summary"
-            android:defaultValue="true" />
 
         <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference 
             android:key="three_finger_gesture" 
