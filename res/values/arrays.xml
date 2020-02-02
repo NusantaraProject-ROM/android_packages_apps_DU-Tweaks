@@ -750,6 +750,7 @@
         <item>@string/lockscreen_clock_text</item>
         <item>@string/lockscreen_clock_analog_style</item>
         <item>@string/lockscreen_clock_analog_num_style</item>
+        <item>@string/lockscreen_clock_analog_du_style</item>
     </string-array>
 
     <string-array name="lockscreen_clock_values">
@@ -763,6 +764,7 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
+        <item>11</item>
     </string-array>
 
      <!-- Lockscreen date styles -->
