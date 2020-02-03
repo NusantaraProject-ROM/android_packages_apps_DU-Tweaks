@@ -16,7 +16,6 @@
 
 package com.dirtyunicorns.tweaks.fragments;
 
-import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.os.Bundle;
@@ -32,7 +31,7 @@ import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.internal.util.du.Utils;
+import com.android.settings.Utils;
 import com.android.internal.widget.LockPatternUtils;
 
 import java.util.ArrayList;
@@ -42,7 +41,6 @@ public class PowerMenu extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, Indexable {
 
     private static final String KEY_LOCKDOWN_IN_POWER_MENU = "lockdown_in_power_menu";
-    private static final String KEY_POWERMENU_TORCH = "powermenu_torch";
 
     private static final int MY_USER_ID = UserHandle.myUserId();
 
@@ -57,8 +55,6 @@ public class PowerMenu extends SettingsPreferenceFragment
 
         final PreferenceScreen prefSet = getPreferenceScreen();
         final LockPatternUtils lockPatternUtils = new LockPatternUtils(getActivity());
-        final ContentResolver resolver = getActivity().getContentResolver();
-        final PreferenceScreen prefScreen = getPreferenceScreen();
 
         mPowerMenuLockDown = (SwitchPreference) findPreference(KEY_LOCKDOWN_IN_POWER_MENU);
         mAdvancedCategory = (PreferenceCategory) findPreference("powermenu_advanced_category");
@@ -71,15 +67,6 @@ public class PowerMenu extends SettingsPreferenceFragment
             prefSet.removePreference(mPowerMenuLockDown);
             prefSet.removePreference(mAdvancedCategory);
         }
-
-        mPowermenuTorch = (SwitchPreference) findPreference(KEY_POWERMENU_TORCH);
-        mPowermenuTorch.setOnPreferenceChangeListener(this);
-        if (!Utils.deviceHasFlashlight(getActivity())) {
-            prefScreen.removePreference(mPowermenuTorch);
-        } else {
-        mPowermenuTorch.setChecked((Settings.System.getInt(resolver,
-                Settings.System.POWERMENU_TORCH, 0) == 1));
-        }
     }
 
     @Override
@@ -88,11 +75,6 @@ public class PowerMenu extends SettingsPreferenceFragment
             boolean value = (Boolean) objValue;
             Settings.Secure.putInt(getActivity().getContentResolver(),
                     Settings.Secure.LOCKDOWN_IN_POWER_MENU, value ? 1 : 0);
-            return true;
-        } else if (preference == mPowermenuTorch) {
-            boolean value = (Boolean) objValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.POWERMENU_TORCH, value ? 1 : 0);
             return true;
         }
         return false;

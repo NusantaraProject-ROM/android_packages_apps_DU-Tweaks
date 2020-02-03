@@ -44,11 +44,6 @@
         android:title="@string/powermenu_screenrecord_title"
         android:defaultValue="false" />
 
-    <SwitchPreference
-        android:key="powermenu_torch"
-        android:title="@string/powermenu_torch"
-        android:persistent="false" />
-
     <PreferenceCategory
         android:key="powermenu_advanced_category"
         android:title="@string/sub_cat_advanced">
