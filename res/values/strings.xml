@@ -848,6 +848,8 @@
     <string name="blur_quicksettings_subtitle">blurs darkened background behind quick settings</string>
     <string name="qs_blur_alpha_title">Blur alpha</string>
     <string name="qs_blur_alpha_summary">Sets the blur transparency</string>
+    <string name="qs_blur_intensity_title">Blur intensity</string>
+    <string name="qs_blur_intensity_summary">Sets the blur intensity/radius</string>
 
     <!-- FOD icon picker -->
     <string name="fod_icon_picker_title">FOD icon picker</string>
