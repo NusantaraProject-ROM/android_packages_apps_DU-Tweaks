@@ -1283,4 +1283,7 @@
     <string name="ui_radius_rectangle">Rectangle</string>
     <string name="ui_radius_medium">Medium</string>
     <string name="ui_radius_large">Large</string>
+
+    <string name="brightness_slider_qs_unexpanded">MIUI brightness slider</string>
+    <string name="brightness_slider_qs_unexpanded_summary">Shows brightness slider below qs panel</string>
 </resources>
