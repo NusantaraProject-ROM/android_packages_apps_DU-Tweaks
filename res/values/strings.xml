@@ -165,6 +165,7 @@
     <string name="volte_icon_vo">Vo Only Icon</string>
     <string name="volte_icon_volte">VoLTE Icon</string>
     <string name="volte_icon_oos">VoLTE OOS Icon</string>
+    <string name="volte_icon_miui">VoLTE Miui Icon</string>
     <string name="volte_icon_hd">HD Icon</string>
 
     <!-- Incall vibrate options -->
