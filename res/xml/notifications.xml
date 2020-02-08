@@ -78,6 +78,18 @@
             settings:units="sec"
             android:dependency="pulse_ambient_light" />
 
+        <com.dirtyunicorns.support.preferences.SystemSettingSeekBarPreference
+            android:key="pulse_ambient_light_repeat_count"
+            android:title="@string/pulse_ambient_light_repeat_count_title"
+            android:summary="@string/pulse_ambient_light_repeat_count_summary"
+            android:persistent="false"
+            android:defaultValue="0"
+            android:max="10"
+            settings:min="0"
+            settings:interval="1"
+            settings:units="sec"
+            android:dependency="pulse_ambient_light" />
+
         <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
             android:key="pulse_ambient_auto_color"
             android:title="@string/pulse_ambient_auto_color_title"
