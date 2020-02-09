@@ -48,11 +48,6 @@
         android:title="@string/powermenu_screenshot_title"
         android:defaultValue="true" />
 
-    <com.dirtyunicorns.support.preferences.SecureSettingSwitchPreference
-        android:key="screenrecord_in_power_menu"
-        android:title="@string/powermenu_screenrecord_title"
-        android:defaultValue="false" />
-
     <PreferenceCategory
         android:key="powermenu_advanced_category"
         android:title="@string/sub_cat_advanced">
