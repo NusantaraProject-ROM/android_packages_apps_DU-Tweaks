@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2017-2019 The Dirty Unicorns Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+            android:title="@string/pulse_ambient_light_title" >
+
+        <com.dirtyunicorns.support.preferences.CustomSeekBarPreference
+            android:key="pulse_ambient_light_duration"
+            android:title="@string/pulse_ambient_light_duration_title"
+            android:persistent="false"
+            android:defaultValue="2"
+            android:max="10"
+            settings:min="1"
+            settings:units="sec" />
+
+        <com.dirtyunicorns.support.preferences.SystemSettingSeekBarPreference
+            android:key="pulse_ambient_light_repeat_count"
+            android:title="@string/pulse_ambient_light_repeat_count_title"
+            android:summary="@string/pulse_ambient_light_repeat_count_summary"
+            android:persistent="false"
+            android:defaultValue="0"
+            android:max="10"
+            settings:min="0"
+            settings:interval="1"
+            settings:units="sec" />
+
+        <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
+            android:key="pulse_ambient_auto_color"
+            android:title="@string/pulse_ambient_auto_color_title"
+            android:summary="@string/pulse_ambient_auto_color_summary"
+            android:defaultValue="false" />
+
+        <com.dirtyunicorns.support.colorpicker.ColorPickerPreference
+            android:key="pulse_ambient_light_color"
+            android:title="@string/pulse_ambient_light_color_title"
+            settings:defaultColorValue="0xFF3980FF" />
+</PreferenceScreen>

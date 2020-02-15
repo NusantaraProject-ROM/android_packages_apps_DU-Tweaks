@@ -41,8 +41,7 @@ import java.util.List;
 
 import com.dirtyunicorns.support.colorpicker.ColorPickerPreference;
 import com.dirtyunicorns.support.preferences.GlobalSettingMasterSwitchPreference;
-import com.dirtyunicorns.support.preferences.CustomSeekBarPreference;
-import com.dirtyunicorns.support.preferences.SystemSettingSeekBarPreference;
+import com.dirtyunicorns.support.preferences.SystemSettingMasterSwitchPreference;
 
 public class Notifications extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, Indexable {
@@ -50,17 +49,13 @@ public class Notifications extends SettingsPreferenceFragment
     private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
     private static final String LIGHTS_CATEGORY = "notification_lights";
     private static final String HEADS_UP_NOTIFICATIONS_ENABLED = "heads_up_notifications_enabled";
-    private static final String PULSE_AMBIENT_LIGHT_COLOR = "pulse_ambient_light_color";
     private static final String FLASHLIGHT_ON_CALL = "flashlight_on_call";
-    private static final String PULSE_AMBIENT_LIGHT_DURATION = "pulse_ambient_light_duration";
-    private static final String PULSE_AMBIENT_LIGHT_REPEAT_COUNT = "pulse_ambient_light_repeat_count";
+    private static final String PULSE_AMBIENT_LIGHT = "pulse_ambient_light";
 
     private GlobalSettingMasterSwitchPreference mHeadsUpEnabled;
+    private SystemSettingMasterSwitchPreference mPulseAmbientEnabled;
     private PreferenceCategory mLightsCategory;
-    private ColorPickerPreference mEdgeLightColorPreference;
     private ListPreference mFlashlightOnCall;
-    private CustomSeekBarPreference mEdgeLightDurationPreference;
-    private SystemSettingSeekBarPreference mEdgeLightRepeatCountPreference;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -80,34 +75,15 @@ public class Notifications extends SettingsPreferenceFragment
                 HEADS_UP_NOTIFICATIONS_ENABLED, 1);
         mHeadsUpEnabled.setChecked(headsUpEnabled != 0);
 
+        mPulseAmbientEnabled = (SystemSettingMasterSwitchPreference) findPreference(PULSE_AMBIENT_LIGHT);
+        mPulseAmbientEnabled.setChecked((Settings.System.getInt(resolver,
+                Settings.System.PULSE_AMBIENT_LIGHT, 0) == 1));
+        mPulseAmbientEnabled.setOnPreferenceChangeListener(this);
+
         mLightsCategory = (PreferenceCategory) findPreference(LIGHTS_CATEGORY);
         if (!getResources().getBoolean(com.android.internal.R.bool.config_hasNotificationLed)) {
             getPreferenceScreen().removePreference(mLightsCategory);
         }
-
-        mEdgeLightColorPreference = (ColorPickerPreference) findPreference(PULSE_AMBIENT_LIGHT_COLOR);
-        int edgeLightColor = Settings.System.getInt(getContentResolver(),
-                Settings.System.PULSE_AMBIENT_LIGHT_COLOR, 0xFF3980FF);
-        mEdgeLightColorPreference.setNewPreviewColor(edgeLightColor);
-        String edgeLightColorHex = String.format("#%08x", (0xFF3980FF & edgeLightColor));
-        if (edgeLightColorHex.equals("#ff3980ff")) {
-            mEdgeLightColorPreference.setSummary(R.string.default_string);
-        } else {
-            mEdgeLightColorPreference.setSummary(edgeLightColorHex);
-        }
-        mEdgeLightColorPreference.setOnPreferenceChangeListener(this);
-
-        mEdgeLightDurationPreference = (CustomSeekBarPreference) findPreference(PULSE_AMBIENT_LIGHT_DURATION);
-        int lightDuration = Settings.System.getIntForUser(getContentResolver(),
-                Settings.System.PULSE_AMBIENT_LIGHT_DURATION, 2, UserHandle.USER_CURRENT);
-        mEdgeLightDurationPreference.setValue(lightDuration);
-        mEdgeLightDurationPreference.setOnPreferenceChangeListener(this);
-
-        mEdgeLightRepeatCountPreference = (SystemSettingSeekBarPreference) findPreference(PULSE_AMBIENT_LIGHT_REPEAT_COUNT);
-        mEdgeLightRepeatCountPreference.setOnPreferenceChangeListener(this);
-        int rCount = Settings.System.getInt(getContentResolver(),
-                Settings.System.PULSE_AMBIENT_LIGHT_REPEAT_COUNT, 0);
-        mEdgeLightRepeatCountPreference.setValue(rCount);
 
         mFlashlightOnCall = (ListPreference) findPreference(FLASHLIGHT_ON_CALL);
         Preference FlashOnCall = findPreference("flashlight_on_call");
@@ -134,18 +110,6 @@ public class Notifications extends SettingsPreferenceFragment
             Settings.Global.putInt(getContentResolver(),
 		            HEADS_UP_NOTIFICATIONS_ENABLED, value ? 1 : 0);
             return true;
-        } else if (preference == mEdgeLightColorPreference) {
-            String hex = ColorPickerPreference.convertToARGB(
-                    Integer.valueOf(String.valueOf(newValue)));
-            if (hex.equals("#ff3980ff")) {
-                preference.setSummary(R.string.default_string);
-            } else {
-                preference.setSummary(hex);
-            }
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.PULSE_AMBIENT_LIGHT_COLOR, intHex);
-            return true;
         } else if (preference == mFlashlightOnCall) {
             int flashlightValue = Integer.parseInt(((String) newValue).toString());
             Settings.System.putInt(resolver,
@@ -153,15 +117,10 @@ public class Notifications extends SettingsPreferenceFragment
             mFlashlightOnCall.setValue(String.valueOf(flashlightValue));
             mFlashlightOnCall.setSummary(mFlashlightOnCall.getEntry());
             return true;
-        } else if (preference == mEdgeLightDurationPreference) {
-            int value = (Integer) newValue;
-            Settings.System.putIntForUser(getContentResolver(),
-                    Settings.System.PULSE_AMBIENT_LIGHT_DURATION, value, UserHandle.USER_CURRENT);
-            return true;
-        } else if (preference == mEdgeLightRepeatCountPreference) {
-            int value = (Integer) newValue;
+        } else if (preference == mPulseAmbientEnabled) {
+            boolean value = (Boolean) newValue;
             Settings.System.putInt(getContentResolver(),
-                    Settings.System.PULSE_AMBIENT_LIGHT_REPEAT_COUNT, value);
+		  PULSE_AMBIENT_LIGHT, value ? 1 : 0);
             return true;
         }
         return false;

@@ -62,46 +62,12 @@
         android:key="notification_lights"
         android:title="@string/notification_lights">
 
-        <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
+        <com.dirtyunicorns.support.preferences.SystemSettingMasterSwitchPreference
             android:key="pulse_ambient_light"
             android:title="@string/pulse_ambient_light_title"
+            android:fragment="com.dirtyunicorns.tweaks.fragments.PulseNotificationLights"
             android:summary="@string/pulse_ambient_light_summary"
             android:defaultValue="false" />
-
-        <com.dirtyunicorns.support.preferences.CustomSeekBarPreference
-            android:key="pulse_ambient_light_duration"
-            android:title="@string/pulse_ambient_light_duration_title"
-            android:persistent="false"
-            android:defaultValue="2"
-            android:max="10"
-            settings:min="1"
-            settings:units="sec"
-            android:dependency="pulse_ambient_light" />
-
-        <com.dirtyunicorns.support.preferences.SystemSettingSeekBarPreference
-            android:key="pulse_ambient_light_repeat_count"
-            android:title="@string/pulse_ambient_light_repeat_count_title"
-            android:summary="@string/pulse_ambient_light_repeat_count_summary"
-            android:persistent="false"
-            android:defaultValue="0"
-            android:max="10"
-            settings:min="0"
-            settings:interval="1"
-            settings:units="sec"
-            android:dependency="pulse_ambient_light" />
-
-        <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
-            android:key="pulse_ambient_auto_color"
-            android:title="@string/pulse_ambient_auto_color_title"
-            android:summary="@string/pulse_ambient_auto_color_summary"
-            android:dependency="pulse_ambient_light"
-            android:defaultValue="false" />
-
-        <com.dirtyunicorns.support.colorpicker.ColorPickerPreference
-            android:key="pulse_ambient_light_color"
-            android:title="@string/pulse_ambient_light_color_title"
-            android:dependency="pulse_ambient_light"
-            settings:defaultColorValue="0xFF3980FF" />
 
         <Preference
             android:key="notification_light"
