@@ -50,8 +50,7 @@ public class QuickSettings extends SettingsPreferenceFragment
 
     private static final String STATUS_BAR_CUSTOM_HEADER = "status_bar_custom_header";
     private static final String FOOTER_TEXT_STRING = "footer_text_string";
-    private static final String QS_BLUR_ALPHA = "qs_blur_alpha";
-    private static final String QS_BLUR_INTENSITY = "qs_blur_intensity";
+    private static final String QS_BLUR = "qs_blur";
     private static final String PREF_TILE_ANIM_STYLE = "qs_tile_animation_style";
     private static final String PREF_TILE_ANIM_DURATION = "qs_tile_animation_duration";
     private static final String PREF_TILE_ANIM_INTERPOLATOR = "qs_tile_animation_interpolator";
@@ -64,9 +63,8 @@ public class QuickSettings extends SettingsPreferenceFragment
     private CustomSeekBarPreference mQsRowsLand;
     private CustomSeekBarPreference mQsColumnsPort;
     private CustomSeekBarPreference mQsColumnsLand;
-    private CustomSeekBarPreference mQSBlurAlpha;
-    private CustomSeekBarPreference mQsBlurIntensity;
     private SystemSettingMasterSwitchPreference mCustomHeader;
+    private SystemSettingMasterSwitchPreference mQsBlur;
     private SystemSettingEditTextPreference mFooterString;
 
     @Override
@@ -113,17 +111,10 @@ public class QuickSettings extends SettingsPreferenceFragment
         mCustomHeader.setChecked(qsHeader != 0);
         mCustomHeader.setOnPreferenceChangeListener(this);
 
-        mQSBlurAlpha = (CustomSeekBarPreference) findPreference(QS_BLUR_ALPHA);
-        int qsBlurAlpha = Settings.System.getInt(getContentResolver(),
-                Settings.System.QS_BLUR_ALPHA, 100);
-        mQSBlurAlpha.setValue(qsBlurAlpha);
-        mQSBlurAlpha.setOnPreferenceChangeListener(this);
-
-        mQsBlurIntensity = (CustomSeekBarPreference) findPreference(QS_BLUR_INTENSITY);
-        int qsBlurIntensity = Settings.System.getIntForUser(resolver,
-                Settings.System.QS_BLUR_INTENSITY, 100, UserHandle.USER_CURRENT);
-        mQsBlurIntensity.setValue(qsBlurIntensity);
-        mQsBlurIntensity.setOnPreferenceChangeListener(this);
+        mQsBlur = (SystemSettingMasterSwitchPreference) findPreference(QS_BLUR);
+        mQsBlur.setChecked((Settings.System.getInt(resolver,
+                Settings.System.QS_BLUR, 0) == 1));
+        mQsBlur.setOnPreferenceChangeListener(this);
 
         mTileAnimationStyle = (ListPreference) findPreference(PREF_TILE_ANIM_STYLE);
         int tileAnimationStyle = Settings.System.getIntForUser(getContentResolver(),
@@ -208,16 +199,6 @@ public class QuickSettings extends SettingsPreferenceFragment
                         Settings.System.FOOTER_TEXT_STRING, "#Durex");
             }
             return true;
-        } else if (preference == mQSBlurAlpha) {
-            int value = (Integer) newValue;
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.QS_BLUR_ALPHA, value);
-            return true;
-        } else if (preference == mQsBlurIntensity) {
-            int valueInt = (Integer) newValue;
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.QS_BLUR_INTENSITY, valueInt);
-            return true;
         } else if (preference == mTileAnimationStyle) {
             int tileAnimationStyle = Integer.valueOf((String) newValue);
             Settings.System.putIntForUser(getContentResolver(), Settings.System.ANIM_TILE_STYLE,
@@ -236,6 +217,11 @@ public class QuickSettings extends SettingsPreferenceFragment
             Settings.System.putIntForUser(getContentResolver(), Settings.System.ANIM_TILE_INTERPOLATOR,
                     tileAnimationInterpolator, UserHandle.USER_CURRENT);
             updateTileAnimationInterpolatorSummary(tileAnimationInterpolator);
+            return true;
+        } else if (preference == mQsBlur) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.QS_BLUR, value ? 1 : 0);
             return true;
         }
         return false;
