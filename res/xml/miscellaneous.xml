@@ -75,6 +75,12 @@
            android:summary="@string/allow_signature_fake_summary"
            android:defaultValue="false" />
 
+        <com.dirtyunicorns.support.preferences.GlobalSettingSwitchPreference
+           android:key="privileged_device_identifier_check_relaxed"
+           android:title="@string/device_identifier_access_restrictions_title"
+           android:summary="@string/device_identifier_access_restrictions_summary"
+           android:defaultValue="false" />
+
         <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference 
             android:key="three_finger_gesture" 
             android:title="@string/three_finger_gesture" 
