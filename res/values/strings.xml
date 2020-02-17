@@ -971,4 +971,9 @@
     <!-- Force disable transition animation -->
     <string name="disable_transition_animations_title">Disable transition animations</string>
     <string name="disable_transition_animations_summary">Force disable all transition animations</string>
+
+    <!-- Text Clock -->
+    <string name="text_clock_alignment">Text Clock Alignment</string>
+    <string name="text_clock_left">Left</string>
+    <string name="text_clock_center">Center</string>
 </resources>

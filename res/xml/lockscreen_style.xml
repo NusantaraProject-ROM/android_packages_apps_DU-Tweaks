@@ -120,5 +120,13 @@
             settings:units="dp"
             android:persistent="false"
             android:defaultValue="40" />
+
+        <com.dirtyunicorns.support.preferences.SystemSettingListPreference
+            android:key="text_clock_alignment"
+            android:title="@string/text_clock_alignment"
+            android:dialogTitle="@string/text_clock_alignment"
+            android:entries="@array/text_clock_entries"
+            android:entryValues="@array/text_clock_values"
+            android:defaultValue="0" />
     </PreferenceCategory>
 </PreferenceScreen>
