@@ -16,13 +16,9 @@
 
 package com.dirtyunicorns.tweaks.fragments;
 
-import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.UserHandle;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
@@ -30,12 +26,12 @@ import androidx.preference.*;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 
 import com.android.internal.logging.nano.MetricsProto;
+import com.android.internal.util.du.Utils;
 
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
 
 import com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference;
 
@@ -46,6 +42,7 @@ public class NavigationOptions extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, Indexable {
 
     private static final String KEY_NAVIGATION_BAR_ENABLED = "force_show_navbar";
+    private static final String KEY_LAYOUT_SETTINGS = "layout_settings";
 
     private SwitchPreference mNavigationBar;
 
@@ -69,6 +66,10 @@ public class NavigationOptions extends SettingsPreferenceFragment
                 defaultToNavigationBar ? 1 : 0) == 1));
         mNavigationBar.setOnPreferenceChangeListener(this);
 
+        Preference mLayoutSettings = (Preference) findPreference(KEY_LAYOUT_SETTINGS);
+        if (!Utils.isThemeEnabled("com.android.internal.systemui.navbar.threebutton")) {
+            prefSet.removePreference(mLayoutSettings);
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
