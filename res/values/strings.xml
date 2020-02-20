@@ -1021,4 +1021,8 @@
     <string name="lockscreen_charging_animation_drop">Drop</string>
     <string name="lockscreen_charging_animation_explosion">Explosion</string>
     <string name="lockscreen_charging_animation_water">Water</string>
+
+    <!-- QS themes -->
+    <string name="qs_bg_use_new_tint">QS Tint</string>
+    <string name="qs_bg_use_new_tint_summary">Enable QS tiles tint style</string>
 </resources>
