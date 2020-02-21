@@ -45,10 +45,12 @@ import java.util.List;
 public class PulseNotificationLights extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, Indexable {
 
+    private static final String PULSE_AMBIENT_LIGHT_COLOR_MODE = "pulse_ambient_light_color_mode";
     private static final String PULSE_AMBIENT_LIGHT_COLOR = "pulse_ambient_light_color";
     private static final String PULSE_AMBIENT_LIGHT_DURATION = "pulse_ambient_light_duration";
     private static final String PULSE_AMBIENT_LIGHT_REPEAT_COUNT = "pulse_ambient_light_repeat_count";
 
+    private ListPreference mEdgeLightColorMode;
     private CustomSeekBarPreference mEdgeLightDurationPreference;
     private SystemSettingSeekBarPreference mEdgeLightRepeatCountPreference;
     private ColorPickerPreference mEdgeLightColorPreference;
@@ -57,6 +59,13 @@ public class PulseNotificationLights extends SettingsPreferenceFragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.pulse_notification_lights);
+
+        mEdgeLightColorMode = (ListPreference) findPreference(PULSE_AMBIENT_LIGHT_COLOR_MODE);
+        int edgeLightColorMode = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.PULSE_AMBIENT_LIGHT_COLOR_MODE, 1, UserHandle.USER_CURRENT);
+        mEdgeLightColorMode.setValue(String.valueOf(edgeLightColorMode));
+        mEdgeLightColorMode.setSummary(mEdgeLightColorMode.getEntry());
+        mEdgeLightColorMode.setOnPreferenceChangeListener(this);
 
         mEdgeLightColorPreference = (ColorPickerPreference) findPreference(PULSE_AMBIENT_LIGHT_COLOR);
         int edgeLightColor = Settings.System.getInt(getContentResolver(),
@@ -79,11 +88,18 @@ public class PulseNotificationLights extends SettingsPreferenceFragment
         mEdgeLightDurationPreference.setOnPreferenceChangeListener(this);
 
         mEdgeLightRepeatCountPreference = (SystemSettingSeekBarPreference) findPreference(PULSE_AMBIENT_LIGHT_REPEAT_COUNT);
-        mEdgeLightRepeatCountPreference.setOnPreferenceChangeListener(this);
         int rCount = Settings.System.getInt(getContentResolver(),
-                Settings.System.PULSE_AMBIENT_LIGHT_REPEAT_COUNT, 0);
+                Settings.System.PULSE_AMBIENT_LIGHT_REPEAT_COUNT, 0, UserHandle.USER_CURRENT);
         mEdgeLightRepeatCountPreference.setValue(rCount);
+        mEdgeLightRepeatCountPreference.setOnPreferenceChangeListener(this);
 
+        updateColorPrefs(edgeLightColorMode);
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
     }
 
     @Override
@@ -109,10 +125,28 @@ public class PulseNotificationLights extends SettingsPreferenceFragment
         } else if (preference == mEdgeLightRepeatCountPreference) {
             int value = (Integer) newValue;
             Settings.System.putInt(getContentResolver(),
-                    Settings.System.PULSE_AMBIENT_LIGHT_REPEAT_COUNT, value);
+                    Settings.System.PULSE_AMBIENT_LIGHT_REPEAT_COUNT, (value - 1), UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference == mEdgeLightColorMode) {
+            int edgeLightColorMode = Integer.valueOf((String) newValue);
+            int index = mEdgeLightColorMode.findIndexOfValue((String) newValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.PULSE_AMBIENT_LIGHT_COLOR_MODE, edgeLightColorMode, UserHandle.USER_CURRENT);
+            mEdgeLightColorMode.setSummary(mEdgeLightColorMode.getEntries()[index]);
+            updateColorPrefs(edgeLightColorMode);
             return true;
         }
         return false;
+    }
+
+    private void updateColorPrefs(int edgeLightColorMode) {
+        if (mEdgeLightColor != null) {
+            if (edgeLightColorMode == 2) {
+                getPreferenceScreen().addPreference(mEdgeLightColor);
+            } else {
+                getPreferenceScreen().removePreference(mEdgeLightColor);
+            }
+        }
     }
 
     @Override
