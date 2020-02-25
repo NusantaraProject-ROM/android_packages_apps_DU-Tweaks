@@ -33,7 +33,6 @@ import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
-import com.dirtyunicorns.tweaks.preferences.TelephonyUtils;
 import com.android.internal.util.du.Utils;
 
 import java.util.ArrayList;
@@ -46,7 +45,6 @@ import com.dirtyunicorns.support.preferences.SystemSettingMasterSwitchPreference
 public class Notifications extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, Indexable {
 
-    private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
     private static final String LIGHTS_CATEGORY = "notification_lights";
     private static final String HEADS_UP_NOTIFICATIONS_ENABLED = "heads_up_notifications_enabled";
     private static final String FLASHLIGHT_ON_CALL = "flashlight_on_call";
@@ -63,11 +61,6 @@ public class Notifications extends SettingsPreferenceFragment
         addPreferencesFromResource(R.xml.notifications);
         PreferenceScreen prefScreen = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
-
-        PreferenceCategory incallVibCategory = (PreferenceCategory) findPreference(INCALL_VIB_OPTIONS);
-        if (!TelephonyUtils.isVoiceCapable(getActivity())) {
-            prefScreen.removePreference(incallVibCategory);
-        }
 
         mHeadsUpEnabled = (GlobalSettingMasterSwitchPreference) findPreference(HEADS_UP_NOTIFICATIONS_ENABLED);
         mHeadsUpEnabled.setOnPreferenceChangeListener(this);
