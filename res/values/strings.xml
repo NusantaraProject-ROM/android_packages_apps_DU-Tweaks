@@ -674,15 +674,13 @@
     <string name="pulse_ambient_light_summary">Light up the side edges of the screen on notification pulse</string>
     <string name="pulse_ambient_light_color_title">Custom color</string>
     <string name="pulse_ambient_light_color_mode_title">Light color</string>
+    <string name="pulse_ambient_light_color_mode_notification">Automatic (Notification Based)</string>
     <string name="pulse_ambient_light_color_mode_wall">Automatic (Wallpaper Based)</string>
     <string name="pulse_ambient_light_color_mode_accent">Accent</string>
     <string name="pulse_ambient_light_color_mode_custom">Custom</string>
     <string name="pulse_ambient_light_duration_title">Light duration</string>
     <string name="pulse_ambient_light_repeat_count_title">Light repeat count</string>
     <string name="pulse_ambient_light_repeat_count_summary">Set max repeat count. 0 for infinite</string>
-    <string name="pulse_ambient_light_layout_title">Edge Light View</string>
-    <string name="pulse_ambient_light_layout_solid">Solid</string>
-    <string name="pulse_ambient_light_layout_faded">Faded</string>
 
     <!-- Ambient visualizer -->
     <string name="ambient_visualizer_title">Ambient Music visualizer</string>

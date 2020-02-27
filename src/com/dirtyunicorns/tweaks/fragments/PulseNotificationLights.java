@@ -45,10 +45,10 @@ import java.util.List;
 public class PulseNotificationLights extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, Indexable {
 
-    private static final String PULSE_AMBIENT_LIGHT_COLOR_MODE = "pulse_ambient_light_color_mode";
-    private static final String PULSE_AMBIENT_LIGHT_COLOR = "pulse_ambient_light_color";
-    private static final String PULSE_AMBIENT_LIGHT_DURATION = "pulse_ambient_light_duration";
-    private static final String PULSE_AMBIENT_LIGHT_REPEAT_COUNT = "pulse_ambient_light_repeat_count";
+    private static final String AMBIENT_LIGHT_COLOR = "ambient_light_color";
+    private static final String AMBIENT_LIGHT_CUSTOM_COLOR = "ambient_light_custom_color";
+    private static final String AMBIENT_LIGHT_DURATION = "ambient_light_duration";
+    private static final String AMBIENT_LIGHT_REPEAT_COUNT = "ambient_light_repeat_count";
 
     private ListPreference mEdgeLightColorMode;
     private CustomSeekBarPreference mEdgeLightDurationPreference;
@@ -60,16 +60,16 @@ public class PulseNotificationLights extends SettingsPreferenceFragment
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.pulse_notification_lights);
 
-        mEdgeLightColorMode = (ListPreference) findPreference(PULSE_AMBIENT_LIGHT_COLOR_MODE);
+        mEdgeLightColorMode = (ListPreference) findPreference(AMBIENT_LIGHT_COLOR);
         int edgeLightColorMode = Settings.System.getIntForUser(getContentResolver(),
-                Settings.System.PULSE_AMBIENT_LIGHT_COLOR_MODE, 1, UserHandle.USER_CURRENT);
+                Settings.System.AMBIENT_LIGHT_COLOR, 0, UserHandle.USER_CURRENT);
         mEdgeLightColorMode.setValue(String.valueOf(edgeLightColorMode));
         mEdgeLightColorMode.setSummary(mEdgeLightColorMode.getEntry());
         mEdgeLightColorMode.setOnPreferenceChangeListener(this);
 
-        mEdgeLightColorPreference = (ColorPickerPreference) findPreference(PULSE_AMBIENT_LIGHT_COLOR);
+        mEdgeLightColorPreference = (ColorPickerPreference) findPreference(AMBIENT_LIGHT_CUSTOM_COLOR);
         int edgeLightColor = Settings.System.getInt(getContentResolver(),
-                Settings.System.PULSE_AMBIENT_LIGHT_COLOR, 0xFF3980FF);
+                Settings.System.AMBIENT_LIGHT_CUSTOM_COLOR, 0xFF3980FF);
         mEdgeLightColorPreference.setNewPreviewColor(edgeLightColor);
 
         AmbientLightSettingsPreview.setAmbientLightPreviewColor(edgeLightColor);
@@ -81,15 +81,15 @@ public class PulseNotificationLights extends SettingsPreferenceFragment
         }
         mEdgeLightColorPreference.setOnPreferenceChangeListener(this);
 
-        mEdgeLightDurationPreference = (CustomSeekBarPreference) findPreference(PULSE_AMBIENT_LIGHT_DURATION);
+        mEdgeLightDurationPreference = (CustomSeekBarPreference) findPreference(AMBIENT_LIGHT_DURATION);
         int lightDuration = Settings.System.getIntForUser(getContentResolver(),
-                Settings.System.PULSE_AMBIENT_LIGHT_DURATION, 2, UserHandle.USER_CURRENT);
+                Settings.System.AMBIENT_LIGHT_DURATION, 2, UserHandle.USER_CURRENT);
         mEdgeLightDurationPreference.setValue(lightDuration);
         mEdgeLightDurationPreference.setOnPreferenceChangeListener(this);
 
-        mEdgeLightRepeatCountPreference = (SystemSettingSeekBarPreference) findPreference(PULSE_AMBIENT_LIGHT_REPEAT_COUNT);
-        int rCount = Settings.System.getInt(getContentResolver(),
-                Settings.System.PULSE_AMBIENT_LIGHT_REPEAT_COUNT, 0, UserHandle.USER_CURRENT);
+        mEdgeLightRepeatCountPreference = (SystemSettingSeekBarPreference) findPreference(AMBIENT_LIGHT_REPEAT_COUNT);
+        int rCount = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.AMBIENT_LIGHT_REPEAT_COUNT, 0, UserHandle.USER_CURRENT);
         mEdgeLightRepeatCountPreference.setValue(rCount);
         mEdgeLightRepeatCountPreference.setOnPreferenceChangeListener(this);
 
@@ -115,23 +115,23 @@ public class PulseNotificationLights extends SettingsPreferenceFragment
             AmbientLightSettingsPreview.setAmbientLightPreviewColor(Integer.valueOf(String.valueOf(newValue)));
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getContentResolver(),
-                    Settings.System.PULSE_AMBIENT_LIGHT_COLOR, intHex);
+                    Settings.System.AMBIENT_LIGHT_CUSTOM_COLOR, intHex);
             return true;
         } else if (preference == mEdgeLightDurationPreference) {
             int value = (Integer) newValue;
             Settings.System.putIntForUser(getContentResolver(),
-                    Settings.System.PULSE_AMBIENT_LIGHT_DURATION, value, UserHandle.USER_CURRENT);
+                    Settings.System.AMBIENT_LIGHT_DURATION, value, UserHandle.USER_CURRENT);
             return true;
         } else if (preference == mEdgeLightRepeatCountPreference) {
             int value = (Integer) newValue;
             Settings.System.putInt(getContentResolver(),
-                    Settings.System.PULSE_AMBIENT_LIGHT_REPEAT_COUNT, (value - 1), UserHandle.USER_CURRENT);
+                    Settings.System.AMBIENT_LIGHT_REPEAT_COUNT, UserHandle.USER_CURRENT);
             return true;
         } else if (preference == mEdgeLightColorMode) {
             int edgeLightColorMode = Integer.valueOf((String) newValue);
             int index = mEdgeLightColorMode.findIndexOfValue((String) newValue);
             Settings.System.putIntForUser(getContentResolver(),
-                    Settings.System.PULSE_AMBIENT_LIGHT_COLOR_MODE, edgeLightColorMode, UserHandle.USER_CURRENT);
+                    Settings.System.AMBIENT_LIGHT_COLOR, edgeLightColorMode, UserHandle.USER_CURRENT);
             mEdgeLightColorMode.setSummary(mEdgeLightColorMode.getEntries()[index]);
             updateColorPrefs(edgeLightColorMode);
             return true;
@@ -140,11 +140,11 @@ public class PulseNotificationLights extends SettingsPreferenceFragment
     }
 
     private void updateColorPrefs(int edgeLightColorMode) {
-        if (mEdgeLightColor != null) {
-            if (edgeLightColorMode == 2) {
-                getPreferenceScreen().addPreference(mEdgeLightColor);
+        if (mEdgeLightColorPreference != null) {
+            if (edgeLightColorMode == 3) {
+                getPreferenceScreen().addPreference(mEdgeLightColorPreference);
             } else {
-                getPreferenceScreen().removePreference(mEdgeLightColor);
+                getPreferenceScreen().removePreference(mEdgeLightColorPreference);
             }
         }
     }

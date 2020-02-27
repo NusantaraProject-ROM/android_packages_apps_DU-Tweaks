@@ -66,7 +66,7 @@
         android:title="@string/notification_lights">
 
         <com.dirtyunicorns.support.preferences.SystemSettingMasterSwitchPreference
-            android:key="pulse_ambient_light"
+            android:key="ambient_notification_light"
             android:title="@string/pulse_ambient_light_title"
             android:fragment="com.dirtyunicorns.tweaks.fragments.PulseNotificationLights"
             android:summary="@string/pulse_ambient_light_summary"
