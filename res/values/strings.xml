@@ -681,6 +681,8 @@
     <string name="pulse_ambient_light_duration_title">Light duration</string>
     <string name="pulse_ambient_light_repeat_count_title">Light repeat count</string>
     <string name="pulse_ambient_light_repeat_count_summary">Set max repeat count. 0 for infinite</string>
+    <string name="pulse_ambient_light_show_always_title">Show for all doze events</string>
+    <string name="pulse_ambient_light_show_always_summary">Show lights for all doze events and not just notifications</string>
 
     <!-- Ambient visualizer -->
     <string name="ambient_visualizer_title">Ambient Music visualizer</string>
