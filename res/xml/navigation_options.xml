@@ -23,6 +23,11 @@
         android:title="@string/navigation_bar_title"
         android:summary="@string/navigation_bar_summary" />
 
+    <com.dirtyunicorns.support.preferences.SecureSettingSwitchPreference
+        android:key="sysui_nav_bar_inverse"
+        android:title="@string/navbar_invert_layout_title"
+        android:defaultValue="false" />
+
     <Preference
         android:key="gesture_system_navigation"
         android:title="@string/system_navigation_title"
@@ -221,17 +226,5 @@
             android:entryValues="@array/action_values" />
 
     </PreferenceCategory>
-
-    <Preference
-        android:key="gesture_settings"
-        android:title="@string/aosp_gesture_preference"
-        android:summary="@string/aosp_gesture_summary"
-        android:fragment="com.android.settings.gestures.GestureSettings"
-        settings:controller="com.android.settings.gestures.GesturesSettingPreferenceController"/>
-
-        <com.dirtyunicorns.support.preferences.SecureSettingSwitchPreference
-            android:key="sysui_nav_bar_inverse"
-            android:title="@string/navbar_invert_layout_title"
-            android:defaultValue="false" />
 
 </PreferenceScreen>
