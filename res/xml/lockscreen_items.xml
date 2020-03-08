@@ -31,6 +31,16 @@
         android:summary="@string/lockscreen_style_summary"
         android:fragment="com.dirtyunicorns.tweaks.fragments.LockscreenStyle" />
 
+    <com.dirtyunicorns.support.preferences.SystemSettingListPreference
+        android:key="lockscreen_charging_animation_style"
+        android:dialogTitle="@string/lockscreen_charging_animation_title"
+        android:title="@string/lockscreen_charging_animation_title"
+        android:entries="@array/lockscreen_charging_animation_entries"
+        android:entryValues="@array/lockscreen_charging_animation_values"
+        android:summary="%s"
+        android:defaultValue="1" />
+
+
     <!-- FOD icon picker -->
     <Preference
         android:key="fod_icon_picker_category"
@@ -40,13 +50,6 @@
 
     <PreferenceCategory
         android:title="@string/switch_settings_title" >
-
-        <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
-            android:key="lockscreen_charging_animation"
-            android:title="@string/lockscreen_charging_animation_title"
-            android:summary="@string/lockscreen_charging_animation_summary"
-            android:defaultValue="true" />
-
 
         <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
             android:key="lockscreen_show_status_bar"
