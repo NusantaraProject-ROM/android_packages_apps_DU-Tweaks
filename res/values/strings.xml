@@ -1002,4 +1002,10 @@
     <string name="hardware_keys_title">Hardware</string>
     <string name="hardware_keys_disable_title">Hardware keys</string>
     <string name="hardware_keys_disable_summary">Use the device hardware keys for navigation</string>
+
+    <!-- Gesture navbar handle -->
+    <string name="gesture_navbar_handle_title">Gesture bar size</string>
+    <string name="gesture_navbar_handle_default">Default</string>
+    <string name="gesture_navbar_handle_middle">Middle</string>
+    <string name="gesture_navbar_handle_large">Large</string>
 </resources>
