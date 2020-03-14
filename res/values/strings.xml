@@ -556,6 +556,8 @@
     <string name="gaming_mode_app_picker_title">Automatically turn on for these apps</string>
     <string name="add_gaming_mode_package_title">Add apps for Gaming mode</string>
     <string name="add_gaming_mode_package_summary">Gaming mode will turn on automatically when these apps are opened and turn off when they are closed</string>
+    <string name="gaming_mode_hardware_keys_title">Lock HW buttons</string>
+    <string name="gaming_mode_hardware_keys_summary">When Gaming mode is turned on, HW buttons will be locked</string>
     <string name="gaming_mode_headsup_title">Heads-up Notifications</string>
     <string name="gaming_mode_headsup_allow">Allow all headsup notifications</string>
     <string name="gaming_mode_headsup_dnc">Block all headsup notifications except calls &amp; alarms</string>
@@ -995,4 +997,9 @@
     <string name="device_identifier_access_restrictions_title">Disable device identifier restrictions</string>
     <!-- Summary for the new device identifier access restrictions -->
     <string name="device_identifier_access_restrictions_summary">Disable the new access restrictions for device identifiers</string>
+
+    <!-- HW keys -->
+    <string name="hardware_keys_title">Hardware</string>
+    <string name="hardware_keys_disable_title">Hardware keys</string>
+    <string name="hardware_keys_disable_summary">Use the device hardware keys for navigation</string>
 </resources>
