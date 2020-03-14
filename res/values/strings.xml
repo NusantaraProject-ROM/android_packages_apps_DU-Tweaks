@@ -552,6 +552,8 @@
     <string name="gaming_mode_app_picker_title">Automatically turn on for these apps</string>
     <string name="add_gaming_mode_package_title">Add apps for Gaming mode</string>
     <string name="add_gaming_mode_package_summary">Gaming mode will turn on automatically when these apps are opened and turn off when they are closed</string>
+    <string name="gaming_mode_hardware_keys_title">Lock HW buttons</string>
+    <string name="gaming_mode_hardware_keys_summary">When Gaming mode is turned on, HW buttons will be locked</string>
     <string name="gaming_mode_headsup_title">Heads-up Notifications</string>
     <string name="gaming_mode_headsup_allow">Allow all headsup notifications</string>
     <string name="gaming_mode_headsup_dnc">Block all headsup notifications except calls &amp; alarms</string>
@@ -1114,4 +1116,9 @@
     <string name="back_arrow_gesture_summary">Show an animation when the back gesture is triggered</string>
     <string name="back_gesture_haptic_title">Haptic feedback</string>
     <string name="back_gesture_haptic_summary">Vibrate when the back gesture is triggered</string>
+
+    <!-- HW keys -->
+    <string name="hardware_keys_title">Hardware</string>
+    <string name="hardware_keys_disable_title">Hardware keys</string>
+    <string name="hardware_keys_disable_summary">Use the device hardware keys for navigation</string>
 </resources>

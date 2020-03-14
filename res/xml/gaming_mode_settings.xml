@@ -31,6 +31,13 @@
         android:summary="@string/gaming_mode_notifications_feedback_summary"
         android:defaultValue="true" />
 
+    <!-- Hardware keys -->
+    <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
+        android:key="gaming_mode_hw_keys_toggle"
+        android:title="@string/gaming_mode_hardware_keys_title"
+        android:summary="@string/gaming_mode_hardware_keys_summary"
+        android:defaultValue="false" />
+
     <!-- Manual brightness -->
     <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
         android:key="gaming_mode_manual_brightness_toggle"

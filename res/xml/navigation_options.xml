@@ -73,7 +73,7 @@
             android:key="swap_navigation_keys"
             android:title="@string/hw_keys_swap_title"
             android:summary="@string/hw_keys_swap_summary"
-	  android:defaultValue="false"
+            android:defaultValue="false"
             android:dependency="hardware_keys_enable" />
 
         <Preference
