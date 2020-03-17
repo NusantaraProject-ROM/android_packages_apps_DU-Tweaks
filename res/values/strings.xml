@@ -1000,7 +1000,8 @@
     <string name="hardware_keys_disable_summary">Use the device hardware keys for navigation</string>
 
     <!-- Gesture navbar handle -->
-    <string name="gesture_navbar_handle_title">Gesture bar size</string>
+    <string name="gesture_navbar_handle_title">Handle bar size</string>
+    <string name="gesture_navbar_handle_hidden">Hidden</string>
     <string name="gesture_navbar_handle_default">Default</string>
     <string name="gesture_navbar_handle_middle">Middle</string>
     <string name="gesture_navbar_handle_large">Large</string>
