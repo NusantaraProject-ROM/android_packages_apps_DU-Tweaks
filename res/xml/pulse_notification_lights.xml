@@ -53,5 +53,5 @@
         <com.dirtyunicorns.support.colorpicker.ColorPickerPreference
             android:key="pulse_ambient_light_color"
             android:title="@string/pulse_ambient_light_color_title"
-            settings:defaultColorValue="0xFF3980FF" />
+            android:defaultValue="0xFF3980FF" />
 </PreferenceScreen>
