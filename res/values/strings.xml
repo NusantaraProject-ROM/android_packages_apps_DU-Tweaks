@@ -32,6 +32,8 @@
 
     <!-- Categories -->
     <!-- System -->
+    <string name="corvus_parts_title">Corvus Parts</string>
+    <string name="corvus_parts_summary">Corvus device specific parts</string>
     <string name="miscellaneous_title">Miscellaneous</string>
     <string name="miscellaneous_summary">Miscellaneous tweaks</string>
     <string name="powermenu_title">Power menu</string>

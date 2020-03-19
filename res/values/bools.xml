@@ -57,4 +57,7 @@
 
     <!-- Whether to display ticker category -->
     <bool name="has_ticker">true</bool>
+
+    <!-- Whether to display corvus parts -->
+    <bool name="has_corvus_parts_available">false</bool>
 </resources>
