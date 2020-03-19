@@ -49,6 +49,7 @@ public class FODIconPicker extends LayoutPreference {
     private static ImageButton ButtonTwo;
     private static ImageButton ButtonThree;
     private static ImageButton ButtonFour;
+    private static ImageButton ButtonFive;
 
     private static final String TAG = "FODIconPicker";
 
@@ -92,6 +93,7 @@ public class FODIconPicker extends LayoutPreference {
         ButtonTwo = findViewById(R.id.fodicontwo_button);
         ButtonThree = findViewById(R.id.fodiconthree_button);
         ButtonFour = findViewById(R.id.fodiconfour_button);
+        ButtonFive = findViewById(R.id.fodiconfive_button);
 
         int defaultfodicon = Settings.System.getInt(
                 context.getContentResolver(), Settings.System.FOD_ICON, 0);
@@ -103,6 +105,8 @@ public class FODIconPicker extends LayoutPreference {
             updateHighlightedItem(ButtonThree, context);
         } else if (defaultfodicon==3) {
             updateHighlightedItem(ButtonFour, context);
+        } else if (defaultfodicon==4) {
+            updateHighlightedItem(ButtonFive, context);
         }
 
         ButtonOne.setOnClickListener(new View.OnClickListener() {
@@ -133,6 +137,13 @@ public class FODIconPicker extends LayoutPreference {
                 updateHighlightedItem(ButtonFour, context);
             }
         });
+        ButtonFive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateSettings(4, context);
+                updateHighlightedItem(ButtonFive, context);
+            }
+        });
     }
 
     private void updateSettings(int fodicon, Context context) {
@@ -146,6 +157,7 @@ public class FODIconPicker extends LayoutPreference {
         ButtonTwo.setBackgroundTintList(defaulttint);
         ButtonThree.setBackgroundTintList(defaulttint);
         ButtonFour.setBackgroundTintList(defaulttint);
+        ButtonFive.setBackgroundTintList(defaulttint);
         activebutton.setBackgroundTintList(Utils.getColorAttr(getContext(), android.R.attr.colorAccent));
     }
 }
