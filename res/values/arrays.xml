@@ -1057,10 +1057,6 @@
     <string-array name="fod_pressed_state_entries" translatable="false">
         <item>@string/fod_pressed_state_miui_cyan</item>
         <item>@string/fod_pressed_state_miui_white</item>
-        <item>@string/fod_pressed_state_vivo_cyan</item>
-        <item>@string/fod_pressed_state_vivo_cyan_shadow</item>
-        <item>@string/fod_pressed_state_vivo_cyan_shadow_et713</item>
-        <item>@string/fod_pressed_state_vivo_green</item>
         <item>@string/fod_pressed_state_vivo_yellow_shadow</item>
     </string-array>
 
@@ -1068,30 +1064,15 @@
         <item>0</item>
         <item>1</item>
         <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
     </string-array>
 
     <!-- FOD Recognizing fingerprint animations -->
     <string-array name="fod_recog_animation_entries" translatable="false">
-        <item>@string/fod_recog_animation_miui_normal</item>
-        <item>@string/fod_recog_animation_miui_aod</item>
-        <item>@string/fod_recog_animation_miui_light</item>
-        <item>@string/fod_recog_animation_miui_pop</item>
-        <item>@string/fod_recog_animation_miui_pulse</item>
-        <item>@string/fod_recog_animation_miui_pulse_white</item>
-        <item>@string/fod_recog_animation_miui_rhythm</item>
-        <item>@string/fod_recog_animation_op_cosmos</item>
         <item>@string/fod_recog_animation_op_mclaren</item>
         <item>@string/fod_recog_animation_op_ripple</item>
         <item>@string/fod_recog_animation_op_stripe</item>
-        <item>@string/fod_recog_animation_op_wave</item>
-        <item>@string/fod_recog_animation_pureview_dna</item>
         <item>@string/fod_recog_animation_pureview_future</item>
         <item>@string/fod_recog_animation_pureview_halo_ring</item>
-        <item>@string/fod_recog_animation_pureview_molecular</item>
         <item>@string/fod_recog_animation_bluefirework</item>
         <item>@string/fod_recog_animation_coloros7_1</item>
         <item>@string/fod_recog_animation_coloros7_2</item>
@@ -1106,16 +1087,5 @@
         <item>5</item>
         <item>6</item>
         <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
-        <item>11</item>
-        <item>12</item>
-        <item>13</item>
-        <item>14</item>
-        <item>15</item>
-        <item>16</item>
-        <item>17</item>
-        <item>18</item>
     </string-array>
 </resources>
