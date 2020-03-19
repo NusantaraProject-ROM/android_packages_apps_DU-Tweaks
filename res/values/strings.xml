@@ -32,8 +32,6 @@
 
     <!-- Categories -->
     <!-- System -->
-    <string name="expanded_desktop_title">Expanded desktop</string>
-    <string name="expanded_desktop_summary">Per-app configuration of the status bar and navigation key view</string>
     <string name="miscellaneous_title">Miscellaneous</string>
     <string name="miscellaneous_summary">Miscellaneous tweaks</string>
     <string name="powermenu_title">Power menu</string>
@@ -251,7 +249,7 @@
 
     <!-- Lock Clock Fonts -->
     <string name="lock_clock_font_title">Clock font options</string>
-    <string name="custom_text_clock_font_title">Typo Clock font options</string>
+    <string name="custom_text_clock_font_title">Text Clock font options</string>
     <string name="lock_clock_font_summary">Change the default font of the lockscreen clock widget</string>
     <string name="lock_clock_font_dialog_title">Select lock clock font</string>
     <string name="lock_clock_font_stock">Normal (default)</string>
@@ -740,10 +738,6 @@
     <string name="allow_signature_fake">Allow signature spoofing</string>
     <string name="allow_signature_fake_summary">Allow apps to bypass security systems by pretending to be a different app.</string>
 
-    <!-- Hide Lockscreen shortcuts on secure Lockscreen --> 
-    <string name="lockscreen_hide_shortcuts_title">Hide Bottom Shortcuts</string> 
-    <string name="lockscreen_hide_shortcuts_summary">Hide Left-Right Shortcuts on secure lock screens</string> 
-
     <!-- Battery Bar -->
     <string name="battery_bar_title">Battery Bar</string>
     <string name="battery_bar_location">Battery bar location</string>
@@ -843,7 +837,7 @@
     <string name="hide_lockicon_summary">Hide the lock icon on lockscreen</string>
 
     <!-- QS blur -->
-    <string name="blur_quicksettings">Blur behind quick settings (beta)</string>
+    <string name="blur_quicksettings">QS Blur</string>
     <string name="blur_quicksettings_subtitle">blurs darkened background behind quick settings</string>
     <string name="qs_blur_alpha_title">Blur alpha</string>
     <string name="qs_blur_alpha_summary">Sets the blur transparency</string>

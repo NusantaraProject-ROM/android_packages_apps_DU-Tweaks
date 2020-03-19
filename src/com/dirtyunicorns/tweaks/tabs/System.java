@@ -30,7 +30,6 @@ import com.android.settings.SettingsPreferenceFragment;
 public class System extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
-    private static final String EXPANDED_DESKTOP_CATEGORY = "expanded_desktop_category";
     private static final String NOTIFICATIONS_CATEGORY = "notifications_category";
     private static final String MISC_CATEGORY = "miscellaneous_category";
 
@@ -38,11 +37,6 @@ public class System extends SettingsPreferenceFragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.system);
-
-        Preference ExpandedDesktop = findPreference(EXPANDED_DESKTOP_CATEGORY);
-        if (!getResources().getBoolean(R.bool.has_expanded_desktop)) {
-            getPreferenceScreen().removePreference(ExpandedDesktop);
-        }
 
         Preference Notifications = findPreference(NOTIFICATIONS_CATEGORY);
         if (!getResources().getBoolean(R.bool.has_notifications)) {

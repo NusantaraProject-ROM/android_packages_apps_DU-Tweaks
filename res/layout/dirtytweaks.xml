@@ -20,11 +20,9 @@
     android:layout_height="match_parent">
 
     <FrameLayout
-        android:id="@+id/fragmentContainer"
+        android:id="@+id/fragment_frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </FrameLayout>
+        android:layout_height="match_parent"/>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewpager"
@@ -32,13 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/navigation"/>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="4dp"
-        android:layout_above="@id/navigation"
-        android:background="@drawable/bottomnav_shadow"/>
-
-    <com.dirtyunicorns.tweaks.navigation.BottomNavigationViewCustom
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

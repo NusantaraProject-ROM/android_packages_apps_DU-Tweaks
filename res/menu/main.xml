@@ -20,25 +20,21 @@
     <item
         android:id="@+id/system"
         android:icon="@drawable/bottomnav_system"
-        android:title="@string/bottom_nav_system_title"
-        app:showAsAction="ifRoom|withText"/>
+        android:title="@string/bottom_nav_system_title"/>
 
     <item
         android:id="@+id/lockscreen"
         android:icon="@drawable/bottomnav_lockscreen"
-        android:title="@string/bottom_nav_lockscreen_title"
-        app:showAsAction="ifRoom|withText"/>
+        android:title="@string/bottom_nav_lockscreen_title"/>
 
     <item
         android:id="@+id/statusbar"
         android:icon="@drawable/bottomnav_statusbar"
-        android:title="@string/bottom_nav_statusbar_title"
-        app:showAsAction="ifRoom|withText"/>
+        android:title="@string/bottom_nav_statusbar_title"/>
 
     <item
         android:id="@+id/hardware"
         android:icon="@drawable/bottomnav_hardware"
-        android:title="@string/bottom_nav_hardware_title"
-        app:showAsAction="ifRoom|withText"/>
+        android:title="@string/bottom_nav_hardware_title"/>
 
 </menu>

@@ -49,9 +49,6 @@
     <!-- Whether to display traffic indicators category -->
     <bool name="has_traffic">true</bool>
 
-    <!-- Whether to display expanded desktop category -->
-    <bool name="has_expanded_desktop">false</bool>
-
     <!-- Whether to display misc category -->
     <bool name="has_misc_options">true</bool>
 
