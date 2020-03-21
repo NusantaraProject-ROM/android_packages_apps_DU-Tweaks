@@ -60,7 +60,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:textStyle="bold"
-                android:textSize="18sp"/>
+                android:textSize="18sp"
+                android:textColor="@*android:color/accent_device_default_light"/>
+
 
             <TextView
                 android:id="@android:id/summary"
