@@ -51,7 +51,6 @@ public class NavigationOptions extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, Indexable {
 
     private static final String KEY_NAVIGATION_BAR_ENABLED = "force_show_navbar";
-    private static final String KEY_GESTURE_PILL_SWITCH = "gesture_pill_switch";
     private static final String KEY_LAYOUT_SETTINGS = "layout_settings";
     private static final String KEY_NAVIGATION_BAR_ARROWS = "navigation_bar_menu_arrow_keys";
     private static final String KEY_SWAP_NAVBAR = "sysui_nav_bar_inverse";
@@ -129,7 +128,6 @@ public class NavigationOptions extends SettingsPreferenceFragment
     private PreferenceCategory backGestureCategory;
     private PreferenceCategory hwKeysCategory;
 
-    private SwitchPreference mGesturePill;
     private SwitchPreference mNavigationBar;
     private SecureSettingSwitchPreference mSwapNavbar;
     private SystemSettingListPreference mTimeout;
@@ -355,11 +353,6 @@ public class NavigationOptions extends SettingsPreferenceFragment
         mExtendedSwipe.setOnPreferenceChangeListener(this);
         mTimeout.setEnabled(!mExtendedSwipe.isChecked());
 
-        mGesturePill = (SwitchPreference) findPreference(KEY_GESTURE_PILL_SWITCH);
-        mGesturePill.setChecked((Settings.System.getInt(getContentResolver(),
-                Settings.System.GESTURE_PILL_TOGGLE, 0) == 1));
-        mGesturePill.setOnPreferenceChangeListener(this);
-
         mButtonBacklight = (Preference) findPreference(KEY_BUTTON_BACKLIGHT);
 
         if (!hasMenu && menuCategory != null) {
@@ -576,13 +569,7 @@ public class NavigationOptions extends SettingsPreferenceFragment
             boolean enabled = ((Boolean) objValue).booleanValue();
             mExtendedSwipe.setChecked(enabled);
             mTimeout.setEnabled(!enabled);
-        } else if (preference == mGesturePill) {
-            boolean value = (Boolean) objValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.GESTURE_PILL_TOGGLE, value ? 1 : 0);
-            SystemNavigationGestureSettings.setBackGestureOverlaysToUse(getActivity());
-            SystemNavigationGestureSettings.setCurrentSystemNavigationMode(getActivity(),
-                    getOverlayManager(), SystemNavigationGestureSettings.getCurrentSystemNavigationMode(getActivity()));
+            return true;
         }
         return false;
     }
@@ -705,7 +692,6 @@ public class NavigationOptions extends SettingsPreferenceFragment
             appSwitchCategory.setVisible(false);
             cameraCategory.setVisible(false);
             backGestureCategory.setVisible(true);
-            mGesturePill.setVisible(true);
         } else {
             homeCategory.setVisible(true);
             backCategory.setVisible(true);
@@ -714,7 +700,6 @@ public class NavigationOptions extends SettingsPreferenceFragment
             appSwitchCategory.setVisible(true);
             cameraCategory.setVisible(true);
             backGestureCategory.setVisible(false);
-            mGesturePill.setVisible(false);
         }
 
         if (Utils.isThemeEnabled("com.android.internal.systemui.navbar.twobutton") && isNavbarVisible()) {
@@ -725,17 +710,14 @@ public class NavigationOptions extends SettingsPreferenceFragment
             appSwitchCategory.setVisible(false);
             cameraCategory.setVisible(false);
             backGestureCategory.setVisible(false);
-            mGesturePill.setVisible(false);
         }
 
         if (Utils.isThemeEnabled("com.android.internal.systemui.navbar.threebutton")) {
             mGestureSystemNavigation.setSummary(getString(R.string.legacy_navigation_title));
             backGestureCategory.setVisible(false);
-            mGesturePill.setVisible(false);
         } else if (Utils.isThemeEnabled("com.android.internal.systemui.navbar.twobutton")) {
             mGestureSystemNavigation.setSummary(getString(R.string.swipe_up_to_switch_apps_title));
             backGestureCategory.setVisible(false);
-            mGesturePill.setVisible(false);
         } else if (Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural")
                 || Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_nopill")
                 || Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_wide_back")
@@ -746,7 +728,6 @@ public class NavigationOptions extends SettingsPreferenceFragment
                 || Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_wide_back_nopill")) {
             mGestureSystemNavigation.setSummary(getString(R.string.edge_to_edge_navigation_title));
             backGestureCategory.setVisible(true);
-            mGesturePill.setVisible(true);
         }
     }
 
