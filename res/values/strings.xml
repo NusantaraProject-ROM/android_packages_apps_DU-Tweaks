@@ -1058,4 +1058,8 @@
     <string name="stock_statusbar_in_hide_summary">Use default statusbar height in Hide</string>
     <string name="cutout_main">Display cutout settings</string>
     <string name="cutout_main_summary">They really cut corners with this one</string>
+
+    <!-- Media Heads up -->
+    <string name="show_media_heads_up_title">Show media heads up</string>
+    <string name="show_media_heads_up_summary">Show media heads up when a new track is played, if the player is not already in foreground</string>
 </resources>
