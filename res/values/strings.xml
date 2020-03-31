@@ -212,6 +212,8 @@
     <string name="pref_scrollingcache_force_disable">Force disable</string>
 
     <!-- Statusbar Clock -->
+    <string name="clock_hide_category">Clock auto hide </string>
+    <string name="clock_style_category">Clock Style</string>
     <string name="status_bar_clock_show">Show clock and date</string>
     <string name="status_bar_clock_style_title">Clock style</string>
     <string name="status_bar_clock_style_right">Right</string>
@@ -311,7 +313,7 @@
     <!-- Lock Clock & Date Size -->
     <string name="lockdate_font_size_title">Date font size</string>
     <string name="lockclock_font_size_title">Clock font size</string>
-    <string name="custom_text_clock_font_size_title">Typography Clock size</string>
+    <string name="custom_text_clock_font_size_title">Text clock size</string>
 
     <!-- LS OwnerInfo Font & Size -->
     <string name="lock_ownerinfo_font_title">Owner Info font options</string>
@@ -388,6 +390,7 @@
     <string name="quick_pulldown_left">Pulldown statusbar from left side</string>
 
     <!-- Battery -->
+    <string name="battery_style_category">Battery icon style</string>
     <string name="battery_category_title">Battery</string>
     <string name="status_bar_battery_style_title">Battery icon style</string>
     <string name="status_bar_battery_style_icon_portrait">Portrait</string>
@@ -745,6 +748,7 @@
 
     <!-- Battery Bar -->
     <string name="battery_bar_title">Battery Bar</string>
+    <string name="battery_bar_summary">Configure battery bar options</string>
     <string name="battery_bar_location">Battery bar location</string>
     <string name="battery_bar_color">Battery bar color</string>
     <string name="battery_bar_charging_color">Battery bar charging color</string>
@@ -800,7 +804,7 @@
     <!-- Lockscreen clock style -->
     <string name="lock_date_style_title">Date style</string>
     <string name="lock_owner_style_title">Owner style</string>
-    <string name="lock_typeface_style_title">Typeface style</string>
+    <string name="lock_typeface_style_title">Text clock style</string>
     <string name="lockscreen_clock_title">Clock style</string>
     <string name="lockscreen_clock_dialog_title">Select clock style</string>
     <string name="lockscreen_clock_hide">Hide</string>
@@ -900,6 +904,7 @@
     <string name="double_tap_custom_app_title">Double tap custom app</string>
 
    <!-- Long swipe gestures -->
+   <string name="navbar_gesture_category">Navigation gestures</string>
    <string name="left_swipe_key_title">Left swipe</string>
    <string name="right_swipe_key_title">Right swipe</string>
    <string name="navbar_gesture_tweaks_pref_title">Custom gestures</string>

@@ -18,12 +18,27 @@
             xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
             android:title="@string/battery_options_title" >
 
-        <com.dirtyunicorns.support.preferences.SystemSettingMasterSwitchPreference
-            android:key="battery_light_enabled"
-            android:fragment="com.dirtyunicorns.tweaks.fragments.BatteryLightSettings"
-            android:title="@string/battery_light_settings"
-            android:summary="@string/battery_light_settings_summary"
-            android:defaultValue="true" />
+    <com.dirtyunicorns.support.preferences.SystemSettingMasterSwitchPreference
+        android:key="battery_light_enabled"
+        android:fragment="com.dirtyunicorns.tweaks.fragments.BatteryLightSettings"
+        android:title="@string/battery_light_settings"
+        android:summary="@string/battery_light_settings_summary"
+        android:defaultValue="true" />
+
+    <Preference
+        android:key="aggressive_battery"
+        android:title="@string/aggressive_battery_title"
+        android:summary="@string/aggressive_battery_summary"
+        android:fragment="com.dirtyunicorns.tweaks.fragments.AggressiveBattery"/>
+
+    <Preference
+        android:key="batterybar_settings"
+        android:title="@string/battery_bar_title"
+        android:summary="@string/battery_bar_summary"
+        android:fragment="com.dirtyunicorns.tweaks.fragments.BatteryBar"/>
+
+    <PreferenceCategory
+        android:title="@string/battery_style_category" >
 
         <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
             android:key="qs_show_battery_estimate"
@@ -45,73 +60,5 @@
             android:entries="@array/status_bar_battery_percentage_entries"
             android:entryValues="@array/status_bar_battery_percentage_values"
             android:defaultValue="0" />
-
-    <Preference
-        android:key="aggressive_battery"
-        android:title="@string/aggressive_battery_title"
-        android:summary="@string/aggressive_battery_summary"
-        android:fragment="com.dirtyunicorns.tweaks.fragments.AggressiveBattery"/>
-
-    <PreferenceCategory
-        android:title="@string/battery_bar_title" >
-
-        <ListPreference
-            android:key="battery_bar_list"
-            android:title="@string/battery_bar_location"
-            android:entries="@array/battery_bar_entries"
-            android:entryValues="@array/battery_bar_values" />
-
-        <ListPreference
-            android:key="battery_bar_style"
-            android:title="@string/battery_bar_style_title"
-            android:entries="@array/battery_bar_style_entries"
-            android:entryValues="@array/battery_bar_style_values" />
-
-        <ListPreference
-            android:key="battery_bar_thickness"
-            android:title="@string/battery_bar_thickness_title"
-            android:entries="@array/battery_bar_thickness_entries"
-            android:entryValues="@array/battery_bar_thickness_values" />
-
-        <com.dirtyunicorns.support.colorpicker.ColorPickerPreference
-            android:key="battery_bar_color"
-            android:title="@string/battery_bar_color"
-            android:defaultValue="0xffffffff"
-            android:dialogTitle="@string/battery_bar_color" />
-
-        <com.dirtyunicorns.support.colorpicker.ColorPickerPreference
-            android:key="battery_bar_charging_color"
-            android:title="@string/battery_bar_charging_color"
-            android:defaultValue="0xFF00FF00"
-            android:dialogTitle="@string/battery_bar_color" />
-
-        <com.dirtyunicorns.support.colorpicker.ColorPickerPreference
-            android:key="battery_bar_battery_low_color_warning"
-            android:title="@string/battery_bar_battery_low_color"
-            android:defaultValue="0xFFFF6600"
-            android:dialogTitle="@string/battery_bar_color" />
-
-        <SwitchPreference
-            android:key="battery_bar_animate"
-            android:title="@string/battery_bar_animate_title"
-            android:summary="@string/battery_bar_animate_summary" />
-
-        <SwitchPreference
-            android:key="battery_bar_use_gradient_color"
-            android:title="@string/battery_bar_use_gradient_color"
-            android:summary="@string/battery_bar_gradient_color_summary" />
-
-        <com.dirtyunicorns.support.colorpicker.ColorPickerPreference
-            android:key="battery_bar_low_color"
-            android:title="@string/battery_bar_low_color"
-            android:defaultValue="0xffff4444"
-            android:dialogTitle="@string/battery_bar_color" />
-
-        <com.dirtyunicorns.support.colorpicker.ColorPickerPreference
-            android:key="battery_bar_high_color"
-            android:title="@string/battery_bar_high_color"
-            android:defaultValue="0xff99CC00"
-            android:dialogTitle="@string/battery_bar_color" />
     </PreferenceCategory>
-
 </PreferenceScreen>

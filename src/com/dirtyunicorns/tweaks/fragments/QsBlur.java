@@ -102,7 +102,7 @@ public class QsBlur extends SettingsPreferenceFragment
                             new ArrayList<SearchIndexableResource>();
 
                     SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.quick_settings;
+                    sir.xmlResId = R.xml.qs_blur;
                     result.add(sir);
                     return result;
                 }

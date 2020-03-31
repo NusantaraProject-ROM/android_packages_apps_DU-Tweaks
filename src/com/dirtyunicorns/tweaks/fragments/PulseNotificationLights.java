@@ -129,7 +129,7 @@ public class PulseNotificationLights extends SettingsPreferenceFragment
                             new ArrayList<SearchIndexableResource>();
 
                     SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.powermenu;
+                    sir.xmlResId = R.xml.pulse_notification_lights;
                     result.add(sir);
                     return result;
                 }

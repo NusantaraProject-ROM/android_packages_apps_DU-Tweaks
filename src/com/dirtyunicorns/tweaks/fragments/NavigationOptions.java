@@ -77,6 +77,7 @@ public class NavigationOptions extends SettingsPreferenceFragment
     private static final String KEY_ASSIST_LONG_PRESS_ACTION = "assist_key_long_press";
     private static final String KEY_ASSIST_DOUBLE_TAP_ACTION = "assist_key_double_tap";
 
+    private static final String KEY_CATEGORY_GESTURES      = "gesture_category";
     private static final String KEY_CATEGORY_HOME          = "home_key";
     private static final String KEY_CATEGORY_BACK          = "back_key";
     private static final String KEY_CATEGORY_MENU          = "menu_key";
@@ -122,6 +123,7 @@ public class NavigationOptions extends SettingsPreferenceFragment
     private Preference mLeftSwipeAppSelection;
     private Preference mRightSwipeAppSelection;
 
+    private PreferenceCategory gestureCategory;
     private PreferenceCategory homeCategory;
     private PreferenceCategory backCategory;
     private PreferenceCategory menuCategory;
@@ -198,6 +200,7 @@ public class NavigationOptions extends SettingsPreferenceFragment
         hwKeysCategory = (PreferenceCategory) findPreference(KEY_CATEGORY_HW_KEYS);
         leftSwipeCategory = (PreferenceCategory) findPreference(KEY_CATEGORY_LEFT_SWIPE);
         rightSwipeCategory = (PreferenceCategory) findPreference(KEY_CATEGORY_RIGHT_SWIPE);
+        gestureCategory = (PreferenceCategory) findPreference(KEY_CATEGORY_GESTURES);
 
         mGestureSystemNavigation = (Preference) findPreference(KEY_GESTURE_SYSTEM);
 
@@ -708,6 +711,7 @@ public class NavigationOptions extends SettingsPreferenceFragment
             mTimeout.setVisible(true);
             mExtendedSwipe.setVisible(true);
             leftSwipeCategory.setVisible(true);
+            gestureCategory.setVisible(true);
             rightSwipeCategory.setVisible(true);
             mGestureBarSize.setVisible(true);
         }
@@ -722,6 +726,7 @@ public class NavigationOptions extends SettingsPreferenceFragment
             mTimeout.setVisible(false);
             mExtendedSwipe.setVisible(false);
             leftSwipeCategory.setVisible(false);
+            gestureCategory.setVisible(false);
             rightSwipeCategory.setVisible(false);
             mGestureBarSize.setVisible(false);
         }
@@ -732,12 +737,14 @@ public class NavigationOptions extends SettingsPreferenceFragment
             mExtendedSwipe.setVisible(false);
             leftSwipeCategory.setVisible(false);
             rightSwipeCategory.setVisible(false);
+            gestureCategory.setVisible(false);
             mGestureBarSize.setVisible(false);
         } else if (Utils.isThemeEnabled("com.android.internal.systemui.navbar.twobutton")) {
             mGestureSystemNavigation.setSummary(getString(R.string.swipe_up_to_switch_apps_title));
             mTimeout.setVisible(false);
             mExtendedSwipe.setVisible(false);
             leftSwipeCategory.setVisible(false);
+            gestureCategory.setVisible(false);
             rightSwipeCategory.setVisible(false);
             mGestureBarSize.setVisible(false);
         } else if (Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_narrow_back")
@@ -748,6 +755,7 @@ public class NavigationOptions extends SettingsPreferenceFragment
             mTimeout.setVisible(true);
             mExtendedSwipe.setVisible(true);
             leftSwipeCategory.setVisible(true);
+            gestureCategory.setVisible(true);
             rightSwipeCategory.setVisible(true);
             mGestureBarSize.setVisible(true);
         }

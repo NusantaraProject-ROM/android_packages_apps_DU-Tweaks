@@ -156,9 +156,9 @@ public class QuickSettings extends SettingsPreferenceFragment
         if (footerString != null && footerString != "")
             mFooterString.setText(footerString);
         else {
-            mFooterString.setText("#DureX");
+            mFooterString.setText("#Corvus");
             Settings.System.putString(getActivity().getContentResolver(),
-                    Settings.System.FOOTER_TEXT_STRING, "#DureX");
+                    Settings.System.FOOTER_TEXT_STRING, "#Corvus");
         }
     }
 
