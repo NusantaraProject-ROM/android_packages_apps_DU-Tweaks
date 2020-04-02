@@ -28,6 +28,9 @@
     <dimen name="card_margin_right">8dp</dimen>
     <dimen name="card_margin_left">8dp</dimen>
 
+    <!-- The Team -->
+    <dimen name="team_recycler_height">500dp</dimen>
+
     <!-- FOD icon picker -->
     <dimen name="fod_picker_item_margin">10dp</dimen>
     <dimen name="fod_picker_item_size">100dp</dimen>
