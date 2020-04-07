@@ -85,6 +85,11 @@ public class CutoutFragment extends SettingsPreferenceFragment
         super.onPause();
     }
 
+    private static boolean hasPhysicalDisplayCutout(Context context) {
+        return context.getResources().getBoolean(
+                com.android.internal.R.bool.config_physicalDisplayCutout);
+    }
+
     @Override
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.DIRTYTWEAKS;

@@ -36,9 +36,10 @@ import android.widget.ListView;
 import android.widget.SectionIndexer;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.internal.util.du.cutout.CutoutFullscreenController;
+import com.android.internal.util.custom.cutout.CutoutFullscreenController;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.applications.ApplicationsState;
@@ -52,7 +53,6 @@ import java.util.Map;
 public class DisplayCutoutForceFullscreenSettings extends SettingsPreferenceFragment
         implements ApplicationsState.Callbacks {
 
-    private ActivityManager mActivityManager;
     private AllPackagesAdapter mAllPackagesAdapter;
     private ApplicationsState mApplicationsState;
     private ApplicationsState.Session mSession;
@@ -70,8 +70,6 @@ public class DisplayCutoutForceFullscreenSettings extends SettingsPreferenceFrag
         mApplicationsState = ApplicationsState.getInstance(getActivity().getApplication());
         mSession = mApplicationsState.newSession(this);
         mSession.onResume();
-        mActivityManager = (ActivityManager) getActivity().getSystemService(
-                Context.ACTIVITY_SERVICE);
         mActivityFilter = new ActivityFilter(getActivity().getPackageManager());
         mAllPackagesAdapter = new AllPackagesAdapter(getActivity());
 
@@ -96,6 +94,7 @@ public class DisplayCutoutForceFullscreenSettings extends SettingsPreferenceFrag
 
         mUserListView = (ListView) view.findViewById(R.id.user_list_view);
         mUserListView.setAdapter(mAllPackagesAdapter);
+        mUserListView.setEmptyView(view.findViewById(R.id.user_list_empty_view));
     }
 
     @Override
@@ -229,20 +228,6 @@ public class DisplayCutoutForceFullscreenSettings extends SettingsPreferenceFrag
             if (convertView == null) {
                 holder = new ViewHolder(mInflater.inflate(
                         R.layout.cutout_force_fullscreen_list_item, parent, false));
-                holder.state.setOnCheckedChangeListener((buttonView, isChecked) -> {
-                    final ApplicationsState.AppEntry appEntry =
-                            (ApplicationsState.AppEntry) buttonView.getTag();
-
-                    if (isChecked) {
-                        mCutoutForceFullscreenSettings.addApp(appEntry.info.packageName);
-                    } else {
-                        mCutoutForceFullscreenSettings.removeApp(appEntry.info.packageName);
-                    }
-                    try{
-                        mActivityManager.forceStopPackage(appEntry.info.packageName);
-                    }catch(Exception ignored){
-                    }
-                });
             } else {
                 holder = (ViewHolder) convertView.getTag();
             }
@@ -256,6 +241,19 @@ public class DisplayCutoutForceFullscreenSettings extends SettingsPreferenceFrag
             holder.icon.setImageDrawable(entry.icon);
             holder.state.setTag(entry);
             holder.state.setChecked(mCutoutForceFullscreenSettings.shouldForceCutoutFullscreen(entry.info.packageName));
+            holder.state.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                final ApplicationsState.AppEntry appEntry =
+                        (ApplicationsState.AppEntry) buttonView.getTag();
+
+                if (isChecked) {
+                    mCutoutForceFullscreenSettings.addApp(appEntry.info.packageName);
+                } else {
+                    mCutoutForceFullscreenSettings.removeApp(appEntry.info.packageName);
+                }
+                Toast.makeText(getActivity(),
+                    getActivity().getString(R.string.display_cutout_force_fullscreen_restart_app),
+                    Toast.LENGTH_SHORT).show();
+            });
             return holder.rootView;
         }
 
