@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.diryunicorns.tweaks.fragments;
+package com.dirtyunicorns.tweaks.fragments;
 
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
