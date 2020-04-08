@@ -187,17 +187,17 @@ public class BatteryBar extends SettingsPreferenceFragment
         } else if (preference == mBatteryBarBatteryLowColorWarn) {
             String hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
-            preference.setSummary(hex);
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(resolver,
-                    "battery_bar_battery_low_color_warning", intHex);
+                    Settings.System.BATTERY_BAR_BATTERY_LOW_COLOR_WARNING, intHex);
+            preference.setSummary(hex);
             return true;
         } else if (preference == mBatteryBarBatteryHighColor) {
             String hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(resolver,
-                    Settings.System.BATTERY_BAR_BATTERY_LOW_COLOR_WARNING, intHex);
+                    Settings.System.BATTERY_BAR_HIGH_COLOR, intHex);
             preference.setSummary(hex);
             return true;
         } else if (preference == mBatteryBar) {
