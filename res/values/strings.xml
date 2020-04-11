@@ -607,14 +607,16 @@
 
     <!-- Statusbar logo -->
     <string name="status_bar_logo_title">Custom Logo</string>
-    <string name="status_bar_logo_summary">Show DU logo in the status bar</string>
+    <string name="status_bar_logo_summary">Show Corvus logo in the status bar</string>
     <string name="status_bar_logo_color">Logo color</string>
     <string name="status_bar_logo_position">Logo position</string>
     <string name="status_bar_logo_position_summary">%1$s</string>
     <string name="status_bar_logo_position_right">Right</string>
     <string name="status_bar_logo_position_left">Left</string>
     <string name="status_bar_logo_style">Logo style</string>
-    <string name="status_bar_logo_style_du">DU Logo</string>
+    <string name="status_bar_logo_style_corvus">Corvus</string>
+    <string name="status_bar_logo_style_corvus2">Corvus (2)</string>
+    <string name="status_bar_logo_style_du">Dirty Unicorns</string>
     <string name="status_bar_logo_style_android">Android</string>
     <string name="status_bar_logo_style_apple">Apple</string>
     <string name="status_bar_logo_style_beats">Beats</string>
