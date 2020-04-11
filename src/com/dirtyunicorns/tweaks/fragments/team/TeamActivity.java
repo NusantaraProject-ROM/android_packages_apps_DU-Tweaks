@@ -71,6 +71,10 @@ public class TeamActivity extends Activity {
                 R.drawable.harun);
         setTeamMember("Shivam Kumar", getString(R.string.maintainer_title), "ShivamKumar2002", "ShivamKumar2002",
                 R.drawable.shivam);
+        setTeamMember("Samuel", getString(R.string.maintainer_title), "DeadmanxXD", "deadmanxxd",
+                R.drawable.deadmanxxd);
+        setTeamMember("Jughead", getString(R.string.contributor_title), "jughead069", "",
+                R.drawable.jughead);
 
         ListAdapter mAdapter = new ListAdapter(mList);
         mRecycleview.setAdapter(mAdapter);
