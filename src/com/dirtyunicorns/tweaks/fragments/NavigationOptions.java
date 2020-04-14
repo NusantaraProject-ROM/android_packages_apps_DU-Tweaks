@@ -54,6 +54,7 @@ public class NavigationOptions extends SettingsPreferenceFragment
     private static final String KEY_LAYOUT_SETTINGS = "layout_settings";
     private static final String KEY_NAVIGATION_BAR_ARROWS = "navigation_bar_menu_arrow_keys";
     private static final String KEY_SWAP_NAVBAR = "sysui_nav_bar_inverse";
+    private static final String KEY_NAVIGATION_IME_SPACE = "navigation_bar_ime_space";
     private static final String KEY_GESTURE_SYSTEM = "gesture_system_navigation";
     private static final String KEY_BUTTON_BACKLIGHT = "button_backlight";
 
@@ -137,6 +138,7 @@ public class NavigationOptions extends SettingsPreferenceFragment
     private SystemSettingListPreference mTimeout;
     private SystemSettingSwitchPreference mNavigationArrowKeys;
     private SystemSettingSwitchPreference mExtendedSwipe;
+    private SystemSettingSwitchPreference mNavigationIMESpace;
 
     private int deviceKeys;
 
@@ -220,6 +222,9 @@ public class NavigationOptions extends SettingsPreferenceFragment
         mAppSwitchDoubleTapCustomApp = (Preference) findPreference(KEY_APP_SWITCH_DOUBLE_TAP_CUSTOM_APP);
 
         mNavigationArrowKeys = (SystemSettingSwitchPreference) findPreference(KEY_NAVIGATION_BAR_ARROWS);
+
+        mNavigationIMESpace = (SystemSettingSwitchPreference) findPreference(KEY_NAVIGATION_IME_SPACE);
+        mNavigationIMESpace.setOnPreferenceChangeListener(this);
 
         mNavigationBar = (SwitchPreference) findPreference(KEY_NAVIGATION_BAR_ENABLED);
         mNavigationBar.setChecked(isNavbarVisible());
@@ -438,6 +443,10 @@ public class NavigationOptions extends SettingsPreferenceFragment
                     mIsNavSwitchingMode = false;
                 }
             }, 1500);
+            return true;
+        } else if (preference == mNavigationIMESpace) {
+            navbarCheck();
+            SystemNavigationGestureSettings.updateNavigationBarOverlays(getActivity());
             return true;
         } else if (preference == mBackLongPress) {
             int value = Integer.parseInt((String) objValue);
@@ -692,6 +701,7 @@ public class NavigationOptions extends SettingsPreferenceFragment
                 appSwitchCategory.setEnabled(true);
                 cameraCategory.setEnabled(true);
                 mNavigationArrowKeys.setEnabled(true);
+                mNavigationIMESpace.setEnabled(true);
                 mSwapNavbar.setEnabled(true);
             } else {
                 homeCategory.setEnabled(false);
@@ -700,6 +710,7 @@ public class NavigationOptions extends SettingsPreferenceFragment
                 assistCategory.setEnabled(false);
                 appSwitchCategory.setEnabled(false);
                 cameraCategory.setEnabled(false);
+                mNavigationIMESpace.setEnabled(false);
                 mNavigationArrowKeys.setEnabled(false);
                 mSwapNavbar.setEnabled(false);
             }
@@ -711,6 +722,7 @@ public class NavigationOptions extends SettingsPreferenceFragment
                 assistCategory.setEnabled(true);
                 appSwitchCategory.setEnabled(true);
                 cameraCategory.setEnabled(true);
+                mNavigationIMESpace.setEnabled(true);
                 mNavigationArrowKeys.setEnabled(true);
                 mSwapNavbar.setEnabled(true);
             } else {
@@ -720,6 +732,7 @@ public class NavigationOptions extends SettingsPreferenceFragment
                 assistCategory.setEnabled(true);
                 appSwitchCategory.setEnabled(true);
                 cameraCategory.setEnabled(true);
+                mNavigationIMESpace.setEnabled(false);
                 mNavigationArrowKeys.setEnabled(false);
                 mSwapNavbar.setEnabled(false);
             }
@@ -769,6 +782,23 @@ public class NavigationOptions extends SettingsPreferenceFragment
                 || Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_narrow_back")) {
             mGestureSystemNavigation.setSummary(getString(R.string.edge_to_edge_navigation_title));
             backGestureCategory.setVisible(true);
+        }
+
+        int navbarWidth = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.NAVIGATION_HANDLE_WIDTH, 1, UserHandle.USER_CURRENT);
+        boolean navbarSpaceEnabled = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.NAVIGATION_BAR_IME_SPACE, 1, UserHandle.USER_CURRENT) != 0;
+
+        if (navbarWidth == 0) {
+            mNavigationIMESpace.setVisible(true);
+        } else {
+            mNavigationIMESpace.setVisible(false);
+        }
+
+        if (navbarWidth == 0 && !navbarSpaceEnabled) {
+            mNavigationArrowKeys.setEnabled(false);
+        } else {
+            mNavigationArrowKeys.setEnabled(true);
         }
     }
 
