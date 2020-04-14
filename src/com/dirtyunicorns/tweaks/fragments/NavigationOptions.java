@@ -198,13 +198,9 @@ public class NavigationOptions extends SettingsPreferenceFragment
 
         mLayoutSettings = (Preference) findPreference(KEY_LAYOUT_SETTINGS);
         if (Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural")
-                || Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_nopill")
                 || Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_wide_back")
                 || Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_extra_wide_back")
-                || Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_extra_wide_back_nopill")
-                || Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_narrow_back")
-                || Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_narrow_back_nopill")
-                || Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_wide_back_nopill")) {
+                || Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_narrow_back")) {
             mLayoutSettings.setVisible(false);
             mSwapNavbar.setVisible(false);
         } else {
@@ -220,14 +216,6 @@ public class NavigationOptions extends SettingsPreferenceFragment
         mAppSwitchDoubleTapCustomApp = (Preference) findPreference(KEY_APP_SWITCH_DOUBLE_TAP_CUSTOM_APP);
 
         mNavigationArrowKeys = (SystemSettingSwitchPreference) findPreference(KEY_NAVIGATION_BAR_ARROWS);
-        if (Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_nopill")
-                || Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_extra_wide_back_nopill")
-                || Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_narrow_back_nopill")
-                || Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_wide_back_nopill")) {
-            mNavigationArrowKeys.setVisible(false);
-        } else {
-            mNavigationArrowKeys.setVisible(true);
-        }
 
         mNavigationBar = (SwitchPreference) findPreference(KEY_NAVIGATION_BAR_ENABLED);
         mNavigationBar.setChecked(isNavbarVisible());
@@ -677,13 +665,9 @@ public class NavigationOptions extends SettingsPreferenceFragment
         }
 
         if ((Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural")
-                || Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_nopill")
                 || Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_wide_back")
                 || Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_extra_wide_back")
-                || Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_extra_wide_back_nopill")
-                || Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_narrow_back")
-                || Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_narrow_back_nopill")
-                || Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_wide_back_nopill"))
+                || Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_narrow_back"))
                 && isNavbarVisible()) {
             homeCategory.setVisible(false);
             backCategory.setVisible(false);
@@ -719,13 +703,9 @@ public class NavigationOptions extends SettingsPreferenceFragment
             mGestureSystemNavigation.setSummary(getString(R.string.swipe_up_to_switch_apps_title));
             backGestureCategory.setVisible(false);
         } else if (Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural")
-                || Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_nopill")
                 || Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_wide_back")
                 || Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_extra_wide_back")
-                || Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_extra_wide_back_nopill")
-                || Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_narrow_back")
-                || Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_narrow_back_nopill")
-                || Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_wide_back_nopill")) {
+                || Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_narrow_back")) {
             mGestureSystemNavigation.setSummary(getString(R.string.edge_to_edge_navigation_title));
             backGestureCategory.setVisible(true);
         }
