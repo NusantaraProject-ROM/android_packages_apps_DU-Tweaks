@@ -101,30 +101,6 @@
     <string name="lockscreen_battery_info_title">Lockscreen charging info</string>
     <string name="lockscreen_battery_info_summary">Display negociated charger max current and voltage and battery temperature on lockscreen while charging</string>
 
-    <!-- Statusbar net monitor -->
-    <string name="network_traffic_state_title">Network traffic display</string>
-    <string name="network_traffic_location">Traffic indicator placement</string>
-    <string name="traffic_disabled">Disabled</string>
-    <string name="traffic_statusbar">Statusbar</string>
-    <string name="traffic_expanded_statusbar">Expanded header</string>
-    <string name="network_traffic_type">Select net activity type</string>
-    <string name="show_network_traffic_combined">Combined (Upload + Download)</string>
-    <string name="show_network_traffic_dynamic">Dynamic</string>
-    <string name="show_network_traffic_up">Upload</string>
-    <string name="show_network_traffic_down">Download</string>
-    <string name="show_network_traffic_all">Both</string>
-    <string name="network_traffic_autohide_threshold_title">Net activity autohide threshold (KB/s)</string>
-    <string name="network_traffic_arrow">Show arrows</string>
-    <string name="network_traffic_arrow_summary">Show the network traffic indicator arrows</string>
-    <string name="nettraf_font_size">Single Net Font size</string>
-    <string name="network_traffic_layout">Activity layout</string>
-    <string name="network_traffic_layout_h">Horizontal</string>
-    <string name="network_traffic_layout_v">Vertical</string>
-
-    <!-- Network Traffic Location -->
-    <string name="network_traffic_location_title">Traffic indicator placement</string>
-    <string name="network_traffic_location_summary">Place indicator in either status bar or expanded header (recommended for displays with notch cutouts)</string>
-
     <!-- Language options - Volume rocker cursor control -->
     <string name="cursor_section_header">Cursor</string>
     <string name="volume_key_cursor_control_title">Volume key cursor control</string>
