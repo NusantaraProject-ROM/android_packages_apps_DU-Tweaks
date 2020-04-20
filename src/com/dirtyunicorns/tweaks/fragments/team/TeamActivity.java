@@ -67,8 +67,8 @@ public class TeamActivity extends Activity {
                 R.drawable.OGHyperion);
         setTeamMember("Hatsune", getString(R.string.maintainer_title), "Hatsune71", "hats721",
                 R.drawable.hatsune);
-        setTeamMember("Harun", getString(R.string.maintainer_title), "goodmeow", "aarunalr",
-                R.drawable.harun);
+        setTeamMember("Ronald Santos", getString(R.string.maintainer_title), "ronald-b", "RonaldSt",
+                R.drawable.ronald);
         setTeamMember("Shivam Kumar", getString(R.string.maintainer_title), "ShivamKumar2002", "ShivamKumar2002",
                 R.drawable.shivam);
         setTeamMember("Samuel", getString(R.string.maintainer_title), "DeadmanxXD", "deadmanxxd",
