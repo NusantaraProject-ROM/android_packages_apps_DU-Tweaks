@@ -1052,6 +1052,7 @@
         <item>@string/fod_recog_animation_bluefirework</item>
         <item>@string/fod_recog_animation_coloros7_1</item>
         <item>@string/fod_recog_animation_coloros7_2</item>
+        <item>@string/fod_recog_animation_op_energy</item>
     </string-array>
 
     <string-array name="fod_recog_animation_values" translatable="false">
@@ -1063,5 +1064,6 @@
         <item>5</item>
         <item>6</item>
         <item>7</item>
+        <item>8</item>
     </string-array>
 </resources>
