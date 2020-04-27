@@ -14,6 +14,7 @@ import android.util.TypedValue;
 import android.os.RemoteException;
 
 import com.android.internal.util.du.ThemesUtils;
+import com.android.internal.util.du.Utils;
 
 import java.util.Objects;
 
@@ -58,13 +59,12 @@ public class ViewUtils {
     }
 
     public static boolean threeButtonNavbarEnabled(Context context) {
-        boolean defaultToNavigationBar = context.getResources().getBoolean(
-                com.android.internal.R.bool.config_showNavigationBar);
+        boolean defaultToNavigationBar = Utils.deviceSupportNavigationBar(context);
         boolean navigationBar = Settings.System.getInt(context.getContentResolver(),
                 Settings.System.FORCE_SHOW_NAVBAR, defaultToNavigationBar ? 1 : 0) == 1;
-        boolean hasNavbar = false;
-        hasNavbar = com.android.internal.util.du.Utils.isThemeEnabled(
-                "com.android.internal.systemui.navbar.threebutton") && navigationBar;
+        boolean hasNavbar = (context.getResources().getInteger(
+                com.android.internal.R.integer.config_navBarInteractionMode) == 0)
+                && navigationBar;
         return hasNavbar;
     }
 }
