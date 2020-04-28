@@ -849,15 +849,6 @@
     <string name="fod_recog_animation">Recognizing animation</string>
     <string name="fod_recog_animation_summary">Shows an animation while reading your finger</string>
     <string name="fod_recog_animation_effect_title">Recognizing animation effect</string>
-    <string name="fod_recog_animation_op_mclaren">McLaren</string>
-    <string name="fod_recog_animation_op_ripple">Ripple</string>
-    <string name="fod_recog_animation_op_stripe">Stripe</string>
-    <string name="fod_recog_animation_pureview_future">Future</string>
-    <string name="fod_recog_animation_pureview_halo_ring">Halo ring</string>
-    <string name="fod_recog_animation_bluefirework">Blue Fireworks</string>
-    <string name="fod_recog_animation_coloros7_1">ColorOS7 1</string>
-    <string name="fod_recog_animation_coloros7_2">ColorOS7 2</string>
-    <string name="fod_recog_animation_op_energy">Energy</string>
 
     <!-- Custom actions -->
     <string name="action_nothing">No action</string>

@@ -60,4 +60,7 @@
 
     <!-- Whether to display corvus parts -->
     <bool name="has_corvus_parts_available">false</bool>
+
+    <!-- FOD recognizing animation -->
+    <bool name="has_fod_animation_picker">false</bool>
 </resources>
