@@ -52,6 +52,9 @@ public class BatteryOptions extends SettingsPreferenceFragment
     private static final String BATTERY_LIGHT_ENABLED = "battery_light_enabled";
 
     private SystemSettingMasterSwitchPreference mBatteryLightEnabled;
+    private ListPreference mBatteryStyle;
+    private ListPreference mBatteryPercent;
+    private int mBatteryPercentValue;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -65,6 +68,21 @@ public class BatteryOptions extends SettingsPreferenceFragment
         int batteryLightEnabled = Settings.System.getInt(getContentResolver(),
                 BATTERY_LIGHT_ENABLED, 1);
         mBatteryLightEnabled.setChecked(batteryLightEnabled != 0);
+
+        mBatteryStyle = (ListPreference) findPreference("status_bar_battery_style");
+        int batterystyle = Settings.System.getIntForUser(resolver,
+                Settings.System.STATUS_BAR_BATTERY_STYLE, 0, UserHandle.USER_CURRENT);
+        mBatteryStyle.setValue(String.valueOf(batterystyle));
+        mBatteryStyle.setSummary(mBatteryStyle.getEntry());
+        mBatteryStyle.setOnPreferenceChangeListener(this);
+
+        mBatteryPercent = (ListPreference) findPreference("status_bar_show_battery_percent");
+        int batteryPercent = Settings.System.getIntForUser(resolver,
+                Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, 0, UserHandle.USER_CURRENT);
+        mBatteryPercent.setValue(String.valueOf(batteryPercent));
+        mBatteryPercent.setSummary(mBatteryPercent.getEntry());
+        mBatteryPercent.setOnPreferenceChangeListener(this);
+        mBatteryPercent.setEnabled(batterystyle != 4 && batterystyle != 5);
     }
 
     @Override
@@ -74,6 +92,23 @@ public class BatteryOptions extends SettingsPreferenceFragment
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getContentResolver(),
 		BATTERY_LIGHT_ENABLED, value ? 1 : 0);
+            return true;
+        } else if (preference == mBatteryStyle) {
+            int batterystyle = Integer.parseInt((String) newValue);
+            Settings.System.putIntForUser(getActivity().getContentResolver(),
+                Settings.System.STATUS_BAR_BATTERY_STYLE, batterystyle,
+                UserHandle.USER_CURRENT);
+            int index = mBatteryStyle.findIndexOfValue((String) newValue);
+            mBatteryStyle.setSummary(mBatteryStyle.getEntries()[index]);
+            mBatteryPercent.setEnabled(batterystyle != 4 && batterystyle != 5);
+            return true;
+        } else if (preference == mBatteryPercent) {
+            int batteryPercent = Integer.parseInt((String) newValue);
+            Settings.System.putIntForUser(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, batteryPercent,
+                    UserHandle.USER_CURRENT);
+            int index = mBatteryPercent.findIndexOfValue((String) newValue);
+            mBatteryPercent.setSummary(mBatteryPercent.getEntries()[index]);
             return true;
        }
         return false;

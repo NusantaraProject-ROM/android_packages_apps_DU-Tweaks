@@ -52,7 +52,7 @@
             android:summary="@string/qs_show_battery_estimate_summary"
             android:defaultValue="true"/>
 
-        <com.dirtyunicorns.support.preferences.SystemSettingListPreference
+        <ListPreference
             android:key="status_bar_battery_style"
             android:title="@string/status_bar_battery_style_title"
             android:summary="%s"
@@ -60,7 +60,7 @@
             android:entryValues="@array/status_bar_battery_style_values"
             android:defaultValue="0" />
 
-        <com.dirtyunicorns.support.preferences.SystemSettingListPreference
+        <ListPreference
             android:key="status_bar_show_battery_percent"
             android:title="@string/battery_percentage_title"
             android:entries="@array/status_bar_battery_percentage_entries"
