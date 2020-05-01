@@ -552,8 +552,6 @@
     <string name="gaming_mode_app_picker_title">Automatically turn on for these apps</string>
     <string name="add_gaming_mode_package_title">Add apps for Gaming mode</string>
     <string name="add_gaming_mode_package_summary">Gaming mode will turn on automatically when these apps are opened and turn off when they are closed</string>
-    <string name="gaming_mode_hardware_keys_title">Lock HW buttons</string>
-    <string name="gaming_mode_hardware_keys_summary">When Gaming mode is turned on, HW buttons will be locked</string>
     <string name="gaming_mode_headsup_title">Heads-up Notifications</string>
     <string name="gaming_mode_headsup_allow">Allow all headsup notifications</string>
     <string name="gaming_mode_headsup_dnc">Block all headsup notifications except calls &amp; alarms</string>
@@ -897,8 +895,6 @@
     <string name="action_app_action">Application</string>
     <string name="action_ringer_modes">Ringer modes</string>
     <string name="kill_app">Kill foreground app</string>
-    <string name="skip_song">Skip song</string>
-    <string name="prev_song">Previous song</string>
 
     <!-- Navigation -->
     <string name="navigation_bar_title">On-screen navigation bar</string>
@@ -933,13 +929,9 @@
    <string name="left_swipe_app_action_title">Select long left swipe app</string>
    <string name="right_swipe_actions_title">Long right swipe action</string>
    <string name="right_swipe_app_action_title">Select long right swipe app</string>
-   <string name="left_vertical_swipe_actions_title">Vertical left swipe action</string>
-   <string name="left_vertical_swipe_app_action_title">Select vertical left swipe app</string>
-   <string name="right_vertical_swipe_actions_title">Vertical right swipe action</string>
-   <string name="right_vertical_swipe_app_action_title">Select vertical right swipe app</string>
    <string name="gesture_nav_tweaks_footer_info">To choose a specific app activity for the action, long press on any app in the app picker.\n\nIf launcher is showing, do the swipe at the very bottom area of the screen to trigger the action.</string>
    <string name="back_swipe_extended_title">Extended swipe action</string>
-   <string name="back_swipe_extended_summary">Trigger action on wider swipe (more than half of display size), or a L swipe (vertically longer enough)</string>
+   <string name="back_swipe_extended_summary">Trigger action if the swipe is horizontally wider than 3\/4 of display size</string>
 
     <!-- Button backlight -->
     <string name="button_backlight_title">Backlight</string>
@@ -1027,19 +1019,6 @@
     <!-- Summary for the new device identifier access restrictions -->
     <string name="device_identifier_access_restrictions_summary">Disable the new access restrictions for device identifiers</string>
 
-    <!-- HW keys -->
-    <string name="hardware_keys_title">Hardware</string>
-    <string name="hardware_keys_disable_title">Hardware keys</string>
-    <string name="hardware_keys_disable_summary">Use the device hardware keys for navigation</string>
-
-    <!-- Gesture navbar handle -->
-    <string name="gesture_navbar_handle_title">Navigation bar display style</string>
-    <string name="gesture_navbar_hidden">Hidden navigation bar</string>
-    <string name="gesture_navbar_handle_hidden">Hidden pill</string>
-    <string name="gesture_navbar_handle_default">Default pill</string>
-    <string name="gesture_navbar_handle_middle">Middle pill</string>
-    <string name="gesture_navbar_handle_large">Large pill</string>
-
     <!-- Smart pulldown-->
     <string name="smart_pulldown_title">Smart pulldown</string>
     <string name="smart_pulldown_summary">Open quick settings when there are %1$s notifications</string>
@@ -1124,5 +1103,4 @@
     <!-- R Notification headers -->
     <string name="notification_headers_title">Show notification headers</string>
     <string name="notification_headers_summary">Whether to show R style notification headers (Requires a SystemUI restart)</string>
-
 </resources>

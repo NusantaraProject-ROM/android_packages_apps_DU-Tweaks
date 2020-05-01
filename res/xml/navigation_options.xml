@@ -57,12 +57,12 @@
         android:key="gesture_category"
         android:title="@string/navbar_gesture_category" >
 
-        <ListPreference
-            android:key="navigation_handle_width"
-            android:title="@string/gesture_navbar_handle_title"
-            android:entries="@array/gesture_navbar_handle_entries"
-            android:entryValues="@array/gesture_navbar_handle_values"
-            android:dependency="force_show_navbar" />
+        <SwitchPreference
+            android:key="gesture_pill_switch"
+            android:title="@string/navbar_gesture_pill_toggle_title"
+            android:summary="@string/navbar_gesture_pill_toggle_summary"
+            android:dependency="force_show_navbar"
+            android:defaultValue="false" />
 
         <com.dirtyunicorns.support.preferences.SystemSettingListPreference
             android:key="long_back_swipe_timeout"
@@ -106,6 +106,21 @@
             android:fragment="com.dirtyunicorns.tweaks.fragments.ButtonBrightness" />
     </PreferenceCategory>
 
+    <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
+        android:key="back_swipe_extended"
+        android:title="@string/back_swipe_extended_title"
+        android:summary="@string/back_swipe_extended_summary"
+        android:dependency="force_show_navbar"
+        android:defaultValue="false" />
+
+    <com.dirtyunicorns.support.preferences.SystemSettingListPreference
+        android:key="long_back_swipe_timeout"
+        android:title="@string/long_back_swipe_timeout_title"
+        android:dependency="force_show_navbar"
+        android:entries="@array/long_back_swipe_timeout_entries"
+        android:entryValues="@array/long_back_swipe_timeout_values"
+        android:defaultValue="2000" />
+
     <PreferenceCategory
         android:key="left_swipe"
         android:title="@string/left_swipe_key_title">
@@ -126,23 +141,6 @@
             <intent android:action="android.intent.action.MAIN"
                 android:targetPackage="com.android.systemui"
                 android:targetClass="com.android.systemui.statusbar.phone.LeftBackSwipeCustomApp" />
-        </Preference>
-
-        <ListPreference
-            android:key="left_vertical_swipe_actions"
-            android:title="@string/left_vertical_swipe_actions_title"
-            android:entries="@array/gestures_actions_entries"
-            android:entryValues="@array/gestures_actions_values"
-            android:defaultValue="0" />
-
-        <Preference
-            android:key="left_vertical_swipe_app_action"
-            android:title="@string/left_vertical_swipe_app_action_title"
-            android:summary="@string/app_picker_dialog_title"
-            android:dependency="force_show_navbar">
-            <intent android:action="android.intent.action.MAIN"
-                android:targetPackage="com.android.systemui"
-                android:targetClass="com.android.systemui.statusbar.phone.LeftBackVerticalSwipeCustomApp" />
         </Preference>
 
     </PreferenceCategory>
@@ -167,23 +165,6 @@
             <intent android:action="android.intent.action.MAIN"
                 android:targetPackage="com.android.systemui"
                 android:targetClass="com.android.systemui.statusbar.phone.RightBackSwipeCustomApp" />
-        </Preference>
-
-        <ListPreference
-            android:key="right_vertical_swipe_actions"
-            android:title="@string/right_vertical_swipe_actions_title"
-            android:entries="@array/gestures_actions_entries"
-            android:entryValues="@array/gestures_actions_values"
-            android:defaultValue="0" />
-
-        <Preference
-            android:key="right_vertical_swipe_app_action"
-            android:title="@string/right_vertical_swipe_app_action_title"
-            android:summary="@string/app_picker_dialog_title"
-            android:dependency="force_show_navbar">
-        <intent android:action="android.intent.action.MAIN"
-            android:targetPackage="com.android.systemui"
-            android:targetClass="com.android.systemui.statusbar.phone.RightBackVerticalSwipeCustomApp" />
         </Preference>
 
     </PreferenceCategory>

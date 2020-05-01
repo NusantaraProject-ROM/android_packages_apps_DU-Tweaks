@@ -68,10 +68,9 @@ public class GamingMode extends SettingsPreferenceFragment
         implements Preference.OnPreferenceClickListener, Indexable {
 
     private static final int DIALOG_GAMING_APPS = 1;
+    private static final String GAMING_MODE_ENABLED = "gaming_mode_enabled";
+    private SwitchPreference mGamingModeEnabled;
 
-    private static final String GAMING_MODE_HW_KEYS = "gaming_mode_hw_keys_toggle";
-
-    private SwitchPreference mHardwareKeysDisable;
     private PackageListAdapter mPackageAdapter;
     private PackageManager mPackageManager;
     private PreferenceGroup mGamingPrefList;
@@ -80,10 +79,6 @@ public class GamingMode extends SettingsPreferenceFragment
     private String mGamingPackageList;
     private Map<String, Package> mGamingPackages;
 
-    private static final int KEY_MASK_HOME = 0x01;
-    private static final int KEY_MASK_BACK = 0x02;
-    private static final int KEY_MASK_MENU = 0x04;
-    private static final int KEY_MASK_APP_SWITCH = 0x10;
 
     private Context mContext;
 
@@ -97,12 +92,8 @@ public class GamingMode extends SettingsPreferenceFragment
 
         final PreferenceScreen prefScreen = getPreferenceScreen();
 
-        mHardwareKeysDisable = (SwitchPreference) findPreference(GAMING_MODE_HW_KEYS);
-
-        if (!hasHWkeys()) {
-            prefScreen.removePreference(mHardwareKeysDisable);
-        }
-
+        mGamingModeEnabled = (SwitchPreference) findPreference(GAMING_MODE_ENABLED);
+        
         mPackageManager = getPackageManager();
         mPackageAdapter = new PackageListAdapter(getActivity());
 
@@ -188,8 +179,13 @@ public class GamingMode extends SettingsPreferenceFragment
                                    Settings.System.GAMING_MODE_ACTIVE))) {
                 boolean enable = Settings.System.getInt(mContext.getContentResolver(),
                     Settings.System.GAMING_MODE_ACTIVE, 0) == 1;
+                setGamingControls(!enable);
             }
         }
+    }
+
+    private void setGamingControls(boolean enable) {
+        mGamingModeEnabled.setEnabled(enable);
     }
 
     /**
@@ -223,20 +219,8 @@ public class GamingMode extends SettingsPreferenceFragment
                 return null;
             }
         }
+
     };
-
-    private boolean hasHWkeys() {
-        final int deviceKeys = getContext().getResources().getInteger(
-                com.android.internal.R.integer.config_deviceHardwareKeys);
-
-        // read bits for present hardware keys
-        final boolean hasHomeKey = (deviceKeys & KEY_MASK_HOME) != 0;
-        final boolean hasBackKey = (deviceKeys & KEY_MASK_BACK) != 0;
-        final boolean hasMenuKey = (deviceKeys & KEY_MASK_MENU) != 0;
-        final boolean hasAppSwitchKey = (deviceKeys & KEY_MASK_APP_SWITCH) != 0;
-
-        return (hasHomeKey || hasBackKey || hasMenuKey || hasAppSwitchKey);
-    }
 
     private void refreshCustomApplicationPrefs() {
         if (!parsePackageList()) {
