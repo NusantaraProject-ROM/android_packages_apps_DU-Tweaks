@@ -33,17 +33,19 @@
     <PreferenceCategory
 	android:title="@string/volume_stuff_title">
 
-    <PreferenceScreen
-	android:key="volume_panel"
-	android:title="@string/audio_panel_view_title"
-	android:summary="@string/audio_panel_view_summary"
-	android:fragment="com.dirtyunicorns.tweaks.fragments.VolumePanel" />
+    <com.dirtyunicorns.support.preferences.SystemSettingSeekBarPreference
+        android:key="volume_dialog_timeout"
+        android:title="@string/volume_dialog_timeout_title"
+        settings:min="1"
+        android:max="10"
+        android:defaultValue="3"
+        settings:units="sec" />
 
-    <Preference
-        android:key="vol_steps"
-        android:title="@string/volume_steps_title"
-        android:summary="@string/volume_steps_summary"
-        android:fragment="com.dirtyunicorns.tweaks.fragments.VolumeSteps" />
+    <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
+        android:key="audio_panel_view_position"
+        android:title="@string/volume_panel_on_left_title"
+        android:summary="@string/volume_panel_on_left_summary"
+        android:defaultValue="false" />
 
     <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
         android:key="volume_button_music_control"
