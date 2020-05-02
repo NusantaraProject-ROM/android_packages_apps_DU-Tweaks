@@ -521,8 +521,8 @@
     <string name="qs_set_animation_interpolator">%1$s</string>
 
     <!-- Volume Panel on Left -->
-    <string name="volume_panel_on_left_title">Volume Panel on Right</string>
-    <string name="volume_panel_on_left_summary">Change volume panel from left side to right side</string>
+    <string name="volume_panel_on_left_title">Volume Panel on Left</string>
+    <string name="volume_panel_on_left_summary">Change volume panel from right side to left side</string>
 
     <!-- Gaming mode -->
     <string name="gaming_mode_title">Gaming mode</string>
