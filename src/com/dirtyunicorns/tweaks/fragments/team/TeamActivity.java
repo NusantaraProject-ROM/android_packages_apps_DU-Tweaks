@@ -53,6 +53,8 @@ public class TeamActivity extends Activity {
                 + " / " + getString(R.string.maintainer_title), "Genkzsz11", "Genkzsz11", R.drawable.genkzsz11);
         setTeamMember("Ritzz", getString(R.string.developer_title)
                 + " / " + getString(R.string.maintainer_title), "riteshm321", "ritzz97", R.drawable.ritzz);
+        setTeamMember("Jughead", getString(R.string.contributor_title), "", "jughead069",
+                R.drawable.jughead);        
         setTeamMember("Rafiester", getString(R.string.developer_title)
                 + " / " + getString(R.string.maintainer_title), "Rafiester", "Rafiester", R.drawable.rafiester);
         setTeamMember("Rizky Benggolo", getString(R.string.developer_title)
@@ -73,8 +75,6 @@ public class TeamActivity extends Activity {
                 R.drawable.shivam);
         setTeamMember("Samuel", getString(R.string.maintainer_title), "DeadmanxXD", "deadmanxxd",
                 R.drawable.deadmanxxd);
-        setTeamMember("Jughead", getString(R.string.contributor_title), "jughead069", "",
-                R.drawable.jughead);
 
         ListAdapter mAdapter = new ListAdapter(mList);
         mRecycleview.setAdapter(mAdapter);
