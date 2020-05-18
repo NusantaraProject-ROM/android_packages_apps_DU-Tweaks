@@ -22,12 +22,12 @@
     android:clickable="true"
     android:focusable="true"
     card_view:cardCornerRadius="@dimen/card_corner_radius"
-    card_view:cardElevation="@dimen/card_elevation"
+    card_view:cardElevation="0.0dp"
     android:layout_marginTop="@dimen/card_margin_top"
     android:layout_marginBottom="@dimen/card_margin_bottom"
     android:layout_marginRight="@dimen/card_margin_right"
     android:layout_marginLeft="@dimen/card_margin_left"
-    card_view:cardBackgroundColor="@color/cardview_bg"
+    card_view:cardBackgroundColor="@android:color/transparent"
     android:foreground="?android:attr/selectableItemBackground">
 
     <LinearLayout
@@ -58,7 +58,7 @@
                 android:id="@android:id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="5dp"
                 android:textStyle="bold"
                 android:textSize="18sp"
                 android:textColor="@*android:color/accent_device_default_light"/>
@@ -68,8 +68,12 @@
                 android:id="@android:id/summary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginEnd="2dp"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:scrollHorizontally="true"
                 android:textSize="12sp" />
         </LinearLayout>
     </LinearLayout>

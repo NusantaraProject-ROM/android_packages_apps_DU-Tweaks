@@ -18,21 +18,21 @@
 
     <com.dirtyunicorns.tweaks.preferences.CategoryPreference
         android:key="buttons_category"
-        android:icon="@drawable/dt_buttons"
+        android:icon="@drawable/dt_buttons_bg"
         android:title="@string/buttons_title"
         android:summary="@string/buttons_summary"
         android:fragment="com.dirtyunicorns.tweaks.fragments.Buttons" />
 
     <com.dirtyunicorns.tweaks.preferences.CategoryPreference
         android:key="navigation_category"
-        android:icon="@drawable/dt_navigationbar"
+        android:icon="@drawable/dt_navigationbar_bg"
         android:title="@string/navigation_options_title"
         android:summary="@string/navigation_options_summary"
         android:fragment="com.dirtyunicorns.tweaks.fragments.NavigationOptions" />
 
     <com.dirtyunicorns.tweaks.preferences.CategoryPreference
         android:key="powermenu_category"
-        android:icon="@drawable/dt_powermenu"
+        android:icon="@drawable/dt_powermenu_bg"
         android:title="@string/powermenu_title"
         android:summary="@string/powermenu_summary"
         android:fragment="com.dirtyunicorns.tweaks.fragments.PowerMenu" />

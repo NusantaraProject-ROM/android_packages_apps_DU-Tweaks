@@ -35,4 +35,44 @@
     <!-- Ambient lights-->
     <color name="ambient_light_screen_color">#111111</color>
     <color name="ambient_light_body_color">#323232</color>
+	
+	<!--DT Icon backgorunds-->
+	<color name="dt_notifications_color">#3f00ACC1</color>
+	<color name="dt_miscellaneous_color">#3f9C27B0</color>
+		
+	<color name="dt_lockscreen_items_color">#3fD81B60</color>
+	<color name="dt_fingerprint_prefs_color">#3f00ACC1</color>
+		
+	<color name="dt_buttons_color">#3fD81B60</color>
+	<color name="dt_navigationbar_color">#3f9C27B0</color>
+	<color name="dt_powermenu_color">#3f00ACC1</color>	
+	
+	<color name="dt_battery_options_color">#3f00ACC1</color>	
+	<color name="dt_carrier_label_color">#3f7CB342</color>
+	<color name="dt_clock_options_color">#3fF4511E</color>
+	<color name="dt_corvus_parts_color">#3f1E88E5</color>	
+	<color name="dt_icon_manager_color">#3f9C27B0</color>	
+	<color name="dt_quicksettings_color">#3FD81B60</color>
+	<color name="dt_ticker_color">#3f00ACC1</color>
+	<color name="dt_traffic_color">#3f1E88E5</color>	
+	
+	<!--DT Icon foreground tint-->
+	<color name="dt_notifications_icon_tint">#00ACC1</color>
+	<color name="dt_miscellaneous_icon_tint">#9C27B0</color>
+		
+	<color name="dt_lockscreen_items_icon_tint">#D81B60</color>
+	<color name="dt_fingerprint_prefs_icon_tint">#00ACC1</color>
+		
+	<color name="dt_buttons_icon_tint">#D81B60</color>
+	<color name="dt_navigationbar_icon_tint">#9C27B0</color>
+	<color name="dt_powermenu_icon_tint">#00ACC1</color>	
+	
+	<color name="dt_battery_options_icon_tint">#00ACC1</color>	
+	<color name="dt_carrier_label_icon_tint">#7CB342</color>
+	<color name="dt_clock_options_icon_tint">#F4511E</color>
+	<color name="dt_corvus_parts_icon_tint">#1E88E5</color>	
+	<color name="dt_icon_manager_icon_tint">#9C27B0</color>	
+	<color name="dt_quicksettings_icon_tint">#D81B60</color>
+	<color name="dt_ticker_icon_tint">#00ACC1</color>
+	<color name="dt_traffic_icon_tint">#1E88E5</color>	
 </resources>
