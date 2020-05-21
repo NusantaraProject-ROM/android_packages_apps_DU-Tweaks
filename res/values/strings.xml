@@ -1036,6 +1036,7 @@
     <string name="qs_tint_off">Disable</string>
     <string name="qs_tint_random">Random color</string>
     <string name="qs_tint_accent">Accent color</string>
+    <string name="qs_disco_mode">Disco</string>
 
     <!-- OOS clear all button -->
     <string name="enable_clear_all_button">OOS clear all button</string>
