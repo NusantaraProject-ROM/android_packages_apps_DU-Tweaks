@@ -7,6 +7,8 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.TransitionDrawable;
 import android.os.Build;
+import android.os.Parcel;
+import android.os.Parcelable;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -17,6 +19,7 @@ import androidx.appcompat.content.res.AppCompatResources;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -32,6 +35,7 @@ public class BubbleToggleView extends RelativeLayout {
 
     private static final String TAG = "BNI_View";
     private static final int DEFAULT_ANIM_DURATION = 300;
+    private int mLayoutDirection = ViewCompat.LAYOUT_DIRECTION_LTR;
 
     private BubbleToggleItem bubbleToggleItem;
 
@@ -62,6 +66,92 @@ public class BubbleToggleView extends RelativeLayout {
     public BubbleToggleView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs);
+    }
+
+    @Override
+    public void onRtlPropertiesChanged(int layoutDirection) {
+        super.onRtlPropertiesChanged(layoutDirection);
+        int viewCompatLayoutDirection = layoutDirection == View.LAYOUT_DIRECTION_RTL ? ViewCompat.LAYOUT_DIRECTION_RTL : ViewCompat.LAYOUT_DIRECTION_LTR;
+        if (viewCompatLayoutDirection != mLayoutDirection) {
+            mLayoutDirection = viewCompatLayoutDirection;
+        }
+
+        if (isRtl())
+            setGravity(Gravity.START);
+        else setGravity(Gravity.CENTER);
+    }
+
+    private boolean isRtl() {
+        return mLayoutDirection == ViewCompat.LAYOUT_DIRECTION_RTL;
+    }
+
+    @Override
+    public Parcelable onSaveInstanceState() {
+        Parcelable superState = super.onSaveInstanceState();
+        return new SavedState(superState, mLayoutDirection);
+    }
+
+    @Override
+    public void onRestoreInstanceState(Parcelable state) {
+        if (!(state instanceof SavedState)) {
+            super.onRestoreInstanceState(state);
+            return;
+        }
+
+        SavedState ss = (SavedState) state;
+        mLayoutDirection = ss.mLayoutDirection;
+        super.onRestoreInstanceState(ss.mViewPagerSavedState);
+    }
+
+
+    public static class SavedState implements Parcelable {
+
+        private final Parcelable mViewPagerSavedState;
+        private final int mLayoutDirection;
+
+        private SavedState(Parcelable viewPagerSavedState, int layoutDirection) {
+            mViewPagerSavedState = viewPagerSavedState;
+            mLayoutDirection = layoutDirection;
+        }
+
+        private SavedState(Parcel in, ClassLoader loader) {
+            if (loader == null) {
+                loader = getClass().getClassLoader();
+            }
+            mViewPagerSavedState = in.readParcelable(loader);
+            mLayoutDirection = in.readInt();
+        }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel out, int flags) {
+            out.writeParcelable(mViewPagerSavedState, flags);
+            out.writeInt(mLayoutDirection);
+        }
+
+        // The `CREATOR` field is used to create the parcelable from a parcel, even though it is never referenced directly.
+        public static final Parcelable.ClassLoaderCreator<SavedState> CREATOR
+                = new Parcelable.ClassLoaderCreator<SavedState>() {
+
+            @Override
+            public SavedState createFromParcel(Parcel source) {
+                return createFromParcel(source, null);
+            }
+
+            @Override
+            public SavedState createFromParcel(Parcel source, ClassLoader loader) {
+                return new SavedState(source, loader);
+            }
+
+            @Override
+            public SavedState[] newArray(int size) {
+                return new SavedState[size];
+            }
+        };
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -143,7 +233,9 @@ public class BubbleToggleView extends RelativeLayout {
         bubbleToggleItem.setInternalPadding(internalPadding);
 
         //set the gravity
-        setGravity(Gravity.CENTER);
+        if (isRtl())
+            setGravity(Gravity.START);
+        else setGravity(Gravity.CENTER);
 
         //set the internal padding
         setPadding(
