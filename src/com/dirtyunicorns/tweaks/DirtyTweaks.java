@@ -16,19 +16,12 @@
 
 package com.dirtyunicorns.tweaks;
 
-import android.os.Bundle;
 import android.content.Context;
 import android.content.Intent;
-import android.text.Html;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.provider.Settings;
-import androidx.preference.Preference;
-import androidx.preference.PreferenceCategory;
-import androidx.preference.PreferenceManager;
-import androidx.preference.Preference.OnPreferenceChangeListener;
-import androidx.preference.PreferenceScreen;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,17 +35,15 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.nano.MetricsProto;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.bottomnavigation.LabelVisibilityMode;
-
 import com.dirtyunicorns.tweaks.fragments.team.TeamActivity;
 import com.dirtyunicorns.tweaks.tabs.Lockscreen;
 import com.dirtyunicorns.tweaks.tabs.Hardware;
 import com.dirtyunicorns.tweaks.tabs.Statusbar;
 import com.dirtyunicorns.tweaks.tabs.System;
+import com.dirtyunicorns.tweaks.bottomnav.BubbleNavigationConstraintView;
+import com.dirtyunicorns.tweaks.bottomnav.BubbleNavigationChangeListener;
 
-public class DirtyTweaks extends SettingsPreferenceFragment implements   
-       Preference.OnPreferenceChangeListener {
+public class DirtyTweaks extends SettingsPreferenceFragment {
 
     private MenuItem mMenuItem;
     private Context mContext;
@@ -65,62 +56,41 @@ public class DirtyTweaks extends SettingsPreferenceFragment implements
 
         getActivity().setTitle(R.string.dirtytweaks_title);
 
-        final BottomNavigationView navigation = (BottomNavigationView) view.findViewById(R.id.navigation);
+        final BubbleNavigationConstraintView bubbleNavigationConstraintView =  (BubbleNavigationConstraintView) view.findViewById(R.id.bottom_navigation_view_constraint);
         final ViewPager viewPager = view.findViewById(R.id.viewpager);
         PagerAdapter mPagerAdapter = new PagerAdapter(getFragmentManager());
         viewPager.setAdapter(mPagerAdapter);
 
-        navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-
+        bubbleNavigationConstraintView.setNavigationChangeListener(new BubbleNavigationChangeListener() {
             @Override
-            public boolean onNavigationItemSelected(MenuItem item) {
-              if (item.getItemId() == navigation.getSelectedItemId()) {
-              return false;
-              } else {
-                switch(item.getItemId()){
+            public void onNavigationChanged(View view, int position) {
+                switch(view.getId()) {
                     case R.id.system:
-                        viewPager.setCurrentItem(0);
-                        break;
-                     case R.id.lockscreen:
-                        viewPager.setCurrentItem(1);
-                        break;
-                     case R.id.statusbar:
-                        viewPager.setCurrentItem(2);
-                        break;
-                     case R.id.hardware:
-                        viewPager.setCurrentItem(3);
-                        break;
+                    case R.id.lockscreen:
+                    case R.id.statusbar:
+                    case R.id.hardware:
+                         viewPager.setCurrentItem(position, true);
+                    break;
                    }
-                return true;
                }
-            }
-        });
+           });
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onPageScrolled(int position, float positionOffset,
-                                       int positionOffsetPixels) {
+            public void onPageScrolled(int i, float v, int i1) {
             }
 
             @Override
-            public void onPageSelected(int position) {
-                if(mMenuItem != null) {
-                    mMenuItem.setChecked(false);
-                } else {
-                    navigation.getMenu().getItem(0).setChecked(false);
-                }
-                navigation.getMenu().getItem(position).setChecked(true);
-                mMenuItem = navigation.getMenu().getItem(position);
+            public void onPageSelected(int i) {
+                bubbleNavigationConstraintView.setCurrentActiveItem(i);
             }
 
             @Override
-            public void onPageScrollStateChanged(int state) {
+            public void onPageScrollStateChanged(int i) {
             }
         });
 
         setHasOptionsMenu(true);
-        navigation.setSelectedItemId(R.id.system);
-        navigation.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
         return view;
     }
 
@@ -162,11 +132,6 @@ public class DirtyTweaks extends SettingsPreferenceFragment implements
                 getString(R.string.bottom_nav_hardware_title)};
 
         return titleString;
-    }
-
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
-        final String key = preference.getKey();
-        return true;
     }
 
     @Override

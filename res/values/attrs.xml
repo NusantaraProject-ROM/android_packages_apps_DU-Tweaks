@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BubbleToggleView">
+        <attr name="corvus_icon" format="reference" />
+        <attr name="corvus_iconWidth" format="dimension" />
+        <attr name="corvus_iconHeight" format="dimension" />
+        <attr name="corvus_shape" format="reference" />
+        <attr name="corvus_shapeColor" format="color" />
+        <attr name="corvus_showShapeAlways" format="boolean" />
+        <attr name="corvus_title" format="string" />
+        <attr name="corvus_titleSize" format="dimension" />
+        <attr name="corvus_colorActive" format="color" />
+        <attr name="corvus_colorInactive" format="color" />
+        <attr name="corvus_active" format="boolean" />
+        <attr name="corvus_duration" format="integer" />
+        <attr name="corvus_padding" format="dimension" />
+        <attr name="corvus_titlePadding" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="BubbleNavigationConstraintView">
+        <attr name="corvus_mode">
+            <enum name="spread" value="0" />
+            <enum name="inside" value="1" />
+            <enum name="packed" value="2" />
+        </attr>
+    </declare-styleable>
+</resources>

@@ -16,10 +16,6 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Bottom navigation bar -->
-    <dimen name="design_bottom_navigation_text_size">10dp</dimen>
-    <dimen name="design_bottom_navigation_active_text_size">11dp</dimen>
-
     <!-- Cardview Preference -->
     <dimen name="card_elevation">2dp</dimen>
     <dimen name="card_corner_radius">8dp</dimen>
@@ -44,4 +40,11 @@
     <dimen name="ambient_light_preview_layout_width">150dp</dimen>
     <dimen name="ambient_light_preview_paddingHorizontal">50dp</dimen>
     <dimen name="ambient_light_preview_paddingVertical">30dp</dimen>
+
+    <dimen name="default_corner_radii">56dp</dimen>
+    <dimen name="default_nav_item_padding">10dp</dimen>
+    <dimen name="default_nav_item_text_size">11sp</dimen>
+    <dimen name="default_nav_item_text_padding">8dp</dimen>
+    <dimen name="default_nav_item_title_max_width">80dp</dimen>
+    <dimen name="default_icon_size">24dp</dimen>
 </resources>
