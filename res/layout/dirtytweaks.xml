@@ -80,8 +80,8 @@
             android:layout_height="wrap_content"
             app:corvus_padding="12dp"
             app:corvus_titlePadding="8dp"
-            app:corvus_colorActive="@color/orange_active"
-            app:corvus_colorInactive="@color/orange_inactive"
+            app:corvus_colorActive="@color/amber_active"
+            app:corvus_colorInactive="@color/amber_inactive"
             app:corvus_icon="@drawable/bottomnav_hardware"
             app:corvus_shape="@drawable/transition_background_drawable_hardware"
             app:corvus_title="@string/bottom_nav_hardware_title" />
