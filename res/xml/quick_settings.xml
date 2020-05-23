@@ -32,6 +32,13 @@
             android:entryValues="@array/smart_pulldown_values"
             android:persistent="false" />
 
+        <com.dirtyunicorns.support.preferences.SystemSettingListPreference
+            android:key="qs_datausage"
+            android:title="@string/qs_datausage_title"
+            android:entries="@array/qs_datausage_entries"
+            android:entryValues="@array/qs_datausage_values"
+            android:defaultValue="0" />
+
         <com.dirtyunicorns.support.preferences.SecureSettingSwitchPreference
             android:key="quick_settings_vibrate"
             android:title="@string/quick_settings_vibrate_title"
@@ -43,12 +50,6 @@
             android:title="@string/enable_clear_all_button"
             android:summary="@string/enable_clear_all_button_summary"
             android:defaultValue="true" />
-
-        <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
-            android:key="qs_datausage"
-            android:title="@string/qs_datausage_title"
-            android:summary="@string/qs_datausage_subtitle"
-            android:defaultValue="false" />
 
         <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
             android:key="notification_headers"
