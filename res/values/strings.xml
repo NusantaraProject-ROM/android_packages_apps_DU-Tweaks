@@ -38,42 +38,42 @@
     <string name="corvus_parts_title">Corvus Parts</string>
     <string name="corvus_parts_summary">Corvus device specific parts</string>
     <string name="miscellaneous_title">Miscellaneous</string>
-    <string name="miscellaneous_summary">Miscellaneous tricks</string>
+    <string name="miscellaneous_summary">Customize the miscellaneous</string>
     <string name="powermenu_title">Power menu</string>
-    <string name="powermenu_summary">Configure the power menu</string>
+    <string name="powermenu_summary">Customize the power menu</string>
     <string name="notifications_title">Notifications</string>
-    <string name="notifications_summary">Tricks specific to system notifications</string>
+    <string name="notifications_summary">Customize the notifications</string>
 
     <!-- Lockscreen -->
     <string name="fingerprint_prefs_title">Fingerprint prefs</string>
-    <string name="fingerprint_prefs_summary">Tricks specific to the fingerprint scanner</string>
+    <string name="fingerprint_prefs_summary">Customize the fingerprint scanner</string>
     <string name="lockscreen_items_title">Lockscreen items</string>
-    <string name="lockscreen_items_summary">Customize the lockscreen</string>
+    <string name="lockscreen_items_summary">Customize the lockscreen item</string>
     <string name="lockscreen_style_title">Lockscreen Style</string>
-    <string name="lockscreen_style_summary">Customize the lockscreen Style</string>
+    <string name="lockscreen_style_summary">Customize the lockscreen</string>
     <string name="switch_settings_title">Element</string>
 
     <!-- Statusbar -->
     <string name="battery_options_title">Battery options</string>
     <string name="battery_options_summary">Customize the statusbar battery</string>
     <string name="carrier_label_title">Carrier label</string>
-    <string name="carrier_label_summary">Customize the carrier label on the lockscreen or statusbar</string>
+    <string name="carrier_label_summary">Customize the carrier label</string>
     <string name="clock_options_title">Clock options</string>
-    <string name="clock_options_summary">Customize your statusbar clock</string>
+    <string name="clock_options_summary">Customize the statusbar clock</string>
     <string name="icon_manager_title">Icon manager</string>
-    <string name="icon_manager_summary">Configure the visibility of statusbar items</string>
+    <string name="icon_manager_summary">Customize the statusbar items</string>
     <string name="quicksettings_title">Quick settings</string>
-    <string name="quicksettings_summary">Configure the layout of the quick settings area</string>
+    <string name="quicksettings_summary">Customize the quick settings</string>
     <string name="traffic_title">Traffic indicators</string>
-    <string name="traffic_summary">Enable and configure the traffic indicators</string>
+    <string name="traffic_summary">Customize the traffic indicators</string>
     <string name="ticker_title">Ticker</string>
-    <string name="ticker_summary">Enable the statusbar ticker and configure ticker related tricks</string>
+    <string name="ticker_summary">Customize the statusbar ticker</string>
 
     <!-- Navigation -->
     <string name="buttons_title">Buttons</string>
-    <string name="buttons_summary">Configure volume rocker options</string>
+    <string name="buttons_summary">Customize the Button options</string>
     <string name="navigation_options_title">Navigation</string>
-    <string name="navigation_options_summary">Configure navigation options</string>
+    <string name="navigation_options_summary">Customize the navigation options</string>
 
     <!-- Misc -->
     <string name="ok">OK</string>
@@ -716,7 +716,7 @@
     <string name="flashlight_on_call_always">Always blink flashlight</string>
 
     <!-- Sensor block per-package -->
-    <string name="sensor_block_title">Sensor block per-package</string>
+    <string name="sensor_block_title">Sensor block package</string>
     <string name="sensor_block_summary">Block access to certain sensors for some apps to save battery</string>
 
     <!-- Allow fake signature -->
@@ -826,7 +826,7 @@
 
     <!-- QS blur -->
     <string name="blur_quicksettings">QS Blur</string>
-    <string name="blur_quicksettings_subtitle">blurs darkened background behind quick settings</string>
+    <string name="blur_quicksettings_subtitle">Blurs darkened background behind quick settings</string>
     <string name="qs_blur_alpha_title">Blur alpha</string>
     <string name="qs_blur_alpha_summary">Sets the blur transparency</string>
     <string name="qs_blur_intensity_title">Blur intensity</string>
@@ -1027,7 +1027,7 @@
 
     <!-- OOS clear all button -->
     <string name="enable_clear_all_button">OOS clear all button</string>
-    <string name="enable_clear_all_button_summary">Show OOS clear all notifications button in quick settings instead of default text one</string>
+    <string name="enable_clear_all_button_summary">Show OOS clear all notifications</string>
 
     <!-- Display cutout options -->
     <string name="display_cutout_style_title">Cutout style</string>

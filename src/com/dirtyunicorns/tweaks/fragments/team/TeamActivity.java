@@ -50,15 +50,22 @@ public class TeamActivity extends Activity {
         RecyclerView mRecycleview = findViewById(R.id.listView);
 
         setTeamMember("Genkzsz11", getString(R.string.developer_title)
-                + " / " + getString(R.string.maintainer_title), "Genkzsz11", "Genkzsz11", R.drawable.genkzsz11);
+                + " / " + getString(R.string.maintainer_title), "Genkzsz11", "Genkzsz11", 
+                R.drawable.genkzsz11);
         setTeamMember("Ritzz", getString(R.string.developer_title)
-                + " / " + getString(R.string.maintainer_title), "riteshm321", "ritzz97", R.drawable.ritzz);
-        setTeamMember("Jughead", getString(R.string.contributor_title), "", "jughead069",
-                R.drawable.jughead);        
+                + " / " + getString(R.string.maintainer_title), "riteshm321", "ritzz97", 
+                R.drawable.ritzz);
         setTeamMember("Rafiester", getString(R.string.developer_title)
-                + " / " + getString(R.string.maintainer_title), "Rafiester", "Rafiester", R.drawable.rafiester);
+                + " / " + getString(R.string.maintainer_title), "Rafiester", "Rafiester", 
+                R.drawable.rafiester);
+        setTeamMember("Samuel", getString(R.string.developer_title)
+                + " / " + getString(R.string.maintainer_title), "DeadmanxXD", "deadmanxxd",
+                R.drawable.deadmanxxd);
+        setTeamMember("Jughead", getString(R.string.contributor_title), "", "jughead069",
+                R.drawable.jughead);
         setTeamMember("Rizky Benggolo", getString(R.string.developer_title)
-                + " / " + getString(R.string.contributor_title), "travarilo", "travarilo", R.drawable.travarilo);
+                + " / " + getString(R.string.contributor_title), "travarilo", "travarilo", 
+                R.drawable.travarilo);
         setTeamMember("Andra Ramadan", getString(R.string.contributor_title), "andrraa", "Andrraa",
                 R.drawable.andra);
         setTeamMember("JulianSurya", getString(R.string.maintainer_title), "juliansurya", "JulianSurya",
@@ -73,8 +80,6 @@ public class TeamActivity extends Activity {
                 R.drawable.ronald);
         setTeamMember("Shivam Kumar", getString(R.string.maintainer_title), "ShivamKumar2002", "ShivamKumar2002",
                 R.drawable.shivam);
-        setTeamMember("Samuel", getString(R.string.maintainer_title), "DeadmanxXD", "deadmanxxd",
-                R.drawable.deadmanxxd);
         setTeamMember("Takeshiro", getString(R.string.maintainer_title), "Takeshiro04", "Takeshiro04",
                 R.drawable.takeshiro);
         setTeamMember("Zeeshan", getString(R.string.maintainer_title), "HeartStealer786", "NAHSEEZ",
