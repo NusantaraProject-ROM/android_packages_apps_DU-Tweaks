@@ -111,6 +111,14 @@
             android:title="@string/double_tap_sleep_gesture_title"
             android:summary="@string/double_tap_sleep_gesture_summary"
             android:defaultValue="false" />
+
+        <com.dirtyunicorns.support.preferences.SystemSettingListPreference
+            android:key="ringtone_focus_mode"
+            android:title="@string/ringtone_focus_mode_title"
+            android:entries="@array/ringtone_focus_mode_entries"
+            android:entryValues="@array/ringtone_focus_mode_values"
+            android:defaultValue="1" />
+
     </PreferenceCategory>
 
     <!-- Wakelock blocker -->
