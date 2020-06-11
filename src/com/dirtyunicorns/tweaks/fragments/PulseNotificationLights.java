@@ -73,7 +73,7 @@ public class PulseNotificationLights extends SettingsPreferenceFragment
         mEdgeLightColorPreference.setNewPreviewColor(edgeLightColor);
 
         AmbientLightSettingsPreview.setAmbientLightPreviewColor(edgeLightColor);
-        String edgeLightColorHex = ColorPickerPreference.convertToRGB(edgeLightColor);
+        String edgeLightColorHex = ColorPickerPreference.convertToARGB(edgeLightColor);
         if (edgeLightColorHex.equals("#3980ff")) {
             mEdgeLightColorPreference.setSummary(R.string.default_string);
         } else {
@@ -105,7 +105,7 @@ public class PulseNotificationLights extends SettingsPreferenceFragment
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mEdgeLightColorPreference) {
-            String hex = ColorPickerPreference.convertToRGB(
+            String hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
             if (hex.equals("#3980ff")) {
                 preference.setSummary(R.string.default_string);
