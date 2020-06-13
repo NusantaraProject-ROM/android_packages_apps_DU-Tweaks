@@ -21,13 +21,13 @@
         android:icon="@drawable/dt_lockscreen_items_bg"
         android:title="@string/lockscreen_items_title"
         android:summary="@string/lockscreen_items_summary"
-        android:fragment="com.dirtyunicorns.tweaks.fragments.LockscreenItems" />
+        android:fragment="com.dirtyunicorns.tweaks.fragments.lockscreen.LockscreenItems" />
 
     <com.dirtyunicorns.tweaks.preferences.CategoryPreference
         android:key="fingerprint_prefs_category"
         android:icon="@drawable/dt_fingerprint_prefs_bg"
         android:title="@string/fingerprint_prefs_title"
         android:summary="@string/fingerprint_prefs_summary"
-        android:fragment="com.dirtyunicorns.tweaks.fragments.FingerprintPrefs" />
+        android:fragment="com.dirtyunicorns.tweaks.fragments.lockscreen.FingerprintPrefs" />
 
 </PreferenceScreen>

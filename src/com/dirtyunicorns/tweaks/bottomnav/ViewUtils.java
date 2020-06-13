@@ -3,8 +3,6 @@ package com.dirtyunicorns.tweaks.bottomnav;
 import android.content.Context;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
-import androidx.annotation.Nullable;
 import android.util.TypedValue;
 import com.dirtyunicorns.tweaks.R;
 
@@ -16,12 +14,10 @@ public class ViewUtils {
         return value.data;
     }
 
-    public static void updateDrawableColor(@Nullable Drawable drawable, int color) {
-        if (drawable == null) return;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+    public static void updateDrawableColor(Drawable drawable, int color) {
+        if (drawable == null)
+            return;
             drawable.setTint(color);
-        else
             drawable.setColorFilter(color, PorterDuff.Mode.SRC_ATOP);
     }
-
 }

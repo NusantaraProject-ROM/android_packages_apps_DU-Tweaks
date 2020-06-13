@@ -66,8 +66,6 @@
     <string name="quicksettings_summary">Customize the quick settings</string>
     <string name="traffic_title">Traffic indicators</string>
     <string name="traffic_summary">Customize the traffic indicators</string>
-    <string name="ticker_title">Ticker</string>
-    <string name="ticker_summary">Customize the statusbar ticker</string>
 
     <!-- Navigation -->
     <string name="buttons_title">Buttons</string>

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.dirtyunicorns.tweaks.fragments;
+package com.dirtyunicorns.tweaks.fragments.lockscreen;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -25,6 +25,7 @@ import android.provider.Settings;
 import androidx.preference.*;
 
 import com.android.internal.logging.nano.MetricsProto;
+
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
@@ -32,38 +33,25 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import com.android.settingslib.search.SearchIndexable;
 
-import com.dirtyunicorns.support.preferences.SystemSettingListPreference;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import com.dirtyunicorns.support.preferences.SecureSettingMasterSwitchPreference;
-
 @SearchIndexable
-public class LockscreenItems extends SettingsPreferenceFragment
+public class FingerprintPrefs extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, Indexable {
 
-    private static final String LOCKSCREEN_VISUALIZER_ENABLED = "lockscreen_visualizer_enabled";
     private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker";
     private static final String FOD_ANIMATION = "fod_anim";
 
-    private SecureSettingMasterSwitchPreference mVisualizerEnabled;
     private PreferenceCategory mFODIconPickerCategory;
     private Preference mFODAnimation;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.lockscreen_items);
-        ContentResolver resolver = getActivity().getContentResolver();
+        addPreferencesFromResource(R.xml.fingerprint_prefs);
         Context mContext = getContext();
         final PreferenceScreen prefScreen = getPreferenceScreen();
-
-        mVisualizerEnabled = (SecureSettingMasterSwitchPreference) findPreference(LOCKSCREEN_VISUALIZER_ENABLED);
-        mVisualizerEnabled.setOnPreferenceChangeListener(this);
-        int visualizerEnabled = Settings.Secure.getInt(resolver,
-                LOCKSCREEN_VISUALIZER_ENABLED, 0);
-        mVisualizerEnabled.setChecked(visualizerEnabled != 0);
 
         mFODIconPickerCategory = (PreferenceCategory) findPreference(FOD_ICON_PICKER_CATEGORY);
         if (mFODIconPickerCategory != null
@@ -82,13 +70,6 @@ public class LockscreenItems extends SettingsPreferenceFragment
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        ContentResolver resolver = getActivity().getContentResolver();
-        if (preference == mVisualizerEnabled) {
-            boolean value = (Boolean) newValue;
-            Settings.Secure.putInt(getContentResolver(),
-		            LOCKSCREEN_VISUALIZER_ENABLED, value ? 1 : 0);
-            return true;
-        }
         return false;
     }
 
@@ -106,7 +87,7 @@ public class LockscreenItems extends SettingsPreferenceFragment
                             new ArrayList<SearchIndexableResource>();
 
                     SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.lockscreen_items;
+                    sir.xmlResId = R.xml.fingerprint_prefs;
                     result.add(sir);
                     return result;
                 }

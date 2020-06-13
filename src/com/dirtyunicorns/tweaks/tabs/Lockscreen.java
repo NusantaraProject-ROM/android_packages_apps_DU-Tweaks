@@ -17,11 +17,9 @@
 package com.dirtyunicorns.tweaks.tabs;
 
 import android.os.Bundle;
-import android.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
-import androidx.preference.PreferenceFragment;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -56,6 +54,10 @@ public class Lockscreen extends SettingsPreferenceFragment
     }
 
     @Override
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
     }
@@ -65,15 +67,13 @@ public class Lockscreen extends SettingsPreferenceFragment
         super.onPause();
     }
 
+    @Override
+    public int getMetricsCategory() {
+        return MetricsProto.MetricsEvent.DIRTYTWEAKS;
+    }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         final String key = preference.getKey();
         return false;
-    }
-
-
-    @Override
-    public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.DIRTYTWEAKS;
     }
 }

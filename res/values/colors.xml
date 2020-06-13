@@ -49,7 +49,6 @@
     <color name="dt_corvus_parts_color">@color/orange_bg_light</color>
     <color name="dt_icon_manager_color">@color/purple_bg_light</color>
     <color name="dt_quicksettings_color">@color/cyan_bg_light</color>
-    <color name="dt_ticker_color">@color/amber_bg_light</color>
     <color name="dt_traffic_color">@color/pink_bg_light</color>
 
     <!--DT Icon foreground tint-->
@@ -69,7 +68,6 @@
     <color name="dt_corvus_parts_icon_tint">@color/orange_active</color>
     <color name="dt_icon_manager_icon_tint">@color/purple_active</color>
     <color name="dt_quicksettings_icon_tint">@color/cyan_active</color>
-    <color name="dt_ticker_icon_tint">@color/amber_active</color>
     <color name="dt_traffic_icon_tint">@color/pink_active</color>
 
     <color name="red_bg_light">#3dcf605a</color>

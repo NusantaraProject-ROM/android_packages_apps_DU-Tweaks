@@ -3,27 +3,26 @@ package com.dirtyunicorns.tweaks.bottomnav;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.TransitionDrawable;
-import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
+
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
-import androidx.appcompat.content.res.AppCompatResources;
+import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
+
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import com.dirtyunicorns.tweaks.bottomnav.ViewUtils;
 import com.dirtyunicorns.tweaks.R;
 
@@ -33,7 +32,6 @@ import com.dirtyunicorns.tweaks.R;
  */
 public class BubbleToggleView extends RelativeLayout {
 
-    private static final String TAG = "BNI_View";
     private static final int DEFAULT_ANIM_DURATION = 300;
     private int mLayoutDirection = ViewCompat.LAYOUT_DIRECTION_LTR;
 
@@ -58,12 +56,12 @@ public class BubbleToggleView extends RelativeLayout {
         init(context, null);
     }
 
-    public BubbleToggleView(Context context, @Nullable AttributeSet attrs) {
+    public BubbleToggleView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
     }
 
-    public BubbleToggleView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public BubbleToggleView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs);
     }
@@ -154,7 +152,6 @@ public class BubbleToggleView extends RelativeLayout {
         };
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public BubbleToggleView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(context, attrs);
@@ -170,7 +167,7 @@ public class BubbleToggleView extends RelativeLayout {
      * @param context current context
      * @param attrs   custom attributes
      */
-    private void init(Context context, @Nullable AttributeSet attrs) {
+    private void init(Context context, AttributeSet attrs) {
         //initialize default component
         String title = "Title";
         Drawable icon = null;
@@ -188,10 +185,8 @@ public class BubbleToggleView extends RelativeLayout {
         if (attrs != null) {
             TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.BubbleToggleView, 0, 0);
             try {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-                    icon = ta.getDrawable(R.styleable.BubbleToggleView_corvus_icon);
-                else
-                    icon = AppCompatResources.getDrawable(getContext(), ta.getResourceId(R.styleable.BubbleToggleView_corvus_icon, R.drawable.default_icon));
+                icon = ta.getDrawable(R.styleable.BubbleToggleView_corvus_icon);
+                icon = AppCompatResources.getDrawable(getContext(), ta.getResourceId(R.styleable.BubbleToggleView_corvus_icon, R.drawable.default_icon));
                 iconWidth = ta.getDimension(R.styleable.BubbleToggleView_corvus_iconWidth, iconWidth);
                 iconHeight = ta.getDimension(R.styleable.BubbleToggleView_corvus_iconHeight, iconHeight);
                 shape = ta.getDrawable(R.styleable.BubbleToggleView_corvus_shape);
@@ -278,10 +273,8 @@ public class BubbleToggleView extends RelativeLayout {
         titleView = new TextView(context);
         LayoutParams lpTitle = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         lpTitle.addRule(RelativeLayout.CENTER_VERTICAL, RelativeLayout.TRUE);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
-            lpTitle.addRule(RelativeLayout.END_OF, iconView.getId());
-        else
-            lpTitle.addRule(RelativeLayout.RIGHT_OF, iconView.getId());
+        lpTitle.addRule(RelativeLayout.END_OF, iconView.getId());
+        lpTitle.addRule(RelativeLayout.RIGHT_OF, iconView.getId());
         titleView.setLayoutParams(lpTitle);
         titleView.setSingleLine(true);
         titleView.setTextColor(bubbleToggleItem.getColorActive());
@@ -425,15 +418,6 @@ public class BubbleToggleView extends RelativeLayout {
      */
     public boolean isActive() {
         return isActive;
-    }
-
-    /**
-     * Sets the {@link Typeface} of the {@link #titleView}
-     *
-     * @param typeface to be used
-     */
-    public void setTitleTypeface(Typeface typeface) {
-        titleView.setTypeface(typeface);
     }
 
     /**

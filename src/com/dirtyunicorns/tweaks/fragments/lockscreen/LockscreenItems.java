@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.dirtyunicorns.tweaks.fragments;
+package com.dirtyunicorns.tweaks.fragments.lockscreen;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -25,7 +25,6 @@ import android.provider.Settings;
 import androidx.preference.*;
 
 import com.android.internal.logging.nano.MetricsProto;
-
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
@@ -33,41 +32,63 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import com.android.settingslib.search.SearchIndexable;
 
+import com.dirtyunicorns.support.preferences.SystemSettingListPreference;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import com.dirtyunicorns.support.preferences.SystemSettingMasterSwitchPreference;
+import com.dirtyunicorns.support.preferences.SecureSettingMasterSwitchPreference;
 
 @SearchIndexable
-public class IconManager extends SettingsPreferenceFragment
+public class LockscreenItems extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, Indexable {
 
-    private static final String STATUS_BAR_LOGO = "status_bar_logo";
+    private static final String LOCKSCREEN_VISUALIZER_ENABLED = "lockscreen_visualizer_enabled";
+    private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker";
+    private static final String FOD_ANIMATION = "fod_anim";
 
-    private SystemSettingMasterSwitchPreference mStatusBarLogo;
+    private SecureSettingMasterSwitchPreference mVisualizerEnabled;
+    private PreferenceCategory mFODIconPickerCategory;
+    private Preference mFODAnimation;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.icon_manager);
-
-        PreferenceScreen prefSet = getPreferenceScreen();
+        addPreferencesFromResource(R.xml.lockscreen_items);
         ContentResolver resolver = getActivity().getContentResolver();
+        Context mContext = getContext();
+        final PreferenceScreen prefScreen = getPreferenceScreen();
 
-        mStatusBarLogo = (SystemSettingMasterSwitchPreference) findPreference(STATUS_BAR_LOGO);
-        mStatusBarLogo.setChecked((Settings.System.getInt(resolver,
-                Settings.System.STATUS_BAR_LOGO, 0) == 1));
-        mStatusBarLogo.setOnPreferenceChangeListener(this);
+        mVisualizerEnabled = (SecureSettingMasterSwitchPreference) findPreference(LOCKSCREEN_VISUALIZER_ENABLED);
+        mVisualizerEnabled.setOnPreferenceChangeListener(this);
+        int visualizerEnabled = Settings.Secure.getInt(resolver,
+                LOCKSCREEN_VISUALIZER_ENABLED, 0);
+        mVisualizerEnabled.setChecked(visualizerEnabled != 0);
+
+        mFODIconPickerCategory = (PreferenceCategory) findPreference(FOD_ICON_PICKER_CATEGORY);
+        if (mFODIconPickerCategory != null
+                && !getResources().getBoolean(com.android.internal.R.bool.config_needCustomFODView)) {
+            prefScreen.removePreference(mFODIconPickerCategory);
+        }
+
+        boolean showFODAnimationPicker = mContext.getResources().getBoolean(R.bool.has_fod_animation_picker);
+        mFODAnimation = (Preference) findPreference(FOD_ANIMATION);
+        if ((mFODIconPickerCategory != null && mFODAnimation != null &&
+             !getResources().getBoolean(com.android.internal.R.bool.config_needCustomFODView)) ||
+                (mFODIconPickerCategory != null && mFODAnimation != null && !showFODAnimationPicker)) {
+            mFODIconPickerCategory.removePreference(mFODAnimation);
+        }
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mStatusBarLogo) {
+        ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mVisualizerEnabled) {
             boolean value = (Boolean) newValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.STATUS_BAR_LOGO, value ? 1 : 0);
+            Settings.Secure.putInt(getContentResolver(),
+		            LOCKSCREEN_VISUALIZER_ENABLED, value ? 1 : 0);
             return true;
-	}
+        }
         return false;
     }
 
@@ -85,7 +106,7 @@ public class IconManager extends SettingsPreferenceFragment
                             new ArrayList<SearchIndexableResource>();
 
                     SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.icon_manager;
+                    sir.xmlResId = R.xml.lockscreen_items;
                     result.add(sir);
                     return result;
                 }

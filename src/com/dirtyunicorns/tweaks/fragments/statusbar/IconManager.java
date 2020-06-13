@@ -14,18 +14,15 @@
  * limitations under the License.
  */
 
-package com.dirtyunicorns.tweaks.fragments;
+package com.dirtyunicorns.tweaks.fragments.statusbar;
 
+import android.content.ContentResolver;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
-import androidx.preference.PreferenceCategory;
-import androidx.preference.ListPreference;
-import androidx.preference.Preference;
-import androidx.preference.PreferenceScreen;
-import androidx.preference.Preference.OnPreferenceChangeListener;
-import androidx.preference.SwitchPreference;
+import androidx.preference.*;
 
 import com.android.internal.logging.nano.MetricsProto;
 
@@ -39,18 +36,38 @@ import com.android.settingslib.search.SearchIndexable;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.dirtyunicorns.support.preferences.SystemSettingMasterSwitchPreference;
+
 @SearchIndexable
-public class Ticker extends SettingsPreferenceFragment
+public class IconManager extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, Indexable {
+
+    private static final String STATUS_BAR_LOGO = "status_bar_logo";
+
+    private SystemSettingMasterSwitchPreference mStatusBarLogo;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.ticker);
+        addPreferencesFromResource(R.xml.icon_manager);
+
+        PreferenceScreen prefSet = getPreferenceScreen();
+        ContentResolver resolver = getActivity().getContentResolver();
+
+        mStatusBarLogo = (SystemSettingMasterSwitchPreference) findPreference(STATUS_BAR_LOGO);
+        mStatusBarLogo.setChecked((Settings.System.getInt(resolver,
+                Settings.System.STATUS_BAR_LOGO, 0) == 1));
+        mStatusBarLogo.setOnPreferenceChangeListener(this);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mStatusBarLogo) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_LOGO, value ? 1 : 0);
+            return true;
+	}
         return false;
     }
 
@@ -68,7 +85,7 @@ public class Ticker extends SettingsPreferenceFragment
                             new ArrayList<SearchIndexableResource>();
 
                     SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.ticker;
+                    sir.xmlResId = R.xml.icon_manager;
                     result.add(sir);
                     return result;
                 }
@@ -77,6 +94,6 @@ public class Ticker extends SettingsPreferenceFragment
                 public List<String> getNonIndexableKeys(Context context) {
                     List<String> keys = super.getNonIndexableKeys(context);
                     return keys;
-                }
+        }
     };
 }

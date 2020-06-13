@@ -40,48 +40,6 @@
         android:summary="%s"
         android:defaultValue="1" />
 
-
-    <!-- FOD customization options -->
-    <PreferenceCategory
-        android:key="fod_icon_picker"
-        android:title="@string/fod_icon_picker_category_title">
-
-        <Preference
-            android:key="fod_icon_picker_category"
-            android:title="@string/fod_icon_picker_title"
-            android:summary="@string/fod_icon_picker_summary"
-            android:fragment="com.dirtyunicorns.tweaks.fragments.FODIconPickerFragment" />
-
-        <!-- FOD recognizing animation -->
-        <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
-            android:key="fod_recognizing_animation"
-            android:title="@string/fod_recog_animation"
-            android:summary="@string/fod_recog_animation_summary"
-            android:defaultValue="false" />
-
-        <com.dirtyunicorns.support.preferences.SystemSettingListPreference
-            android:key="fod_anim"
-            android:title="@string/fod_recog_animation_effect_title"
-            android:summary="%s"
-            android:entries="@array/fod_recog_animation_entries"
-            android:entryValues="@array/fod_recog_animation_values"
-            android:defaultValue="0"
-            android:dependency="fod_recognizing_animation" />
-
-        <com.dirtyunicorns.support.preferences.SystemSettingListPreference
-            android:key="fod_pressed_state"
-            android:dialogTitle="@string/fod_pressed_state_title"
-            android:title="@string/fod_pressed_state_title"
-            android:summary="%s"
-            android:entries="@array/fod_pressed_state_entries"
-            android:entryValues="@array/fod_pressed_state_values"
-            android:defaultValue="0" />
-
-        <Preference
-            android:summary="@string/fod_pressed_state_footer" />
-
-    </PreferenceCategory>
-
     <PreferenceCategory
         android:title="@string/switch_settings_title" >
 
