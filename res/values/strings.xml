@@ -1322,4 +1322,9 @@
     <string name="statusbar_icons_style_summary">Choose the style of your statusbar notification icons</string>
     <string name="header_icons_style">Colored Notification Headers Icons</string>
     <string name="header_icons_style_summary">Choose the style of your notification headers icons</string>
+
+    <!-- Statusbar dual row -->
+    <string name="statusbar_dual_row_title">Dual Status Bar</string>
+    <string name="statusbar_dual_row_summary">Enable dual row statusbar</string>
+
 </resources>

@@ -45,9 +45,11 @@ public class IconManager extends SettingsPreferenceFragment
 
     private static final String STATUS_BAR_LOGO = "status_bar_logo";
     private static final String STATUSBAR_ICONS_STYLE = "statusbar_icons_style";
+    private static final String STATUSBAR_DUAL_ROW = "statusbar_dual_row";
 
     private SystemSettingMasterSwitchPreference mStatusBarLogo;
     private SystemSettingSwitchPreference mStatusbarIconsStyle;
+    private SystemSettingSwitchPreference mStatusbarDualRow;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -67,6 +69,11 @@ public class IconManager extends SettingsPreferenceFragment
         mStatusbarIconsStyle.setChecked((Settings.System.getInt(resolver,
                 Settings.System.STATUSBAR_ICONS_STYLE, 0) == 1));
         mStatusbarIconsStyle.setOnPreferenceChangeListener(this);
+
+        mStatusbarDualRow = (SystemSettingSwitchPreference) findPreference(STATUSBAR_DUAL_ROW);
+        mStatusbarDualRow.setChecked((Settings.System.getInt(resolver,
+                Settings.System.STATUSBAR_DUAL_ROW, 0) == 1));
+        mStatusbarDualRow.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -80,6 +87,12 @@ public class IconManager extends SettingsPreferenceFragment
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUSBAR_ICONS_STYLE, value ? 1 : 0);
+            ActionUtils.showSystemUiRestartDialog(getContext());
+            return true;
+       } else if (preference == mStatusbarDualRow) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUSBAR_DUAL_ROW, value ? 1 : 0);
             ActionUtils.showSystemUiRestartDialog(getContext());
             return true;
 	}

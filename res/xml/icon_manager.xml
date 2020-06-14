@@ -38,6 +38,12 @@
         android:summary="@string/signal_icon_switch_summary"
         android:fragment="com.dirtyunicorns.tweaks.fragments.SignalIconSwitch" />
 
+    <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
+        android:key="statusbar_dual_row"
+        android:title="@string/statusbar_dual_row_title"
+        android:summary="@string/statusbar_dual_row_summary"
+        android:defaultValue="false" />
+
     <com.dirtyunicorns.support.preferences.SystemSettingMasterSwitchPreference
         android:key="status_bar_logo"
         android:fragment="com.dirtyunicorns.tweaks.fragments.StatusbarLogo"
