@@ -19,6 +19,7 @@ package com.dirtyunicorns.tweaks.fragments.system;
 import android.content.Context;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.provider.SearchIndexableResource;
@@ -50,10 +51,12 @@ public class Miscellaneous extends SettingsPreferenceFragment
     private static final String SCROLLINGCACHE_PERSIST_PROP = "persist.sys.scrollingcache";
     private static final String SCROLLINGCACHE_DEFAULT = "2";
     private static final String PREF_KEY_CUTOUT = "cutout_settings";
+    private static final String KEY_RINGTONE_FOCUS_MODE_V2 = "ringtone_focus_mode_v2";
 
     private SystemSettingMasterSwitchPreference mGamingMode;
     private ListPreference mScrollingCachePref;
     private ListPreference mScreenOffAnimation;
+    private ListPreference mRingtoneFocusMode;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,6 +64,7 @@ public class Miscellaneous extends SettingsPreferenceFragment
         addPreferencesFromResource(R.xml.miscellaneous);
 
         PreferenceScreen prefScreen = getPreferenceScreen();
+        Resources res = getResources();
 
         mGamingMode = (SystemSettingMasterSwitchPreference) findPreference(GAMING_MODE_ENABLED);
         mGamingMode.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
@@ -82,6 +86,11 @@ public class Miscellaneous extends SettingsPreferenceFragment
         Preference mCutoutPref = (Preference) findPreference(PREF_KEY_CUTOUT);
         if (!hasPhysicalDisplayCutout(getContext())) {
             getPreferenceScreen().removePreference(mCutoutPref);
+        }
+
+        mRingtoneFocusMode = (ListPreference) findPreference(KEY_RINGTONE_FOCUS_MODE_V2);
+        if (!res.getBoolean(com.android.internal.R.bool.config_deviceRingtoneFocusMode)) {
+            prefScreen.removePreference(mRingtoneFocusMode);
         }
     }
 
@@ -135,6 +144,10 @@ public class Miscellaneous extends SettingsPreferenceFragment
                 @Override
                 public List<String> getNonIndexableKeys(Context context) {
                     List<String> keys = super.getNonIndexableKeys(context);
+                    final Resources res = context.getResources();
+                    if (!res.getBoolean(com.android.internal.R.bool.config_deviceRingtoneFocusMode)) {
+                        keys.add(KEY_RINGTONE_FOCUS_MODE_V2);
+                    }
                     return keys;
         }
     };
