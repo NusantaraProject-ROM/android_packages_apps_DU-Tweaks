@@ -26,6 +26,12 @@
                 android:targetClass="com.android.systemui.tuner.StatusbarItemsActivity" />
         </Preference>
 
+    <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
+        android:key="status_bar_notif_count"
+        android:title="@string/notif_count_title"
+        android:summary="@string/notif_count_summary"
+        android:defaultValue="false" />
+
     <Preference
         android:key="signal_icon_switch"
         android:title="@string/signal_icon_switch_title"
