@@ -63,11 +63,12 @@ public class Miscellaneous extends SettingsPreferenceFragment
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.miscellaneous);
 
-        PreferenceScreen prefScreen = getPreferenceScreen();
+        final PreferenceScreen prefScreen = getPreferenceScreen();
+        final ContentResolver resolver = getActivity().getContentResolver();
         Resources res = getResources();
 
         mGamingMode = (SystemSettingMasterSwitchPreference) findPreference(GAMING_MODE_ENABLED);
-        mGamingMode.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+        mGamingMode.setChecked((Settings.System.getInt(resolver,
                 Settings.System.GAMING_MODE_ENABLED, 0) == 1));
         mGamingMode.setOnPreferenceChangeListener(this);
 
@@ -85,7 +86,7 @@ public class Miscellaneous extends SettingsPreferenceFragment
 
         Preference mCutoutPref = (Preference) findPreference(PREF_KEY_CUTOUT);
         if (!hasPhysicalDisplayCutout(getContext())) {
-            getPreferenceScreen().removePreference(mCutoutPref);
+            prefScreen.removePreference(mCutoutPref);
         }
 
         mRingtoneFocusMode = (ListPreference) findPreference(KEY_RINGTONE_FOCUS_MODE_V2);
@@ -96,10 +97,10 @@ public class Miscellaneous extends SettingsPreferenceFragment
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        ContentResolver resolver = getActivity().getContentResolver();
-	if (preference == mGamingMode) {
+        final ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mGamingMode) {
             boolean value = (Boolean) newValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
+            Settings.System.putInt(resolver,
                     Settings.System.GAMING_MODE_ENABLED, value ? 1 : 0);
             return true;
         } else if (preference == mScreenOffAnimation) {

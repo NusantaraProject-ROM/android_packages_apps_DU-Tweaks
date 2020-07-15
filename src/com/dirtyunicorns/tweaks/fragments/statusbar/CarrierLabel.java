@@ -24,14 +24,11 @@ import android.content.DialogInterface.OnCancelListener;
 import android.content.res.Resources;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.database.ContentObserver;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import androidx.preference.*;
-
-import android.telephony.TelephonyManager;
 
 import android.text.format.DateFormat;
 import android.text.Spannable;
@@ -46,9 +43,6 @@ import android.widget.LinearLayout;
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.internal.util.du.Utils;
 
-import com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference;
-import com.dirtyunicorns.support.preferences.CustomSeekBarPreference;
-import com.dirtyunicorns.support.colorpicker.ColorPickerPreference;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
@@ -59,6 +53,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference;
+import com.dirtyunicorns.support.preferences.CustomSeekBarPreference;
+import com.dirtyunicorns.support.colorpicker.ColorPickerPreference;
 import com.dirtyunicorns.support.preferences.SystemSettingListPreference;
 
 @SearchIndexable
@@ -84,8 +81,8 @@ public class CarrierLabel extends SettingsPreferenceFragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.carrier_label);
-        PreferenceScreen prefSet = getPreferenceScreen();
-        ContentResolver resolver = getActivity().getContentResolver();
+        final PreferenceScreen prefSet = getPreferenceScreen();
+        final ContentResolver resolver = getActivity().getContentResolver();
 
         int intColor;
         String hexColor;
@@ -144,7 +141,7 @@ public class CarrierLabel extends SettingsPreferenceFragment
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-	ContentResolver resolver = getActivity().getContentResolver();
+	final ContentResolver resolver = getActivity().getContentResolver();
          if (preference == mCarrierColorPicker) {
             String hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
@@ -189,7 +186,7 @@ public class CarrierLabel extends SettingsPreferenceFragment
     }
 
     public boolean onPreferenceTreeClick(Preference preference) {
-        ContentResolver resolver = getActivity().getContentResolver();
+        final ContentResolver resolver = getActivity().getContentResolver();
         boolean value;
         if (preference.getKey().equals(CUSTOM_CARRIER_LABEL)) {
             AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());

@@ -63,7 +63,6 @@ public class Notifications extends SettingsPreferenceFragment
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.notifications);
         PreferenceScreen prefScreen = getPreferenceScreen();
-        ContentResolver resolver = getActivity().getContentResolver();
 
         mHeadsUpEnabled = (GlobalSettingMasterSwitchPreference) findPreference(HEADS_UP_NOTIFICATIONS_ENABLED);
         mHeadsUpEnabled.setOnPreferenceChangeListener(this);
@@ -79,7 +78,7 @@ public class Notifications extends SettingsPreferenceFragment
 
         mLightsCategory = (PreferenceCategory) findPreference(LIGHTS_CATEGORY);
         if (!getResources().getBoolean(com.android.internal.R.bool.config_hasNotificationLed)) {
-            getPreferenceScreen().removePreference(mLightsCategory);
+            prefScreen.removePreference(mLightsCategory);
         }
 
         mFlashlightOnCall = (ListPreference) findPreference(FLASHLIGHT_ON_CALL);
@@ -101,11 +100,11 @@ public class Notifications extends SettingsPreferenceFragment
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        ContentResolver resolver = getActivity().getContentResolver();
+        final ContentResolver resolver = getActivity().getContentResolver();
         if (preference == mHeadsUpEnabled) {
             boolean value = (Boolean) newValue;
             Settings.Global.putInt(getContentResolver(),
-		            HEADS_UP_NOTIFICATIONS_ENABLED, value ? 1 : 0);
+                  HEADS_UP_NOTIFICATIONS_ENABLED, value ? 1 : 0);
             return true;
         } else if (preference == mFlashlightOnCall) {
             int flashlightValue = Integer.parseInt(((String) newValue).toString());
@@ -117,7 +116,7 @@ public class Notifications extends SettingsPreferenceFragment
         } else if (preference == mPulseAmbientEnabled) {
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getContentResolver(),
-		  AMBIENT_NOTIFICATION_LIGHT, value ? 1 : 0);
+                  AMBIENT_NOTIFICATION_LIGHT, value ? 1 : 0);
             return true;
         }
         return false;

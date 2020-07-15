@@ -76,7 +76,7 @@ public class QuickSettings extends SettingsPreferenceFragment
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.quick_settings);
 
-        ContentResolver resolver = getActivity().getContentResolver();
+        final ContentResolver resolver = getActivity().getContentResolver();
 
         int value = Settings.System.getIntForUser(resolver,
                 Settings.System.QS_ROWS_PORTRAIT, 3, UserHandle.USER_CURRENT);
@@ -164,8 +164,8 @@ public class QuickSettings extends SettingsPreferenceFragment
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        ContentResolver resolver = getActivity().getContentResolver();
-	if (preference == mQsRowsPort) {
+        final ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mQsRowsPort) {
             int val = (Integer) newValue;
             Settings.System.putIntForUser(getContentResolver(),
                     Settings.System.QS_ROWS_PORTRAIT, val, UserHandle.USER_CURRENT);
