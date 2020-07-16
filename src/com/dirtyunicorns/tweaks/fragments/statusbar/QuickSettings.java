@@ -28,12 +28,11 @@ import android.provider.Settings;
 import androidx.preference.*;
 
 import com.android.internal.logging.nano.MetricsProto;
-
+import com.android.internal.util.du.ActionUtils;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
 import com.android.settingslib.search.SearchIndexable;
 
 import com.dirtyunicorns.support.preferences.CustomSeekBarPreference;
@@ -44,6 +43,7 @@ import java.util.List;
 import com.dirtyunicorns.support.preferences.CustomSeekBarPreference;
 import com.dirtyunicorns.support.preferences.SystemSettingMasterSwitchPreference;
 import com.dirtyunicorns.support.preferences.SystemSettingEditTextPreference;
+import com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference;
 
 @SearchIndexable
 public class QuickSettings extends SettingsPreferenceFragment
@@ -57,6 +57,7 @@ public class QuickSettings extends SettingsPreferenceFragment
     private static final String PREF_TILE_ANIM_DURATION = "qs_tile_animation_duration";
     private static final String PREF_TILE_ANIM_INTERPOLATOR = "qs_tile_animation_interpolator";
     private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
+    private static final String NOTIFICATION_HEADER = "notification_headers";
 
     private ListPreference mQuickPulldown;
     private ListPreference mTileAnimationStyle;
@@ -70,6 +71,7 @@ public class QuickSettings extends SettingsPreferenceFragment
     private SystemSettingMasterSwitchPreference mCustomHeader;
     private SystemSettingMasterSwitchPreference mQsBlur;
     private SystemSettingEditTextPreference mFooterString;
+    private SystemSettingSwitchPreference mNotificationHeader;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -148,6 +150,11 @@ public class QuickSettings extends SettingsPreferenceFragment
         mTileAnimationInterpolator.setValue(String.valueOf(tileAnimationInterpolator));
         updateTileAnimationInterpolatorSummary(tileAnimationInterpolator);
         mTileAnimationInterpolator.setOnPreferenceChangeListener(this);
+
+        mNotificationHeader = (SystemSettingSwitchPreference) findPreference(NOTIFICATION_HEADER);
+        mNotificationHeader.setChecked((Settings.System.getInt(resolver,
+                Settings.System.NOTIFICATION_HEADERS, 0) == 1));
+        mNotificationHeader.setOnPreferenceChangeListener(this);
 
         mFooterString = (SystemSettingEditTextPreference) findPreference(FOOTER_TEXT_STRING);
         mFooterString.setOnPreferenceChangeListener(this);
@@ -236,8 +243,14 @@ public class QuickSettings extends SettingsPreferenceFragment
             return true;
         } else if (preference == mQsBlur) {
             boolean value = (Boolean) newValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
+            Settings.System.putInt(resolver,
                     Settings.System.QS_BLUR, value ? 1 : 0);
+            return true;
+        } else if (preference == mNotificationHeader) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(resolver,
+                    Settings.System.NOTIFICATION_HEADERS, value ? 1 : 0);
+            ActionUtils.showSystemUiRestartDialog(getContext());
             return true;
         }
         return false;
