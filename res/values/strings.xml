@@ -20,12 +20,6 @@
     <string name="dirtytweaks_title">Raven\'s Lair</string>
     <string name="dirtytweaks_summary">Unleash the Raven</string>
 
-    <!-- The Team -->
-    <string name="dialog_team_title">The team</string>
-    <string name="developer_title">Developer</string>
-    <string name="maintainer_title">Maintainer</string>
-    <string name="contributor_title">Contributor</string>
-
     <!-- Bottom navigation -->
     <string name="bottom_nav_system_title">System</string>
     <string name="bottom_nav_lockscreen_title">Lockscreen</string>

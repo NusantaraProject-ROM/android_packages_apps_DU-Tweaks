@@ -36,7 +36,6 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.nano.MetricsProto;
 
-import com.dirtyunicorns.tweaks.fragments.team.TeamActivity;
 import com.dirtyunicorns.tweaks.tabs.Lockscreen;
 import com.dirtyunicorns.tweaks.tabs.Hardware;
 import com.dirtyunicorns.tweaks.tabs.Statusbar;
@@ -144,14 +143,11 @@ public class DirtyTweaks extends SettingsPreferenceFragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        menu.add(0, 0, 0, R.string.dialog_team_title);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == 0) {
-            Intent intent = new Intent(mContext, TeamActivity.class);
-            mContext.startActivity(intent);
             return true;
         }
         return false;
