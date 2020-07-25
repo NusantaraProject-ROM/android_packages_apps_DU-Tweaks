@@ -269,5 +269,13 @@
             android:summary="@string/status_bar_toggle_brightness_summary"
             android:defaultValue="false" />
 
+        <com.dirtyunicorns.support.preferences.SecureSettingListPreference
+            android:key="qqs_show_brightness_slider"
+            android:title="@string/qqs_brightness_slider_title"
+            android:entries="@array/qs_brightness_slider_entries"
+            android:entryValues="@array/qs_brightness_slider_values"
+            android:summary="%s"
+            android:defaultValue="2" />
+
     </PreferenceCategory>
 </PreferenceScreen>
