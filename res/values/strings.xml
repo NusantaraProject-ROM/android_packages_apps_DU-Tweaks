@@ -1035,10 +1035,6 @@
     <string name="qs_bg_use_new_tint">QS Tint</string>
     <string name="qs_bg_use_new_tint_summary">Enable QS tiles tint style</string>
 
-    <!-- Pocket judge -->
-    <string name="pocket_judge_title">Pocket detection</string>
-    <string name="pocket_judge_summary">Block screen and button inputs when device is in pocket</string>
-
     <!-- OOS clear all button -->
     <string name="enable_clear_all_button">OOS clear all button</string>
     <string name="enable_clear_all_button_summary">Show OOS clear all notifications</string>
