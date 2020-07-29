@@ -29,7 +29,7 @@ public class System extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
 
-    private static final String CORVUS_PARTS_CATEGORY = "corvus_parts_category";
+    private static final String NUSANTARA_PARTS_CATEGORY = "nusantara_parts_category";
     private static final String NOTIFICATIONS_CATEGORY = "notifications_category";
     private static final String MISC_CATEGORY = "miscellaneous_category";
 
@@ -38,9 +38,9 @@ public class System extends SettingsPreferenceFragment
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.system);
 
-        Preference CorvusParts = findPreference(CORVUS_PARTS_CATEGORY);
-        if (!getResources().getBoolean(R.bool.has_corvus_parts_available)) {
-            getPreferenceScreen().removePreference(CorvusParts);
+        Preference NusantaraParts = findPreference(NUSANTARA_PARTS_CATEGORY);
+        if (!getResources().getBoolean(R.bool.has_nusantara_parts_available)) {
+            getPreferenceScreen().removePreference(NusantaraParts);
         }
 
         Preference Notifications = findPreference(NOTIFICATIONS_CATEGORY);

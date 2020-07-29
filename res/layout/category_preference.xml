@@ -18,58 +18,61 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="74dp"
+    android:layout_height="100dp"
     android:layout_marginTop="@dimen/card_margin_top"
     android:layout_marginBottom="@dimen/card_margin_bottom"
     android:layout_marginRight="@dimen/card_margin_right"
     android:layout_marginLeft="@dimen/card_margin_left"
     android:clickable="true"
     android:focusable="true"
-    android:foreground="?android:attr/selectableItemBackground"
     card_view:cardCornerRadius="@dimen/card_corner_radius"
-    card_view:cardElevation="0.0dp"
-    card_view:cardBackgroundColor="@android:color/transparent">
+    card_view:cardBackgroundColor="@*android:color/transparent"
+    card_view:cardElevation="@dimen/card_elevation">
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/card_bg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
         android:orientation="horizontal">
 
         <LinearLayout
             android:id="@id/icon_frame"
-            android:layout_width="74dp"
-            android:layout_height="74dp">
+            android:layout_marginTop="4dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@android:id/icon"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="center" />
-
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_below="@+id/icon_frame"
             android:gravity="center"
+            android:layout_centerHorizontal="true"
             android:orientation="vertical">
 
             <TextView
                 android:id="@android:id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
+                android:gravity="center"
                 android:textStyle="bold"
-                android:textSize="18sp"
-                android:textColor="@*android:color/accent_device_default_light"/>
+                android:textSize="18sp"/>
 
             <TextView
                 android:id="@android:id/summary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="2dp"
+                android:gravity="center"
+                android:layout_marginBottom="4dp"
                 android:textSize="12sp" />
         </LinearLayout>
-    </LinearLayout>
+    </RelativeLayout>
 </androidx.cardview.widget.CardView>

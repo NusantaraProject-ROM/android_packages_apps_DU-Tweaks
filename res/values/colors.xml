@@ -19,6 +19,7 @@
     <!-- Dirty Tweaks -->
     <color name="dirty_tweaks_category_icon_tint">@*android:color/accent_device_default_light</color>
     <color name="homepage_du_background">#D32F2F</color>
+    <color name="cardview_bg">#0FFFFFFF</color>
 
     <!-- Accent picker -->
     <color name="accent_picker_white_accent">@android:color/white</color>
@@ -45,7 +46,7 @@
     <color name="dt_battery_options_color">@color/red_bg_light</color>
     <color name="dt_carrier_label_color">@color/blue_bg_light</color>
     <color name="dt_clock_options_color">@color/green_bg_light</color>
-    <color name="dt_corvus_parts_color">@color/orange_bg_light</color>
+    <color name="dt_nusantara_parts_color">@color/orange_bg_light</color>
     <color name="dt_icon_manager_color">@color/purple_bg_light</color>
     <color name="dt_quicksettings_color">@color/cyan_bg_light</color>
     <color name="dt_traffic_color">@color/pink_bg_light</color>
@@ -64,7 +65,7 @@
     <color name="dt_battery_options_icon_tint">@color/red_active</color>
     <color name="dt_carrier_label_icon_tint">@color/blue_active</color>
     <color name="dt_clock_options_icon_tint">@color/green_active</color>
-    <color name="dt_corvus_parts_icon_tint">@color/orange_active</color>
+    <color name="dt_nusantara_parts_icon_tint">@color/orange_active</color>
     <color name="dt_icon_manager_icon_tint">@color/purple_active</color>
     <color name="dt_quicksettings_icon_tint">@color/cyan_active</color>
     <color name="dt_traffic_icon_tint">@color/pink_active</color>

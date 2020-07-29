@@ -29,7 +29,7 @@ public class BubbleNavigationConstraintView extends ConstraintLayout implements 
     }
 
     //constants
-    private static final String TAG = "CORVUSView";
+    private static final String TAG = "NusantaraWings";
     private static final int MIN_ITEMS = 2;
     private static final int MAX_ITEMS = 5;
 

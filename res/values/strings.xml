@@ -16,9 +16,9 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Raven's Lair -->
-    <string name="dirtytweaks_title">Raven\'s Lair</string>
-    <string name="dirtytweaks_summary">Unleash the Raven</string>
+    <!-- Nusantara Wings -->
+    <string name="dirtytweaks_title">Nusantara Wings</string>
+    <string name="dirtytweaks_summary">Get your favorite customization</string>
 
     <!-- Bottom navigation -->
     <string name="bottom_nav_system_title">System</string>
@@ -29,8 +29,8 @@
 
     <!-- Categories -->
     <!-- System -->
-    <string name="corvus_parts_title">Corvus Parts</string>
-    <string name="corvus_parts_summary">Corvus device specific parts</string>
+    <string name="nad_parts_title">Nusantara Parts</string>
+    <string name="nad_parts_summary">Device specific customization</string>
     <string name="miscellaneous_title">Miscellaneous</string>
     <string name="miscellaneous_summary">Customize the miscellaneous</string>
     <string name="powermenu_title">Power menu</string>
@@ -582,15 +582,13 @@
 
     <!-- Statusbar logo -->
     <string name="status_bar_logo_title">Custom Logo</string>
-    <string name="status_bar_logo_summary">Show Corvus logo in the status bar</string>
+    <string name="status_bar_logo_summary">Show logo in the status bar</string>
     <string name="status_bar_logo_color">Logo color</string>
     <string name="status_bar_logo_position">Logo position</string>
     <string name="status_bar_logo_position_summary">%1$s</string>
     <string name="status_bar_logo_position_right">Right</string>
     <string name="status_bar_logo_position_left">Left</string>
     <string name="status_bar_logo_style">Logo style</string>
-    <string name="status_bar_logo_style_corvus">Corvus</string>
-    <string name="status_bar_logo_style_corvus2">Corvus (2)</string>
     <string name="status_bar_logo_style_du">Dirty Unicorns</string>
     <string name="status_bar_logo_style_android">Android</string>
     <string name="status_bar_logo_style_apple">Apple</string>

@@ -17,15 +17,16 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- Cardview Preference -->
-    <dimen name="card_elevation">2dp</dimen>
-    <dimen name="card_corner_radius">8dp</dimen>
-    <dimen name="card_margin_top">4dp</dimen>
-    <dimen name="card_margin_bottom">4dp</dimen>
+    <dimen name="card_elevation">0dp</dimen>
+    <dimen name="card_corner_radius">12dp</dimen>
+    <dimen name="card_margin_top">2dp</dimen>
+    <dimen name="card_margin_bottom">2dp</dimen>
     <dimen name="card_margin_right">8dp</dimen>
     <dimen name="card_margin_left">8dp</dimen>
 
-    <!-- The Team -->
-    <dimen name="team_recycler_height">500dp</dimen>
+    <dimen name="nad_dashboard_tile_image_size">48.0dip</dimen>
+    <dimen name="nad_dashboard_tile_foreground_image_inset">6.0dip</dimen>
+    <dimen name="nad_dashboard_tile_foreground_image_size">36.0dip</dimen>
 
     <!-- FOD icon picker -->
     <dimen name="fod_picker_item_margin">10dp</dimen>
