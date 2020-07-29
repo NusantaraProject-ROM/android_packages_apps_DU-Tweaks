@@ -738,6 +738,8 @@
     <string name="qs_footer_user_summary">Display Multi-user switcher icon in quick settings footer</string>
     <string name="qs_footer_edit_title">Edit icon</string>
     <string name="qs_footer_edit_summary">Display the tile edit icon in quick settings footer</string>
+    <string name="qs_show_drag_handle_title">Qs Drag Handle</string>
+    <string name="qs_show_drag_handle_summary">Show Qs footer handle</string>
 
     <!-- Aggressive battery -->
     <string name="aggressive_battery_title">Aggressive Battery</string>
