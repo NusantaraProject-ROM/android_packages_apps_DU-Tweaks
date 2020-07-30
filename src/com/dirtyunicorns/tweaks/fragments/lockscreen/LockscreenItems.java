@@ -32,22 +32,16 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import com.android.settingslib.search.SearchIndexable;
 
-import com.dirtyunicorns.support.preferences.SystemSettingListPreference;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import com.dirtyunicorns.support.preferences.SecureSettingMasterSwitchPreference;
 
 @SearchIndexable
 public class LockscreenItems extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, Indexable {
 
-    private static final String LOCKSCREEN_VISUALIZER_ENABLED = "lockscreen_visualizer_enabled";
     private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker";
     private static final String FOD_ANIMATION = "fod_anim";
 
-    private SecureSettingMasterSwitchPreference mVisualizerEnabled;
     private PreferenceCategory mFODIconPickerCategory;
     private Preference mFODAnimation;
 
@@ -59,12 +53,6 @@ public class LockscreenItems extends SettingsPreferenceFragment
         final ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
         Context mContext = getContext();
-
-        mVisualizerEnabled = (SecureSettingMasterSwitchPreference) findPreference(LOCKSCREEN_VISUALIZER_ENABLED);
-        mVisualizerEnabled.setOnPreferenceChangeListener(this);
-        int visualizerEnabled = Settings.Secure.getInt(resolver,
-                LOCKSCREEN_VISUALIZER_ENABLED, 0);
-        mVisualizerEnabled.setChecked(visualizerEnabled != 0);
 
         mFODIconPickerCategory = (PreferenceCategory) findPreference(FOD_ICON_PICKER_CATEGORY);
         if (mFODIconPickerCategory != null
@@ -83,12 +71,6 @@ public class LockscreenItems extends SettingsPreferenceFragment
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mVisualizerEnabled) {
-            boolean value = (Boolean) newValue;
-            Settings.Secure.putInt(getContentResolver(),
-                    LOCKSCREEN_VISUALIZER_ENABLED, value ? 1 : 0);
-            return true;
-        }
         return false;
     }
 
