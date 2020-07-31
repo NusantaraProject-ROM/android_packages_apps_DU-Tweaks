@@ -34,8 +34,8 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.internal.logging.nano.MetricsProto;
 
+import com.android.internal.logging.nano.MetricsProto;
 import com.dirtyunicorns.tweaks.tabs.Lockscreen;
 import com.dirtyunicorns.tweaks.tabs.Hardware;
 import com.dirtyunicorns.tweaks.tabs.Statusbar;
@@ -47,6 +47,7 @@ public class DirtyTweaks extends SettingsPreferenceFragment {
 
     Context mContext;
     View view;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

@@ -16,8 +16,6 @@
 
 package com.dirtyunicorns.tweaks.preferences;
 
-import android.annotation.ColorInt;
-import android.content.res.ColorStateList;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
@@ -26,10 +24,11 @@ import android.view.View;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceViewHolder;
+import android.widget.ImageView;
 
 import com.android.settings.R;
+
 import java.util.Random;
-import android.widget.RelativeLayout;
 
 public class CategoryPreference extends Preference {
 
@@ -38,8 +37,7 @@ public class CategoryPreference extends Preference {
     private boolean mAllowDividerAbove;
     private boolean mAllowDividerBelow;
     private int mColorRandom;
-    private int mColorRandomAlpha;
-    RelativeLayout cardBg;
+    private ImageView mBG;
 
     public CategoryPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -65,25 +63,17 @@ public class CategoryPreference extends Preference {
         holder.itemView.setClickable(selectable);
         holder.setDividerAllowedAbove(mAllowDividerAbove);
         holder.setDividerAllowedBelow(mAllowDividerBelow);
-        mColorRandom = getRandomColor();
-        mColorRandomAlpha = adjustAlpha(mColorRandom, 0.3f);
-        cardBg = (RelativeLayout) holder.findViewById(R.id.card_bg);
-        cardBg.setBackgroundColor(mColorRandomAlpha);
-
+        mColorRandom = randomColor();
+        mBG = (ImageView) holder.findViewById(R.id.card);
+        mBG.setColorFilter(mColorRandom);
     }
 
-
-    public int getRandomColor(){
-       Random rnd = new Random();
-       return Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
-    }
-
-    @ColorInt
-    private static int adjustAlpha(@ColorInt int color, float factor) {
-        int alpha = Math.round(Color.alpha(color) * factor);
-        int red = Color.red(color);
-        int green = Color.green(color);
-        int blue = Color.blue(color);
-        return Color.argb(alpha, red, green, blue);
+    public int randomColor() {
+        Random r = new Random();
+        float hsl[] = new float[3];
+        hsl[0] = r.nextInt(360);
+        hsl[1] = r.nextFloat() * 0.5f;
+        hsl[2] = r.nextFloat() * 0.6f;
+        return com.android.internal.graphics.ColorUtils.HSLToColor(hsl);
     }
 }
