@@ -1337,4 +1337,6 @@
     <string name="lockscreen_max_notif_config_title">Maximum number of notifications</string>
     <string name="lockscreen_max_notif_config_summary">Control the maximum number of expanded notifications to show on lockscreen</string>
 
+    <string name="force_expanded_notifications_title">Force expand notifications</string>
+    <string name="force_expanded_notifications_summary">Always keep notifications expanded. Warning! This feature has known to cause some performance regression in notification panel. Use at your own risk</string>
 </resources>
