@@ -72,7 +72,7 @@
             android:title="@string/qs_footer_text_string_title"
             android:summary="@string/qs_footer_text_string_summary"
             android:dependency="footer_text_show"
-            android:defaultValue="#DureX" />
+            android:defaultValue="#NusantaraProject" />
 
         <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
             android:key="qs_footer_show_settings"

@@ -163,9 +163,9 @@ public class QuickSettings extends SettingsPreferenceFragment
         if (footerString != null && footerString != "")
             mFooterString.setText(footerString);
         else {
-            mFooterString.setText("#Corvus");
+            mFooterString.setText("#NusantaraProject");
             Settings.System.putString(getActivity().getContentResolver(),
-                    Settings.System.FOOTER_TEXT_STRING, "#Corvus");
+                    Settings.System.FOOTER_TEXT_STRING, "#NusantaraProject");
         }
     }
 
