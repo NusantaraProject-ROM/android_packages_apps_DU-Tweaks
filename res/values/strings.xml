@@ -1191,4 +1191,5 @@
     <!-- QS Panel Disco -->
     <string name="qs_panel_disco_title">Disco mode QS panel</string>
     <string name="qs_panel_disco_summary">Shake your head</string>
+    <string name="qs_panel_disco_duration_title">Disco QS panel duration</string>
 </resources>
