@@ -1187,4 +1187,8 @@
     <!-- StatusBar notification count -->
     <string name="notif_count_title">Notification count</string>
     <string name="notif_count_summary">Show notification count near notfication icons</string>
+
+    <!-- QS Panel Disco -->
+    <string name="qs_panel_disco_title">Disco mode QS panel</string>
+    <string name="qs_panel_disco_summary">Shake your head</string>
 </resources>
