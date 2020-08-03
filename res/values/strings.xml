@@ -22,6 +22,12 @@
     <string name="nad_style_title">Nusantara style BG</string>
     <string name="nad_style_summary">Disable random color</string>
 
+    <!-- The Team -->
+    <string name="dialog_team_title">The team</string>
+    <string name="developer_title">Developer</string>
+    <string name="maintainer_title">Maintainer</string>
+    <string name="contributor_title">Contributor</string>
+
     <!-- Bottom navigation -->
     <string name="bottom_nav_system_title">System</string>
     <string name="bottom_nav_lockscreen_title">Lockscreen</string>

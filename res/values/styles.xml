@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2006 The Android Open Source Project
 
-<!-- Copyright (C) 2019 The Dirty Unicorns Project
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
+
           http://www.apache.org/licenses/LICENSE-2.0
 
      Unless required by applicable law or agreed to in writing, software
@@ -15,7 +16,14 @@
 
 <resources>
 
-    <color name="themes_reset_menu_item">#FFFFFFFF</color>
-    <color name="fod_item_background_stroke_color">#555555</color>
+    <style name="TeamDialog" parent="@style/Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@style/TeamAnimation.Window</item>
+    </style>
+
+    <style name="TeamAnimation.Window" parent="@android:style/Animation.Activity">
+        <item name="android:windowEnterAnimation">@anim/slide_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_bottom</item>
+    </style>
 
 </resources>

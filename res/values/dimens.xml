@@ -24,6 +24,9 @@
     <dimen name="card_margin_right">18dp</dimen>
     <dimen name="card_margin_left">18dp</dimen>
 
+    <!-- The Team -->
+    <dimen name="team_recycler_height">500dp</dimen>
+
     <!-- Dashboard -->
     <dimen name="nad_dashboard_tile_image_size">48.0dip</dimen>
     <dimen name="nad_dashboard_tile_foreground_image_inset">6.0dip</dimen>
