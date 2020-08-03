@@ -19,6 +19,8 @@
     <!-- Nusantara Wings -->
     <string name="dirtytweaks_title">Nusantara Wings</string>
     <string name="dirtytweaks_summary">Get your favorite customization</string>
+    <string name="nad_style_title">Nusantara style BG</string>
+    <string name="nad_style_summary">Disable random color</string>
 
     <!-- Bottom navigation -->
     <string name="bottom_nav_system_title">System</string>

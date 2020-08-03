@@ -19,6 +19,8 @@ package com.dirtyunicorns.tweaks.preferences;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.core.content.res.TypedArrayUtils;
@@ -26,6 +28,7 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceViewHolder;
 import android.widget.ImageView;
 
+import com.android.settingslib.Utils;
 import com.android.settings.R;
 
 import java.util.Random;
@@ -57,6 +60,7 @@ public class CategoryPreference extends Preference {
     public void onBindViewHolder(PreferenceViewHolder holder) {
         super.onBindViewHolder(holder);
         holder.itemView.setOnClickListener(mClickListener);
+        final Context context = getContext();
 
         final boolean selectable = isSelectable();
         holder.itemView.setFocusable(selectable);
@@ -65,7 +69,18 @@ public class CategoryPreference extends Preference {
         holder.setDividerAllowedBelow(mAllowDividerBelow);
         mColorRandom = randomColor();
         mBG = (ImageView) holder.findViewById(R.id.card);
-        mBG.setColorFilter(mColorRandom);
+        setStyleColor(context);
+    }
+
+    private void setStyleColor(Context context) {
+        boolean nadStyle = Settings.System.getIntForUser(context.getContentResolver(),
+                    Settings.System.NUSANTARA_WINGS_STYLE, 1, UserHandle.USER_CURRENT) == 1;
+
+        if (nadStyle) {
+            mBG.setColorFilter(Utils.getColorAttrDefaultColor(context, android.R.attr.colorAccent));
+        } else {
+            mBG.setColorFilter(mColorRandom);
+        }
     }
 
     public int randomColor() {
