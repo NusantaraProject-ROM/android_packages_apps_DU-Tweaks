@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2019-2020 The Dirty Unicorns Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/themes_title" >
+
+    <ListPreference
+        android:key="theme_navbar_picker"
+        android:title="@string/theme_navbar_picker_title"
+        android:summary="@string/theme_navbar_picker_summary"
+        android:dialogTitle="@string/theme_navbar_picker_summary"
+        android:entries="@array/navbar_name_entries"
+        android:entryValues="@array/navbar_picker_values"/>
+
+    <ListPreference
+        android:key="font_picker"
+        android:title="@string/font_type_title"
+        android:summary="@string/font_type_summary"
+        android:dialogTitle="@string/font_type_summary"
+        android:entries="@array/font_type_titles"
+        android:entryValues="@array/font_type_values" />
+
+    <com.dirtyunicorns.support.colorpicker.ColorPickerPreference
+        android:key="accent_color"
+        android:title="@string/accent_color"
+        android:summary="@string/accent_color_summary"
+        android:persistent="false"/>
+
+    <ListPreference
+        android:key="theme_switch"
+        android:title="@string/theme_type_title"
+        android:summary="@string/theme_type_summary"
+        android:dialogTitle="@string/theme_type_summary"
+        android:entries="@array/theme_type_titles"
+        android:entryValues="@array/theme_type_values"/>
+
+    <ListPreference
+        android:key="adapative_icon_shape"
+        android:title="@string/adaptive_icon_shape_title"
+        android:dialogTitle="@string/adaptive_icon_shape_dialog_title"
+        android:entries="@array/adapative_icon_shape_titles"
+        android:entryValues="@array/adapative_icon_shape_values" />
+
+    <ListPreference
+        android:key="qs_tile_style"
+        android:title="@string/qs_tile_style_title"
+        android:entries="@array/qs_tile_style_selector_entries"
+        android:entryValues="@array/qs_tile_style_selector_values"
+        android:persistent="false" />
+
+    <ListPreference
+        android:key="statusbar_icons"
+        android:title="@string/statusbar_icons_title"
+        android:dialogTitle="@string/statusbar_icons_dialog_title"
+        android:entries="@array/statusbar_icons_titles"
+        android:entryValues="@array/statusbar_icons_values" />
+
+    <ListPreference
+        android:key="qs_header_style"
+        android:title="@string/qs_header_style_title"
+        android:dialogTitle="@string/qs_header_style_dialog_title"
+        android:entries="@array/qs_header_style_titles"
+        android:entryValues="@array/qs_header_style_values" />
+
+    <ListPreference
+        android:key="switch_style"
+        android:title="@string/switch_style_title"
+        android:dialogTitle="@string/switch_style_dialog_title"
+        android:entries="@array/switch_style_entries"
+        android:entryValues="@array/switch_style_values" />
+
+</PreferenceScreen>

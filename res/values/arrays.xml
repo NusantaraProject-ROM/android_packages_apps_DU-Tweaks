@@ -1186,4 +1186,228 @@
         <item>1</item>
         <item>2</item>
     </string-array>
+
+    <!-- Adaptive icon shapes -->
+    <string-array name="adapative_icon_shape_titles">
+        <item>@string/adaptive_icon_shape_default</item>
+        <item>@string/adaptive_icon_shape_teardrop</item>
+        <item>@string/adaptive_icon_shape_squircle</item>
+        <item>@string/adaptive_icon_shape_roundedrect</item>
+        <item>@string/adaptive_icon_shape_cylinder</item>
+        <item>@string/adaptive_icon_shape_hexagon</item>
+        <item>@string/adaptive_icon_shape_roundedhexagon</item>
+        <item>@string/adaptive_icon_shape_pebble</item>
+        <item>@string/adaptive_icon_shape_taperedrect</item>
+        <item>@string/adaptive_icon_shape_vessel</item>
+    </string-array>
+
+    <string-array name="adapative_icon_shape_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
+    <!-- QS tile styles -->
+    <string-array name="qs_tile_style_selector_entries" translatable="false">
+        <item>@string/qs_tile_style_default</item>
+        <item>@string/qs_tile_style_square</item>
+        <item>@string/qs_tile_style_squircletrim</item>
+        <item>@string/qs_tile_style_diamond</item>
+        <item>@string/qs_tile_style_star</item>
+        <item>@string/qs_tile_style_gear</item>
+        <item>@string/qs_tile_style_badge</item>
+        <item>@string/qs_tile_style_badgetwo</item>
+        <item>@string/qs_tile_style_circletrim</item>
+        <item>@string/qs_tile_style_dualtonecircletrim</item>
+        <item>@string/qs_tile_style_cookie</item>
+        <item>@string/qs_tile_style_circleoutline</item>
+        <item>@string/qs_tile_style_wavey</item>
+        <item>@string/qs_tile_style_ninja</item>
+        <item>@string/qs_tile_style_dottedcircle</item>
+        <item>@string/qs_tile_style_attemptmountain</item>
+        <item>@string/qs_tile_style_inkdrop</item>
+        <item>@string/qs_tile_style_neonlike</item>
+        <item>@string/qs_tile_style_triangles</item>
+    </string-array>
+
+    <string-array name="qs_tile_style_selector_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+    </string-array>
+
+    <!-- Statusbar icons -->
+    <string-array name="statusbar_icons_titles">
+        <item>@string/statusbar_icons_default</item>
+        <item>@string/statusbar_icons_filled</item>
+        <item>@string/statusbar_icons_rounded</item>
+        <item>@string/statusbar_icons_circular</item>
+    </string-array>
+
+    <string-array name="statusbar_icons_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="qs_header_style_titles">
+        <item>@string/qs_header_style_default</item>
+        <item>@string/qs_header_style_grey</item>
+        <item>@string/qs_header_style_lightgrey</item>
+        <item>@string/qs_header_style_accent</item>
+        <item>@string/qs_header_style_transparent</item>
+    </string-array>
+
+    <string-array name="qs_header_style_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <!-- Themes -->
+    <string-array name="theme_type_titles">
+        <item>@string/theme_type_light</item>
+        <item>@string/theme_type_google_dark</item>
+        <item>@string/theme_type_pitch_black</item>
+        <item>@string/theme_type_solarized_dark</item>
+        <item>@string/theme_type_choco_x</item>
+        <item>@string/theme_type_baked_green</item>
+        <item>@string/theme_type_dark_grey</item>
+        <item>@string/theme_type_material_ocean</item>
+    </string-array>
+
+    <string-array name="theme_type_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+    </string-array>
+
+    <!-- Navbar name -->
+    <string-array name="navbar_name_entries" translatable="false">
+        <item>@string/theme_navbar_picker_default</item>
+        <item>@string/theme_navbar_picker_asus</item>
+        <item>@string/theme_navbar_picker_oneplus</item>
+        <item>@string/theme_navbar_picker_oneui</item>
+        <item>@string/theme_navbar_picker_tecno</item>
+    </string-array>
+
+    <!-- Navbar style layouts -->
+    <string-array name="navbar_picker_values" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <!-- Switch styles -->
+    <string-array name="switch_style_entries" translatable="false">
+        <item>@string/switch_default</item>
+        <item>@string/switch_md2</item>
+        <item>@string/switch_oneplus</item>
+        <item>@string/switch_tg</item>
+        <item>@string/switch_narrow</item>
+        <item>@string/switch_contained</item>
+        <item>@string/switch_retro</item>
+        <item>@string/switch_stockish</item>
+    </string-array>
+
+    <string-array name="switch_style_values" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+    </string-array>
+
+    <!-- Fonts -->
+    <string-array name="font_type_titles">
+        <item>@string/default_string</item>
+        <item>@string/font_type_2</item>
+        <item>@string/font_type_3</item>
+        <item>@string/font_type_4</item>
+        <item>@string/font_type_5</item>
+        <item>@string/font_type_6</item>
+        <item>@string/font_type_7</item>
+        <item>@string/font_type_8</item>
+        <item>@string/font_type_9</item>
+        <item>@string/font_type_10</item>
+        <item>@string/font_type_11</item>
+        <item>@string/font_type_12</item>
+        <item>@string/font_type_13</item>
+        <item>@string/font_type_14</item>
+        <item>@string/font_type_15</item>
+        <item>@string/font_type_16</item>
+        <item>@string/font_type_17</item>
+        <item>@string/font_type_18</item>
+        <item>@string/font_type_19</item>
+        <item>@string/font_type_20</item>
+        <item>@string/font_type_21</item>
+        <item>@string/font_type_22</item>
+        <item>@string/font_type_23</item>
+        <item>@string/font_type_24</item>
+        <item>@string/font_type_25</item>
+    </string-array>
+
+    <string-array name="font_type_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+    </string-array>
 </resources>

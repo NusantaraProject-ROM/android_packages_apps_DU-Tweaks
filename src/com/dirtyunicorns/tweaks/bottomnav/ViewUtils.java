@@ -1,10 +1,23 @@
 package com.dirtyunicorns.tweaks.bottomnav;
 
+import static android.os.UserHandle.USER_SYSTEM;
+
+import android.app.UiModeManager;
 import android.content.Context;
+import android.content.Intent;
+import android.content.om.IOverlayManager;
+import android.content.pm.PackageManager;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.provider.Settings;
 import android.util.TypedValue;
-import com.dirtyunicorns.tweaks.R;
+import android.os.RemoteException;
+
+import com.android.internal.util.du.ThemesUtils;
+
+import java.util.Objects;
+
+import com.android.settings.R;
 
 public class ViewUtils {
 
@@ -19,5 +32,39 @@ public class ViewUtils {
             return;
             drawable.setTint(color);
             drawable.setColorFilter(color, PorterDuff.Mode.SRC_ATOP);
+    }
+
+    public static void handleOverlays(String packagename, Boolean state, IOverlayManager mOverlayManager) {
+        try {
+            mOverlayManager.setEnabled(packagename, state, USER_SYSTEM);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void handleBackgrounds(Boolean state, Context context, int mode, String[] overlays, IOverlayManager mOverlayManager) {
+        if (context != null) {
+            Objects.requireNonNull(context.getSystemService(UiModeManager.class))
+                    .setNightMode(mode);
+        }
+        for (int i = 0; i < overlays.length; i++) {
+            String background = overlays[i];
+            try {
+                mOverlayManager.setEnabled(background, state, USER_SYSTEM);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static boolean threeButtonNavbarEnabled(Context context) {
+        boolean defaultToNavigationBar = context.getResources().getBoolean(
+                com.android.internal.R.bool.config_showNavigationBar);
+        boolean navigationBar = Settings.System.getInt(context.getContentResolver(),
+                Settings.System.FORCE_SHOW_NAVBAR, defaultToNavigationBar ? 1 : 0) == 1;
+        boolean hasNavbar = false;
+        hasNavbar = com.android.internal.util.du.Utils.isThemeEnabled(
+                "com.android.internal.systemui.navbar.threebutton") && navigationBar;
+        return hasNavbar;
     }
 }

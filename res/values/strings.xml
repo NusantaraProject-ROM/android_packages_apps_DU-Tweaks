@@ -33,6 +33,8 @@
     <!-- System -->
     <string name="nad_parts_title">Nusantara Parts</string>
     <string name="nad_parts_summary">Device specific customization</string>
+    <string name="themes_title">Themes</string>
+    <string name="themes_summary">Customize the themes</string>
     <string name="miscellaneous_title">Miscellaneous</string>
     <string name="miscellaneous_summary">Customize the miscellaneous</string>
     <string name="powermenu_title">Power menu</string>
@@ -1194,4 +1196,126 @@
     <string name="qs_panel_disco_title">Disco mode QS panel</string>
     <string name="qs_panel_disco_summary">Shake your head</string>
     <string name="qs_panel_disco_duration_title">Disco QS panel duration</string>
+
+    <!-- Navbar Picker -->
+    <string name="theme_navbar_picker_default">Default</string>
+    <string name="theme_navbar_picker_title">Navbar style</string>
+    <string name="theme_navbar_picker_summary">Select navbar style</string>
+    <string name="theme_navbar_picker_oneplus">OnePlus</string>
+    <string name="theme_navbar_picker_oneui">One UI</string>
+    <string name="theme_navbar_picker_tecno">Tecno Camon</string>
+    <string name="theme_navbar_picker_asus">ASUS</string>
+
+    <!-- Dark theme -->
+    <string name="dark_theme_title">Dark theme</string>
+
+    <!-- Adaptive icon shapes -->
+    <string name="adaptive_icon_shape_default">Default</string>
+    <string name="adaptive_icon_shape_teardrop">Teardrop</string>
+    <string name="adaptive_icon_shape_squircle">Squircle</string>
+    <string name="adaptive_icon_shape_roundedrect">Rounded Rectangle</string>
+    <string name="adaptive_icon_shape_cylinder">Cylinder</string>
+    <string name="adaptive_icon_shape_hexagon">Hexagon</string>
+    <string name="adaptive_icon_shape_roundedhexagon">Rounded Hexagon</string>
+    <string name="adaptive_icon_shape_pebble">Pebble</string>
+    <string name="adaptive_icon_shape_taperedrect">Tapered Rect</string>
+    <string name="adaptive_icon_shape_vessel">Vessel</string>
+    <string name="adaptive_icon_shape_title">Icon shape</string>
+    <string name="adaptive_icon_shape_dialog_title">Select icon shape</string>
+
+    <!-- QS tile styles -->
+    <string name="qs_tile_style_title">QS tile style</string>
+    <string name="qs_tile_style_default">Default</string>
+    <string name="qs_tile_style_square">Square</string>
+    <string name="qs_tile_style_squircletrim">Squircle with trim</string>
+    <string name="qs_tile_style_diamond">Diamond</string>
+    <string name="qs_tile_style_star">Star</string>
+    <string name="qs_tile_style_gear">Gear</string>
+    <string name="qs_tile_style_badge">Badge</string>
+    <string name="qs_tile_style_badgetwo">Badge two</string>
+    <string name="qs_tile_style_circletrim">Circle with trim</string>
+    <string name="qs_tile_style_dualtonecircletrim">Dual-toned circle</string>
+    <string name="qs_tile_style_cookie">Cookie</string>
+    <string name="qs_tile_style_circleoutline">Circle outline</string>
+    <string name="qs_tile_style_wavey">Wavey</string>
+    <string name="qs_tile_style_ninja">Ninja</string>
+    <string name="qs_tile_style_dottedcircle">Dotted circle</string>
+    <string name="qs_tile_style_attemptmountain">Attempt mountain</string>
+    <string name="qs_tile_style_inkdrop">Ink drop</string>
+    <string name="qs_tile_style_neonlike">Neon light</string>
+    <string name="qs_tile_style_triangles">Triangles</string>
+
+    <!-- Statusbar icons -->
+    <string name="statusbar_icons_default">Default</string>
+    <string name="statusbar_icons_filled">Filled</string>
+    <string name="statusbar_icons_rounded">Rounded</string>
+    <string name="statusbar_icons_circular">Circular</string>
+    <string name="statusbar_icons_title">Statusbar/QS icons</string>
+    <string name="statusbar_icons_dialog_title">Select statusbar icon set</string>
+
+    <!-- QS header style -->
+    <string name="qs_header_style_default">Default</string>
+    <string name="qs_header_style_grey">Grey</string>
+    <string name="qs_header_style_lightgrey">Light Grey</string>
+    <string name="qs_header_style_accent">Accent Color</string>
+    <string name="qs_header_style_transparent">Transparent</string>
+    <string name="qs_header_style_title">QS Header style</string>
+    <string name="qs_header_style_dialog_title">Select QS header style set</string>
+
+    <!-- Switch styles -->
+    <string name="switch_style_title">Switch style</string>
+    <string name="switch_default">Default</string>
+    <string name="switch_md2">Material Design 2</string>
+    <string name="switch_oneplus">OnePlus</string>
+    <string name="switch_tg">Telegram</string>
+    <string name="switch_narrow">Narrow</string>
+    <string name="switch_contained">Contained</string>
+    <string name="switch_retro">Retro</string>
+    <string name="switch_stockish">Stockish</string>
+    <string name="switch_style_dialog_title">Select switch style set</string>
+
+    <!-- Themes -->
+    <string name="theme_type_title">System theme</string>
+    <string name="theme_type_summary">Select theme</string>
+    <string name="theme_type_light">Light</string>
+    <string name="theme_type_google_dark">Google dark</string>
+    <string name="theme_type_pitch_black">Pitch black</string>
+    <string name="theme_type_solarized_dark">Solarized dark</string>
+    <string name="theme_type_choco_x">Choco X</string>
+    <string name="theme_type_baked_green">Baked green</string>
+    <string name="theme_type_dark_grey">Dark grey</string>
+    <string name="theme_type_material_ocean">Material ocean</string>
+
+    <!-- RGB accent -->
+    <string name="accent_color">Accent picker</string>
+    <string name="accent_color_summary">Choose the accent color yourself</string>
+
+    <!-- Fonts -->
+    <string name="font_type_title">Font type</string>
+    <string name="font_type_summary">Select font type</string>
+    <string name="font_type_default">Default</string>
+    <string name="font_type_2">Noto Serif / Source Sans Pro</string>
+    <string name="font_type_3">Aclonica</string>
+    <string name="font_type_4">Amarante</string>
+    <string name="font_type_5">Arvolato</string>
+    <string name="font_type_6">Bariol</string>
+    <string name="font_type_7">Cagliostro</string>
+    <string name="font_type_8">CircularStd</string>
+    <string name="font_type_9">Comic Sans</string>
+    <string name="font_type_10">Comfortaa</string>
+    <string name="font_type_11">Cool Story</string>
+    <string name="font_type_12">Exotwo</string>
+    <string name="font_type_13">Fira Sans</string>
+    <string name="font_type_14">Google Sans</string>
+    <string name="font_type_15">LG Smart Gothic</string>
+    <string name="font_type_16">Rosemary</string>
+    <string name="font_type_17">Rubik</string>
+    <string name="font_type_18">Samsung One</string>
+    <string name="font_type_19">San Francisco Pro</string>
+    <string name="font_type_20">OnePlus Slate</string>
+    <string name="font_type_21">Sony Sketch</string>
+    <string name="font_type_22">Storopia</string>
+    <string name="font_type_23">Surfer</string>
+    <string name="font_type_24">Ubuntu</string>
+    <string name="font_type_25">Linotte</string>
 </resources>

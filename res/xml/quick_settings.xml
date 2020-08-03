@@ -115,7 +115,7 @@
         <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
             android:key="qs_panel_disco"
             android:title="@string/qs_panel_disco_title"
-            android:summary="@sting/qs_panel_disco_summary"
+            android:summary="@string/qs_panel_disco_summary"
             android:defaultValue="false" />
 
         <com.dirtyunicorns.support.preferences.CustomSeekBarPreference

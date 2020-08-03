@@ -55,6 +55,9 @@
     <!-- Whether to display power menu category -->
     <bool name="has_powermenu">true</bool>
 
+    <!-- Whether to display themes category -->
+    <bool name="has_themes">true</bool>
+
     <!-- Whether to display nusantara parts -->
     <bool name="has_nusantara_parts_available">false</bool>
 

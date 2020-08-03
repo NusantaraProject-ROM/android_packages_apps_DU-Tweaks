@@ -20,6 +20,7 @@
     <color name="dirty_tweaks_category_icon_tint">@*android:color/accent_device_default_light</color>
     <color name="homepage_du_background">#D32F2F</color>
     <color name="cardview_bg">#0FFFFFFF</color>
+    <color name="themes_reset_menu_item">#FF000000</color>
 
     <!-- Accent picker -->
     <color name="accent_picker_white_accent">@android:color/white</color>
@@ -50,6 +51,7 @@
     <color name="dt_icon_manager_color">@color/purple_bg_light</color>
     <color name="dt_quicksettings_color">@color/cyan_bg_light</color>
     <color name="dt_traffic_color">@color/pink_bg_light</color>
+    <color name="dt_themes_color">@color/pink_bg_light</color>
 
     <!--DT Icon foreground tint-->
     <color name="dt_notifications_icon_tint">@color/red_active</color>
@@ -69,6 +71,7 @@
     <color name="dt_icon_manager_icon_tint">@color/purple_active</color>
     <color name="dt_quicksettings_icon_tint">@color/cyan_active</color>
     <color name="dt_traffic_icon_tint">@color/pink_active</color>
+    <color name="dt_themes_icon_tint">@color/magenta_active</color>
 
     <color name="red_bg_light">#3dcf605a</color>
     <color name="blue_bg_light">#3d2598b9</color>
@@ -78,6 +81,7 @@
     <color name="cyan_bg_light">#3d1EBDCD</color>
     <color name="amber_bg_light">#3dFFBF12</color>
     <color name="pink_bg_light">#3dF6727F</color>
+    <color name="magenta_bg_light">#3dFF80FF</color>
 
     <color name="red_active">#C9514D</color>
     <color name="blue_active">#007EA7</color>
@@ -87,6 +91,7 @@
     <color name="cyan_active">#00acc1</color>
     <color name="amber_active">#ffb300</color>
     <color name="pink_active">#F45B69</color>
+    <color name="magenta_active">#FF00FF</color>
 
     <color name="red_inactive">#cf605a</color>
     <color name="blue_inactive">#2598b9</color>

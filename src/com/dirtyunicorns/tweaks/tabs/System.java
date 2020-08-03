@@ -32,6 +32,7 @@ public class System extends SettingsPreferenceFragment
     private static final String NUSANTARA_PARTS_CATEGORY = "nusantara_parts_category";
     private static final String NOTIFICATIONS_CATEGORY = "notifications_category";
     private static final String MISC_CATEGORY = "miscellaneous_category";
+    private static final String THEMES_CATEGORY = "themes_category";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,11 @@ public class System extends SettingsPreferenceFragment
         Preference MiscOptions = findPreference(MISC_CATEGORY);
         if (!getResources().getBoolean(R.bool.has_misc_options)) {
             getPreferenceScreen().removePreference(MiscOptions);
+        }
+
+        Preference Themes = findPreference(THEMES_CATEGORY);
+        if (!getResources().getBoolean(R.bool.has_themes)) {
+            getPreferenceScreen().removePreference(Themes);
         }
     }
 
