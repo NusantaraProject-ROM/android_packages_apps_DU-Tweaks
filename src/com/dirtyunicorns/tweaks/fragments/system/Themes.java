@@ -118,6 +118,7 @@ public class Themes extends SettingsPreferenceFragment
                 mThemeSwitch.setValue("1");
             }
         }
+        mThemeSwitch.setSummary(mThemeSwitch.getEntry());
         mThemeSwitch.setOnPreferenceChangeListener(this);	
 
         // Statusbar icons
