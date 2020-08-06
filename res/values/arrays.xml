@@ -1187,6 +1187,19 @@
         <item>2</item>
     </string-array>
 
+    <!-- Nusantara style -->
+    <string-array name="nad_style_color_entries" translatable="false">
+        <item>@string/nad_color_random</item>
+        <item>@string/nad_color_transparent</item>
+        <item>@string/nad_color_accent</item>
+    </string-array>
+
+    <string-array name="nad_style_color_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
     <!-- Adaptive icon shapes -->
     <string-array name="adapative_icon_shape_titles">
         <item>@string/adaptive_icon_shape_default</item>

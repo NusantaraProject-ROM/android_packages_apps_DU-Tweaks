@@ -73,11 +73,13 @@ public class CategoryPreference extends Preference {
     }
 
     private void setStyleColor(Context context) {
-        boolean nadStyle = Settings.System.getIntForUser(context.getContentResolver(),
-                    Settings.System.NUSANTARA_WINGS_STYLE, 1, UserHandle.USER_CURRENT) == 1;
+        int nadStyle = Settings.System.getIntForUser(context.getContentResolver(),
+                    Settings.System.NUSANTARA_WINGS_STYLE, 0, UserHandle.USER_CURRENT);
 
-        if (nadStyle) {
+        if (nadStyle == 0) {
             mBG.setColorFilter(mColorRandom);
+        } else if (nadStyle == 1) {
+            mBG.setColorFilter(Color.TRANSPARENT);
         } else {
             mBG.setColorFilter(Utils.getColorAttrDefaultColor(context, android.R.attr.colorAccent));
         }
