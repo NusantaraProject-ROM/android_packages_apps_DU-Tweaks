@@ -89,4 +89,26 @@
         android:entries="@array/switch_style_entries"
         android:entryValues="@array/switch_style_values" />
 
+
+    <PreferenceCategory
+        android:key="gvm_category"
+        android:title="@string/gvm_title">
+
+        <ListPreference
+            android:key="sb_height_style"
+            android:title="@string/sb_height_title"
+            android:summary="@string/sb_height_summary"
+            android:dialogTitle="@string/sb_height_summary"
+            android:entries="@array/sb_height_style_entries"
+            android:entryValues="@array/sb_height_style_values" />
+
+        <ListPreference
+            android:key="ui_radius_style"
+            android:title="@string/ui_radius_title"
+            android:summary="@string/ui_radius_summary"
+            android:dialogTitle="@string/ui_radius_summary"
+            android:entries="@array/ui_radius_style_entries"
+            android:entryValues="@array/ui_radius_style_values" />
+
+    </PreferenceCategory>
 </PreferenceScreen>

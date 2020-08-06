@@ -1423,4 +1423,34 @@
         <item>24</item>
         <item>25</item>
     </string-array>
+
+    <!-- SB height styles -->
+    <string-array name="sb_height_style_entries" translatable="false">
+        <item>@string/sb_height_default</item>
+        <item>@string/sb_height_medium</item>
+        <item>@string/sb_height_large</item>
+        <item>@string/sb_height_extralarge</item>
+    </string-array>
+
+    <string-array name="sb_height_style_values" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <!-- UI radius styles -->
+    <string-array name="ui_radius_style_entries" translatable="false">
+        <item>@string/ui_radius_default</item>
+        <item>@string/ui_radius_rectangle</item>
+        <item>@string/ui_radius_medium</item>
+        <item>@string/ui_radius_large</item>
+    </string-array>
+
+    <string-array name="ui_radius_style_values" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
 </resources>

@@ -67,6 +67,10 @@ public class Themes extends SettingsPreferenceFragment
     public static final String PREF_THEME_SWITCH = "theme_switch";
     public static final String PREF_FONT_PICKER = "font_picker";
 
+    // Gvisual Mod
+    private static final String PREF_SB_HEIGHT = "sb_height_style";
+    private static final String PREF_UI_RADIUS = "ui_radius_style";
+
     private static final String ACCENT_COLOR = "accent_color";
     static final int DEFAULT_ACCENT_COLOR = 0xff1a73e8;
 
@@ -83,6 +87,10 @@ public class Themes extends SettingsPreferenceFragment
     private ListPreference mNavbarPicker;
     private ListPreference mFontPicker;
     private ColorPickerPreference mAccentColor;
+
+    //Gvisual
+    private ListPreference mSBHeight;
+    private ListPreference mUiRadius;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -205,6 +213,8 @@ public class Themes extends SettingsPreferenceFragment
         }
         mFontPicker.setSummary(mFontPicker.getEntry());
         mFontPicker.setOnPreferenceChangeListener(this);
+
+        setGvisualMod();
     }
 
     @Override
@@ -433,8 +443,61 @@ public class Themes extends SettingsPreferenceFragment
             }
             mFontPicker.setSummary(mFontPicker.getEntry());
             return true;
+        } else if (preference == mSBHeight) {
+            String sbHStyle = (String) newValue;
+            int sbHStyleValue = Integer.parseInt(sbHStyle);
+            mSBHeight.setValue(String.valueOf(sbHStyleValue));
+            String overlayName = getOverlayName(ThemesUtils.STATUSBAR_HEIGHT);
+                if (overlayName != null) {
+                    handleOverlays(overlayName, false, mOverlayManager);
+                }
+                if (sbHStyleValue > 1) {
+                    handleOverlays(ThemesUtils.STATUSBAR_HEIGHT[sbHStyleValue - 2],
+                            true, mOverlayManager);
+            }
+            mSBHeight.setSummary(mSBHeight.getEntry());
+            return true;
+        } else if (preference == mUiRadius) {
+            String uiRStyle = (String) newValue;
+            int uiRStyleValue = Integer.parseInt(uiRStyle);
+            mUiRadius.setValue(String.valueOf(uiRStyleValue));
+            String overlayName = getOverlayName(ThemesUtils.UI_RADIUS);
+                if (overlayName != null) {
+                    handleOverlays(overlayName, false, mOverlayManager);
+                }
+                if (uiRStyleValue > 1) {
+                    handleOverlays(ThemesUtils.UI_RADIUS[uiRStyleValue - 2],
+                            true, mOverlayManager);
+            }
+            mUiRadius.setSummary(mUiRadius.getEntry());
+            return true;
         }
         return false;
+    }
+
+    private void setGvisualMod() {
+
+        // Statusbar height
+        mSBHeight = (ListPreference) findPreference(PREF_SB_HEIGHT);
+        int sbHeightStyleValue = getOverlayPosition(ThemesUtils.STATUSBAR_HEIGHT);
+        if (sbHeightStyleValue != -1) {
+            mSBHeight.setValue(String.valueOf(sbHeightStyleValue + 2));
+        } else {
+            mSBHeight.setValue("1");
+        }
+        mSBHeight.setSummary(mSBHeight.getEntry());
+        mSBHeight.setOnPreferenceChangeListener(this);
+
+        // UI Radius
+        mUiRadius = (ListPreference) findPreference(PREF_UI_RADIUS);
+        int uiRadiusStyleValue = getOverlayPosition(ThemesUtils.UI_RADIUS);
+        if (uiRadiusStyleValue != -1) {
+            mUiRadius.setValue(String.valueOf(uiRadiusStyleValue + 2));
+        } else {
+            mUiRadius.setValue("1");
+        }
+        mUiRadius.setSummary(mUiRadius.getEntry());
+        mUiRadius.setOnPreferenceChangeListener(this);
     }
 
     private int getOverlayPosition(String[] overlays) {

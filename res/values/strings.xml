@@ -1307,4 +1307,21 @@
     <string name="font_type_23">Surfer</string>
     <string name="font_type_24">Ubuntu</string>
     <string name="font_type_25">Linotte</string>
+
+    <!-- SB height style -->
+    <string name="gvm_title">G Visual Mod</string>
+    <string name="sb_height_title">Statusbar height type</string>
+    <string name="sb_height_summary">Select statusbar height type</string>
+    <string name="sb_height_default">Default</string>
+    <string name="sb_height_medium">Medium</string>
+    <string name="sb_height_large">Large</string>
+    <string name="sb_height_extralarge">Extra large</string>
+
+    <!-- UI Radius style -->
+    <string name="ui_radius_title">UI radius type</string>
+    <string name="ui_radius_summary">Select UI radius type</string>
+    <string name="ui_radius_default">Default</string>
+    <string name="ui_radius_rectangle">Rectangle</string>
+    <string name="ui_radius_medium">Medium</string>
+    <string name="ui_radius_large">Large</string>
 </resources>
