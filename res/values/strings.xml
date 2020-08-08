@@ -1286,4 +1286,8 @@
 
     <string name="brightness_slider_qs_unexpanded">MIUI brightness slider</string>
     <string name="brightness_slider_qs_unexpanded_summary">Shows brightness slider below qs panel</string>
+
+    <!-- MusicCard -->
+    <string name="volume_panel_musiccard_title">Music Card</string>
+    <string name="volume_panel_musiccard_summary">Enable music card in volume panel</string>
 </resources>
