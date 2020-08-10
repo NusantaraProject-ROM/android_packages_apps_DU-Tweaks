@@ -105,20 +105,9 @@
     <string name="lockscreen_battery_info_title">Lockscreen charging info</string>
     <string name="lockscreen_battery_info_summary">Display negociated charger max current and voltage and battery temperature on lockscreen while charging</string>
 
-    <!-- Language options - Volume rocker cursor control -->
-    <string name="cursor_section_header">Cursor</string>
-    <string name="volume_key_cursor_control_title">Volume key cursor control</string>
-    <string name="volume_key_cursor_control_off">Disabled</string>
-    <string name="volume_key_cursor_control_on">Volume up/down moves cursor left/right</string>
-    <string name="volume_key_cursor_control_on_reverse">Volume up/down moves cursor right/left</string>
-
     <!-- Volume Button Music Control -->
     <string name="volume_rocker_music_controls_title">Music control</string>
     <string name="volume_rocker_music_controls_summary">Long press volume buttons to switch tracks while screen off</string>
-
-    <!-- Volume swap buttons -->	
-    <string name="swap_volume_buttons_title">Reorient</string>
-    <string name="swap_volume_buttons_summary">Swap volume buttons when the screen is rotated</string>
 
     <!-- Volume Wake -->
     <string name="volume_stuff_title">Volume Button</string>
@@ -200,14 +189,6 @@
     <!-- Data disabled icon -->
     <string name="data_disabled_icon_title">Show data disabled icon</string>
     <string name="data_disabled_icon_summary">Display the cross sign next to signal bar when data is disabled</string>
-
-    <!-- Option to enable/disable scrolling cache -->
-    <string name="pref_scrollingcache_title">Scrolling cache</string>
-    <string name="pref_scrollingcache_summary">Scrolling cache may improve scrolling performance at the cost of memory</string>
-    <string name="pref_scrollingcache_force_enable">Force enable</string>
-    <string name="pref_scrollingcache_default_enable">Default enable</string>
-    <string name="pref_scrollingcache_default_disable">Default disable</string>
-    <string name="pref_scrollingcache_force_disable">Force disable</string>
 
     <!-- Statusbar Clock -->
     <string name="clock_hide_category">Clock auto hide </string>
@@ -719,10 +700,6 @@
     <string name="flashlight_on_call_dnd">Blink flashlight only in DND mode</string>
     <string name="flashlight_on_call_always">Always blink flashlight</string>
 
-    <!-- Sensor block per-package -->
-    <string name="sensor_block_title">Sensor block package</string>
-    <string name="sensor_block_summary">Block access to certain sensors for some apps to save battery</string>
-
     <!-- Allow fake signature -->
     <string name="allow_signature_fake">Allow signature spoofing</string>
     <string name="allow_signature_fake_summary">Allow apps to bypass security systems by pretending to be a different app.</string>
@@ -997,11 +974,6 @@
     <string name="lockscreen_qs_disabled_title">Disable quick settings when locked</string>
     <string name="lockscreen_qs_disabled_summary">Disable expanding quick settings on secure lock screens</string>
 
-    <!-- Title for the new device identifier access restrictions -->
-    <string name="device_identifier_access_restrictions_title">Disable device identifier restrictions</string>
-    <!-- Summary for the new device identifier access restrictions -->
-    <string name="device_identifier_access_restrictions_summary">Disable the new access restrictions for device identifiers</string>
-
     <!-- Smart pulldown-->
     <string name="smart_pulldown_title">Smart pulldown</string>
     <string name="smart_pulldown_summary">Open quick settings when there are %1$s notifications</string>
@@ -1072,24 +1044,6 @@
     <!-- Launch music player when headset is connected -->
     <string name="headset_connect_player_title">Launch music app on headset connection</string>
     <string name="headset_connect_player_summary">Launch the default music app when headset is connected</string>
-
-    <!-- Wakelock blocker -->
-    <string name="wakelock_blocker_title">Wakelock blocker</string>
-    <string name="wakelock_blocker_summary">Block system wakelocks</string>
-    <string name="wakelock_blocker_save">Save</string>
-    <string name="wakelock_list_header">Available wakelocks</string>
-    <string name="wakelock_blocker_reload">Reload</string>
-    <string name="wakelock_blocker_warning_title">Proceed with caution</string>
-    <string name="wakelock_blocker_warning">Blocking wakelocks have the potential to cause instability, crashes or data loss</string>
-
-    <!-- Alarm blocker -->
-    <string name="alarm_blocker_title">Alarm blocker</string>
-    <string name="alarm_blocker_summary">Block alarms while screen off</string>
-    <string name="alarm_blocker_save">Save</string>
-    <string name="alarm_list_header">Available alarms</string>
-    <string name="alarm_blocker_reload">Reload</string>
-    <string name="alarm_blocker_warning_title">Proceed with caution</string>
-    <string name="alarm_blocker_warning">Blocking alarms have the potential to cause instability, crashes or data loss.</string>
 
     <!-- R Notification headers -->
     <string name="notification_headers_title">Show QS notification headers</string>
@@ -1180,11 +1134,6 @@
     <!-- StatusBar notification count -->
     <string name="notif_count_title">Notification count</string>
     <string name="notif_count_summary">Show notification count near notfication icons</string>
-
-    <!-- QS Panel Disco -->
-    <string name="qs_panel_disco_title">Disco mode QS panel</string>
-    <string name="qs_panel_disco_summary">Shake your head</string>
-    <string name="qs_panel_disco_duration_title">Disco QS panel duration</string>
 
     <!-- Navbar Picker -->
     <string name="theme_navbar_picker_default">Default</string>
@@ -1336,5 +1285,4 @@
     <string name="volume_panel_compat_val">co.potatoproject.plugin.volume.compact</string>
     <string name="volume_panel_oreo_val">co.potatoproject.plugin.volume.oreo</string>
     <string name="volume_panel_tiled_val">co.potatoproject.plugin.volume.tiled</string>
-
 </resources>

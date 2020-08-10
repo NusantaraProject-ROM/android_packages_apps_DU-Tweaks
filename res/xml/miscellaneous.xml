@@ -51,14 +51,6 @@
         android:persistent="false"
         android:defaultValue="0" />
 
-    <ListPreference
-        android:key="pref_scrollingcache"
-        android:dialogTitle="@string/pref_scrollingcache_title"
-        android:title="@string/pref_scrollingcache_title"
-        android:summary="@string/pref_scrollingcache_summary"
-        android:entries="@array/entries_scrollingcache"
-        android:entryValues="@array/values_scrollingcache" />
-
     <PreferenceCategory
         android:title="@string/switch_category">
 
@@ -69,22 +61,10 @@
             android:summary="@string/gaming_mode_summary"
             android:defaultValue="false" />
 
-        <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
-           android:key="sensor_block"
-           android:title="@string/sensor_block_title"
-           android:summary="@string/sensor_block_summary"
-           android:defaultValue="false" />
-
         <com.dirtyunicorns.support.preferences.GlobalSettingSwitchPreference
            android:key="allow_signature_fake"
            android:title="@string/allow_signature_fake"
            android:summary="@string/allow_signature_fake_summary"
-           android:defaultValue="false" />
-
-        <com.dirtyunicorns.support.preferences.GlobalSettingSwitchPreference
-           android:key="privileged_device_identifier_check_relaxed"
-           android:title="@string/device_identifier_access_restrictions_title"
-           android:summary="@string/device_identifier_access_restrictions_summary"
            android:defaultValue="false" />
 
     <!-- Launch music player when headset is connected -->
@@ -112,25 +92,6 @@
             android:entries="@array/ringtone_focus_mode_entries"
             android:entryValues="@array/ringtone_focus_mode_values"
             android:defaultValue="1" />
-
-    </PreferenceCategory>
-
-    <!-- Wakelock blocker -->
-    <PreferenceCategory
-        android:key="wakelock_blocker_category"
-        android:title="@string/wakelock_blocker_title" >
-
-        <Preference
-            android:key="wakelock_blocker"
-            android:title="@string/wakelock_blocker_title"
-            android:summary="@string/wakelock_blocker_summary"
-            android:fragment="com.dirtyunicorns.tweaks.fragments.blocker.WakeLockBlocker"/>
-
-        <Preference
-           android:key="alarm_blocker"
-           android:title="@string/alarm_blocker_title"
-           android:summary="@string/alarm_blocker_summary"
-           android:fragment="com.dirtyunicorns.tweaks.fragments.blocker.AlarmBlocker"/>
 
     </PreferenceCategory>
 

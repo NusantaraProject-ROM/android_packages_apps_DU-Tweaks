@@ -47,7 +47,6 @@ public class Miscellaneous extends SettingsPreferenceFragment
 
     private static final String GAMING_MODE_ENABLED = "gaming_mode_enabled";
     private static final String KEY_SCREEN_OFF_ANIMATION = "screen_off_animation";
-    private static final String SCROLLINGCACHE_PREF = "pref_scrollingcache";
     private static final String SCROLLINGCACHE_PERSIST_PROP = "persist.sys.scrollingcache";
     private static final String SCROLLINGCACHE_DEFAULT = "2";
     private static final String PREF_KEY_CUTOUT = "cutout_settings";
@@ -79,11 +78,6 @@ public class Miscellaneous extends SettingsPreferenceFragment
         mScreenOffAnimation.setSummary(mScreenOffAnimation.getEntry());
         mScreenOffAnimation.setOnPreferenceChangeListener(this);
 
-        mScrollingCachePref = (ListPreference) findPreference(SCROLLINGCACHE_PREF);
-        mScrollingCachePref.setValue(SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP,
-                SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP, SCROLLINGCACHE_DEFAULT)));
-        mScrollingCachePref.setOnPreferenceChangeListener(this);
-
         Preference mCutoutPref = (Preference) findPreference(PREF_KEY_CUTOUT);
         if (!hasPhysicalDisplayCutout(getContext())) {
             prefScreen.removePreference(mCutoutPref);
@@ -108,11 +102,6 @@ public class Miscellaneous extends SettingsPreferenceFragment
             int index = mScreenOffAnimation.findIndexOfValue((String) newValue);
             mScreenOffAnimation.setSummary(mScreenOffAnimation.getEntries()[index]);
             Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_OFF_ANIMATION, value);
-            return true;
-        } else if (preference == mScrollingCachePref) {
-            if (newValue != null) {
-                SystemProperties.set(SCROLLINGCACHE_PERSIST_PROP, (String) newValue);
-            }
             return true;
         }
         return false;

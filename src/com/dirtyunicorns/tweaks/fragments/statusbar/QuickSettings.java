@@ -57,8 +57,6 @@ public class QuickSettings extends SettingsPreferenceFragment
     private static final String PREF_TILE_ANIM_DURATION = "qs_tile_animation_duration";
     private static final String PREF_TILE_ANIM_INTERPOLATOR = "qs_tile_animation_interpolator";
     private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
-    private static final String QS_DISCO_MODE = "qs_panel_disco";
-    private static final String QS_DISCO_MODE_DURATION = "qs_panel_disco_duration";
     private static final String NOTIFICATION_HEADER = "notification_headers";
 
     private ListPreference mQuickPulldown;
@@ -70,12 +68,10 @@ public class QuickSettings extends SettingsPreferenceFragment
     private CustomSeekBarPreference mQsRowsLand;
     private CustomSeekBarPreference mQsColumnsPort;
     private CustomSeekBarPreference mQsColumnsLand;
-    private CustomSeekBarPreference mDiscoDuration;
     private SystemSettingMasterSwitchPreference mCustomHeader;
     private SystemSettingMasterSwitchPreference mQsBlur;
     private SystemSettingEditTextPreference mFooterString;
     private SystemSettingSwitchPreference mNotificationHeader;
-    private SystemSettingSwitchPreference mDiscoMode;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -171,17 +167,6 @@ public class QuickSettings extends SettingsPreferenceFragment
             Settings.System.putString(getActivity().getContentResolver(),
                     Settings.System.FOOTER_TEXT_STRING, "#NusantaraProject");
         }
-
-        mDiscoMode = (SystemSettingSwitchPreference) findPreference(QS_DISCO_MODE);
-        mDiscoMode.setChecked((Settings.System.getInt(resolver,
-                Settings.System.QS_PANEL_DISCO, 0) == 1));
-        mDiscoMode.setOnPreferenceChangeListener(this);
-
-        mDiscoDuration = (CustomSeekBarPreference) findPreference(QS_DISCO_MODE_DURATION);
-        int discoDuration = Settings.System.getIntForUser(getContentResolver(),
-                Settings.System.QS_PANEL_DISCO_DURATION, 5, UserHandle.USER_CURRENT);
-        mDiscoDuration.setValue(discoDuration);
-        mDiscoDuration.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -266,16 +251,6 @@ public class QuickSettings extends SettingsPreferenceFragment
             Settings.System.putInt(resolver,
                     Settings.System.NOTIFICATION_HEADERS, value ? 1 : 0);
             ActionUtils.showSystemUiRestartDialog(getContext());
-            return true;
-        } else if (preference == mDiscoMode) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putInt(resolver,
-                    Settings.System.QS_PANEL_DISCO, value ? 1 : 0);
-            return true;
-        } else if (preference == mDiscoDuration) {
-            int value = (Integer) newValue;
-            Settings.System.putIntForUser(getContentResolver(),
-                    Settings.System.QS_PANEL_DISCO_DURATION, value, UserHandle.USER_CURRENT);
             return true;
         }
         return false;
