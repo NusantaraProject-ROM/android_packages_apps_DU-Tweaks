@@ -968,11 +968,6 @@
     <string name="disable_transition_animations_title">Disable transition animations</string>
     <string name="disable_transition_animations_summary">Force disable all transition animations</string>
 
-    <!-- Text Clock -->
-    <string name="text_clock_alignment">Text Clock Alignment</string>
-    <string name="text_clock_left">Left</string>
-    <string name="text_clock_center">Center</string>
-
     <!-- Quick Settings -->
     <string name="lockscreen_qs_disabled_title">Disable quick settings when locked</string>
     <string name="lockscreen_qs_disabled_summary">Disable expanding quick settings on secure lock screens</string>
@@ -1292,4 +1287,13 @@
 
     <string name="brightness_slider_qs_unexpanded">MIUI brightness slider</string>
     <string name="brightness_slider_qs_unexpanded_summary">Shows brightness slider below qs panel</string>
+
+    <!-- Lockscreen Item Alignments -->
+    <string name="center_text_clock_title">Text Clock Alignment</string>
+    <string name="lockscreen_date_alignment_title">Date Alignment</string>
+    <string name="lockscreen_ownerinfo_alignment_title">OwnerInfo Alignment</string>
+    <string name="lock_item_left">Left</string>
+    <string name="lock_item_center">Center</string>
+    <string name="lock_item_right">Right</string>
+    <string name="lockscreen_item_padding_title">Lockscreen Items Padding</string>
 </resources>

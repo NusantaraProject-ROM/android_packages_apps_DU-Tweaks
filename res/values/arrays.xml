@@ -947,16 +947,6 @@
         <item>7</item>
     </string-array>
 
-    <!-- Text Clock Alignment -->
-    <string-array name="text_clock_entries">
-        <item>@string/text_clock_left</item>
-        <item>@string/text_clock_center</item>
-    </string-array>
-    <string-array name="text_clock_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-    </string-array>
-
     <!-- Smart pulldown -->
     <string-array name="smart_pulldown_entries" translatable="false">
         <item>@string/smart_pulldown_off</item>
@@ -1438,5 +1428,18 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+    </string-array>
+
+    <!-- Lockscreen Item Alignments -->
+    <string-array name="lockscreen_item_alignment_entries" translatable="false">
+        <item>@string/lock_item_left</item>
+        <item>@string/lock_item_center</item>
+        <item>@string/lock_item_right</item>
+    </string-array>
+
+    <string-array name="lockscreen_item_alignment_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
     </string-array>
 </resources>
