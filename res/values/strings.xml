@@ -144,6 +144,7 @@
     <string name="volte_icon_oos">VoLTE OOS Icon</string>
     <string name="volte_icon_miui">VoLTE Miui Icon</string>
     <string name="volte_icon_hd">HD Icon</string>
+    <string name="volte_icon_oos_compact">VoLTE OOS Compact Icon</string>
 
     <!-- VoWiFi icon -->
     <string name="vowifi_icon_title">VoWiFi icon</string>
@@ -156,6 +157,7 @@
     <string name="vowifi_icon_asus">Asus Icon</string>
     <string name="vowifi_icon_oneplus">OOS Icon</string>
     <string name="vowifi_icon_moto">Motorola Icon</string>
+    <string name="vowifi_icon_oos_compact">OOS Compact Icon</string>
 
     <!-- Double Tap Lockscreen to Sleep -->
     <string name="double_tap_to_sleep_lockscreen_title">Double-tap on lockscreen to sleep</string>
