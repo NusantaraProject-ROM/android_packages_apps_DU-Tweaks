@@ -17,6 +17,7 @@
 package com.dirtyunicorns.tweaks.preferences;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.UserHandle;
@@ -78,10 +79,14 @@ public class CategoryPreference extends Preference {
 
         if (nadStyle == 0) {
             mBG.setColorFilter(mColorRandom);
+            mBG.setImageTintList(ColorStateList.valueOf(Color.parseColor("#80ffffff")));
+            mBG.setImageResource(R.drawable.card_bg);
         } else if (nadStyle == 1) {
             mBG.setColorFilter(Color.TRANSPARENT);
         } else {
             mBG.setColorFilter(Utils.getColorAttrDefaultColor(context, android.R.attr.colorAccent));
+            mBG.setImageResource(R.drawable.card_bg);
+            mBG.setImageTintList(ColorStateList.valueOf(Color.parseColor("#80ffffff")));
         }
     }
 

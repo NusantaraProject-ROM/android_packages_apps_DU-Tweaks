@@ -31,9 +31,7 @@
         android:layout_marginRight="18dp"
         android:layout_marginTop="2dp"
         android:layout_marginBottom="4dp"
-        android:scaleType="center"
-        android:tint="#80ffffff"
-        android:src="@drawable/card_bg"/>
+        android:scaleType="center"/>
 
         <LinearLayout
             android:id="@id/icon_frame"
