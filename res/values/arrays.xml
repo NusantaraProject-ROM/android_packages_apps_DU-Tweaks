@@ -1378,6 +1378,7 @@
         <item>@string/font_type_23</item>
         <item>@string/font_type_24</item>
         <item>@string/font_type_25</item>
+        <item>@string/font_type_26</item>
     </string-array>
 
     <string-array name="font_type_values">
@@ -1406,6 +1407,7 @@
         <item>23</item>
         <item>24</item>
         <item>25</item>
+        <item>26</item>
     </string-array>
 
     <!-- SB height styles -->

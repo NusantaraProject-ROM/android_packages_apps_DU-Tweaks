@@ -1254,17 +1254,18 @@
     <string name="font_type_12">Exotwo</string>
     <string name="font_type_13">Fira Sans</string>
     <string name="font_type_14">Google Sans</string>
-    <string name="font_type_15">LG Smart Gothic</string>
-    <string name="font_type_16">Rosemary</string>
-    <string name="font_type_17">Rubik</string>
-    <string name="font_type_18">Samsung One</string>
-    <string name="font_type_19">San Francisco Pro</string>
-    <string name="font_type_20">OnePlus Slate</string>
-    <string name="font_type_21">Sony Sketch</string>
-    <string name="font_type_22">Storopia</string>
-    <string name="font_type_23">Surfer</string>
-    <string name="font_type_24">Ubuntu</string>
-    <string name="font_type_25">Linotte</string>
+    <string name="font_type_15">Google Sans Medium</string>
+    <string name="font_type_16">LG Smart Gothic</string>
+    <string name="font_type_17">Rosemary</string>
+    <string name="font_type_18">Rubik</string>
+    <string name="font_type_19">Samsung One</string>
+    <string name="font_type_20">San Francisco Pro</string>
+    <string name="font_type_21">OnePlus Slate</string>
+    <string name="font_type_22">Sony Sketch</string>
+    <string name="font_type_23">Storopia</string>
+    <string name="font_type_24">Surfer</string>
+    <string name="font_type_25">Ubuntu</string>
+    <string name="font_type_26">Linotte</string>
 
     <!-- SB height style -->
     <string name="gvm_title">G Visual Mod</string>
