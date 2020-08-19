@@ -1226,6 +1226,7 @@
     <string name="theme_type_baked_green">Baked green</string>
     <string name="theme_type_dark_grey">Dark grey</string>
     <string name="theme_type_material_ocean">Material ocean</string>
+    <string name="theme_type_nad_clear">Nusantara clear</string>
 
     <!-- RGB accent -->
     <string name="accent_color">Accent picker</string>
