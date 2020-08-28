@@ -36,7 +36,7 @@ import com.android.settingslib.search.SearchIndexable;
 
 import android.text.TextUtils;
 import android.view.View;
-import com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference;
+import com.dirtyunicorns.support.preferences.CustomSeekBarPreference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,10 +46,8 @@ public class Buttons extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, Indexable {
 
     private static final String DOUBLE_TAP_POWER_FLASHLIGHT = "double_tap_power_flashlight";
-    private static final String KEY_VOLUME_PANEL_ON_LEFT = "audio_panel_view_position";
 
     private ListPreference mDoubleTapPowerFlashlight;
-    private SystemSettingSwitchPreference mVolumePanelOnLeft;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -67,15 +65,6 @@ public class Buttons extends SettingsPreferenceFragment
         } else {
             prefScreen.removePreference(mDoubleTapPowerFlashlight);
         }
-
-        mVolumePanelOnLeft = (SystemSettingSwitchPreference) findPreference(KEY_VOLUME_PANEL_ON_LEFT);
-        boolean volumePanelOnLeft = Settings.System.getIntForUser(getContext().getContentResolver(),
-                Settings.System.AUDIO_PANEL_VIEW_POSITION, 0, UserHandle.USER_CURRENT) != 0;
-        if (mVolumePanelOnLeft != null) {
-            mVolumePanelOnLeft.setChecked(volumePanelOnLeft);
-        }
-        mVolumePanelOnLeft.setOnPreferenceChangeListener(this);
-
     }
 
     @Override
@@ -93,12 +82,6 @@ public class Buttons extends SettingsPreferenceFragment
                         Settings.Secure.CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED,
                         1/*camera gesture is disabled when 1*/);
             }
-            return true;
-        } else if (preference == mVolumePanelOnLeft) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putIntForUser(getActivity().getContentResolver(),
-                    Settings.System.AUDIO_PANEL_VIEW_POSITION,
-                    value ? 1 : 0, UserHandle.USER_CURRENT);
             return true;
         }
         return false;

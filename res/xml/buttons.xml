@@ -33,13 +33,6 @@
     <PreferenceCategory
 	android:title="@string/volume_stuff_title">
 
-    <com.dirtyunicorns.support.preferences.SystemSettingListPreference
-        android:key="systemui_plugin_volume"
-        android:title="@string/volume_panel"
-        android:entries="@array/volume_panel_entries"
-        android:entryValues="@array/volume_panel_values"
-        android:defaultValue="@string/volume_panel_aosp_val" />
-
     <Preference
         android:key="vol_steps"
         android:title="@string/volume_steps_title"
@@ -57,7 +50,8 @@
     <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
         android:key="audio_panel_view_position"
         android:title="@string/volume_panel_on_left_title"
-        android:summary="@string/volume_panel_on_left_summary"/>
+        android:summary="@string/volume_panel_on_left_summary"
+        android:defaultValue="false" />
 
     <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
         android:key="volume_button_music_control"
