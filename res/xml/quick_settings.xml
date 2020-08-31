@@ -32,6 +32,12 @@
             android:entryValues="@array/smart_pulldown_values"
             android:persistent="false" />
 
+        <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_datausage_location"
+            android:title="@string/qs_data_usage_location_title"
+            android:summary="@string/qs_data_usage_location_summary"
+            android:defaultValue="true"/>
+
         <com.dirtyunicorns.support.preferences.SystemSettingListPreference
             android:key="qs_datausage"
             android:title="@string/qs_datausage_title"
