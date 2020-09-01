@@ -1220,6 +1220,9 @@
         <item>@string/qs_tile_style_inkdrop</item>
         <item>@string/qs_tile_style_neonlike</item>
         <item>@string/qs_tile_style_triangles</item>
+        <item>@string/qstile_cosmos</item>
+        <item>@string/qstile_divided</item>
+        <item>@string/qstile_oos</item>
     </string-array>
 
     <string-array name="qs_tile_style_selector_values" translatable="false">
@@ -1242,6 +1245,9 @@
         <item>16</item>
         <item>17</item>
         <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
     </string-array>
 
     <!-- Statusbar icons -->

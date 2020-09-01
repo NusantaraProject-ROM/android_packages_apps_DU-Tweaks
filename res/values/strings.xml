@@ -1199,6 +1199,9 @@
     <string name="qs_tile_style_inkdrop">Ink drop</string>
     <string name="qs_tile_style_neonlike">Neon light</string>
     <string name="qs_tile_style_triangles">Triangles</string>
+    <string name="qstile_cosmos">Oxygen</string>
+    <string name="qstile_divided">Divided Circle</string>
+    <string name="qstile_oos">Cosmos</string>
 
     <!-- Statusbar icons -->
     <string name="statusbar_icons_default">Default</string>
