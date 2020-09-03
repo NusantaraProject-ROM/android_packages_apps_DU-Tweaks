@@ -88,11 +88,10 @@
         <com.dirtyunicorns.support.preferences.SystemSettingSeekBarPreference
             android:key="lockscreen_media_blur"
             android:title="@string/lockscreen_media_blur_title"
-            android:max="100"
-            settings:min="5"
+            android:max="25"
+            settings:min="0"
             settings:units="%"
-            settings:interval="5"
-            android:defaultValue="100"
+            android:defaultValue="25"
             android:dependency="lockscreen_media_metadata" />
 
         <com.dirtyunicorns.support.preferences.SystemSettingListPreference
