@@ -44,6 +44,7 @@ import com.dirtyunicorns.support.preferences.CustomSeekBarPreference;
 import com.dirtyunicorns.support.preferences.SystemSettingMasterSwitchPreference;
 import com.dirtyunicorns.support.preferences.SystemSettingEditTextPreference;
 import com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference;
+import com.dirtyunicorns.support.preferences.SecureSettingListPreference;
 
 @SearchIndexable
 public class QuickSettings extends SettingsPreferenceFragment
@@ -60,6 +61,8 @@ public class QuickSettings extends SettingsPreferenceFragment
     private static final String NOTIFICATION_HEADER = "notification_headers";
     private static final String CENTER_NOTIFICATION_HEADERS = "center_notification_headers";
 
+    private static final String BRIGHTNESS_SLIDER_MEMEUI = "brightness_slider_qs_unexpanded";
+
     private ListPreference mQuickPulldown;
     private ListPreference mTileAnimationStyle;
     private ListPreference mTileAnimationDuration;
@@ -74,6 +77,9 @@ public class QuickSettings extends SettingsPreferenceFragment
     private SystemSettingEditTextPreference mFooterString;
     private SystemSettingSwitchPreference mNotificationHeader;
     private SystemSettingSwitchPreference mCenterNotificationHeader;
+
+    private SystemSettingSwitchPreference mBrightnessMemeUI;
+    private SecureSettingListPreference mBrightnessSlider;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -174,6 +180,14 @@ public class QuickSettings extends SettingsPreferenceFragment
             Settings.System.putString(getActivity().getContentResolver(),
                     Settings.System.FOOTER_TEXT_STRING, "#NusantaraProject");
         }
+
+        mBrightnessMemeUI = (SystemSettingSwitchPreference) findPreference(BRIGHTNESS_SLIDER_MEMEUI);
+        mBrightnessMemeUI.setChecked((Settings.System.getIntForUser(resolver,
+                Settings.System.BRIGHTNESS_SLIDER_QS_UNEXPANDED, 0, UserHandle.USER_CURRENT) != 0));
+        mBrightnessMemeUI.setOnPreferenceChangeListener(this);
+
+        mBrightnessSlider = (SecureSettingListPreference) findPreference("qs_show_brightness_slider");
+        mBrightnessSlider.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -265,6 +279,17 @@ public class QuickSettings extends SettingsPreferenceFragment
                     Settings.System.CENTER_NOTIFICATION_HEADERS, value ? 1 : 0);
             ActionUtils.showSystemUiRestartDialog(getContext());
             return true;
+        } else if (preference == mBrightnessMemeUI) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putIntForUser(resolver,
+                    Settings.System.BRIGHTNESS_SLIDER_QS_UNEXPANDED,
+            value ? 1 : 0, UserHandle.USER_CURRENT);
+            updateBrightness();
+            return true;
+        } else if (preference == mBrightnessSlider) {
+            int brightness = Integer.valueOf((String) newValue);
+            updateBrightness();
+            return true;
         }
         return false;
     }
@@ -312,6 +337,18 @@ public class QuickSettings extends SettingsPreferenceFragment
                     ? R.string.smart_pulldown_dismissable
                     : R.string.smart_pulldown_ongoing);
             mSmartPulldown.setSummary(res.getString(R.string.smart_pulldown_summary, type));
+        }
+    }
+
+
+    private void updateBrightness() {
+        boolean brightnessUnexpaned = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.BRIGHTNESS_SLIDER_QS_UNEXPANDED, 0, UserHandle.USER_CURRENT) != 0;
+
+        if (!brightnessUnexpaned) {
+            mBrightnessSlider.setValue("1");
+        } else { 
+            mBrightnessSlider.setValue("0");
         }
     }
 
