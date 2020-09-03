@@ -89,7 +89,7 @@ public class LockscreenStyle extends SettingsPreferenceFragment
         // Lockscreen Text Clock Fonts
         mTextClockFonts = (ListPreference) findPreference(CUSTOM_TEXT_CLOCK_FONTS);
         mTextClockFonts.setValue(String.valueOf(Settings.System.getInt(
-                getContentResolver(), Settings.System.CUSTOM_TEXT_CLOCK_FONTS, 32)));
+                getContentResolver(), Settings.System.CUSTOM_TEXT_CLOCK_FONTS, 28)));
         mTextClockFonts.setSummary(mTextClockFonts.getEntry());
         mTextClockFonts.setOnPreferenceChangeListener(this);
 
