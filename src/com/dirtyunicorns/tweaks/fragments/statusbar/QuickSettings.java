@@ -188,6 +188,7 @@ public class QuickSettings extends SettingsPreferenceFragment
 
         mBrightnessSlider = (SecureSettingListPreference) findPreference("qs_show_brightness_slider");
         mBrightnessSlider.setOnPreferenceChangeListener(this);
+        updateBrightness();
     }
 
     @Override
@@ -288,7 +289,6 @@ public class QuickSettings extends SettingsPreferenceFragment
             return true;
         } else if (preference == mBrightnessSlider) {
             int brightness = Integer.valueOf((String) newValue);
-            updateBrightness();
             return true;
         }
         return false;
@@ -343,12 +343,11 @@ public class QuickSettings extends SettingsPreferenceFragment
 
     private void updateBrightness() {
         boolean brightnessUnexpaned = Settings.System.getIntForUser(getContentResolver(),
-                Settings.System.BRIGHTNESS_SLIDER_QS_UNEXPANDED, 0, UserHandle.USER_CURRENT) != 0;
+                Settings.System.BRIGHTNESS_SLIDER_QS_UNEXPANDED, 1, UserHandle.USER_CURRENT) != 1;
 
         if (!brightnessUnexpaned) {
-            mBrightnessSlider.setValue("1");
-        } else { 
-            mBrightnessSlider.setValue("0");
+            mBrightnessSlider.setValue(String.valueOf(0));
+            mBrightnessSlider.setEnabled(false);
         }
     }
 
