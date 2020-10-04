@@ -33,8 +33,12 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import com.android.settingslib.search.SearchIndexable;
 
+import com.android.internal.widget.LockPatternUtils;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference;
 
 @SearchIndexable
 public class FingerprintPrefs extends SettingsPreferenceFragment
@@ -42,7 +46,9 @@ public class FingerprintPrefs extends SettingsPreferenceFragment
 
     private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker";
     private static final String FOD_ANIMATION = "fod_anim";
+    private static final String FP_KEYSTORE = "fp_unlock_keystore";
 
+    private SystemSettingSwitchPreference mFingerprintUnlock;
     private PreferenceCategory mFODIconPickerCategory;
     private Preference mFODAnimation;
 
@@ -52,6 +58,8 @@ public class FingerprintPrefs extends SettingsPreferenceFragment
         addPreferencesFromResource(R.xml.fingerprint_prefs);
         Context mContext = getContext();
         final PreferenceScreen prefScreen = getPreferenceScreen();
+
+        mFingerprintUnlock = (SystemSettingSwitchPreference) findPreference(FP_KEYSTORE);
 
         mFODIconPickerCategory = (PreferenceCategory) findPreference(FOD_ICON_PICKER_CATEGORY);
         if (mFODIconPickerCategory != null
@@ -65,6 +73,16 @@ public class FingerprintPrefs extends SettingsPreferenceFragment
              !getResources().getBoolean(com.android.internal.R.bool.config_needCustomFODView)) ||
                 (mFODIconPickerCategory != null && mFODAnimation != null && !showFODAnimationPicker)) {
             mFODIconPickerCategory.removePreference(mFODAnimation);
+        }
+
+        if (mFingerprintUnlock != null) {
+           if (LockPatternUtils.isDeviceEncryptionEnabled()) {
+               mFingerprintUnlock.setEnabled(false);
+               mFingerprintUnlock.setSummary(R.string.fp_encrypt_warning);
+            } else {
+               mFingerprintUnlock.setEnabled(true);
+               mFingerprintUnlock.setSummary(R.string.fp_unlock_keystore_summary);
+            }
         }
     }
 
