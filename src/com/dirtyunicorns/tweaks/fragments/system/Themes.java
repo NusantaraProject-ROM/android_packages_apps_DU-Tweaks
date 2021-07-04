@@ -29,7 +29,6 @@ import android.content.om.IOverlayManager;
 import android.graphics.drawable.Drawable;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.RemoteException;
 import android.os.UserHandle;
 import android.os.ServiceManager;
 import android.provider.Settings;
@@ -68,11 +67,12 @@ public class Themes extends SettingsPreferenceFragment
     public static final String PREF_THEME_SWITCH = "theme_switch";
     public static final String PREF_FONT_PICKER = "font_picker";
 
-    private static final String PREF_RGB_ACCENT_PICKER = "rgb_accent_picker";
-
     // Gvisual Mod
     private static final String PREF_SB_HEIGHT = "sb_height_style";
     private static final String PREF_UI_RADIUS = "ui_radius_style";
+
+    private static final String ACCENT_COLOR = "accent_color";
+    static final int DEFAULT_ACCENT_COLOR = 0xff1a73e8;
 
     private Context mContext;
     private IOverlayManager mOverlayManager;
@@ -86,12 +86,11 @@ public class Themes extends SettingsPreferenceFragment
     private ListPreference mQsTileStyle;
     private ListPreference mNavbarPicker;
     private ListPreference mFontPicker;
+    private ColorPickerPreference mAccentColor;
 
     //Gvisual
     private ListPreference mSBHeight;
     private ListPreference mUiRadius;
-
-    private ColorPickerPreference rgbAccentPicker;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -199,6 +198,13 @@ public class Themes extends SettingsPreferenceFragment
         mQsTileStyle.setSummary(mQsTileStyle.getEntry());
         mQsTileStyle.setOnPreferenceChangeListener(this);
 
+        mAccentColor = (ColorPickerPreference) findPreference(ACCENT_COLOR);
+        int intColor = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.ACCENT_COLOR, DEFAULT_ACCENT_COLOR, UserHandle.USER_CURRENT);
+        String hexColor = String.format("#%08x", (0xff1a73e8 & intColor));
+        mAccentColor.setNewPreviewColor(intColor);
+        mAccentColor.setOnPreferenceChangeListener(this);
+
         // Font picker
         mFontPicker = (ListPreference) findPreference(PREF_FONT_PICKER);
         int fontPickerValue = getOverlayPosition(ThemesUtils.FONTS);
@@ -210,32 +216,18 @@ public class Themes extends SettingsPreferenceFragment
         mFontPicker.setSummary(mFontPicker.getEntry());
         mFontPicker.setOnPreferenceChangeListener(this);
 
-        rgbAccentPicker = (ColorPickerPreference) findPreference(PREF_RGB_ACCENT_PICKER);
-        String colorVal = Settings.Secure.getStringForUser(mContext.getContentResolver(),
-                Settings.Secure.ACCENT_COLOR, UserHandle.USER_CURRENT);
-        int color = (colorVal == null)
-                ? Color.WHITE
-                : Color.parseColor("#" + colorVal);
-        rgbAccentPicker.setNewPreviewColor(color);
-        rgbAccentPicker.setOnPreferenceChangeListener(this);
-
         setGvisualMod();
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         final ContentResolver resolver = getActivity().getContentResolver();
-        if (preference == rgbAccentPicker) {
-            int color = (Integer) newValue;
-            String hexColor = String.format("%08X", (0xFFFFFFFF & color));
-            Settings.Secure.putStringForUser(mContext.getContentResolver(),
-                        Settings.Secure.ACCENT_COLOR,
-                        hexColor, UserHandle.USER_CURRENT);
-            try {
-                 mOverlayManager.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
-                 mOverlayManager.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
-             } catch (RemoteException ignored) {
-             }
+        if (preference == mAccentColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                  Integer.valueOf(String.valueOf(newValue)));
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putIntForUser(resolver,
+                    Settings.System.ACCENT_COLOR, intHex, UserHandle.USER_CURRENT);
             return true;
         } else if (preference == mQsTileStyle) {
             String value = (String) newValue;
