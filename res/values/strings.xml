@@ -1003,6 +1003,7 @@
     <string name="qs_tint_random">Random color</string>
     <string name="qs_tint_accent">Accent color</string>
     <string name="qs_disco_mode">Disco</string>
+    <string name="qs_tint_oos">Oxygen OS Style</string>
 
     <!-- QS Label Tint -->
     <string name="qs_label_use_new_tint">QS Label Tint</string>
