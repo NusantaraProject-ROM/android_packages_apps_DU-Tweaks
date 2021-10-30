@@ -130,7 +130,7 @@ public class ClockOptions extends SettingsPreferenceFragment
 
         mClockSize = (CustomSeekBarPreference) findPreference(STATUS_BAR_CLOCK_SIZE);
         int clockSize = Settings.System.getInt(resolver,
-                Settings.System.STATUS_BAR_CLOCK_SIZE, 14);
+                Settings.System.STATUS_BAR_CLOCK_SIZE, 15);
         mClockSize.setValue(clockSize / 1);
         mClockSize.setOnPreferenceChangeListener(this);
 

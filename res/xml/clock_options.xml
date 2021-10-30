@@ -113,7 +113,7 @@
             android:title="@string/status_bar_clock_font_size_title"
             android:max="23"
             settings:min="4"
-            android:defaultValue="14"
+            android:defaultValue="15"
             settings:units="dp"
             android:dependency="status_bar_clock" />
 
