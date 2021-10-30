@@ -91,7 +91,7 @@ public class QuickSettings extends SettingsPreferenceFragment
         final ContentResolver resolver = getActivity().getContentResolver();
 
         int value = Settings.System.getIntForUser(resolver,
-                Settings.System.QS_ROWS_PORTRAIT, 3, UserHandle.USER_CURRENT);
+                Settings.System.QS_ROWS_PORTRAIT, 2, UserHandle.USER_CURRENT);
         mQsRowsPort = (CustomSeekBarPreference) findPreference("qs_rows_portrait");
         mQsRowsPort.setValue(value);
         mQsRowsPort.setOnPreferenceChangeListener(this);
@@ -103,13 +103,13 @@ public class QuickSettings extends SettingsPreferenceFragment
         mQsRowsLand.setOnPreferenceChangeListener(this);
 
         value = Settings.System.getIntForUser(resolver,
-                Settings.System.QS_COLUMNS_PORTRAIT, 3, UserHandle.USER_CURRENT);
+                Settings.System.QS_COLUMNS_PORTRAIT, 6, UserHandle.USER_CURRENT);
         mQsColumnsPort = (CustomSeekBarPreference) findPreference("qs_columns_portrait");
         mQsColumnsPort.setValue(value);
         mQsColumnsPort.setOnPreferenceChangeListener(this);
 
         value = Settings.System.getIntForUser(resolver,
-                Settings.System.QS_COLUMNS_LANDSCAPE, 4, UserHandle.USER_CURRENT);
+                Settings.System.QS_COLUMNS_LANDSCAPE, 6, UserHandle.USER_CURRENT);
         mQsColumnsLand = (CustomSeekBarPreference) findPreference("qs_columns_landscape");
         mQsColumnsLand.setValue(value);
         mQsColumnsLand.setOnPreferenceChangeListener(this);

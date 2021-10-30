@@ -185,7 +185,7 @@
             android:title="@string/qs_rows_portrait_title"
             android:max="5"
             settings:min="1"
-            android:defaultValue="3"
+            android:defaultValue="2"
             settings:units="" />
 
         <com.dirtyunicorns.support.preferences.CustomSeekBarPreference
@@ -193,7 +193,7 @@
             android:title="@string/qs_rows_landscape_title"
             android:max="3"
             settings:min="1"
-            android:defaultValue="1"
+            android:defaultValue="2"
             settings:units="" />
 
         <com.dirtyunicorns.support.preferences.CustomSeekBarPreference
@@ -201,7 +201,7 @@
             android:title="@string/qs_columns_portrait_title"
             android:max="7"
             settings:min="1"
-            android:defaultValue="4"
+            android:defaultValue="6"
             settings:units="" />
 
         <com.dirtyunicorns.support.preferences.CustomSeekBarPreference
@@ -209,7 +209,7 @@
             android:title="@string/qs_columns_landscape_title"
             android:max="9"
             settings:min="1"
-            android:defaultValue="4"
+            android:defaultValue="6"
             settings:units="" />
 
     </PreferenceCategory>
