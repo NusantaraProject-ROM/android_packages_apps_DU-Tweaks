@@ -1317,7 +1317,7 @@
 
     <!-- Colored Statusbar & Header Icons -->
     <string name="statusbar_icons_style">Colored Statusbar Notification Icons</string>
-    <string name="statusbar_icons_style_summary">Choose the style of your statusbar notification icons (requires SystemUI restart)</string>
+    <string name="statusbar_icons_style_summary">Choose the style of your statusbar notification icons</string>
     <string name="header_icons_style">Colored Notification Headers Icons</string>
-    <string name="header_icons_style_summary">Choose the style of your notification headers icons (requires SystemUI restart)</string>
+    <string name="header_icons_style_summary">Choose the style of your notification headers icons</string>
 </resources>

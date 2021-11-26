@@ -60,6 +60,7 @@ public class QuickSettings extends SettingsPreferenceFragment
     private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
     private static final String NOTIFICATION_HEADER = "notification_headers";
     private static final String CENTER_NOTIFICATION_HEADERS = "center_notification_headers";
+    private static final String HEADER_ICONS_STYLE = "headers_icons_style";
 
     private static final String BRIGHTNESS_SLIDER_MEMEUI = "brightness_slider_qs_unexpanded";
 
@@ -77,6 +78,7 @@ public class QuickSettings extends SettingsPreferenceFragment
     private SystemSettingEditTextPreference mFooterString;
     private SystemSettingSwitchPreference mNotificationHeader;
     private SystemSettingSwitchPreference mCenterNotificationHeader;
+    private SystemSettingSwitchPreference mHeaderIconsStyle;
 
     private SystemSettingSwitchPreference mBrightnessMemeUI;
     private SecureSettingListPreference mBrightnessSlider;
@@ -168,6 +170,11 @@ public class QuickSettings extends SettingsPreferenceFragment
         mCenterNotificationHeader.setChecked((Settings.System.getInt(resolver,
                 Settings.System.CENTER_NOTIFICATION_HEADERS, 0) == 1));
         mCenterNotificationHeader.setOnPreferenceChangeListener(this);
+
+        mHeaderIconsStyle = findPreference(HEADER_ICONS_STYLE);
+        mHeaderIconsStyle.setChecked((Settings.System.getInt(resolver,
+                Settings.System.HEADER_ICONS_STYLE, 0) == 1));
+        mHeaderIconsStyle.setOnPreferenceChangeListener(this);
 
         mFooterString = (SystemSettingEditTextPreference) findPreference(FOOTER_TEXT_STRING);
         mFooterString.setOnPreferenceChangeListener(this);
@@ -278,6 +285,12 @@ public class QuickSettings extends SettingsPreferenceFragment
             boolean value = (Boolean) newValue;
             Settings.System.putInt(resolver,
                     Settings.System.CENTER_NOTIFICATION_HEADERS, value ? 1 : 0);
+            ActionUtils.showSystemUiRestartDialog(getContext());
+            return true;
+        } else if (preference == mHeaderIconsStyle) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(resolver,
+                    Settings.System.HEADER_ICONS_STYLE, value ? 1 : 0);
             ActionUtils.showSystemUiRestartDialog(getContext());
             return true;
         } else if (preference == mBrightnessMemeUI) {
