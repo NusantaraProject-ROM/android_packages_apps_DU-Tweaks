@@ -1003,6 +1003,8 @@
     <string name="qs_tint_random">Random color</string>
     <string name="qs_tint_accent">Accent color</string>
     <string name="qs_disco_mode">Disco</string>
+    <string name="qs_tint_oos">Oxygen OS Style</string>
+    <string name="qs_tint_a12">Android S Style</string>
 
     <!-- QS Label Tint -->
     <string name="qs_label_use_new_tint">QS Label Tint</string>
@@ -1314,4 +1316,10 @@
     <!-- Pocket judge -->
     <string name="pocket_judge_title">Pocket detection</string>
     <string name="pocket_judge_summary">Block screen and button inputs when device is in pocket</string>
+
+    <!-- Colored Statusbar & Header Icons -->
+    <string name="statusbar_icons_style">Colored Statusbar Notification Icons</string>
+    <string name="statusbar_icons_style_summary">Choose the style of your statusbar notification icons</string>
+    <string name="header_icons_style">Colored Notification Headers Icons</string>
+    <string name="header_icons_style_summary">Choose the style of your notification headers icons</string>
 </resources>
