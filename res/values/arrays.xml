@@ -552,6 +552,7 @@
 
     <!-- VoLTE Icon Type -->
     <string-array name="volte_icon_type_entries" translatable="false">
+        <item>@string/volte_icon_oos_compact</item>
         <item>@string/volte_icon_miui</item>
         <item>@string/volte_icon_hd</item>
         <item>@string/volte_icon_oos</item>
@@ -560,6 +561,7 @@
     </string-array>
 
     <string-array name="volte_icon_type_values" translatable="false">
+        <item>5</item>
         <item>4</item>
         <item>3</item>
         <item>2</item>
@@ -587,6 +589,7 @@
         <item>@string/vowifi_icon_moto</item>
         <item>@string/vowifi_icon_asus</item>
         <item>@string/vowifi_icon_emui</item>
+        <item>@string/vowifi_icon_oos_compact</item>
     </string-array>
 
     <string-array name="vowifi_icon_style_values" translatable="false">
@@ -595,6 +598,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
 
     <!-- QS Brightness Slider position -->
@@ -1220,6 +1224,9 @@
         <item>@string/qs_tile_style_inkdrop</item>
         <item>@string/qs_tile_style_neonlike</item>
         <item>@string/qs_tile_style_triangles</item>
+        <item>@string/qstile_cosmos</item>
+        <item>@string/qstile_divided</item>
+        <item>@string/qstile_oos</item>
     </string-array>
 
     <string-array name="qs_tile_style_selector_values" translatable="false">
@@ -1242,6 +1249,9 @@
         <item>16</item>
         <item>17</item>
         <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
     </string-array>
 
     <!-- Statusbar icons -->

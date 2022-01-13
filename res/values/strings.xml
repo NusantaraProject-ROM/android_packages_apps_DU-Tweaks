@@ -144,6 +144,7 @@
     <string name="volte_icon_oos">VoLTE OOS Icon</string>
     <string name="volte_icon_miui">VoLTE Miui Icon</string>
     <string name="volte_icon_hd">HD Icon</string>
+    <string name="volte_icon_oos_compact">VoLTE OOS Compact Icon</string>
 
     <!-- VoWiFi icon -->
     <string name="vowifi_icon_title">VoWiFi icon</string>
@@ -156,6 +157,7 @@
     <string name="vowifi_icon_asus">Asus Icon</string>
     <string name="vowifi_icon_oneplus">OOS Icon</string>
     <string name="vowifi_icon_moto">Motorola Icon</string>
+    <string name="vowifi_icon_oos_compact">OOS Compact Icon</string>
 
     <!-- Double Tap Lockscreen to Sleep -->
     <string name="double_tap_to_sleep_lockscreen_title">Double-tap on lockscreen to sleep</string>
@@ -238,6 +240,7 @@
     <string name="network_traffic_hidearrow_summary">Hide the network traffic indicator arrows</string>
     <string name="network_traffic_statusbar">Status bar</string>
     <string name="network_traffic_header">Expanded header</string>
+    <string name="net_traffic_font">Fonts</string>
 
     <!-- Network Traffic Location -->
     <string name="network_traffic_location_title">Traffic indicator placement</string>
@@ -1198,6 +1201,9 @@
     <string name="qs_tile_style_inkdrop">Ink drop</string>
     <string name="qs_tile_style_neonlike">Neon light</string>
     <string name="qs_tile_style_triangles">Triangles</string>
+    <string name="qstile_cosmos">Oxygen</string>
+    <string name="qstile_divided">Divided Circle</string>
+    <string name="qstile_oos">Cosmos</string>
 
     <!-- Statusbar icons -->
     <string name="statusbar_icons_default">Default</string>
@@ -1317,9 +1323,14 @@
     <string name="pocket_judge_title">Pocket detection</string>
     <string name="pocket_judge_summary">Block screen and button inputs when device is in pocket</string>
 
+
+    <!-- QQS brightness slider -->
+    <string name="qqs_brightness_slider_title">Quick Qs Brightness slider</string>
+
     <!-- Colored Statusbar & Header Icons -->
     <string name="statusbar_icons_style">Colored Statusbar Notification Icons</string>
     <string name="statusbar_icons_style_summary">Choose the style of your statusbar notification icons</string>
     <string name="header_icons_style">Colored Notification Headers Icons</string>
     <string name="header_icons_style_summary">Choose the style of your notification headers icons</string>
+
 </resources>
