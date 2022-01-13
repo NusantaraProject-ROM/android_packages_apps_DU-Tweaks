@@ -71,7 +71,6 @@
             android:defaultValue="false" />
 
         <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
-            settings:iconSpaceReserved="false"
             android:key="headers_icons_style"
             android:title="@string/header_icons_style"
             android:summary="@string/header_icons_style_summary"

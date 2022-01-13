@@ -46,7 +46,6 @@
         android:defaultValue="false" />
 
     <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
-        settings:iconSpaceReserved="false"
         android:key="statusbar_icons_style"
         android:title="@string/statusbar_icons_style"
         android:summary="@string/statusbar_icons_style_summary"
