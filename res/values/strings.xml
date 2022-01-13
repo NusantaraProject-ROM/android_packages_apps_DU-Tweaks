@@ -1323,10 +1323,6 @@
     <string name="pocket_judge_title">Pocket detection</string>
     <string name="pocket_judge_summary">Block screen and button inputs when device is in pocket</string>
 
-
-    <!-- QQS brightness slider -->
-    <string name="qqs_brightness_slider_title">Quick Qs Brightness slider</string>
-
     <!-- Colored Statusbar & Header Icons -->
     <string name="statusbar_icons_style">Colored Statusbar Notification Icons</string>
     <string name="statusbar_icons_style_summary">Choose the style of your statusbar notification icons</string>
