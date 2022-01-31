@@ -51,11 +51,14 @@ public class Miscellaneous extends SettingsPreferenceFragment
     private static final String SCROLLINGCACHE_DEFAULT = "2";
     private static final String PREF_KEY_CUTOUT = "cutout_settings";
     private static final String KEY_RINGTONE_FOCUS_MODE_V2 = "ringtone_focus_mode_v2";
+    private static final String KEY_PHOTOS_SPOOF = "use_photos_spoof";
+    private static final String SYS_PHOTOS_SPOOF = "persist.sys.pixelprops.gphotos";
 
     private SystemSettingMasterSwitchPreference mGamingMode;
     private ListPreference mScrollingCachePref;
     private ListPreference mScreenOffAnimation;
     private ListPreference mRingtoneFocusMode;
+    private SwitchPreference mPhotosSpoof;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -87,6 +90,10 @@ public class Miscellaneous extends SettingsPreferenceFragment
         if (!res.getBoolean(com.android.internal.R.bool.config_deviceRingtoneFocusMode)) {
             prefScreen.removePreference(mRingtoneFocusMode);
         }
+
+        mPhotosSpoof = (SwitchPreference) prefScreen.findPreference(KEY_PHOTOS_SPOOF);
+        mPhotosSpoof.setChecked(SystemProperties.getBoolean(SYS_PHOTOS_SPOOF, true));
+        mPhotosSpoof.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -103,8 +110,16 @@ public class Miscellaneous extends SettingsPreferenceFragment
             mScreenOffAnimation.setSummary(mScreenOffAnimation.getEntries()[index]);
             Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_OFF_ANIMATION, value);
             return true;
+        } else if (preference == mPhotosSpoof) {
+            boolean value = (Boolean) newValue;
+            SystemProperties.set(SYS_PHOTOS_SPOOF, value ? "true" : "false");
+            return true;
         }
         return false;
+    }
+
+    public static void reset(Context mContext) {
+        SystemProperties.set(SYS_PHOTOS_SPOOF, "true");
     }
 
     private static boolean hasPhysicalDisplayCutout(Context context) {
