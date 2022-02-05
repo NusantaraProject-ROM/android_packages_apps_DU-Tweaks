@@ -61,7 +61,7 @@
             android:key="notification_headers"
             android:title="@string/notification_headers_title"
             android:summary="@string/notification_headers_summary"
-            android:defaultValue="false" />
+            android:defaultValue="true" />
 
         <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
             android:key="center_notification_headers"

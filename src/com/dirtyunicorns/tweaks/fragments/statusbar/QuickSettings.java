@@ -163,7 +163,7 @@ public class QuickSettings extends SettingsPreferenceFragment
 
         mNotificationHeader = (SystemSettingSwitchPreference) findPreference(NOTIFICATION_HEADER);
         mNotificationHeader.setChecked((Settings.System.getInt(resolver,
-                Settings.System.NOTIFICATION_HEADERS, 0) == 1));
+                Settings.System.NOTIFICATION_HEADERS, 1) == 1));
         mNotificationHeader.setOnPreferenceChangeListener(this);
 
         mCenterNotificationHeader = findPreference(CENTER_NOTIFICATION_HEADERS);
