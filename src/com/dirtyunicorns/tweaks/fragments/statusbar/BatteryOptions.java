@@ -71,7 +71,7 @@ public class BatteryOptions extends SettingsPreferenceFragment
 
         mBatteryStyle = (ListPreference) findPreference("status_bar_battery_style");
         int batterystyle = Settings.System.getIntForUser(resolver,
-                Settings.System.STATUS_BAR_BATTERY_STYLE, 0, UserHandle.USER_CURRENT);
+                Settings.System.STATUS_BAR_BATTERY_STYLE, 2, UserHandle.USER_CURRENT);
         mBatteryStyle.setValue(String.valueOf(batterystyle));
         mBatteryStyle.setSummary(mBatteryStyle.getEntry());
         mBatteryStyle.setOnPreferenceChangeListener(this);
