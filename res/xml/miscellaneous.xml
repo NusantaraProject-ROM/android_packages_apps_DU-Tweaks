@@ -80,6 +80,13 @@
             android:title="@string/use_games_spoof_title"
             android:summary="@string/use_games_spoof_summary" />
 
+        <!-- Unlock higher quality streams for specific apps -->
+        <SwitchPreference
+            android:key="use_stream_spoof"
+            android:title="@string/use_stream_spoof_title"
+            android:summary="@string/use_stream_spoof_summary"
+            android:defaultValue="true" />
+
     <!-- Launch music player when headset is connected -->
         <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
            android:key="headset_connect_player"
