@@ -49,6 +49,7 @@
     <string name="powermenu_summary">Customize the power menu</string>
     <string name="notifications_title">Notifications</string>
     <string name="notifications_summary">Customize the notifications</string>
+    <string name="spoof_title">Spoofing</string>
 
     <!-- Lockscreen -->
     <string name="fingerprint_prefs_title">Fingerprint prefs</string>

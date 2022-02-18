@@ -52,20 +52,14 @@
         android:defaultValue="0" />
 
     <PreferenceCategory
-        android:title="@string/switch_category">
-
-        <com.dirtyunicorns.support.preferences.SystemSettingMasterSwitchPreference
-            android:key="gaming_mode_enabled"
-            android:fragment="com.dirtyunicorns.tweaks.fragments.GamingMode"
-            android:title="@string/gaming_mode_title"
-            android:summary="@string/gaming_mode_summary"
-            android:defaultValue="false" />
+        android:key="spoof_category"
+        android:title="@string/spoof_title">
 
         <com.dirtyunicorns.support.preferences.GlobalSettingSwitchPreference
-           android:key="allow_signature_fake"
-           android:title="@string/allow_signature_fake"
-           android:summary="@string/allow_signature_fake_summary"
-           android:defaultValue="false" />
+            android:key="allow_signature_fake"
+            android:title="@string/allow_signature_fake"
+            android:summary="@string/allow_signature_fake_summary"
+            android:defaultValue="false" />
 
         <!-- Unlimited google photos storage -->
         <SwitchPreference
@@ -87,12 +81,24 @@
             android:summary="@string/use_stream_spoof_summary"
             android:defaultValue="true" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/switch_category">
+
+        <com.dirtyunicorns.support.preferences.SystemSettingMasterSwitchPreference
+            android:key="gaming_mode_enabled"
+            android:fragment="com.dirtyunicorns.tweaks.fragments.GamingMode"
+            android:title="@string/gaming_mode_title"
+            android:summary="@string/gaming_mode_summary"
+            android:defaultValue="false" />
+
     <!-- Launch music player when headset is connected -->
         <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
-           android:key="headset_connect_player"
-           android:title="@string/headset_connect_player_title"
-           android:summary="@string/headset_connect_player_summary"
-           android:defaultValue="false" />
+            android:key="headset_connect_player"
+            android:title="@string/headset_connect_player_title"
+            android:summary="@string/headset_connect_player_summary"
+            android:defaultValue="false" />
 
         <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference 
             android:key="three_finger_gesture" 
