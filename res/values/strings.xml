@@ -390,8 +390,12 @@
     <string name="battery_category_title">Battery</string>
     <string name="status_bar_battery_style_title">Battery icon style</string>
     <string name="status_bar_battery_style_icon_portrait">Portrait</string>
-    <string name="status_bar_battery_style_icon_rlandscape">Icon landscape R</string>
-    <string name="status_bar_battery_style_icon_landscape">Icon landscape L</string>
+    <string name="status_bar_battery_style_icon_rlandscape">Landscape R Default</string>
+    <string name="status_bar_battery_style_icon_landscape">Landscape L Default</string>
+    <string name="status_bar_battery_style_icon_rlandscape_style_a">Landscape R Style A</string>
+    <string name="status_bar_battery_style_icon_landscape_style_a">Landscape L Style A</string>
+    <string name="status_bar_battery_style_icon_rlandscape_style_b">Landscape R Style B</string>
+    <string name="status_bar_battery_style_icon_landscape_style_b">Landscape L Style B</string>
     <string name="status_bar_battery_style_circle">Circle</string>
     <string name="status_bar_battery_style_dotted_circle">Circle (Dotted)</string>
     <string name="status_bar_battery_style_filled_circle">Circle (Filled)</string>
