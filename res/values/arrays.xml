@@ -447,6 +447,7 @@
     <!-- Status bar logo style -->
     <string-array name="status_bar_logo_style_entries" translatable="false">
         <item>@string/status_bar_logo_style_nad</item>
+        <item>@string/status_bar_logo_style_nadq</item>
         <item>@string/status_bar_logo_style_du</item>
         <item>@string/status_bar_logo_style_android</item>
         <item>@string/status_bar_logo_style_apple</item>
@@ -550,6 +551,7 @@
         <item>48</item>
         <item>49</item>
         <item>50</item>
+        <item>51</item>
     </string-array>
 
     <!-- QS header image -->
