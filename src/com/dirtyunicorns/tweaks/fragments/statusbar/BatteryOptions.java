@@ -82,7 +82,7 @@ public class BatteryOptions extends SettingsPreferenceFragment
         mBatteryPercent.setValue(String.valueOf(batteryPercent));
         mBatteryPercent.setSummary(mBatteryPercent.getEntry());
         mBatteryPercent.setOnPreferenceChangeListener(this);
-        mBatteryPercent.setEnabled(batterystyle != 4 && batterystyle != 5);
+        mBatteryPercent.setEnabled(batterystyle != 10 && batterystyle != 11);
     }
 
     @Override
@@ -100,7 +100,7 @@ public class BatteryOptions extends SettingsPreferenceFragment
                 UserHandle.USER_CURRENT);
             int index = mBatteryStyle.findIndexOfValue((String) newValue);
             mBatteryStyle.setSummary(mBatteryStyle.getEntries()[index]);
-            mBatteryPercent.setEnabled(batterystyle != 4 && batterystyle != 5);
+            mBatteryPercent.setEnabled(batterystyle != 10 && batterystyle != 11);
             return true;
         } else if (preference == mBatteryPercent) {
             int batteryPercent = Integer.parseInt((String) newValue);
