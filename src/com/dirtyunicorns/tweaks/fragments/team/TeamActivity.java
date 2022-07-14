@@ -90,8 +90,6 @@ public class TeamActivity extends Activity {
                 R.drawable.glassy);
         setTeamMember("Galang Saputra", getString(R.string.maintainer_title), "mgs28-mh", "hand08", 
                 R.drawable.hand08);
-        setTeamMember("Mikazuuu07", getString(R.string.contributor_title), "Mikazuuu07", "Mikazuuu07", 
-                R.drawable.mikazuuu);
         setTeamMember("A. Dzaky", getString(R.string.maintainer_title), "zkyzzz", "zkyzzz",
                 R.drawable.zkyzzz);
         setTeamMember("Grindklast", getString(R.string.maintainer_title), "grindklast", "grindklast",
